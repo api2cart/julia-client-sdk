@@ -1,0 +1,63 @@
+# ProductVariantAdd
+
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**product_id** | **String** | Defines product&#39;s id where the variant has to be added | [optional] [default to nothing]
+**name** | **String** | Defines variant&#39;s name that has to be added | [optional] [default to nothing]
+**model** | **String** | Specifies variant&#39;s model that has to be added | [default to nothing]
+**sku** | **String** | Defines variant&#39;s sku that has to be added | [optional] [default to nothing]
+**barcode** | **String** | A barcode is a unique code composed of numbers used as a product identifier. | [optional] [default to nothing]
+**gtin** | **String** | Global Trade Item Number. An GTIN is an identifier for trade items. | [optional] [default to nothing]
+**price** | **Float64** | Defines new product&#39;s variant price | [optional] [default to nothing]
+**old_price** | **Float64** | Defines product&#39;s old price | [optional] [default to nothing]
+**cost_price** | **Float64** | Defines new product&#39;s cost price | [optional] [default to nothing]
+**fixed_cost_shipping_price** | **Float64** | Specifies fixed cost shipping price | [optional] [default to nothing]
+**attributes** | [**Vector{ProductVariantAddAttributesInner}**](ProductVariantAddAttributesInner.md) | Defines variant&#39;s attributes list | [optional] [default to nothing]
+**description** | **String** | Specifies variant&#39;s description | [optional] [default to nothing]
+**special_price** | **Float64** | Specifies variant&#39;s model that has to be added | [optional] [default to nothing]
+**sprice_create** | **String** | Defines the date of special price creation | [optional] [default to nothing]
+**sprice_modified** | **String** | Defines the date of special price modification | [optional] [default to nothing]
+**sprice_expire** | **String** | Defines the term of special price offer duration | [optional] [default to nothing]
+**available_for_view** | **Bool** | Specifies the set of visible/invisible product&#39;s variants for users | [optional] [default to true]
+**available_for_sale** | **Bool** | Specifies the set of visible/invisible product&#39;s variants for sale | [optional] [default to true]
+**weight** | **Float64** | Weight | [optional] [default to 0]
+**width** | **Float64** | Defines product&#39;s width | [optional] [default to nothing]
+**height** | **Float64** | Defines product&#39;s height | [optional] [default to nothing]
+**length** | **Float64** | Defines product&#39;s length | [optional] [default to nothing]
+**weight_unit** | **String** | Weight Unit | [optional] [default to nothing]
+**short_description** | **String** | Defines short description | [optional] [default to nothing]
+**warehouse_id** | **String** | This parameter is used for selecting a warehouse where you need to set/modify a product quantity. | [optional] [default to nothing]
+**quantity** | **Float64** | Defines product variant&#39;s quantity that has to be added | [optional] [default to 0]
+**created_at** | **String** | Defines the date of entity creation | [optional] [default to nothing]
+**manufacturer** | **String** | Specifies the product variant&#39;s manufacturer | [optional] [default to nothing]
+**tax_class_id** | **String** | Defines tax classes where entity has to be added | [optional] [default to nothing]
+**meta_title** | **String** | Defines unique meta title for each entity | [optional] [default to nothing]
+**meta_keywords** | **String** | Defines unique meta keywords for each entity | [optional] [default to nothing]
+**meta_description** | **String** | Defines unique meta description of a entity | [optional] [default to nothing]
+**url** | **String** | Defines unique product variant&#39;s URL | [optional] [default to nothing]
+**store_id** | **String** | Add variants specified by store id | [optional] [default to nothing]
+**lang_id** | **String** | Language id | [optional] [default to nothing]
+**clear_cache** | **Bool** | Is cache clear required | [optional] [default to true]
+**taxable** | **Bool** | Specifies whether a tax is charged | [optional] [default to true]
+**harmonized_system_code** | **String** | Harmonized System Code. An HSC is a 6-digit identifier that allows participating countries to classify traded goods on a common basis for customs purposes | [optional] [default to nothing]
+**country_of_origin** | **String** | The country where the inventory item was made | [optional] [default to nothing]
+**manage_stock** | **Bool** | Defines inventory tracking for product variant | [optional] [default to nothing]
+**upc** | **String** | Universal Product Code. A UPC (UPC-A) is a commonly used identifer for many different products. | [optional] [default to nothing]
+**mpn** | **String** | Manufacturer Part Number. A MPN is an identifier of a particular part design or material used. | [optional] [default to nothing]
+**ean** | **String** | European Article Number. An EAN is a unique 8 or 13-digit identifier that many industries (such as book publishers) use to identify products. | [optional] [default to nothing]
+**isbn** | **String** | International Standard Book Number. An ISBN is a unique identifier for books. | [optional] [default to nothing]
+**stores_ids** | **String** | Assign variant to the stores that is specified by comma-separated stores&#39; id | [optional] [default to nothing]
+**is_default** | **Bool** | Defines as a default variant | [optional] [default to nothing]
+**is_free_shipping** | **Bool** | Specifies variant&#39;s free shipping flag that has to be added | [optional] [default to nothing]
+**marketplace_item_properties** | **String** | String containing the JSON representation of the supplied data | [optional] [default to nothing]
+**in_stock** | **Bool** | Set stock status | [optional] [default to nothing]
+**backorder_status** | **String** | Set backorder status | [optional] [default to nothing]
+**tier_prices** | [**Vector{ProductAddTierPricesInner}**](ProductAddTierPricesInner.md) | Defines product&#39;s tier prices | [optional] [default to nothing]
+**is_virtual** | **Bool** | Defines whether the product is virtual | [optional] [default to false]
+
+
+[[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)
+
+
