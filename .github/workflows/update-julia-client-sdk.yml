@@ -1,0 +1,36 @@
+name: Update julia-client-sdk SDK
+
+on:
+  # Запускатися раз на тиждень (у неділю о 00:00 за UTC)
+  schedule:
+    - cron: '0 0 * * 0'
+  # Додатково, щоб мати можливість запустити вручну
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update_julia-client_sdk:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Download julia-client.tgz
+        run: |
+          curl -L -o julia-client.tgz https://app.api2cart.com/sdk/openapi/julia-client.tgz
+
+      # Розпаковуємо, видаляючи 1 рівень (папку julia-client)
+      - name: Extract julia-client.tgz
+        run: |
+          tar -xzf julia-client.tgz --strip-components=1
+
+      - name: Commit changes
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git add .
+          git diff-index --quiet HEAD || git commit -m "Update julia-client SDK [skip ci]"
+          git push
