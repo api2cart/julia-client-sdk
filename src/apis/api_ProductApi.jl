@@ -220,7 +220,7 @@ const _returntypes_product_brand_list_ProductApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseProductBrandList,
 )
 
-function _oacinternal_product_brand_list(_api::ProductApi; start=nothing, count=nothing, page_cursor=nothing, params=nothing, brand_ids=nothing, exclude=nothing, store_id=nothing, lang_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, parent_id=nothing, response_fields=nothing, find_where=nothing, find_value=nothing, _mediaType=nothing)
+function _oacinternal_product_brand_list(_api::ProductApi; start=nothing, count=nothing, page_cursor=nothing, params=nothing, brand_ids=nothing, exclude=nothing, category_id=nothing, store_id=nothing, lang_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, parent_id=nothing, response_fields=nothing, find_where=nothing, find_value=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_product_brand_list_ProductApi, "/product.brand.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
@@ -228,6 +228,7 @@ function _oacinternal_product_brand_list(_api::ProductApi; start=nothing, count=
     OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "brand_ids", brand_ids; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "category_id", category_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "lang_id", lang_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "created_from", created_from; style="form", is_explode=true)  # type String
@@ -254,6 +255,7 @@ Params:
 - params::String
 - brand_ids::String
 - exclude::String
+- category_id::String
 - store_id::String
 - lang_id::String
 - created_from::String
@@ -267,13 +269,13 @@ Params:
 
 Return: ModelResponseProductBrandList, OpenAPI.Clients.ApiResponse
 """
-function product_brand_list(_api::ProductApi; start=nothing, count=nothing, page_cursor=nothing, params=nothing, brand_ids=nothing, exclude=nothing, store_id=nothing, lang_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, parent_id=nothing, response_fields=nothing, find_where=nothing, find_value=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_brand_list(_api; start=start, count=count, page_cursor=page_cursor, params=params, brand_ids=brand_ids, exclude=exclude, store_id=store_id, lang_id=lang_id, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, parent_id=parent_id, response_fields=response_fields, find_where=find_where, find_value=find_value, _mediaType=_mediaType)
+function product_brand_list(_api::ProductApi; start=nothing, count=nothing, page_cursor=nothing, params=nothing, brand_ids=nothing, exclude=nothing, category_id=nothing, store_id=nothing, lang_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, parent_id=nothing, response_fields=nothing, find_where=nothing, find_value=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_product_brand_list(_api; start=start, count=count, page_cursor=page_cursor, params=params, brand_ids=brand_ids, exclude=exclude, category_id=category_id, store_id=store_id, lang_id=lang_id, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, parent_id=parent_id, response_fields=response_fields, find_where=find_where, find_value=find_value, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function product_brand_list(_api::ProductApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, params=nothing, brand_ids=nothing, exclude=nothing, store_id=nothing, lang_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, parent_id=nothing, response_fields=nothing, find_where=nothing, find_value=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_brand_list(_api; start=start, count=count, page_cursor=page_cursor, params=params, brand_ids=brand_ids, exclude=exclude, store_id=store_id, lang_id=lang_id, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, parent_id=parent_id, response_fields=response_fields, find_where=find_where, find_value=find_value, _mediaType=_mediaType)
+function product_brand_list(_api::ProductApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, params=nothing, brand_ids=nothing, exclude=nothing, category_id=nothing, store_id=nothing, lang_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, parent_id=nothing, response_fields=nothing, find_where=nothing, find_value=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_product_brand_list(_api; start=start, count=count, page_cursor=page_cursor, params=params, brand_ids=brand_ids, exclude=exclude, category_id=category_id, store_id=store_id, lang_id=lang_id, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, parent_id=parent_id, response_fields=response_fields, find_where=find_where, find_value=find_value, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 

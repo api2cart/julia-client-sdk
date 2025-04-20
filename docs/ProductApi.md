@@ -250,8 +250,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_brand_list**
-> product_brand_list(_api::ProductApi; start=nothing, count=nothing, page_cursor=nothing, params=nothing, brand_ids=nothing, exclude=nothing, store_id=nothing, lang_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, parent_id=nothing, response_fields=nothing, find_where=nothing, find_value=nothing, _mediaType=nothing) -> ModelResponseProductBrandList, OpenAPI.Clients.ApiResponse <br/>
-> product_brand_list(_api::ProductApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, params=nothing, brand_ids=nothing, exclude=nothing, store_id=nothing, lang_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, parent_id=nothing, response_fields=nothing, find_where=nothing, find_value=nothing, _mediaType=nothing) -> Channel{ ModelResponseProductBrandList }, OpenAPI.Clients.ApiResponse
+> product_brand_list(_api::ProductApi; start=nothing, count=nothing, page_cursor=nothing, params=nothing, brand_ids=nothing, exclude=nothing, category_id=nothing, store_id=nothing, lang_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, parent_id=nothing, response_fields=nothing, find_where=nothing, find_value=nothing, _mediaType=nothing) -> ModelResponseProductBrandList, OpenAPI.Clients.ApiResponse <br/>
+> product_brand_list(_api::ProductApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, params=nothing, brand_ids=nothing, exclude=nothing, category_id=nothing, store_id=nothing, lang_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, parent_id=nothing, response_fields=nothing, find_where=nothing, find_value=nothing, _mediaType=nothing) -> Channel{ ModelResponseProductBrandList }, OpenAPI.Clients.ApiResponse
 
 product.brand.list
 
@@ -273,6 +273,7 @@ Name | Type | Description  | Notes
  **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,name,short_description,active,url&quot;]
  **brand_ids** | **String** | Retrieves brands specified by brand ids | [default to nothing]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
+ **category_id** | **String** | Retrieves product brands specified by category id | [default to nothing]
  **store_id** | **String** | Store Id | [default to nothing]
  **lang_id** | **String** | Language id | [default to nothing]
  **created_from** | **String** | Retrieve entities from their creation date | [default to nothing]

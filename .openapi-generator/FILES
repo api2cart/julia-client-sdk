@@ -281,6 +281,7 @@ docs/ProductAddCertificationsInnerFilesInner.md
 docs/ProductAddCertificationsInnerImagesInner.md
 docs/ProductAddFilesInner.md
 docs/ProductAddGroupPricesInner.md
+docs/ProductAddLogisticInfoInner.md
 docs/ProductAddManufacturerInfo.md
 docs/ProductAddPackageDetails.md
 docs/ProductAddSalesTax.md
@@ -739,6 +740,7 @@ src/models/model_ProductAddCertificationsInnerFilesInner.jl
 src/models/model_ProductAddCertificationsInnerImagesInner.jl
 src/models/model_ProductAddFilesInner.jl
 src/models/model_ProductAddGroupPricesInner.jl
+src/models/model_ProductAddLogisticInfoInner.jl
 src/models/model_ProductAddManufacturerInfo.jl
 src/models/model_ProductAddPackageDetails.jl
 src/models/model_ProductAddSalesTax.jl
