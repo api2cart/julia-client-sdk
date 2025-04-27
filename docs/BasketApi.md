@@ -12,8 +12,8 @@ Method | HTTP request | Description
 
 
 # **basket_info**
-> basket_info(_api::BasketApi, id::String; store_id=nothing, params=nothing, exclude=nothing, response_fields=nothing, _mediaType=nothing) -> BasketInfo200Response, OpenAPI.Clients.ApiResponse <br/>
-> basket_info(_api::BasketApi, response_stream::Channel, id::String; store_id=nothing, params=nothing, exclude=nothing, response_fields=nothing, _mediaType=nothing) -> Channel{ BasketInfo200Response }, OpenAPI.Clients.ApiResponse
+> basket_info(_api::BasketApi, id::String; store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> BasketInfo200Response, OpenAPI.Clients.ApiResponse <br/>
+> basket_info(_api::BasketApi, response_stream::Channel, id::String; store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ BasketInfo200Response }, OpenAPI.Clients.ApiResponse
 
 basket.info
 
@@ -31,9 +31,9 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **store_id** | **String** | Store Id | [default to nothing]
+ **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
  **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;force_all&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
- **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
 
 ### Return type
 
@@ -157,8 +157,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **basket_live_shipping_service_list**
-> basket_live_shipping_service_list(_api::BasketApi; store_id=nothing, start=nothing, count=nothing, _mediaType=nothing) -> BasketLiveShippingServiceList200Response, OpenAPI.Clients.ApiResponse <br/>
-> basket_live_shipping_service_list(_api::BasketApi, response_stream::Channel; store_id=nothing, start=nothing, count=nothing, _mediaType=nothing) -> Channel{ BasketLiveShippingServiceList200Response }, OpenAPI.Clients.ApiResponse
+> basket_live_shipping_service_list(_api::BasketApi; start=nothing, count=nothing, store_id=nothing, _mediaType=nothing) -> BasketLiveShippingServiceList200Response, OpenAPI.Clients.ApiResponse <br/>
+> basket_live_shipping_service_list(_api::BasketApi, response_stream::Channel; start=nothing, count=nothing, store_id=nothing, _mediaType=nothing) -> Channel{ BasketLiveShippingServiceList200Response }, OpenAPI.Clients.ApiResponse
 
 basket.live_shipping_service.list
 
@@ -174,9 +174,9 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **store_id** | **String** | Store Id | [default to nothing]
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
+ **store_id** | **String** | Store Id | [default to nothing]
 
 ### Return type
 

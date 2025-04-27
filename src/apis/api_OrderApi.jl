@@ -15,21 +15,21 @@ const _returntypes_order_abandoned_list_OrderApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseOrderAbandonedList,
 )
 
-function _oacinternal_order_abandoned_list(_api::OrderApi; customer_id=nothing, customer_email=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, skip_empty_email=nothing, store_id=nothing, page_cursor=nothing, count=nothing, start=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing)
+function _oacinternal_order_abandoned_list(_api::OrderApi; start=nothing, count=nothing, page_cursor=nothing, customer_id=nothing, customer_email=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, skip_empty_email=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_order_abandoned_list_OrderApi, "/order.abandoned.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
+    OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
+    OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
+    OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "customer_id", customer_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "customer_email", customer_email; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "created_to", created_to; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "created_from", created_from; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "modified_to", modified_to; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "modified_from", modified_from; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "skip_empty_email", skip_empty_email; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
-    OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
-    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "created_from", created_from; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "created_to", created_to; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "modified_from", modified_from; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "modified_to", modified_to; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "skip_empty_email", skip_empty_email; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -41,30 +41,30 @@ end
 Get list of orders that were left by customers before completing the order.
 
 Params:
+- start::Int64
+- count::Int64
+- page_cursor::String
 - customer_id::String
 - customer_email::String
-- created_to::String
-- created_from::String
-- modified_to::String
-- modified_from::String
-- skip_empty_email::Bool
 - store_id::String
-- page_cursor::String
-- count::Int64
-- start::Int64
-- params::String
+- created_from::String
+- created_to::String
+- modified_from::String
+- modified_to::String
+- skip_empty_email::Bool
 - response_fields::String
+- params::String
 - exclude::String
 
 Return: ModelResponseOrderAbandonedList, OpenAPI.Clients.ApiResponse
 """
-function order_abandoned_list(_api::OrderApi; customer_id=nothing, customer_email=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, skip_empty_email=nothing, store_id=nothing, page_cursor=nothing, count=nothing, start=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_abandoned_list(_api; customer_id=customer_id, customer_email=customer_email, created_to=created_to, created_from=created_from, modified_to=modified_to, modified_from=modified_from, skip_empty_email=skip_empty_email, store_id=store_id, page_cursor=page_cursor, count=count, start=start, params=params, response_fields=response_fields, exclude=exclude, _mediaType=_mediaType)
+function order_abandoned_list(_api::OrderApi; start=nothing, count=nothing, page_cursor=nothing, customer_id=nothing, customer_email=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, skip_empty_email=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_abandoned_list(_api; start=start, count=count, page_cursor=page_cursor, customer_id=customer_id, customer_email=customer_email, store_id=store_id, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, skip_empty_email=skip_empty_email, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function order_abandoned_list(_api::OrderApi, response_stream::Channel; customer_id=nothing, customer_email=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, skip_empty_email=nothing, store_id=nothing, page_cursor=nothing, count=nothing, start=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_abandoned_list(_api; customer_id=customer_id, customer_email=customer_email, created_to=created_to, created_from=created_from, modified_to=modified_to, modified_from=modified_from, skip_empty_email=skip_empty_email, store_id=store_id, page_cursor=page_cursor, count=count, start=start, params=params, response_fields=response_fields, exclude=exclude, _mediaType=_mediaType)
+function order_abandoned_list(_api::OrderApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, customer_id=nothing, customer_email=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, skip_empty_email=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_abandoned_list(_api; start=start, count=count, page_cursor=page_cursor, customer_id=customer_id, customer_email=customer_email, store_id=store_id, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, skip_empty_email=skip_empty_email, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -102,19 +102,15 @@ const _returntypes_order_count_OrderApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => OrderCount200Response,
 )
 
-function _oacinternal_order_count(_api::OrderApi; customer_id=nothing, customer_email=nothing, order_status=nothing, order_status_ids=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, store_id=nothing, ids=nothing, order_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_channel=nothing, fulfillment_status=nothing, shipping_method=nothing, delivery_method=nothing, tags=nothing, ship_node_type=nothing, _mediaType=nothing)
+function _oacinternal_order_count(_api::OrderApi; order_ids=nothing, ids=nothing, customer_id=nothing, store_id=nothing, customer_email=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_channel=nothing, fulfillment_status=nothing, shipping_method=nothing, delivery_method=nothing, tags=nothing, ship_node_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_order_count_OrderApi, "/order.count.json", ["StoreKeyAuth", "ApiKeyAuth", ])
+    OpenAPI.Clients.set_param(_ctx.query, "order_ids", order_ids; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "ids", ids; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "customer_id", customer_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "customer_email", customer_email; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "order_status", order_status; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "order_status_ids", order_status_ids; style="form", is_explode=true)  # type Vector{String}
-    OpenAPI.Clients.set_param(_ctx.query, "created_to", created_to; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "created_from", created_from; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "modified_to", modified_to; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "modified_from", modified_from; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "ids", ids; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "order_ids", order_ids; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "ebay_order_status", ebay_order_status; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "financial_status", financial_status; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "financial_status_ids", financial_status_ids; style="form", is_explode=true)  # type Vector{String}
@@ -124,6 +120,10 @@ function _oacinternal_order_count(_api::OrderApi; customer_id=nothing, customer_
     OpenAPI.Clients.set_param(_ctx.query, "delivery_method", delivery_method; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "tags", tags; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "ship_node_type", ship_node_type; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "created_from", created_from; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "created_to", created_to; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "modified_from", modified_from; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "modified_to", modified_to; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -134,17 +134,13 @@ end
 Count orders in store
 
 Params:
+- order_ids::String
+- ids::String
 - customer_id::String
+- store_id::String
 - customer_email::String
 - order_status::String
 - order_status_ids::Vector{String}
-- created_to::String
-- created_from::String
-- modified_to::String
-- modified_from::String
-- store_id::String
-- ids::String
-- order_ids::String
 - ebay_order_status::String
 - financial_status::String
 - financial_status_ids::Vector{String}
@@ -154,16 +150,20 @@ Params:
 - delivery_method::String
 - tags::String
 - ship_node_type::String
+- created_from::String
+- created_to::String
+- modified_from::String
+- modified_to::String
 
 Return: OrderCount200Response, OpenAPI.Clients.ApiResponse
 """
-function order_count(_api::OrderApi; customer_id=nothing, customer_email=nothing, order_status=nothing, order_status_ids=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, store_id=nothing, ids=nothing, order_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_channel=nothing, fulfillment_status=nothing, shipping_method=nothing, delivery_method=nothing, tags=nothing, ship_node_type=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_count(_api; customer_id=customer_id, customer_email=customer_email, order_status=order_status, order_status_ids=order_status_ids, created_to=created_to, created_from=created_from, modified_to=modified_to, modified_from=modified_from, store_id=store_id, ids=ids, order_ids=order_ids, ebay_order_status=ebay_order_status, financial_status=financial_status, financial_status_ids=financial_status_ids, fulfillment_channel=fulfillment_channel, fulfillment_status=fulfillment_status, shipping_method=shipping_method, delivery_method=delivery_method, tags=tags, ship_node_type=ship_node_type, _mediaType=_mediaType)
+function order_count(_api::OrderApi; order_ids=nothing, ids=nothing, customer_id=nothing, store_id=nothing, customer_email=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_channel=nothing, fulfillment_status=nothing, shipping_method=nothing, delivery_method=nothing, tags=nothing, ship_node_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_count(_api; order_ids=order_ids, ids=ids, customer_id=customer_id, store_id=store_id, customer_email=customer_email, order_status=order_status, order_status_ids=order_status_ids, ebay_order_status=ebay_order_status, financial_status=financial_status, financial_status_ids=financial_status_ids, fulfillment_channel=fulfillment_channel, fulfillment_status=fulfillment_status, shipping_method=shipping_method, delivery_method=delivery_method, tags=tags, ship_node_type=ship_node_type, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function order_count(_api::OrderApi, response_stream::Channel; customer_id=nothing, customer_email=nothing, order_status=nothing, order_status_ids=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, store_id=nothing, ids=nothing, order_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_channel=nothing, fulfillment_status=nothing, shipping_method=nothing, delivery_method=nothing, tags=nothing, ship_node_type=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_count(_api; customer_id=customer_id, customer_email=customer_email, order_status=order_status, order_status_ids=order_status_ids, created_to=created_to, created_from=created_from, modified_to=modified_to, modified_from=modified_from, store_id=store_id, ids=ids, order_ids=order_ids, ebay_order_status=ebay_order_status, financial_status=financial_status, financial_status_ids=financial_status_ids, fulfillment_channel=fulfillment_channel, fulfillment_status=fulfillment_status, shipping_method=shipping_method, delivery_method=delivery_method, tags=tags, ship_node_type=ship_node_type, _mediaType=_mediaType)
+function order_count(_api::OrderApi, response_stream::Channel; order_ids=nothing, ids=nothing, customer_id=nothing, store_id=nothing, customer_email=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_channel=nothing, fulfillment_status=nothing, shipping_method=nothing, delivery_method=nothing, tags=nothing, ship_node_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_count(_api; order_ids=order_ids, ids=ids, customer_id=customer_id, store_id=store_id, customer_email=customer_email, order_status=order_status, order_status_ids=order_status_ids, ebay_order_status=ebay_order_status, financial_status=financial_status, financial_status_ids=financial_status_ids, fulfillment_channel=fulfillment_channel, fulfillment_status=fulfillment_status, shipping_method=shipping_method, delivery_method=delivery_method, tags=tags, ship_node_type=ship_node_type, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -200,20 +200,20 @@ const _returntypes_order_find_OrderApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => OrderFind200Response,
 )
 
-function _oacinternal_order_find(_api::OrderApi; customer_id=nothing, customer_email=nothing, order_status=nothing, start=nothing, count=nothing, params=nothing, exclude=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, financial_status=nothing, _mediaType=nothing)
+function _oacinternal_order_find(_api::OrderApi; start=nothing, count=nothing, customer_id=nothing, customer_email=nothing, order_status=nothing, financial_status=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_order_find_OrderApi, "/order.find.json", ["StoreKeyAuth", "ApiKeyAuth", ])
+    OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
+    OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "customer_id", customer_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "customer_email", customer_email; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "order_status", order_status; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
-    OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
-    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "financial_status", financial_status; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "created_to", created_to; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "created_from", created_from; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "modified_to", modified_to; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "modified_from", modified_from; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "financial_status", financial_status; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -224,28 +224,28 @@ end
 This method is deprecated and won't be supported in the future. Please use \"order.list\" instead.
 
 Params:
+- start::Int64
+- count::Int64
 - customer_id::String
 - customer_email::String
 - order_status::String
-- start::Int64
-- count::Int64
-- params::String
-- exclude::String
+- financial_status::String
 - created_to::String
 - created_from::String
 - modified_to::String
 - modified_from::String
-- financial_status::String
+- params::String
+- exclude::String
 
 Return: OrderFind200Response, OpenAPI.Clients.ApiResponse
 """
-function order_find(_api::OrderApi; customer_id=nothing, customer_email=nothing, order_status=nothing, start=nothing, count=nothing, params=nothing, exclude=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, financial_status=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_find(_api; customer_id=customer_id, customer_email=customer_email, order_status=order_status, start=start, count=count, params=params, exclude=exclude, created_to=created_to, created_from=created_from, modified_to=modified_to, modified_from=modified_from, financial_status=financial_status, _mediaType=_mediaType)
+function order_find(_api::OrderApi; start=nothing, count=nothing, customer_id=nothing, customer_email=nothing, order_status=nothing, financial_status=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_find(_api; start=start, count=count, customer_id=customer_id, customer_email=customer_email, order_status=order_status, financial_status=financial_status, created_to=created_to, created_from=created_from, modified_to=modified_to, modified_from=modified_from, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function order_find(_api::OrderApi, response_stream::Channel; customer_id=nothing, customer_email=nothing, order_status=nothing, start=nothing, count=nothing, params=nothing, exclude=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, financial_status=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_find(_api; customer_id=customer_id, customer_email=customer_email, order_status=order_status, start=start, count=count, params=params, exclude=exclude, created_to=created_to, created_from=created_from, modified_to=modified_to, modified_from=modified_from, financial_status=financial_status, _mediaType=_mediaType)
+function order_find(_api::OrderApi, response_stream::Channel; start=nothing, count=nothing, customer_id=nothing, customer_email=nothing, order_status=nothing, financial_status=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_find(_api; start=start, count=count, customer_id=customer_id, customer_email=customer_email, order_status=order_status, financial_status=financial_status, created_to=created_to, created_from=created_from, modified_to=modified_to, modified_from=modified_from, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -284,14 +284,14 @@ const _returntypes_order_info_OrderApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => OrderInfo200Response,
 )
 
-function _oacinternal_order_info(_api::OrderApi; order_id=nothing, id=nothing, params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, enable_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing)
+function _oacinternal_order_info(_api::OrderApi; id=nothing, order_id=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, enable_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_order_info_OrderApi, "/order.info.json", ["StoreKeyAuth", "ApiKeyAuth", ])
-    OpenAPI.Clients.set_param(_ctx.query, "order_id", order_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "id", id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "order_id", order_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "enable_cache", enable_cache; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_param(_ctx.query, "use_latest_api_version", use_latest_api_version; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
@@ -304,24 +304,24 @@ end
 Info about a specific order by ID
 
 Params:
-- order_id::String
 - id::String
+- order_id::String
+- store_id::String
 - params::String
 - response_fields::String
 - exclude::String
-- store_id::String
 - enable_cache::Bool
 - use_latest_api_version::Bool
 
 Return: OrderInfo200Response, OpenAPI.Clients.ApiResponse
 """
-function order_info(_api::OrderApi; order_id=nothing, id=nothing, params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, enable_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_info(_api; order_id=order_id, id=id, params=params, response_fields=response_fields, exclude=exclude, store_id=store_id, enable_cache=enable_cache, use_latest_api_version=use_latest_api_version, _mediaType=_mediaType)
+function order_info(_api::OrderApi; id=nothing, order_id=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, enable_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_info(_api; id=id, order_id=order_id, store_id=store_id, params=params, response_fields=response_fields, exclude=exclude, enable_cache=enable_cache, use_latest_api_version=use_latest_api_version, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function order_info(_api::OrderApi, response_stream::Channel; order_id=nothing, id=nothing, params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, enable_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_info(_api; order_id=order_id, id=id, params=params, response_fields=response_fields, exclude=exclude, store_id=store_id, enable_cache=enable_cache, use_latest_api_version=use_latest_api_version, _mediaType=_mediaType)
+function order_info(_api::OrderApi, response_stream::Channel; id=nothing, order_id=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, enable_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_info(_api; id=id, order_id=order_id, store_id=store_id, params=params, response_fields=response_fields, exclude=exclude, enable_cache=enable_cache, use_latest_api_version=use_latest_api_version, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -329,45 +329,45 @@ const _returntypes_order_list_OrderApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseOrderList,
 )
 
-function _oacinternal_order_list(_api::OrderApi; customer_id=nothing, customer_email=nothing, phone=nothing, order_status=nothing, order_status_ids=nothing, start=nothing, count=nothing, page_cursor=nothing, sort_by=nothing, sort_direction=nothing, params=nothing, response_fields=nothing, exclude=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, store_id=nothing, ids=nothing, order_ids=nothing, ebay_order_status=nothing, basket_id=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_status=nothing, fulfillment_channel=nothing, shipping_method=nothing, skip_order_ids=nothing, since_id=nothing, is_deleted=nothing, shipping_country_iso3=nothing, enable_cache=nothing, delivery_method=nothing, tags=nothing, ship_node_type=nothing, currency_id=nothing, return_status=nothing, use_latest_api_version=nothing, _mediaType=nothing)
+function _oacinternal_order_list(_api::OrderApi; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, order_ids=nothing, since_id=nothing, store_id=nothing, customer_id=nothing, customer_email=nothing, basket_id=nothing, currency_id=nothing, phone=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_status=nothing, return_status=nothing, fulfillment_channel=nothing, shipping_method=nothing, skip_order_ids=nothing, is_deleted=nothing, shipping_country_iso3=nothing, delivery_method=nothing, ship_node_type=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, tags=nothing, sort_by=nothing, sort_direction=nothing, params=nothing, response_fields=nothing, exclude=nothing, enable_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_order_list_OrderApi, "/order.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
-    OpenAPI.Clients.set_param(_ctx.query, "customer_id", customer_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "customer_email", customer_email; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "phone", phone; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "order_status", order_status; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "order_status_ids", order_status_ids; style="form", is_explode=true)  # type Vector{String}
     OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "ids", ids; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "order_ids", order_ids; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "since_id", since_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "customer_id", customer_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "customer_email", customer_email; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "basket_id", basket_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "currency_id", currency_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "phone", phone; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "order_status", order_status; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "order_status_ids", order_status_ids; style="form", is_explode=true)  # type Vector{String}
+    OpenAPI.Clients.set_param(_ctx.query, "ebay_order_status", ebay_order_status; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "financial_status", financial_status; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "financial_status_ids", financial_status_ids; style="form", is_explode=true)  # type Vector{String}
+    OpenAPI.Clients.set_param(_ctx.query, "fulfillment_status", fulfillment_status; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "return_status", return_status; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "fulfillment_channel", fulfillment_channel; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "shipping_method", shipping_method; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "skip_order_ids", skip_order_ids; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "is_deleted", is_deleted; style="form", is_explode=true)  # type Bool
+    OpenAPI.Clients.set_param(_ctx.query, "shipping_country_iso3", shipping_country_iso3; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "delivery_method", delivery_method; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "ship_node_type", ship_node_type; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "created_to", created_to; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "created_from", created_from; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "modified_to", modified_to; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "modified_from", modified_from; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "tags", tags; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "sort_by", sort_by; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "sort_direction", sort_direction; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "created_to", created_to; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "created_from", created_from; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "modified_to", modified_to; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "modified_from", modified_from; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "ids", ids; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "order_ids", order_ids; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "ebay_order_status", ebay_order_status; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "basket_id", basket_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "financial_status", financial_status; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "financial_status_ids", financial_status_ids; style="form", is_explode=true)  # type Vector{String}
-    OpenAPI.Clients.set_param(_ctx.query, "fulfillment_status", fulfillment_status; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "fulfillment_channel", fulfillment_channel; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "shipping_method", shipping_method; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "skip_order_ids", skip_order_ids; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "since_id", since_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "is_deleted", is_deleted; style="form", is_explode=true)  # type Bool
-    OpenAPI.Clients.set_param(_ctx.query, "shipping_country_iso3", shipping_country_iso3; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "enable_cache", enable_cache; style="form", is_explode=true)  # type Bool
-    OpenAPI.Clients.set_param(_ctx.query, "delivery_method", delivery_method; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "tags", tags; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "ship_node_type", ship_node_type; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "currency_id", currency_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "return_status", return_status; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "use_latest_api_version", use_latest_api_version; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -379,54 +379,54 @@ end
 Get list of orders from store.
 
 Params:
-- customer_id::String
-- customer_email::String
-- phone::String
-- order_status::String
-- order_status_ids::Vector{String}
 - start::Int64
 - count::Int64
 - page_cursor::String
+- ids::String
+- order_ids::String
+- since_id::String
+- store_id::String
+- customer_id::String
+- customer_email::String
+- basket_id::String
+- currency_id::String
+- phone::String
+- order_status::String
+- order_status_ids::Vector{String}
+- ebay_order_status::String
+- financial_status::String
+- financial_status_ids::Vector{String}
+- fulfillment_status::String
+- return_status::String
+- fulfillment_channel::String
+- shipping_method::String
+- skip_order_ids::String
+- is_deleted::Bool
+- shipping_country_iso3::String
+- delivery_method::String
+- ship_node_type::String
+- created_to::String
+- created_from::String
+- modified_to::String
+- modified_from::String
+- tags::String
 - sort_by::String
 - sort_direction::String
 - params::String
 - response_fields::String
 - exclude::String
-- created_to::String
-- created_from::String
-- modified_to::String
-- modified_from::String
-- store_id::String
-- ids::String
-- order_ids::String
-- ebay_order_status::String
-- basket_id::String
-- financial_status::String
-- financial_status_ids::Vector{String}
-- fulfillment_status::String
-- fulfillment_channel::String
-- shipping_method::String
-- skip_order_ids::String
-- since_id::String
-- is_deleted::Bool
-- shipping_country_iso3::String
 - enable_cache::Bool
-- delivery_method::String
-- tags::String
-- ship_node_type::String
-- currency_id::String
-- return_status::String
 - use_latest_api_version::Bool
 
 Return: ModelResponseOrderList, OpenAPI.Clients.ApiResponse
 """
-function order_list(_api::OrderApi; customer_id=nothing, customer_email=nothing, phone=nothing, order_status=nothing, order_status_ids=nothing, start=nothing, count=nothing, page_cursor=nothing, sort_by=nothing, sort_direction=nothing, params=nothing, response_fields=nothing, exclude=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, store_id=nothing, ids=nothing, order_ids=nothing, ebay_order_status=nothing, basket_id=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_status=nothing, fulfillment_channel=nothing, shipping_method=nothing, skip_order_ids=nothing, since_id=nothing, is_deleted=nothing, shipping_country_iso3=nothing, enable_cache=nothing, delivery_method=nothing, tags=nothing, ship_node_type=nothing, currency_id=nothing, return_status=nothing, use_latest_api_version=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_list(_api; customer_id=customer_id, customer_email=customer_email, phone=phone, order_status=order_status, order_status_ids=order_status_ids, start=start, count=count, page_cursor=page_cursor, sort_by=sort_by, sort_direction=sort_direction, params=params, response_fields=response_fields, exclude=exclude, created_to=created_to, created_from=created_from, modified_to=modified_to, modified_from=modified_from, store_id=store_id, ids=ids, order_ids=order_ids, ebay_order_status=ebay_order_status, basket_id=basket_id, financial_status=financial_status, financial_status_ids=financial_status_ids, fulfillment_status=fulfillment_status, fulfillment_channel=fulfillment_channel, shipping_method=shipping_method, skip_order_ids=skip_order_ids, since_id=since_id, is_deleted=is_deleted, shipping_country_iso3=shipping_country_iso3, enable_cache=enable_cache, delivery_method=delivery_method, tags=tags, ship_node_type=ship_node_type, currency_id=currency_id, return_status=return_status, use_latest_api_version=use_latest_api_version, _mediaType=_mediaType)
+function order_list(_api::OrderApi; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, order_ids=nothing, since_id=nothing, store_id=nothing, customer_id=nothing, customer_email=nothing, basket_id=nothing, currency_id=nothing, phone=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_status=nothing, return_status=nothing, fulfillment_channel=nothing, shipping_method=nothing, skip_order_ids=nothing, is_deleted=nothing, shipping_country_iso3=nothing, delivery_method=nothing, ship_node_type=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, tags=nothing, sort_by=nothing, sort_direction=nothing, params=nothing, response_fields=nothing, exclude=nothing, enable_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_list(_api; start=start, count=count, page_cursor=page_cursor, ids=ids, order_ids=order_ids, since_id=since_id, store_id=store_id, customer_id=customer_id, customer_email=customer_email, basket_id=basket_id, currency_id=currency_id, phone=phone, order_status=order_status, order_status_ids=order_status_ids, ebay_order_status=ebay_order_status, financial_status=financial_status, financial_status_ids=financial_status_ids, fulfillment_status=fulfillment_status, return_status=return_status, fulfillment_channel=fulfillment_channel, shipping_method=shipping_method, skip_order_ids=skip_order_ids, is_deleted=is_deleted, shipping_country_iso3=shipping_country_iso3, delivery_method=delivery_method, ship_node_type=ship_node_type, created_to=created_to, created_from=created_from, modified_to=modified_to, modified_from=modified_from, tags=tags, sort_by=sort_by, sort_direction=sort_direction, params=params, response_fields=response_fields, exclude=exclude, enable_cache=enable_cache, use_latest_api_version=use_latest_api_version, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function order_list(_api::OrderApi, response_stream::Channel; customer_id=nothing, customer_email=nothing, phone=nothing, order_status=nothing, order_status_ids=nothing, start=nothing, count=nothing, page_cursor=nothing, sort_by=nothing, sort_direction=nothing, params=nothing, response_fields=nothing, exclude=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, store_id=nothing, ids=nothing, order_ids=nothing, ebay_order_status=nothing, basket_id=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_status=nothing, fulfillment_channel=nothing, shipping_method=nothing, skip_order_ids=nothing, since_id=nothing, is_deleted=nothing, shipping_country_iso3=nothing, enable_cache=nothing, delivery_method=nothing, tags=nothing, ship_node_type=nothing, currency_id=nothing, return_status=nothing, use_latest_api_version=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_list(_api; customer_id=customer_id, customer_email=customer_email, phone=phone, order_status=order_status, order_status_ids=order_status_ids, start=start, count=count, page_cursor=page_cursor, sort_by=sort_by, sort_direction=sort_direction, params=params, response_fields=response_fields, exclude=exclude, created_to=created_to, created_from=created_from, modified_to=modified_to, modified_from=modified_from, store_id=store_id, ids=ids, order_ids=order_ids, ebay_order_status=ebay_order_status, basket_id=basket_id, financial_status=financial_status, financial_status_ids=financial_status_ids, fulfillment_status=fulfillment_status, fulfillment_channel=fulfillment_channel, shipping_method=shipping_method, skip_order_ids=skip_order_ids, since_id=since_id, is_deleted=is_deleted, shipping_country_iso3=shipping_country_iso3, enable_cache=enable_cache, delivery_method=delivery_method, tags=tags, ship_node_type=ship_node_type, currency_id=currency_id, return_status=return_status, use_latest_api_version=use_latest_api_version, _mediaType=_mediaType)
+function order_list(_api::OrderApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, order_ids=nothing, since_id=nothing, store_id=nothing, customer_id=nothing, customer_email=nothing, basket_id=nothing, currency_id=nothing, phone=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_status=nothing, return_status=nothing, fulfillment_channel=nothing, shipping_method=nothing, skip_order_ids=nothing, is_deleted=nothing, shipping_country_iso3=nothing, delivery_method=nothing, ship_node_type=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, tags=nothing, sort_by=nothing, sort_direction=nothing, params=nothing, response_fields=nothing, exclude=nothing, enable_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_list(_api; start=start, count=count, page_cursor=page_cursor, ids=ids, order_ids=order_ids, since_id=since_id, store_id=store_id, customer_id=customer_id, customer_email=customer_email, basket_id=basket_id, currency_id=currency_id, phone=phone, order_status=order_status, order_status_ids=order_status_ids, ebay_order_status=ebay_order_status, financial_status=financial_status, financial_status_ids=financial_status_ids, fulfillment_status=fulfillment_status, return_status=return_status, fulfillment_channel=fulfillment_channel, shipping_method=shipping_method, skip_order_ids=skip_order_ids, is_deleted=is_deleted, shipping_country_iso3=shipping_country_iso3, delivery_method=delivery_method, ship_node_type=ship_node_type, created_to=created_to, created_from=created_from, modified_to=modified_to, modified_from=modified_from, tags=tags, sort_by=sort_by, sort_direction=sort_direction, params=params, response_fields=response_fields, exclude=exclude, enable_cache=enable_cache, use_latest_api_version=use_latest_api_version, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -684,15 +684,15 @@ const _returntypes_order_shipment_info_OrderApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => OrderShipmentInfo200Response,
 )
 
-function _oacinternal_order_shipment_info(_api::OrderApi, id::String, order_id::String; start=nothing, params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, _mediaType=nothing)
+function _oacinternal_order_shipment_info(_api::OrderApi, id::String, order_id::String; start=nothing, store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_order_shipment_info_OrderApi, "/order.shipment.info.json", ["StoreKeyAuth", "ApiKeyAuth", ])
+    OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "id", id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "order_id", order_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
-    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -706,20 +706,20 @@ Params:
 - id::String (required)
 - order_id::String (required)
 - start::Int64
-- params::String
-- response_fields::String
-- exclude::String
 - store_id::String
+- response_fields::String
+- params::String
+- exclude::String
 
 Return: OrderShipmentInfo200Response, OpenAPI.Clients.ApiResponse
 """
-function order_shipment_info(_api::OrderApi, id::String, order_id::String; start=nothing, params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_shipment_info(_api, id, order_id; start=start, params=params, response_fields=response_fields, exclude=exclude, store_id=store_id, _mediaType=_mediaType)
+function order_shipment_info(_api::OrderApi, id::String, order_id::String; start=nothing, store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_shipment_info(_api, id, order_id; start=start, store_id=store_id, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function order_shipment_info(_api::OrderApi, response_stream::Channel, id::String, order_id::String; start=nothing, params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_shipment_info(_api, id, order_id; start=start, params=params, response_fields=response_fields, exclude=exclude, store_id=store_id, _mediaType=_mediaType)
+function order_shipment_info(_api::OrderApi, response_stream::Channel, id::String, order_id::String; start=nothing, store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_shipment_info(_api, id, order_id; start=start, store_id=store_id, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -727,20 +727,20 @@ const _returntypes_order_shipment_list_OrderApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseOrderShipmentList,
 )
 
-function _oacinternal_order_shipment_list(_api::OrderApi, order_id::String; page_cursor=nothing, start=nothing, count=nothing, params=nothing, response_fields=nothing, exclude=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, store_id=nothing, _mediaType=nothing)
+function _oacinternal_order_shipment_list(_api::OrderApi, order_id::String; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_order_shipment_list_OrderApi, "/order.shipment.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
-    OpenAPI.Clients.set_param(_ctx.query, "order_id", order_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
-    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "order_id", order_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "created_from", created_from; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "created_to", created_to; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "modified_from", modified_from; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "modified_to", modified_to; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -752,27 +752,27 @@ Get list of shipments by orders.
 
 Params:
 - order_id::String (required)
-- page_cursor::String
 - start::Int64
 - count::Int64
-- params::String
-- response_fields::String
-- exclude::String
+- page_cursor::String
+- store_id::String
 - created_from::String
 - created_to::String
 - modified_from::String
 - modified_to::String
-- store_id::String
+- response_fields::String
+- params::String
+- exclude::String
 
 Return: ModelResponseOrderShipmentList, OpenAPI.Clients.ApiResponse
 """
-function order_shipment_list(_api::OrderApi, order_id::String; page_cursor=nothing, start=nothing, count=nothing, params=nothing, response_fields=nothing, exclude=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, store_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_shipment_list(_api, order_id; page_cursor=page_cursor, start=start, count=count, params=params, response_fields=response_fields, exclude=exclude, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, store_id=store_id, _mediaType=_mediaType)
+function order_shipment_list(_api::OrderApi, order_id::String; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_shipment_list(_api, order_id; start=start, count=count, page_cursor=page_cursor, store_id=store_id, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function order_shipment_list(_api::OrderApi, response_stream::Channel, order_id::String; page_cursor=nothing, start=nothing, count=nothing, params=nothing, response_fields=nothing, exclude=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, store_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_shipment_list(_api, order_id; page_cursor=page_cursor, start=start, count=count, params=params, response_fields=response_fields, exclude=exclude, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, store_id=store_id, _mediaType=_mediaType)
+function order_shipment_list(_api::OrderApi, response_stream::Channel, order_id::String; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_shipment_list(_api, order_id; start=start, count=count, page_cursor=page_cursor, store_id=store_id, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -875,15 +875,15 @@ const _returntypes_order_transaction_list_OrderApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseOrderTransactionList,
 )
 
-function _oacinternal_order_transaction_list(_api::OrderApi, order_ids::String; count=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, page_cursor=nothing, _mediaType=nothing)
+function _oacinternal_order_transaction_list(_api::OrderApi, order_ids::String; count=nothing, page_cursor=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_order_transaction_list_OrderApi, "/order.transaction.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
+    OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "order_ids", order_ids; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -896,21 +896,21 @@ Retrieve list of order transaction
 Params:
 - order_ids::String (required)
 - count::Int64
+- page_cursor::String
 - store_id::String
 - params::String
 - response_fields::String
 - exclude::String
-- page_cursor::String
 
 Return: ModelResponseOrderTransactionList, OpenAPI.Clients.ApiResponse
 """
-function order_transaction_list(_api::OrderApi, order_ids::String; count=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, page_cursor=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_transaction_list(_api, order_ids; count=count, store_id=store_id, params=params, response_fields=response_fields, exclude=exclude, page_cursor=page_cursor, _mediaType=_mediaType)
+function order_transaction_list(_api::OrderApi, order_ids::String; count=nothing, page_cursor=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_transaction_list(_api, order_ids; count=count, page_cursor=page_cursor, store_id=store_id, params=params, response_fields=response_fields, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function order_transaction_list(_api::OrderApi, response_stream::Channel, order_ids::String; count=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, page_cursor=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_transaction_list(_api, order_ids; count=count, store_id=store_id, params=params, response_fields=response_fields, exclude=exclude, page_cursor=page_cursor, _mediaType=_mediaType)
+function order_transaction_list(_api::OrderApi, response_stream::Channel, order_ids::String; count=nothing, page_cursor=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_transaction_list(_api, order_ids; count=count, page_cursor=page_cursor, store_id=store_id, params=params, response_fields=response_fields, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -918,24 +918,24 @@ const _returntypes_order_update_OrderApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => AccountConfigUpdate200Response,
 )
 
-function _oacinternal_order_update(_api::OrderApi, order_id::String; store_id=nothing, order_status=nothing, cancellation_reason=nothing, comment=nothing, admin_comment=nothing, admin_private_comment=nothing, date_modified=nothing, date_finished=nothing, financial_status=nothing, fulfillment_status=nothing, order_payment_method=nothing, send_notifications=nothing, origin=nothing, create_invoice=nothing, invoice_admin_comment=nothing, _mediaType=nothing)
+function _oacinternal_order_update(_api::OrderApi, order_id::String; store_id=nothing, order_status=nothing, financial_status=nothing, fulfillment_status=nothing, cancellation_reason=nothing, order_payment_method=nothing, comment=nothing, admin_comment=nothing, admin_private_comment=nothing, invoice_admin_comment=nothing, date_modified=nothing, date_finished=nothing, send_notifications=nothing, create_invoice=nothing, origin=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "PUT", _returntypes_order_update_OrderApi, "/order.update.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "order_id", order_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "order_status", order_status; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "financial_status", financial_status; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "fulfillment_status", fulfillment_status; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "cancellation_reason", cancellation_reason; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "order_payment_method", order_payment_method; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "comment", comment; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "admin_comment", admin_comment; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "admin_private_comment", admin_private_comment; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "invoice_admin_comment", invoice_admin_comment; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "date_modified", date_modified; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "date_finished", date_finished; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "financial_status", financial_status; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "fulfillment_status", fulfillment_status; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "order_payment_method", order_payment_method; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "send_notifications", send_notifications; style="form", is_explode=true)  # type Bool
-    OpenAPI.Clients.set_param(_ctx.query, "origin", origin; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "create_invoice", create_invoice; style="form", is_explode=true)  # type Bool
-    OpenAPI.Clients.set_param(_ctx.query, "invoice_admin_comment", invoice_admin_comment; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "origin", origin; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -949,29 +949,29 @@ Params:
 - order_id::String (required)
 - store_id::String
 - order_status::String
+- financial_status::String
+- fulfillment_status::String
 - cancellation_reason::String
+- order_payment_method::String
 - comment::String
 - admin_comment::String
 - admin_private_comment::String
+- invoice_admin_comment::String
 - date_modified::String
 - date_finished::String
-- financial_status::String
-- fulfillment_status::String
-- order_payment_method::String
 - send_notifications::Bool
-- origin::String
 - create_invoice::Bool
-- invoice_admin_comment::String
+- origin::String
 
 Return: AccountConfigUpdate200Response, OpenAPI.Clients.ApiResponse
 """
-function order_update(_api::OrderApi, order_id::String; store_id=nothing, order_status=nothing, cancellation_reason=nothing, comment=nothing, admin_comment=nothing, admin_private_comment=nothing, date_modified=nothing, date_finished=nothing, financial_status=nothing, fulfillment_status=nothing, order_payment_method=nothing, send_notifications=nothing, origin=nothing, create_invoice=nothing, invoice_admin_comment=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_update(_api, order_id; store_id=store_id, order_status=order_status, cancellation_reason=cancellation_reason, comment=comment, admin_comment=admin_comment, admin_private_comment=admin_private_comment, date_modified=date_modified, date_finished=date_finished, financial_status=financial_status, fulfillment_status=fulfillment_status, order_payment_method=order_payment_method, send_notifications=send_notifications, origin=origin, create_invoice=create_invoice, invoice_admin_comment=invoice_admin_comment, _mediaType=_mediaType)
+function order_update(_api::OrderApi, order_id::String; store_id=nothing, order_status=nothing, financial_status=nothing, fulfillment_status=nothing, cancellation_reason=nothing, order_payment_method=nothing, comment=nothing, admin_comment=nothing, admin_private_comment=nothing, invoice_admin_comment=nothing, date_modified=nothing, date_finished=nothing, send_notifications=nothing, create_invoice=nothing, origin=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_update(_api, order_id; store_id=store_id, order_status=order_status, financial_status=financial_status, fulfillment_status=fulfillment_status, cancellation_reason=cancellation_reason, order_payment_method=order_payment_method, comment=comment, admin_comment=admin_comment, admin_private_comment=admin_private_comment, invoice_admin_comment=invoice_admin_comment, date_modified=date_modified, date_finished=date_finished, send_notifications=send_notifications, create_invoice=create_invoice, origin=origin, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function order_update(_api::OrderApi, response_stream::Channel, order_id::String; store_id=nothing, order_status=nothing, cancellation_reason=nothing, comment=nothing, admin_comment=nothing, admin_private_comment=nothing, date_modified=nothing, date_finished=nothing, financial_status=nothing, fulfillment_status=nothing, order_payment_method=nothing, send_notifications=nothing, origin=nothing, create_invoice=nothing, invoice_admin_comment=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_update(_api, order_id; store_id=store_id, order_status=order_status, cancellation_reason=cancellation_reason, comment=comment, admin_comment=admin_comment, admin_private_comment=admin_private_comment, date_modified=date_modified, date_finished=date_finished, financial_status=financial_status, fulfillment_status=fulfillment_status, order_payment_method=order_payment_method, send_notifications=send_notifications, origin=origin, create_invoice=create_invoice, invoice_admin_comment=invoice_admin_comment, _mediaType=_mediaType)
+function order_update(_api::OrderApi, response_stream::Channel, order_id::String; store_id=nothing, order_status=nothing, financial_status=nothing, fulfillment_status=nothing, cancellation_reason=nothing, order_payment_method=nothing, comment=nothing, admin_comment=nothing, admin_private_comment=nothing, invoice_admin_comment=nothing, date_modified=nothing, date_finished=nothing, send_notifications=nothing, create_invoice=nothing, origin=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_update(_api, order_id; store_id=store_id, order_status=order_status, financial_status=financial_status, fulfillment_status=fulfillment_status, cancellation_reason=cancellation_reason, order_payment_method=order_payment_method, comment=comment, admin_comment=admin_comment, admin_private_comment=admin_private_comment, invoice_admin_comment=invoice_admin_comment, date_modified=date_modified, date_finished=date_finished, send_notifications=send_notifications, create_invoice=create_invoice, origin=origin, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 

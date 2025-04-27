@@ -6,224 +6,224 @@
 
     ProductVariantAdd(;
         product_id=nothing,
+        attributes=nothing,
         name=nothing,
         model=nothing,
-        sku=nothing,
-        barcode=nothing,
-        gtin=nothing,
+        description=nothing,
+        short_description=nothing,
+        available_for_view=true,
+        available_for_sale=true,
+        is_virtual=false,
+        is_default=nothing,
+        store_id=nothing,
+        stores_ids=nothing,
+        lang_id=nothing,
         price=nothing,
         old_price=nothing,
         cost_price=nothing,
-        fixed_cost_shipping_price=nothing,
-        attributes=nothing,
-        description=nothing,
         special_price=nothing,
         sprice_create=nothing,
         sprice_modified=nothing,
         sprice_expire=nothing,
-        available_for_view=true,
-        available_for_sale=true,
+        tier_prices=nothing,
+        quantity=0,
+        warehouse_id=nothing,
+        in_stock=nothing,
+        backorder_status=nothing,
+        manage_stock=nothing,
         weight=0,
         width=nothing,
         height=nothing,
         length=nothing,
         weight_unit=nothing,
-        short_description=nothing,
-        warehouse_id=nothing,
-        quantity=0,
-        created_at=nothing,
+        sku=nothing,
+        barcode=nothing,
+        gtin=nothing,
+        upc=nothing,
+        ean=nothing,
+        mpn=nothing,
+        isbn=nothing,
         manufacturer=nothing,
-        tax_class_id=nothing,
+        created_at=nothing,
         meta_title=nothing,
         meta_keywords=nothing,
         meta_description=nothing,
         url=nothing,
-        store_id=nothing,
-        lang_id=nothing,
-        clear_cache=true,
+        tax_class_id=nothing,
         taxable=true,
-        harmonized_system_code=nothing,
-        country_of_origin=nothing,
-        manage_stock=nothing,
-        upc=nothing,
-        mpn=nothing,
-        ean=nothing,
-        isbn=nothing,
-        stores_ids=nothing,
-        is_default=nothing,
+        fixed_cost_shipping_price=nothing,
         is_free_shipping=nothing,
+        country_of_origin=nothing,
+        harmonized_system_code=nothing,
         marketplace_item_properties=nothing,
-        in_stock=nothing,
-        backorder_status=nothing,
-        tier_prices=nothing,
-        is_virtual=false,
+        clear_cache=true,
     )
 
     - product_id::String : Defines product&#39;s id where the variant has to be added
+    - attributes::Vector{ProductVariantAddAttributesInner} : Defines variant&#39;s attributes list
     - name::String : Defines variant&#39;s name that has to be added
     - model::String : Specifies variant&#39;s model that has to be added
-    - sku::String : Defines variant&#39;s sku that has to be added
-    - barcode::String : A barcode is a unique code composed of numbers used as a product identifier.
-    - gtin::String : Global Trade Item Number. An GTIN is an identifier for trade items.
+    - description::String : Specifies variant&#39;s description
+    - short_description::String : Defines short description
+    - available_for_view::Bool : Specifies the set of visible/invisible product&#39;s variants for users
+    - available_for_sale::Bool : Specifies the set of visible/invisible product&#39;s variants for sale
+    - is_virtual::Bool : Defines whether the product is virtual
+    - is_default::Bool : Defines as a default variant
+    - store_id::String : Add variants specified by store id
+    - stores_ids::String : Assign variant to the stores that is specified by comma-separated stores&#39; id
+    - lang_id::String : Language id
     - price::Float64 : Defines new product&#39;s variant price
     - old_price::Float64 : Defines product&#39;s old price
     - cost_price::Float64 : Defines new product&#39;s cost price
-    - fixed_cost_shipping_price::Float64 : Specifies fixed cost shipping price
-    - attributes::Vector{ProductVariantAddAttributesInner} : Defines variant&#39;s attributes list
-    - description::String : Specifies variant&#39;s description
     - special_price::Float64 : Specifies variant&#39;s model that has to be added
     - sprice_create::String : Defines the date of special price creation
     - sprice_modified::String : Defines the date of special price modification
     - sprice_expire::String : Defines the term of special price offer duration
-    - available_for_view::Bool : Specifies the set of visible/invisible product&#39;s variants for users
-    - available_for_sale::Bool : Specifies the set of visible/invisible product&#39;s variants for sale
+    - tier_prices::Vector{ProductAddTierPricesInner} : Defines product&#39;s tier prices
+    - quantity::Float64 : Defines product variant&#39;s quantity that has to be added
+    - warehouse_id::String : This parameter is used for selecting a warehouse where you need to set/modify a product quantity.
+    - in_stock::Bool : Set stock status
+    - backorder_status::String : Set backorder status
+    - manage_stock::Bool : Defines inventory tracking for product variant
     - weight::Float64 : Weight
     - width::Float64 : Defines product&#39;s width
     - height::Float64 : Defines product&#39;s height
     - length::Float64 : Defines product&#39;s length
     - weight_unit::String : Weight Unit
-    - short_description::String : Defines short description
-    - warehouse_id::String : This parameter is used for selecting a warehouse where you need to set/modify a product quantity.
-    - quantity::Float64 : Defines product variant&#39;s quantity that has to be added
-    - created_at::String : Defines the date of entity creation
+    - sku::String : Defines variant&#39;s sku that has to be added
+    - barcode::String : A barcode is a unique code composed of numbers used as a product identifier.
+    - gtin::String : Global Trade Item Number. An GTIN is an identifier for trade items.
+    - upc::String : Universal Product Code. A UPC (UPC-A) is a commonly used identifer for many different products.
+    - ean::String : European Article Number. An EAN is a unique 8 or 13-digit identifier that many industries (such as book publishers) use to identify products.
+    - mpn::String : Manufacturer Part Number. A MPN is an identifier of a particular part design or material used.
+    - isbn::String : International Standard Book Number. An ISBN is a unique identifier for books.
     - manufacturer::String : Specifies the product variant&#39;s manufacturer
-    - tax_class_id::String : Defines tax classes where entity has to be added
+    - created_at::String : Defines the date of entity creation
     - meta_title::String : Defines unique meta title for each entity
     - meta_keywords::String : Defines unique meta keywords for each entity
     - meta_description::String : Defines unique meta description of a entity
     - url::String : Defines unique product variant&#39;s URL
-    - store_id::String : Add variants specified by store id
-    - lang_id::String : Language id
-    - clear_cache::Bool : Is cache clear required
+    - tax_class_id::String : Defines tax classes where entity has to be added
     - taxable::Bool : Specifies whether a tax is charged
-    - harmonized_system_code::String : Harmonized System Code. An HSC is a 6-digit identifier that allows participating countries to classify traded goods on a common basis for customs purposes
-    - country_of_origin::String : The country where the inventory item was made
-    - manage_stock::Bool : Defines inventory tracking for product variant
-    - upc::String : Universal Product Code. A UPC (UPC-A) is a commonly used identifer for many different products.
-    - mpn::String : Manufacturer Part Number. A MPN is an identifier of a particular part design or material used.
-    - ean::String : European Article Number. An EAN is a unique 8 or 13-digit identifier that many industries (such as book publishers) use to identify products.
-    - isbn::String : International Standard Book Number. An ISBN is a unique identifier for books.
-    - stores_ids::String : Assign variant to the stores that is specified by comma-separated stores&#39; id
-    - is_default::Bool : Defines as a default variant
+    - fixed_cost_shipping_price::Float64 : Specifies fixed cost shipping price
     - is_free_shipping::Bool : Specifies variant&#39;s free shipping flag that has to be added
+    - country_of_origin::String : The country where the inventory item was made
+    - harmonized_system_code::String : Harmonized System Code. An HSC is a 6-digit identifier that allows participating countries to classify traded goods on a common basis for customs purposes
     - marketplace_item_properties::String : String containing the JSON representation of the supplied data
-    - in_stock::Bool : Set stock status
-    - backorder_status::String : Set backorder status
-    - tier_prices::Vector{ProductAddTierPricesInner} : Defines product&#39;s tier prices
-    - is_virtual::Bool : Defines whether the product is virtual
+    - clear_cache::Bool : Is cache clear required
 """
 Base.@kwdef mutable struct ProductVariantAdd <: OpenAPI.APIModel
     product_id::Union{Nothing, String} = nothing
+    attributes::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ProductVariantAddAttributesInner} }
     name::Union{Nothing, String} = nothing
     model::Union{Nothing, String} = nothing
-    sku::Union{Nothing, String} = nothing
-    barcode::Union{Nothing, String} = nothing
-    gtin::Union{Nothing, String} = nothing
+    description::Union{Nothing, String} = nothing
+    short_description::Union{Nothing, String} = nothing
+    available_for_view::Union{Nothing, Bool} = true
+    available_for_sale::Union{Nothing, Bool} = true
+    is_virtual::Union{Nothing, Bool} = false
+    is_default::Union{Nothing, Bool} = nothing
+    store_id::Union{Nothing, String} = nothing
+    stores_ids::Union{Nothing, String} = nothing
+    lang_id::Union{Nothing, String} = nothing
     price::Union{Nothing, Float64} = nothing
     old_price::Union{Nothing, Float64} = nothing
     cost_price::Union{Nothing, Float64} = nothing
-    fixed_cost_shipping_price::Union{Nothing, Float64} = nothing
-    attributes::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ProductVariantAddAttributesInner} }
-    description::Union{Nothing, String} = nothing
     special_price::Union{Nothing, Float64} = nothing
     sprice_create::Union{Nothing, String} = nothing
     sprice_modified::Union{Nothing, String} = nothing
     sprice_expire::Union{Nothing, String} = nothing
-    available_for_view::Union{Nothing, Bool} = true
-    available_for_sale::Union{Nothing, Bool} = true
+    tier_prices::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ProductAddTierPricesInner} }
+    quantity::Union{Nothing, Float64} = 0
+    warehouse_id::Union{Nothing, String} = nothing
+    in_stock::Union{Nothing, Bool} = nothing
+    backorder_status::Union{Nothing, String} = nothing
+    manage_stock::Union{Nothing, Bool} = nothing
     weight::Union{Nothing, Float64} = 0
     width::Union{Nothing, Float64} = nothing
     height::Union{Nothing, Float64} = nothing
     length::Union{Nothing, Float64} = nothing
     weight_unit::Union{Nothing, String} = nothing
-    short_description::Union{Nothing, String} = nothing
-    warehouse_id::Union{Nothing, String} = nothing
-    quantity::Union{Nothing, Float64} = 0
-    created_at::Union{Nothing, String} = nothing
+    sku::Union{Nothing, String} = nothing
+    barcode::Union{Nothing, String} = nothing
+    gtin::Union{Nothing, String} = nothing
+    upc::Union{Nothing, String} = nothing
+    ean::Union{Nothing, String} = nothing
+    mpn::Union{Nothing, String} = nothing
+    isbn::Union{Nothing, String} = nothing
     manufacturer::Union{Nothing, String} = nothing
-    tax_class_id::Union{Nothing, String} = nothing
+    created_at::Union{Nothing, String} = nothing
     meta_title::Union{Nothing, String} = nothing
     meta_keywords::Union{Nothing, String} = nothing
     meta_description::Union{Nothing, String} = nothing
     url::Union{Nothing, String} = nothing
-    store_id::Union{Nothing, String} = nothing
-    lang_id::Union{Nothing, String} = nothing
-    clear_cache::Union{Nothing, Bool} = true
+    tax_class_id::Union{Nothing, String} = nothing
     taxable::Union{Nothing, Bool} = true
-    harmonized_system_code::Union{Nothing, String} = nothing
-    country_of_origin::Union{Nothing, String} = nothing
-    manage_stock::Union{Nothing, Bool} = nothing
-    upc::Union{Nothing, String} = nothing
-    mpn::Union{Nothing, String} = nothing
-    ean::Union{Nothing, String} = nothing
-    isbn::Union{Nothing, String} = nothing
-    stores_ids::Union{Nothing, String} = nothing
-    is_default::Union{Nothing, Bool} = nothing
+    fixed_cost_shipping_price::Union{Nothing, Float64} = nothing
     is_free_shipping::Union{Nothing, Bool} = nothing
+    country_of_origin::Union{Nothing, String} = nothing
+    harmonized_system_code::Union{Nothing, String} = nothing
     marketplace_item_properties::Union{Nothing, String} = nothing
-    in_stock::Union{Nothing, Bool} = nothing
-    backorder_status::Union{Nothing, String} = nothing
-    tier_prices::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ProductAddTierPricesInner} }
-    is_virtual::Union{Nothing, Bool} = false
+    clear_cache::Union{Nothing, Bool} = true
 
-    function ProductVariantAdd(product_id, name, model, sku, barcode, gtin, price, old_price, cost_price, fixed_cost_shipping_price, attributes, description, special_price, sprice_create, sprice_modified, sprice_expire, available_for_view, available_for_sale, weight, width, height, length, weight_unit, short_description, warehouse_id, quantity, created_at, manufacturer, tax_class_id, meta_title, meta_keywords, meta_description, url, store_id, lang_id, clear_cache, taxable, harmonized_system_code, country_of_origin, manage_stock, upc, mpn, ean, isbn, stores_ids, is_default, is_free_shipping, marketplace_item_properties, in_stock, backorder_status, tier_prices, is_virtual, )
+    function ProductVariantAdd(product_id, attributes, name, model, description, short_description, available_for_view, available_for_sale, is_virtual, is_default, store_id, stores_ids, lang_id, price, old_price, cost_price, special_price, sprice_create, sprice_modified, sprice_expire, tier_prices, quantity, warehouse_id, in_stock, backorder_status, manage_stock, weight, width, height, length, weight_unit, sku, barcode, gtin, upc, ean, mpn, isbn, manufacturer, created_at, meta_title, meta_keywords, meta_description, url, tax_class_id, taxable, fixed_cost_shipping_price, is_free_shipping, country_of_origin, harmonized_system_code, marketplace_item_properties, clear_cache, )
         OpenAPI.validate_property(ProductVariantAdd, Symbol("product_id"), product_id)
+        OpenAPI.validate_property(ProductVariantAdd, Symbol("attributes"), attributes)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("name"), name)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("model"), model)
-        OpenAPI.validate_property(ProductVariantAdd, Symbol("sku"), sku)
-        OpenAPI.validate_property(ProductVariantAdd, Symbol("barcode"), barcode)
-        OpenAPI.validate_property(ProductVariantAdd, Symbol("gtin"), gtin)
+        OpenAPI.validate_property(ProductVariantAdd, Symbol("description"), description)
+        OpenAPI.validate_property(ProductVariantAdd, Symbol("short_description"), short_description)
+        OpenAPI.validate_property(ProductVariantAdd, Symbol("available_for_view"), available_for_view)
+        OpenAPI.validate_property(ProductVariantAdd, Symbol("available_for_sale"), available_for_sale)
+        OpenAPI.validate_property(ProductVariantAdd, Symbol("is_virtual"), is_virtual)
+        OpenAPI.validate_property(ProductVariantAdd, Symbol("is_default"), is_default)
+        OpenAPI.validate_property(ProductVariantAdd, Symbol("store_id"), store_id)
+        OpenAPI.validate_property(ProductVariantAdd, Symbol("stores_ids"), stores_ids)
+        OpenAPI.validate_property(ProductVariantAdd, Symbol("lang_id"), lang_id)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("price"), price)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("old_price"), old_price)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("cost_price"), cost_price)
-        OpenAPI.validate_property(ProductVariantAdd, Symbol("fixed_cost_shipping_price"), fixed_cost_shipping_price)
-        OpenAPI.validate_property(ProductVariantAdd, Symbol("attributes"), attributes)
-        OpenAPI.validate_property(ProductVariantAdd, Symbol("description"), description)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("special_price"), special_price)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("sprice_create"), sprice_create)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("sprice_modified"), sprice_modified)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("sprice_expire"), sprice_expire)
-        OpenAPI.validate_property(ProductVariantAdd, Symbol("available_for_view"), available_for_view)
-        OpenAPI.validate_property(ProductVariantAdd, Symbol("available_for_sale"), available_for_sale)
+        OpenAPI.validate_property(ProductVariantAdd, Symbol("tier_prices"), tier_prices)
+        OpenAPI.validate_property(ProductVariantAdd, Symbol("quantity"), quantity)
+        OpenAPI.validate_property(ProductVariantAdd, Symbol("warehouse_id"), warehouse_id)
+        OpenAPI.validate_property(ProductVariantAdd, Symbol("in_stock"), in_stock)
+        OpenAPI.validate_property(ProductVariantAdd, Symbol("backorder_status"), backorder_status)
+        OpenAPI.validate_property(ProductVariantAdd, Symbol("manage_stock"), manage_stock)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("weight"), weight)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("width"), width)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("height"), height)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("length"), length)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("weight_unit"), weight_unit)
-        OpenAPI.validate_property(ProductVariantAdd, Symbol("short_description"), short_description)
-        OpenAPI.validate_property(ProductVariantAdd, Symbol("warehouse_id"), warehouse_id)
-        OpenAPI.validate_property(ProductVariantAdd, Symbol("quantity"), quantity)
-        OpenAPI.validate_property(ProductVariantAdd, Symbol("created_at"), created_at)
+        OpenAPI.validate_property(ProductVariantAdd, Symbol("sku"), sku)
+        OpenAPI.validate_property(ProductVariantAdd, Symbol("barcode"), barcode)
+        OpenAPI.validate_property(ProductVariantAdd, Symbol("gtin"), gtin)
+        OpenAPI.validate_property(ProductVariantAdd, Symbol("upc"), upc)
+        OpenAPI.validate_property(ProductVariantAdd, Symbol("ean"), ean)
+        OpenAPI.validate_property(ProductVariantAdd, Symbol("mpn"), mpn)
+        OpenAPI.validate_property(ProductVariantAdd, Symbol("isbn"), isbn)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("manufacturer"), manufacturer)
-        OpenAPI.validate_property(ProductVariantAdd, Symbol("tax_class_id"), tax_class_id)
+        OpenAPI.validate_property(ProductVariantAdd, Symbol("created_at"), created_at)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("meta_title"), meta_title)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("meta_keywords"), meta_keywords)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("meta_description"), meta_description)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("url"), url)
-        OpenAPI.validate_property(ProductVariantAdd, Symbol("store_id"), store_id)
-        OpenAPI.validate_property(ProductVariantAdd, Symbol("lang_id"), lang_id)
-        OpenAPI.validate_property(ProductVariantAdd, Symbol("clear_cache"), clear_cache)
+        OpenAPI.validate_property(ProductVariantAdd, Symbol("tax_class_id"), tax_class_id)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("taxable"), taxable)
-        OpenAPI.validate_property(ProductVariantAdd, Symbol("harmonized_system_code"), harmonized_system_code)
-        OpenAPI.validate_property(ProductVariantAdd, Symbol("country_of_origin"), country_of_origin)
-        OpenAPI.validate_property(ProductVariantAdd, Symbol("manage_stock"), manage_stock)
-        OpenAPI.validate_property(ProductVariantAdd, Symbol("upc"), upc)
-        OpenAPI.validate_property(ProductVariantAdd, Symbol("mpn"), mpn)
-        OpenAPI.validate_property(ProductVariantAdd, Symbol("ean"), ean)
-        OpenAPI.validate_property(ProductVariantAdd, Symbol("isbn"), isbn)
-        OpenAPI.validate_property(ProductVariantAdd, Symbol("stores_ids"), stores_ids)
-        OpenAPI.validate_property(ProductVariantAdd, Symbol("is_default"), is_default)
+        OpenAPI.validate_property(ProductVariantAdd, Symbol("fixed_cost_shipping_price"), fixed_cost_shipping_price)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("is_free_shipping"), is_free_shipping)
+        OpenAPI.validate_property(ProductVariantAdd, Symbol("country_of_origin"), country_of_origin)
+        OpenAPI.validate_property(ProductVariantAdd, Symbol("harmonized_system_code"), harmonized_system_code)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("marketplace_item_properties"), marketplace_item_properties)
-        OpenAPI.validate_property(ProductVariantAdd, Symbol("in_stock"), in_stock)
-        OpenAPI.validate_property(ProductVariantAdd, Symbol("backorder_status"), backorder_status)
-        OpenAPI.validate_property(ProductVariantAdd, Symbol("tier_prices"), tier_prices)
-        OpenAPI.validate_property(ProductVariantAdd, Symbol("is_virtual"), is_virtual)
-        return new(product_id, name, model, sku, barcode, gtin, price, old_price, cost_price, fixed_cost_shipping_price, attributes, description, special_price, sprice_create, sprice_modified, sprice_expire, available_for_view, available_for_sale, weight, width, height, length, weight_unit, short_description, warehouse_id, quantity, created_at, manufacturer, tax_class_id, meta_title, meta_keywords, meta_description, url, store_id, lang_id, clear_cache, taxable, harmonized_system_code, country_of_origin, manage_stock, upc, mpn, ean, isbn, stores_ids, is_default, is_free_shipping, marketplace_item_properties, in_stock, backorder_status, tier_prices, is_virtual, )
+        OpenAPI.validate_property(ProductVariantAdd, Symbol("clear_cache"), clear_cache)
+        return new(product_id, attributes, name, model, description, short_description, available_for_view, available_for_sale, is_virtual, is_default, store_id, stores_ids, lang_id, price, old_price, cost_price, special_price, sprice_create, sprice_modified, sprice_expire, tier_prices, quantity, warehouse_id, in_stock, backorder_status, manage_stock, weight, width, height, length, weight_unit, sku, barcode, gtin, upc, ean, mpn, isbn, manufacturer, created_at, meta_title, meta_keywords, meta_description, url, tax_class_id, taxable, fixed_cost_shipping_price, is_free_shipping, country_of_origin, harmonized_system_code, marketplace_item_properties, clear_cache, )
     end
 end # type ProductVariantAdd
 
-const _property_types_ProductVariantAdd = Dict{Symbol,String}(Symbol("product_id")=>"String", Symbol("name")=>"String", Symbol("model")=>"String", Symbol("sku")=>"String", Symbol("barcode")=>"String", Symbol("gtin")=>"String", Symbol("price")=>"Float64", Symbol("old_price")=>"Float64", Symbol("cost_price")=>"Float64", Symbol("fixed_cost_shipping_price")=>"Float64", Symbol("attributes")=>"Vector{ProductVariantAddAttributesInner}", Symbol("description")=>"String", Symbol("special_price")=>"Float64", Symbol("sprice_create")=>"String", Symbol("sprice_modified")=>"String", Symbol("sprice_expire")=>"String", Symbol("available_for_view")=>"Bool", Symbol("available_for_sale")=>"Bool", Symbol("weight")=>"Float64", Symbol("width")=>"Float64", Symbol("height")=>"Float64", Symbol("length")=>"Float64", Symbol("weight_unit")=>"String", Symbol("short_description")=>"String", Symbol("warehouse_id")=>"String", Symbol("quantity")=>"Float64", Symbol("created_at")=>"String", Symbol("manufacturer")=>"String", Symbol("tax_class_id")=>"String", Symbol("meta_title")=>"String", Symbol("meta_keywords")=>"String", Symbol("meta_description")=>"String", Symbol("url")=>"String", Symbol("store_id")=>"String", Symbol("lang_id")=>"String", Symbol("clear_cache")=>"Bool", Symbol("taxable")=>"Bool", Symbol("harmonized_system_code")=>"String", Symbol("country_of_origin")=>"String", Symbol("manage_stock")=>"Bool", Symbol("upc")=>"String", Symbol("mpn")=>"String", Symbol("ean")=>"String", Symbol("isbn")=>"String", Symbol("stores_ids")=>"String", Symbol("is_default")=>"Bool", Symbol("is_free_shipping")=>"Bool", Symbol("marketplace_item_properties")=>"String", Symbol("in_stock")=>"Bool", Symbol("backorder_status")=>"String", Symbol("tier_prices")=>"Vector{ProductAddTierPricesInner}", Symbol("is_virtual")=>"Bool", )
+const _property_types_ProductVariantAdd = Dict{Symbol,String}(Symbol("product_id")=>"String", Symbol("attributes")=>"Vector{ProductVariantAddAttributesInner}", Symbol("name")=>"String", Symbol("model")=>"String", Symbol("description")=>"String", Symbol("short_description")=>"String", Symbol("available_for_view")=>"Bool", Symbol("available_for_sale")=>"Bool", Symbol("is_virtual")=>"Bool", Symbol("is_default")=>"Bool", Symbol("store_id")=>"String", Symbol("stores_ids")=>"String", Symbol("lang_id")=>"String", Symbol("price")=>"Float64", Symbol("old_price")=>"Float64", Symbol("cost_price")=>"Float64", Symbol("special_price")=>"Float64", Symbol("sprice_create")=>"String", Symbol("sprice_modified")=>"String", Symbol("sprice_expire")=>"String", Symbol("tier_prices")=>"Vector{ProductAddTierPricesInner}", Symbol("quantity")=>"Float64", Symbol("warehouse_id")=>"String", Symbol("in_stock")=>"Bool", Symbol("backorder_status")=>"String", Symbol("manage_stock")=>"Bool", Symbol("weight")=>"Float64", Symbol("width")=>"Float64", Symbol("height")=>"Float64", Symbol("length")=>"Float64", Symbol("weight_unit")=>"String", Symbol("sku")=>"String", Symbol("barcode")=>"String", Symbol("gtin")=>"String", Symbol("upc")=>"String", Symbol("ean")=>"String", Symbol("mpn")=>"String", Symbol("isbn")=>"String", Symbol("manufacturer")=>"String", Symbol("created_at")=>"String", Symbol("meta_title")=>"String", Symbol("meta_keywords")=>"String", Symbol("meta_description")=>"String", Symbol("url")=>"String", Symbol("tax_class_id")=>"String", Symbol("taxable")=>"Bool", Symbol("fixed_cost_shipping_price")=>"Float64", Symbol("is_free_shipping")=>"Bool", Symbol("country_of_origin")=>"String", Symbol("harmonized_system_code")=>"String", Symbol("marketplace_item_properties")=>"String", Symbol("clear_cache")=>"Bool", )
 OpenAPI.property_type(::Type{ ProductVariantAdd }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_ProductVariantAdd[name]))}
 
 function check_required(o::ProductVariantAdd)

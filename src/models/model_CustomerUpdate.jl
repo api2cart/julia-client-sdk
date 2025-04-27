@@ -18,9 +18,9 @@
         consents=nothing,
         tags=nothing,
         gender=nothing,
-        store_id=nothing,
         note=nothing,
         status=nothing,
+        store_id=nothing,
         address=nothing,
     )
 
@@ -37,9 +37,9 @@
     - consents::Vector{CustomerAddConsentsInner} : Defines consents to notifications
     - tags::String : Customer tags
     - gender::String : Defines customer&#39;s gender
-    - store_id::String : Store Id
     - note::String : The customer note.
     - status::String : Defines customer&#39;s status
+    - store_id::String : Store Id
     - address::Vector{CustomerUpdateAddressInner}
 """
 Base.@kwdef mutable struct CustomerUpdate <: OpenAPI.APIModel
@@ -56,12 +56,12 @@ Base.@kwdef mutable struct CustomerUpdate <: OpenAPI.APIModel
     consents::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{CustomerAddConsentsInner} }
     tags::Union{Nothing, String} = nothing
     gender::Union{Nothing, String} = nothing
-    store_id::Union{Nothing, String} = nothing
     note::Union{Nothing, String} = nothing
     status::Union{Nothing, String} = nothing
+    store_id::Union{Nothing, String} = nothing
     address::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{CustomerUpdateAddressInner} }
 
-    function CustomerUpdate(id, group_id, group_ids, group, email, phone, first_name, last_name, birth_day, news_letter_subscription, consents, tags, gender, store_id, note, status, address, )
+    function CustomerUpdate(id, group_id, group_ids, group, email, phone, first_name, last_name, birth_day, news_letter_subscription, consents, tags, gender, note, status, store_id, address, )
         OpenAPI.validate_property(CustomerUpdate, Symbol("id"), id)
         OpenAPI.validate_property(CustomerUpdate, Symbol("group_id"), group_id)
         OpenAPI.validate_property(CustomerUpdate, Symbol("group_ids"), group_ids)
@@ -75,15 +75,15 @@ Base.@kwdef mutable struct CustomerUpdate <: OpenAPI.APIModel
         OpenAPI.validate_property(CustomerUpdate, Symbol("consents"), consents)
         OpenAPI.validate_property(CustomerUpdate, Symbol("tags"), tags)
         OpenAPI.validate_property(CustomerUpdate, Symbol("gender"), gender)
-        OpenAPI.validate_property(CustomerUpdate, Symbol("store_id"), store_id)
         OpenAPI.validate_property(CustomerUpdate, Symbol("note"), note)
         OpenAPI.validate_property(CustomerUpdate, Symbol("status"), status)
+        OpenAPI.validate_property(CustomerUpdate, Symbol("store_id"), store_id)
         OpenAPI.validate_property(CustomerUpdate, Symbol("address"), address)
-        return new(id, group_id, group_ids, group, email, phone, first_name, last_name, birth_day, news_letter_subscription, consents, tags, gender, store_id, note, status, address, )
+        return new(id, group_id, group_ids, group, email, phone, first_name, last_name, birth_day, news_letter_subscription, consents, tags, gender, note, status, store_id, address, )
     end
 end # type CustomerUpdate
 
-const _property_types_CustomerUpdate = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("group_id")=>"String", Symbol("group_ids")=>"String", Symbol("group")=>"String", Symbol("email")=>"String", Symbol("phone")=>"String", Symbol("first_name")=>"String", Symbol("last_name")=>"String", Symbol("birth_day")=>"String", Symbol("news_letter_subscription")=>"Bool", Symbol("consents")=>"Vector{CustomerAddConsentsInner}", Symbol("tags")=>"String", Symbol("gender")=>"String", Symbol("store_id")=>"String", Symbol("note")=>"String", Symbol("status")=>"String", Symbol("address")=>"Vector{CustomerUpdateAddressInner}", )
+const _property_types_CustomerUpdate = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("group_id")=>"String", Symbol("group_ids")=>"String", Symbol("group")=>"String", Symbol("email")=>"String", Symbol("phone")=>"String", Symbol("first_name")=>"String", Symbol("last_name")=>"String", Symbol("birth_day")=>"String", Symbol("news_letter_subscription")=>"Bool", Symbol("consents")=>"Vector{CustomerAddConsentsInner}", Symbol("tags")=>"String", Symbol("gender")=>"String", Symbol("note")=>"String", Symbol("status")=>"String", Symbol("store_id")=>"String", Symbol("address")=>"Vector{CustomerUpdateAddressInner}", )
 OpenAPI.property_type(::Type{ CustomerUpdate }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_CustomerUpdate[name]))}
 
 function check_required(o::CustomerUpdate)

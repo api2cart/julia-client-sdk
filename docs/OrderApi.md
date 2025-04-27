@@ -30,8 +30,8 @@ Method | HTTP request | Description
 
 
 # **order_abandoned_list**
-> order_abandoned_list(_api::OrderApi; customer_id=nothing, customer_email=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, skip_empty_email=nothing, store_id=nothing, page_cursor=nothing, count=nothing, start=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseOrderAbandonedList, OpenAPI.Clients.ApiResponse <br/>
-> order_abandoned_list(_api::OrderApi, response_stream::Channel; customer_id=nothing, customer_email=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, skip_empty_email=nothing, store_id=nothing, page_cursor=nothing, count=nothing, start=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseOrderAbandonedList }, OpenAPI.Clients.ApiResponse
+> order_abandoned_list(_api::OrderApi; start=nothing, count=nothing, page_cursor=nothing, customer_id=nothing, customer_email=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, skip_empty_email=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseOrderAbandonedList, OpenAPI.Clients.ApiResponse <br/>
+> order_abandoned_list(_api::OrderApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, customer_id=nothing, customer_email=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, skip_empty_email=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseOrderAbandonedList }, OpenAPI.Clients.ApiResponse
 
 order.abandoned.list
 
@@ -47,19 +47,19 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
+ **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
+ **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
  **customer_id** | **String** | Retrieves orders specified by customer id | [default to nothing]
  **customer_email** | **String** | Retrieves orders specified by customer email | [default to nothing]
- **created_to** | **String** | Retrieve entities to their creation date | [default to nothing]
- **created_from** | **String** | Retrieve entities from their creation date | [default to nothing]
- **modified_to** | **String** | Retrieve entities to their modification date | [default to nothing]
- **modified_from** | **String** | Retrieve entities from their modification date | [default to nothing]
- **skip_empty_email** | **Bool** | Filter empty emails | [default to false]
  **store_id** | **String** | Store Id | [default to nothing]
- **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
- **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
- **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;customer,totals,items&quot;]
+ **created_from** | **String** | Retrieve entities from their creation date | [default to nothing]
+ **created_to** | **String** | Retrieve entities to their creation date | [default to nothing]
+ **modified_from** | **String** | Retrieve entities from their modification date | [default to nothing]
+ **modified_to** | **String** | Retrieve entities to their modification date | [default to nothing]
+ **skip_empty_email** | **Bool** | Filter empty emails | [default to false]
  **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;customer,totals,items&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
 
 ### Return type
@@ -108,8 +108,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **order_count**
-> order_count(_api::OrderApi; customer_id=nothing, customer_email=nothing, order_status=nothing, order_status_ids=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, store_id=nothing, ids=nothing, order_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_channel=nothing, fulfillment_status=nothing, shipping_method=nothing, delivery_method=nothing, tags=nothing, ship_node_type=nothing, _mediaType=nothing) -> OrderCount200Response, OpenAPI.Clients.ApiResponse <br/>
-> order_count(_api::OrderApi, response_stream::Channel; customer_id=nothing, customer_email=nothing, order_status=nothing, order_status_ids=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, store_id=nothing, ids=nothing, order_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_channel=nothing, fulfillment_status=nothing, shipping_method=nothing, delivery_method=nothing, tags=nothing, ship_node_type=nothing, _mediaType=nothing) -> Channel{ OrderCount200Response }, OpenAPI.Clients.ApiResponse
+> order_count(_api::OrderApi; order_ids=nothing, ids=nothing, customer_id=nothing, store_id=nothing, customer_email=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_channel=nothing, fulfillment_status=nothing, shipping_method=nothing, delivery_method=nothing, tags=nothing, ship_node_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, _mediaType=nothing) -> OrderCount200Response, OpenAPI.Clients.ApiResponse <br/>
+> order_count(_api::OrderApi, response_stream::Channel; order_ids=nothing, ids=nothing, customer_id=nothing, store_id=nothing, customer_email=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_channel=nothing, fulfillment_status=nothing, shipping_method=nothing, delivery_method=nothing, tags=nothing, ship_node_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, _mediaType=nothing) -> Channel{ OrderCount200Response }, OpenAPI.Clients.ApiResponse
 
 order.count
 
@@ -125,17 +125,13 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **order_ids** | **String** | Counts orders specified by order ids | [default to nothing]
+ **ids** | **String** | Counts orders specified by ids | [default to nothing]
  **customer_id** | **String** | Counts orders quantity specified by customer id | [default to nothing]
+ **store_id** | **String** | Counts orders quantity specified by store id | [default to nothing]
  **customer_email** | **String** | Counts orders quantity specified by customer email | [default to nothing]
  **order_status** | **String** | Counts orders quantity specified by order status | [default to nothing]
  **order_status_ids** | [**Vector{String}**](String.md) | Retrieves orders specified by order statuses | [default to nothing]
- **created_to** | **String** | Retrieve entities to their creation date | [default to nothing]
- **created_from** | **String** | Retrieve entities from their creation date | [default to nothing]
- **modified_to** | **String** | Retrieve entities to their modification date | [default to nothing]
- **modified_from** | **String** | Retrieve entities from their modification date | [default to nothing]
- **store_id** | **String** | Counts orders quantity specified by store id | [default to nothing]
- **ids** | **String** | Counts orders specified by ids | [default to nothing]
- **order_ids** | **String** | Counts orders specified by order ids | [default to nothing]
  **ebay_order_status** | **String** | Counts orders quantity specified by order status | [default to nothing]
  **financial_status** | **String** | Counts orders quantity specified by financial status | [default to nothing]
  **financial_status_ids** | [**Vector{String}**](String.md) | Retrieves orders count specified by financial status ids | [default to nothing]
@@ -145,6 +141,10 @@ Name | Type | Description  | Notes
  **delivery_method** | **String** | Retrieves order with delivery method | [default to nothing]
  **tags** | **String** | Order tags | [default to nothing]
  **ship_node_type** | **String** | Retrieves order with ship node type | [default to nothing]
+ **created_from** | **String** | Retrieve entities from their creation date | [default to nothing]
+ **created_to** | **String** | Retrieve entities to their creation date | [default to nothing]
+ **modified_from** | **String** | Retrieve entities from their modification date | [default to nothing]
+ **modified_to** | **String** | Retrieve entities to their modification date | [default to nothing]
 
 ### Return type
 
@@ -188,8 +188,8 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **order_find**
-> order_find(_api::OrderApi; customer_id=nothing, customer_email=nothing, order_status=nothing, start=nothing, count=nothing, params=nothing, exclude=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, financial_status=nothing, _mediaType=nothing) -> OrderFind200Response, OpenAPI.Clients.ApiResponse <br/>
-> order_find(_api::OrderApi, response_stream::Channel; customer_id=nothing, customer_email=nothing, order_status=nothing, start=nothing, count=nothing, params=nothing, exclude=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, financial_status=nothing, _mediaType=nothing) -> Channel{ OrderFind200Response }, OpenAPI.Clients.ApiResponse
+> order_find(_api::OrderApi; start=nothing, count=nothing, customer_id=nothing, customer_email=nothing, order_status=nothing, financial_status=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> OrderFind200Response, OpenAPI.Clients.ApiResponse <br/>
+> order_find(_api::OrderApi, response_stream::Channel; start=nothing, count=nothing, customer_id=nothing, customer_email=nothing, order_status=nothing, financial_status=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ OrderFind200Response }, OpenAPI.Clients.ApiResponse
 
 order.find
 
@@ -205,18 +205,18 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
+ **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
  **customer_id** | **String** | Retrieves orders specified by customer id | [default to nothing]
  **customer_email** | **String** | Retrieves orders specified by customer email | [default to nothing]
  **order_status** | **String** | Retrieves orders specified by order status | [default to nothing]
- **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
- **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;order_id,customer,totals,address,items,bundles,status&quot;]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
+ **financial_status** | **String** | Retrieves orders specified by financial status | [default to nothing]
  **created_to** | **String** | Retrieve entities to their creation date | [default to nothing]
  **created_from** | **String** | Retrieve entities from their creation date | [default to nothing]
  **modified_to** | **String** | Retrieve entities to their modification date | [default to nothing]
  **modified_from** | **String** | Retrieve entities from their modification date | [default to nothing]
- **financial_status** | **String** | Retrieves orders specified by financial status | [default to nothing]
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;order_id,customer,totals,address,items,bundles,status&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
 
 ### Return type
 
@@ -269,8 +269,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **order_info**
-> order_info(_api::OrderApi; order_id=nothing, id=nothing, params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, enable_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> OrderInfo200Response, OpenAPI.Clients.ApiResponse <br/>
-> order_info(_api::OrderApi, response_stream::Channel; order_id=nothing, id=nothing, params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, enable_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> Channel{ OrderInfo200Response }, OpenAPI.Clients.ApiResponse
+> order_info(_api::OrderApi; id=nothing, order_id=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, enable_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> OrderInfo200Response, OpenAPI.Clients.ApiResponse <br/>
+> order_info(_api::OrderApi, response_stream::Channel; id=nothing, order_id=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, enable_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> Channel{ OrderInfo200Response }, OpenAPI.Clients.ApiResponse
 
 order.info
 
@@ -286,12 +286,12 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order_id** | **String** | Retrieves order’s info specified by order id | [default to nothing]
  **id** | **String** | Retrieves order info specified by id | [default to nothing]
+ **order_id** | **String** | Retrieves order’s info specified by order id | [default to nothing]
+ **store_id** | **String** | Defines store id where the order should be found | [default to nothing]
  **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;order_id,customer,totals,address,items,bundles,status&quot;]
  **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
- **store_id** | **String** | Defines store id where the order should be found | [default to nothing]
  **enable_cache** | **Bool** | If the value is &#39;true&#39; and order exist in our cache, we will return order.info response from cache | [default to false]
  **use_latest_api_version** | **Bool** | Use the latest platform API version | [default to false]
 
@@ -311,8 +311,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **order_list**
-> order_list(_api::OrderApi; customer_id=nothing, customer_email=nothing, phone=nothing, order_status=nothing, order_status_ids=nothing, start=nothing, count=nothing, page_cursor=nothing, sort_by=nothing, sort_direction=nothing, params=nothing, response_fields=nothing, exclude=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, store_id=nothing, ids=nothing, order_ids=nothing, ebay_order_status=nothing, basket_id=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_status=nothing, fulfillment_channel=nothing, shipping_method=nothing, skip_order_ids=nothing, since_id=nothing, is_deleted=nothing, shipping_country_iso3=nothing, enable_cache=nothing, delivery_method=nothing, tags=nothing, ship_node_type=nothing, currency_id=nothing, return_status=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> ModelResponseOrderList, OpenAPI.Clients.ApiResponse <br/>
-> order_list(_api::OrderApi, response_stream::Channel; customer_id=nothing, customer_email=nothing, phone=nothing, order_status=nothing, order_status_ids=nothing, start=nothing, count=nothing, page_cursor=nothing, sort_by=nothing, sort_direction=nothing, params=nothing, response_fields=nothing, exclude=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, store_id=nothing, ids=nothing, order_ids=nothing, ebay_order_status=nothing, basket_id=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_status=nothing, fulfillment_channel=nothing, shipping_method=nothing, skip_order_ids=nothing, since_id=nothing, is_deleted=nothing, shipping_country_iso3=nothing, enable_cache=nothing, delivery_method=nothing, tags=nothing, ship_node_type=nothing, currency_id=nothing, return_status=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> Channel{ ModelResponseOrderList }, OpenAPI.Clients.ApiResponse
+> order_list(_api::OrderApi; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, order_ids=nothing, since_id=nothing, store_id=nothing, customer_id=nothing, customer_email=nothing, basket_id=nothing, currency_id=nothing, phone=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_status=nothing, return_status=nothing, fulfillment_channel=nothing, shipping_method=nothing, skip_order_ids=nothing, is_deleted=nothing, shipping_country_iso3=nothing, delivery_method=nothing, ship_node_type=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, tags=nothing, sort_by=nothing, sort_direction=nothing, params=nothing, response_fields=nothing, exclude=nothing, enable_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> ModelResponseOrderList, OpenAPI.Clients.ApiResponse <br/>
+> order_list(_api::OrderApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, order_ids=nothing, since_id=nothing, store_id=nothing, customer_id=nothing, customer_email=nothing, basket_id=nothing, currency_id=nothing, phone=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_status=nothing, return_status=nothing, fulfillment_channel=nothing, shipping_method=nothing, skip_order_ids=nothing, is_deleted=nothing, shipping_country_iso3=nothing, delivery_method=nothing, ship_node_type=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, tags=nothing, sort_by=nothing, sort_direction=nothing, params=nothing, response_fields=nothing, exclude=nothing, enable_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> Channel{ ModelResponseOrderList }, OpenAPI.Clients.ApiResponse
 
 order.list
 
@@ -328,43 +328,43 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customer_id** | **String** | Retrieves orders specified by customer id | [default to nothing]
- **customer_email** | **String** | Retrieves orders specified by customer email | [default to nothing]
- **phone** | **String** | Filter orders by customer&#39;s phone number | [default to nothing]
- **order_status** | **String** | Retrieves orders specified by order status | [default to nothing]
- **order_status_ids** | [**Vector{String}**](String.md) | Retrieves orders specified by order statuses | [default to nothing]
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
  **page_cursor** | **String** | Used to retrieve orders via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
+ **ids** | **String** | Retrieves orders specified by ids | [default to nothing]
+ **order_ids** | **String** | Retrieves orders specified by order ids | [default to nothing]
+ **since_id** | **String** | Retrieve entities starting from the specified id. | [default to nothing]
+ **store_id** | **String** | Store Id | [default to nothing]
+ **customer_id** | **String** | Retrieves orders specified by customer id | [default to nothing]
+ **customer_email** | **String** | Retrieves orders specified by customer email | [default to nothing]
+ **basket_id** | **String** | Retrieves order’s info specified by basket id. | [default to nothing]
+ **currency_id** | **String** | Currency Id | [default to nothing]
+ **phone** | **String** | Filter orders by customer&#39;s phone number | [default to nothing]
+ **order_status** | **String** | Retrieves orders specified by order status | [default to nothing]
+ **order_status_ids** | [**Vector{String}**](String.md) | Retrieves orders specified by order statuses | [default to nothing]
+ **ebay_order_status** | **String** | Retrieves orders specified by order status | [default to nothing]
+ **financial_status** | **String** | Retrieves orders specified by financial status | [default to nothing]
+ **financial_status_ids** | [**Vector{String}**](String.md) | Retrieves orders specified by financial status ids | [default to nothing]
+ **fulfillment_status** | **String** | Create order with fulfillment status | [default to nothing]
+ **return_status** | **String** | Retrieves orders specified by return status | [default to nothing]
+ **fulfillment_channel** | **String** | Retrieves order with a fulfillment channel | [default to nothing]
+ **shipping_method** | **String** | Retrieve entities according to shipping method | [default to nothing]
+ **skip_order_ids** | **String** | Skipped orders by ids | [default to nothing]
+ **is_deleted** | **Bool** | Filter deleted orders | [default to nothing]
+ **shipping_country_iso3** | **String** | Retrieve entities according to shipping country | [default to nothing]
+ **delivery_method** | **String** | Retrieves order with delivery method | [default to nothing]
+ **ship_node_type** | **String** | Retrieves order with ship node type | [default to nothing]
+ **created_to** | **String** | Retrieve entities to their creation date | [default to nothing]
+ **created_from** | **String** | Retrieve entities from their creation date | [default to nothing]
+ **modified_to** | **String** | Retrieve entities to their modification date | [default to nothing]
+ **modified_from** | **String** | Retrieve entities from their modification date | [default to nothing]
+ **tags** | **String** | Order tags | [default to nothing]
  **sort_by** | **String** | Set field to sort by | [default to &quot;order_id&quot;]
  **sort_direction** | **String** | Set sorting direction | [default to &quot;asc&quot;]
  **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;order_id,customer,totals,address,items,bundles,status&quot;]
  **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
- **created_to** | **String** | Retrieve entities to their creation date | [default to nothing]
- **created_from** | **String** | Retrieve entities from their creation date | [default to nothing]
- **modified_to** | **String** | Retrieve entities to their modification date | [default to nothing]
- **modified_from** | **String** | Retrieve entities from their modification date | [default to nothing]
- **store_id** | **String** | Store Id | [default to nothing]
- **ids** | **String** | Retrieves orders specified by ids | [default to nothing]
- **order_ids** | **String** | Retrieves orders specified by order ids | [default to nothing]
- **ebay_order_status** | **String** | Retrieves orders specified by order status | [default to nothing]
- **basket_id** | **String** | Retrieves order’s info specified by basket id. | [default to nothing]
- **financial_status** | **String** | Retrieves orders specified by financial status | [default to nothing]
- **financial_status_ids** | [**Vector{String}**](String.md) | Retrieves orders specified by financial status ids | [default to nothing]
- **fulfillment_status** | **String** | Create order with fulfillment status | [default to nothing]
- **fulfillment_channel** | **String** | Retrieves order with a fulfillment channel | [default to nothing]
- **shipping_method** | **String** | Retrieve entities according to shipping method | [default to nothing]
- **skip_order_ids** | **String** | Skipped orders by ids | [default to nothing]
- **since_id** | **String** | Retrieve entities starting from the specified id. | [default to nothing]
- **is_deleted** | **Bool** | Filter deleted orders | [default to nothing]
- **shipping_country_iso3** | **String** | Retrieve entities according to shipping country | [default to nothing]
  **enable_cache** | **Bool** | If the value is &#39;true&#39;, we will cache orders for a 15 minutes in order to increase speed and reduce requests throttling for some methods and shoping platforms (for example order.shipment.add) | [default to false]
- **delivery_method** | **String** | Retrieves order with delivery method | [default to nothing]
- **tags** | **String** | Order tags | [default to nothing]
- **ship_node_type** | **String** | Retrieves order with ship node type | [default to nothing]
- **currency_id** | **String** | Currency Id | [default to nothing]
- **return_status** | **String** | Retrieves orders specified by return status | [default to nothing]
  **use_latest_api_version** | **Bool** | Use the latest platform API version | [default to false]
 
 ### Return type
@@ -637,8 +637,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **order_shipment_info**
-> order_shipment_info(_api::OrderApi, id::String, order_id::String; start=nothing, params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, _mediaType=nothing) -> OrderShipmentInfo200Response, OpenAPI.Clients.ApiResponse <br/>
-> order_shipment_info(_api::OrderApi, response_stream::Channel, id::String, order_id::String; start=nothing, params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, _mediaType=nothing) -> Channel{ OrderShipmentInfo200Response }, OpenAPI.Clients.ApiResponse
+> order_shipment_info(_api::OrderApi, id::String, order_id::String; start=nothing, store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> OrderShipmentInfo200Response, OpenAPI.Clients.ApiResponse <br/>
+> order_shipment_info(_api::OrderApi, response_stream::Channel, id::String, order_id::String; start=nothing, store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ OrderShipmentInfo200Response }, OpenAPI.Clients.ApiResponse
 
 order.shipment.info
 
@@ -657,10 +657,10 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,order_id,items,tracking_numbers&quot;]
- **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
  **store_id** | **String** | Store Id | [default to nothing]
+ **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,order_id,items,tracking_numbers&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
 
 ### Return type
 
@@ -678,8 +678,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **order_shipment_list**
-> order_shipment_list(_api::OrderApi, order_id::String; page_cursor=nothing, start=nothing, count=nothing, params=nothing, response_fields=nothing, exclude=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, store_id=nothing, _mediaType=nothing) -> ModelResponseOrderShipmentList, OpenAPI.Clients.ApiResponse <br/>
-> order_shipment_list(_api::OrderApi, response_stream::Channel, order_id::String; page_cursor=nothing, start=nothing, count=nothing, params=nothing, response_fields=nothing, exclude=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, store_id=nothing, _mediaType=nothing) -> Channel{ ModelResponseOrderShipmentList }, OpenAPI.Clients.ApiResponse
+> order_shipment_list(_api::OrderApi, order_id::String; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseOrderShipmentList, OpenAPI.Clients.ApiResponse <br/>
+> order_shipment_list(_api::OrderApi, response_stream::Channel, order_id::String; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseOrderShipmentList }, OpenAPI.Clients.ApiResponse
 
 order.shipment.list
 
@@ -696,17 +696,17 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,order_id,items,tracking_numbers&quot;]
- **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
+ **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
+ **store_id** | **String** | Store Id | [default to nothing]
  **created_from** | **String** | Retrieve entities from their creation date | [default to nothing]
  **created_to** | **String** | Retrieve entities to their creation date | [default to nothing]
  **modified_from** | **String** | Retrieve entities from their modification date | [default to nothing]
  **modified_to** | **String** | Retrieve entities to their modification date | [default to nothing]
- **store_id** | **String** | Store Id | [default to nothing]
+ **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,order_id,items,tracking_numbers&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
 
 ### Return type
 
@@ -821,8 +821,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **order_transaction_list**
-> order_transaction_list(_api::OrderApi, order_ids::String; count=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, page_cursor=nothing, _mediaType=nothing) -> ModelResponseOrderTransactionList, OpenAPI.Clients.ApiResponse <br/>
-> order_transaction_list(_api::OrderApi, response_stream::Channel, order_ids::String; count=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, page_cursor=nothing, _mediaType=nothing) -> Channel{ ModelResponseOrderTransactionList }, OpenAPI.Clients.ApiResponse
+> order_transaction_list(_api::OrderApi, order_ids::String; count=nothing, page_cursor=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseOrderTransactionList, OpenAPI.Clients.ApiResponse <br/>
+> order_transaction_list(_api::OrderApi, response_stream::Channel, order_ids::String; count=nothing, page_cursor=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseOrderTransactionList }, OpenAPI.Clients.ApiResponse
 
 order.transaction.list
 
@@ -840,11 +840,11 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
+ **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
  **store_id** | **String** | Store Id | [default to nothing]
  **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,order_id,amount,description&quot;]
  **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
- **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
 
 ### Return type
 
@@ -862,8 +862,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **order_update**
-> order_update(_api::OrderApi, order_id::String; store_id=nothing, order_status=nothing, cancellation_reason=nothing, comment=nothing, admin_comment=nothing, admin_private_comment=nothing, date_modified=nothing, date_finished=nothing, financial_status=nothing, fulfillment_status=nothing, order_payment_method=nothing, send_notifications=nothing, origin=nothing, create_invoice=nothing, invoice_admin_comment=nothing, _mediaType=nothing) -> AccountConfigUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
-> order_update(_api::OrderApi, response_stream::Channel, order_id::String; store_id=nothing, order_status=nothing, cancellation_reason=nothing, comment=nothing, admin_comment=nothing, admin_private_comment=nothing, date_modified=nothing, date_finished=nothing, financial_status=nothing, fulfillment_status=nothing, order_payment_method=nothing, send_notifications=nothing, origin=nothing, create_invoice=nothing, invoice_admin_comment=nothing, _mediaType=nothing) -> Channel{ AccountConfigUpdate200Response }, OpenAPI.Clients.ApiResponse
+> order_update(_api::OrderApi, order_id::String; store_id=nothing, order_status=nothing, financial_status=nothing, fulfillment_status=nothing, cancellation_reason=nothing, order_payment_method=nothing, comment=nothing, admin_comment=nothing, admin_private_comment=nothing, invoice_admin_comment=nothing, date_modified=nothing, date_finished=nothing, send_notifications=nothing, create_invoice=nothing, origin=nothing, _mediaType=nothing) -> AccountConfigUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
+> order_update(_api::OrderApi, response_stream::Channel, order_id::String; store_id=nothing, order_status=nothing, financial_status=nothing, fulfillment_status=nothing, cancellation_reason=nothing, order_payment_method=nothing, comment=nothing, admin_comment=nothing, admin_private_comment=nothing, invoice_admin_comment=nothing, date_modified=nothing, date_finished=nothing, send_notifications=nothing, create_invoice=nothing, origin=nothing, _mediaType=nothing) -> Channel{ AccountConfigUpdate200Response }, OpenAPI.Clients.ApiResponse
 
 order.update
 
@@ -882,19 +882,19 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **store_id** | **String** | Defines store id where the order should be found | [default to nothing]
  **order_status** | **String** | Defines new order&#39;s status | [default to nothing]
+ **financial_status** | **String** | Update order financial status to specified | [default to nothing]
+ **fulfillment_status** | **String** | Create order with fulfillment status | [default to nothing]
  **cancellation_reason** | **String** | Defines the cancellation reason when the order will be canceled | [default to nothing]
+ **order_payment_method** | **String** | Defines order payment method.&lt;br/&gt;Setting order_payment_method on Shopify will also change financial_status field value to &#39;paid&#39; | [default to nothing]
  **comment** | **String** | Specifies order comment | [default to nothing]
  **admin_comment** | **String** | Specifies admin&#39;s order comment | [default to nothing]
  **admin_private_comment** | **String** | Specifies private admin&#39;s order comment | [default to nothing]
+ **invoice_admin_comment** | **String** | Specifies admin&#39;s order invoice comment | [default to nothing]
  **date_modified** | **String** | Specifies order&#39;s  modification date | [default to nothing]
  **date_finished** | **String** | Specifies order&#39;s  finished date | [default to nothing]
- **financial_status** | **String** | Update order financial status to specified | [default to nothing]
- **fulfillment_status** | **String** | Create order with fulfillment status | [default to nothing]
- **order_payment_method** | **String** | Defines order payment method.&lt;br/&gt;Setting order_payment_method on Shopify will also change financial_status field value to &#39;paid&#39; | [default to nothing]
  **send_notifications** | **Bool** | Send notifications to customer after order was created | [default to false]
- **origin** | **String** | The source of the order | [default to nothing]
  **create_invoice** | **Bool** | Determines whether an invoice should be created if it has not already been created | [default to nothing]
- **invoice_admin_comment** | **String** | Specifies admin&#39;s order invoice comment | [default to nothing]
+ **origin** | **String** | The source of the order | [default to nothing]
 
 ### Return type
 

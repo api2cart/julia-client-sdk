@@ -19,8 +19,8 @@ Method | HTTP request | Description
 
 
 # **category_add**
-> category_add(_api::CategoryApi, name::String; parent_id=nothing, stores_ids=nothing, store_id=nothing, lang_id=nothing, avail=nothing, sort_order=nothing, created_time=nothing, modified_time=nothing, description=nothing, short_description=nothing, meta_title=nothing, meta_description=nothing, meta_keywords=nothing, seo_url=nothing, _mediaType=nothing) -> CategoryAdd200Response, OpenAPI.Clients.ApiResponse <br/>
-> category_add(_api::CategoryApi, response_stream::Channel, name::String; parent_id=nothing, stores_ids=nothing, store_id=nothing, lang_id=nothing, avail=nothing, sort_order=nothing, created_time=nothing, modified_time=nothing, description=nothing, short_description=nothing, meta_title=nothing, meta_description=nothing, meta_keywords=nothing, seo_url=nothing, _mediaType=nothing) -> Channel{ CategoryAdd200Response }, OpenAPI.Clients.ApiResponse
+> category_add(_api::CategoryApi, name::String; description=nothing, short_description=nothing, parent_id=nothing, avail=nothing, created_time=nothing, modified_time=nothing, sort_order=nothing, meta_title=nothing, meta_description=nothing, meta_keywords=nothing, seo_url=nothing, store_id=nothing, stores_ids=nothing, lang_id=nothing, _mediaType=nothing) -> CategoryAdd200Response, OpenAPI.Clients.ApiResponse <br/>
+> category_add(_api::CategoryApi, response_stream::Channel, name::String; description=nothing, short_description=nothing, parent_id=nothing, avail=nothing, created_time=nothing, modified_time=nothing, sort_order=nothing, meta_title=nothing, meta_description=nothing, meta_keywords=nothing, seo_url=nothing, store_id=nothing, stores_ids=nothing, lang_id=nothing, _mediaType=nothing) -> Channel{ CategoryAdd200Response }, OpenAPI.Clients.ApiResponse
 
 category.add
 
@@ -37,20 +37,20 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **parent_id** | **String** | Adds categories specified by parent id | [default to nothing]
- **stores_ids** | **String** | Create category in the stores that is specified by comma-separated stores&#39; id | [default to nothing]
- **store_id** | **String** | Store Id | [default to nothing]
- **lang_id** | **String** | Language id | [default to nothing]
- **avail** | **Bool** | Defines category&#39;s visibility status | [default to true]
- **sort_order** | **Int64** | Sort number in the list | [default to 0]
- **created_time** | **String** | Entity&#39;s date creation | [default to nothing]
- **modified_time** | **String** | Entity&#39;s date modification | [default to nothing]
  **description** | **String** | Defines category&#39;s description | [default to nothing]
  **short_description** | **String** | Defines short description | [default to nothing]
+ **parent_id** | **String** | Adds categories specified by parent id | [default to nothing]
+ **avail** | **Bool** | Defines category&#39;s visibility status | [default to true]
+ **created_time** | **String** | Entity&#39;s date creation | [default to nothing]
+ **modified_time** | **String** | Entity&#39;s date modification | [default to nothing]
+ **sort_order** | **Int64** | Sort number in the list | [default to 0]
  **meta_title** | **String** | Defines unique meta title for each entity | [default to nothing]
  **meta_description** | **String** | Defines unique meta description of a entity | [default to nothing]
  **meta_keywords** | **String** | Defines unique meta keywords for each entity | [default to nothing]
  **seo_url** | **String** | Defines unique category&#39;s URL for SEO | [default to nothing]
+ **store_id** | **String** | Store Id | [default to nothing]
+ **stores_ids** | **String** | Create category in the stores that is specified by comma-separated stores&#39; id | [default to nothing]
+ **lang_id** | **String** | Language id | [default to nothing]
 
 ### Return type
 
@@ -98,8 +98,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **category_assign**
-> category_assign(_api::CategoryApi, product_id::String, category_id::String; store_id=nothing, _mediaType=nothing) -> CartConfigUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
-> category_assign(_api::CategoryApi, response_stream::Channel, product_id::String, category_id::String; store_id=nothing, _mediaType=nothing) -> Channel{ CartConfigUpdate200Response }, OpenAPI.Clients.ApiResponse
+> category_assign(_api::CategoryApi, category_id::String, product_id::String; store_id=nothing, _mediaType=nothing) -> CartConfigUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
+> category_assign(_api::CategoryApi, response_stream::Channel, category_id::String, product_id::String; store_id=nothing, _mediaType=nothing) -> Channel{ CartConfigUpdate200Response }, OpenAPI.Clients.ApiResponse
 
 category.assign
 
@@ -110,8 +110,8 @@ Assign category to product
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_api** | **CategoryApi** | API context | 
-**product_id** | **String** | Defines category assign to the product, specified by product id |
 **category_id** | **String** | Defines category assign, specified by category id |
+**product_id** | **String** | Defines category assign to the product, specified by product id |
 
 ### Optional Parameters
 
@@ -135,8 +135,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **category_count**
-> category_count(_api::CategoryApi; parent_id=nothing, store_id=nothing, lang_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, avail=nothing, product_type=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing) -> CategoryCount200Response, OpenAPI.Clients.ApiResponse <br/>
-> category_count(_api::CategoryApi, response_stream::Channel; parent_id=nothing, store_id=nothing, lang_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, avail=nothing, product_type=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing) -> Channel{ CategoryCount200Response }, OpenAPI.Clients.ApiResponse
+> category_count(_api::CategoryApi; parent_id=nothing, store_id=nothing, lang_id=nothing, avail=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, product_type=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing) -> CategoryCount200Response, OpenAPI.Clients.ApiResponse <br/>
+> category_count(_api::CategoryApi, response_stream::Channel; parent_id=nothing, store_id=nothing, lang_id=nothing, avail=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, product_type=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing) -> Channel{ CategoryCount200Response }, OpenAPI.Clients.ApiResponse
 
 category.count
 
@@ -155,11 +155,11 @@ Name | Type | Description  | Notes
  **parent_id** | **String** | Counts categories specified by parent id | [default to nothing]
  **store_id** | **String** | Counts category specified by store id | [default to nothing]
  **lang_id** | **String** | Counts category specified by language id | [default to nothing]
+ **avail** | **Bool** | Defines category&#39;s visibility status | [default to true]
  **created_from** | **String** | Retrieve entities from their creation date | [default to nothing]
  **created_to** | **String** | Retrieve entities to their creation date | [default to nothing]
  **modified_from** | **String** | Retrieve entities from their modification date | [default to nothing]
  **modified_to** | **String** | Retrieve entities to their modification date | [default to nothing]
- **avail** | **Bool** | Defines category&#39;s visibility status | [default to true]
  **product_type** | **String** | A categorization for the product | [default to nothing]
  **find_value** | **String** | Entity search that is specified by some value | [default to nothing]
  **find_where** | **String** | Counts categories that are searched specified by field | [default to nothing]
@@ -257,8 +257,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **category_image_add**
-> category_image_add(_api::CategoryApi, category_id::String, image_name::String, url::String, type::String; label=nothing, mime=nothing, position=nothing, store_id=nothing, _mediaType=nothing) -> CategoryImageAdd200Response, OpenAPI.Clients.ApiResponse <br/>
-> category_image_add(_api::CategoryApi, response_stream::Channel, category_id::String, image_name::String, url::String, type::String; label=nothing, mime=nothing, position=nothing, store_id=nothing, _mediaType=nothing) -> Channel{ CategoryImageAdd200Response }, OpenAPI.Clients.ApiResponse
+> category_image_add(_api::CategoryApi, category_id::String, image_name::String, url::String, type::String; store_id=nothing, label=nothing, mime=nothing, position=nothing, _mediaType=nothing) -> CategoryImageAdd200Response, OpenAPI.Clients.ApiResponse <br/>
+> category_image_add(_api::CategoryApi, response_stream::Channel, category_id::String, image_name::String, url::String, type::String; store_id=nothing, label=nothing, mime=nothing, position=nothing, _mediaType=nothing) -> Channel{ CategoryImageAdd200Response }, OpenAPI.Clients.ApiResponse
 
 category.image.add
 
@@ -278,10 +278,10 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **store_id** | **String** | Store Id | [default to nothing]
  **label** | **String** | Defines alternative text that has to be attached to the picture | [default to nothing]
  **mime** | **String** | Mime type of image http://en.wikipedia.org/wiki/Internet_media_type. | [default to nothing]
  **position** | **Int64** | Defines image’s position in the list | [default to 0]
- **store_id** | **String** | Store Id | [default to nothing]
 
 ### Return type
 
@@ -336,8 +336,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **category_info**
-> category_info(_api::CategoryApi, id::String; params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, lang_id=nothing, schema_type=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing) -> CategoryInfo200Response, OpenAPI.Clients.ApiResponse <br/>
-> category_info(_api::CategoryApi, response_stream::Channel, id::String; params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, lang_id=nothing, schema_type=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing) -> Channel{ CategoryInfo200Response }, OpenAPI.Clients.ApiResponse
+> category_info(_api::CategoryApi, id::String; store_id=nothing, lang_id=nothing, schema_type=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing) -> CategoryInfo200Response, OpenAPI.Clients.ApiResponse <br/>
+> category_info(_api::CategoryApi, response_stream::Channel, id::String; store_id=nothing, lang_id=nothing, schema_type=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing) -> Channel{ CategoryInfo200Response }, OpenAPI.Clients.ApiResponse
 
 category.info
 
@@ -354,12 +354,12 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,parent_id,name,description&quot;]
- **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
  **store_id** | **String** | Retrieves category info  specified by store id | [default to nothing]
  **lang_id** | **String** | Retrieves category info  specified by language id | [default to nothing]
  **schema_type** | **String** | The name of the requirements set for the provided schema. | [default to nothing]
+ **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,parent_id,name,description&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
  **report_request_id** | **String** | Report request id | [default to nothing]
  **disable_report_cache** | **Bool** | Disable report cache for current request | [default to false]
 
@@ -379,8 +379,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **category_list**
-> category_list(_api::CategoryApi; start=nothing, count=nothing, page_cursor=nothing, parent_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, lang_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, avail=nothing, product_type=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, disable_report_cache=nothing, disable_cache=nothing, _mediaType=nothing) -> ModelResponseCategoryList, OpenAPI.Clients.ApiResponse <br/>
-> category_list(_api::CategoryApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, parent_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, lang_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, avail=nothing, product_type=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, disable_report_cache=nothing, disable_cache=nothing, _mediaType=nothing) -> Channel{ ModelResponseCategoryList }, OpenAPI.Clients.ApiResponse
+> category_list(_api::CategoryApi; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, parent_id=nothing, avail=nothing, product_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, find_value=nothing, find_where=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, disable_cache=nothing, _mediaType=nothing) -> ModelResponseCategoryList, OpenAPI.Clients.ApiResponse <br/>
+> category_list(_api::CategoryApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, parent_id=nothing, avail=nothing, product_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, find_value=nothing, find_where=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, disable_cache=nothing, _mediaType=nothing) -> Channel{ ModelResponseCategoryList }, OpenAPI.Clients.ApiResponse
 
 category.list
 
@@ -399,20 +399,20 @@ Name | Type | Description  | Notes
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
  **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
- **parent_id** | **String** | Retrieves categories specified by parent id | [default to nothing]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,parent_id,name,description&quot;]
- **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
  **store_id** | **String** | Retrieves categories specified by store id | [default to nothing]
  **lang_id** | **String** | Retrieves categorys specified by language id | [default to nothing]
+ **parent_id** | **String** | Retrieves categories specified by parent id | [default to nothing]
+ **avail** | **Bool** | Defines category&#39;s visibility status | [default to true]
+ **product_type** | **String** | A categorization for the product | [default to nothing]
  **created_from** | **String** | Retrieve entities from their creation date | [default to nothing]
  **created_to** | **String** | Retrieve entities to their creation date | [default to nothing]
  **modified_from** | **String** | Retrieve entities from their modification date | [default to nothing]
  **modified_to** | **String** | Retrieve entities to their modification date | [default to nothing]
- **avail** | **Bool** | Defines category&#39;s visibility status | [default to true]
- **product_type** | **String** | A categorization for the product | [default to nothing]
  **find_value** | **String** | Entity search that is specified by some value | [default to nothing]
  **find_where** | **String** | Category search that is specified by field | [default to nothing]
+ **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,parent_id,name,description&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
  **report_request_id** | **String** | Report request id | [default to nothing]
  **disable_report_cache** | **Bool** | Disable report cache for current request | [default to false]
  **disable_cache** | **Bool** | Disable cache for current request | [default to false]
@@ -470,8 +470,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **category_update**
-> category_update(_api::CategoryApi, id::String; name=nothing, parent_id=nothing, stores_ids=nothing, avail=nothing, sort_order=nothing, modified_time=nothing, description=nothing, short_description=nothing, meta_title=nothing, meta_description=nothing, meta_keywords=nothing, seo_url=nothing, lang_id=nothing, store_id=nothing, _mediaType=nothing) -> AccountConfigUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
-> category_update(_api::CategoryApi, response_stream::Channel, id::String; name=nothing, parent_id=nothing, stores_ids=nothing, avail=nothing, sort_order=nothing, modified_time=nothing, description=nothing, short_description=nothing, meta_title=nothing, meta_description=nothing, meta_keywords=nothing, seo_url=nothing, lang_id=nothing, store_id=nothing, _mediaType=nothing) -> Channel{ AccountConfigUpdate200Response }, OpenAPI.Clients.ApiResponse
+> category_update(_api::CategoryApi, id::String; name=nothing, description=nothing, short_description=nothing, parent_id=nothing, avail=nothing, sort_order=nothing, modified_time=nothing, meta_title=nothing, meta_description=nothing, meta_keywords=nothing, seo_url=nothing, store_id=nothing, stores_ids=nothing, lang_id=nothing, _mediaType=nothing) -> AccountConfigUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
+> category_update(_api::CategoryApi, response_stream::Channel, id::String; name=nothing, description=nothing, short_description=nothing, parent_id=nothing, avail=nothing, sort_order=nothing, modified_time=nothing, meta_title=nothing, meta_description=nothing, meta_keywords=nothing, seo_url=nothing, store_id=nothing, stores_ids=nothing, lang_id=nothing, _mediaType=nothing) -> Channel{ AccountConfigUpdate200Response }, OpenAPI.Clients.ApiResponse
 
 category.update
 
@@ -489,19 +489,19 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String** | Defines new category’s name | [default to nothing]
+ **description** | **String** | Defines new category&#39;s description | [default to nothing]
+ **short_description** | **String** | Defines short description | [default to nothing]
  **parent_id** | **String** | Defines new parent category id | [default to nothing]
- **stores_ids** | **String** | Update category in the stores that is specified by comma-separated stores&#39; id | [default to nothing]
  **avail** | **Bool** | Defines category&#39;s visibility status | [default to nothing]
  **sort_order** | **Int64** | Sort number in the list | [default to nothing]
  **modified_time** | **String** | Entity&#39;s date modification | [default to nothing]
- **description** | **String** | Defines new category&#39;s description | [default to nothing]
- **short_description** | **String** | Defines short description | [default to nothing]
  **meta_title** | **String** | Defines unique meta title for each entity | [default to nothing]
  **meta_description** | **String** | Defines unique meta description of a entity | [default to nothing]
  **meta_keywords** | **String** | Defines unique meta keywords for each entity | [default to nothing]
  **seo_url** | **String** | Defines unique category&#39;s URL for SEO | [default to nothing]
- **lang_id** | **String** | Language id | [default to nothing]
  **store_id** | **String** | Store Id | [default to nothing]
+ **stores_ids** | **String** | Update category in the stores that is specified by comma-separated stores&#39; id | [default to nothing]
+ **lang_id** | **String** | Language id | [default to nothing]
 
 ### Return type
 

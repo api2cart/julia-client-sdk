@@ -17,9 +17,9 @@ Name | Type | Description | Notes
 **consents** | [**Vector{CustomerAddConsentsInner}**](CustomerAddConsentsInner.md) | Defines consents to notifications | [optional] [default to nothing]
 **tags** | **String** | Customer tags | [optional] [default to nothing]
 **gender** | **String** | Defines customer&#39;s gender | [optional] [default to nothing]
-**store_id** | **String** | Store Id | [optional] [default to nothing]
 **note** | **String** | The customer note. | [optional] [default to nothing]
 **status** | **String** | Defines customer&#39;s status | [optional] [default to nothing]
+**store_id** | **String** | Store Id | [optional] [default to nothing]
 **address** | [**Vector{CustomerUpdateAddressInner}**](CustomerUpdateAddressInner.md) |  | [optional] [default to nothing]
 
 

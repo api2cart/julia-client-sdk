@@ -84,8 +84,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **return_info**
-> return_info(_api::ReturnApi, id::String; order_id=nothing, store_id=nothing, params=nothing, exclude=nothing, response_fields=nothing, _mediaType=nothing) -> ReturnInfo200Response, OpenAPI.Clients.ApiResponse <br/>
-> return_info(_api::ReturnApi, response_stream::Channel, id::String; order_id=nothing, store_id=nothing, params=nothing, exclude=nothing, response_fields=nothing, _mediaType=nothing) -> Channel{ ReturnInfo200Response }, OpenAPI.Clients.ApiResponse
+> return_info(_api::ReturnApi, id::String; order_id=nothing, store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ReturnInfo200Response, OpenAPI.Clients.ApiResponse <br/>
+> return_info(_api::ReturnApi, response_stream::Channel, id::String; order_id=nothing, store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ReturnInfo200Response }, OpenAPI.Clients.ApiResponse
 
 return.info
 
@@ -104,9 +104,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order_id** | **String** | Defines the order id | [default to nothing]
  **store_id** | **String** | Store Id | [default to nothing]
+ **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
  **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,order_products&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
- **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
 
 ### Return type
 
@@ -124,8 +124,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **return_list**
-> return_list(_api::ReturnApi; start=nothing, count=nothing, page_cursor=nothing, params=nothing, exclude=nothing, response_fields=nothing, order_id=nothing, order_ids=nothing, customer_id=nothing, store_id=nothing, status=nothing, return_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing) -> ModelResponseReturnList, OpenAPI.Clients.ApiResponse <br/>
-> return_list(_api::ReturnApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, params=nothing, exclude=nothing, response_fields=nothing, order_id=nothing, order_ids=nothing, customer_id=nothing, store_id=nothing, status=nothing, return_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing) -> Channel{ ModelResponseReturnList }, OpenAPI.Clients.ApiResponse
+> return_list(_api::ReturnApi; start=nothing, count=nothing, page_cursor=nothing, order_id=nothing, order_ids=nothing, customer_id=nothing, store_id=nothing, status=nothing, return_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing) -> ModelResponseReturnList, OpenAPI.Clients.ApiResponse <br/>
+> return_list(_api::ReturnApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, order_id=nothing, order_ids=nothing, customer_id=nothing, store_id=nothing, status=nothing, return_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing) -> Channel{ ModelResponseReturnList }, OpenAPI.Clients.ApiResponse
 
 return.list
 
@@ -144,9 +144,6 @@ Name | Type | Description  | Notes
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
  **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,order_products&quot;]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
- **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
  **order_id** | **String** | Defines the order id | [default to nothing]
  **order_ids** | **String** | Retrieves return requests specified by order ids | [default to nothing]
  **customer_id** | **String** | Retrieves return requests specified by customer id | [default to nothing]
@@ -157,6 +154,9 @@ Name | Type | Description  | Notes
  **created_to** | **String** | Retrieve entities to their creation date | [default to nothing]
  **modified_from** | **String** | Retrieve entities from their modification date | [default to nothing]
  **modified_to** | **String** | Retrieve entities to their modification date | [default to nothing]
+ **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,order_products&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
  **report_request_id** | **String** | Report request id | [default to nothing]
  **disable_report_cache** | **Bool** | Disable report cache for current request | [default to false]
 

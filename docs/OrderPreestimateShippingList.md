@@ -4,10 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**store_id** | **String** | Store Id | [optional] [default to nothing]
 **warehouse_id** | **String** | This parameter is used for selecting a warehouse where you need to set/modify a product quantity. | [optional] [default to nothing]
-**customer_email** | **String** | Retrieves orders specified by customer email | [optional] [default to nothing]
 **customer_id** | **String** | Retrieves orders specified by customer id | [optional] [default to nothing]
+**customer_email** | **String** | Retrieves orders specified by customer email | [optional] [default to nothing]
+**store_id** | **String** | Store Id | [optional] [default to nothing]
 **shipp_address_1** | **String** | Specifies first shipping address | [optional] [default to nothing]
 **shipp_city** | **String** | Specifies shipping city | [optional] [default to nothing]
 **shipp_postcode** | **String** | Specifies shipping postcode | [optional] [default to nothing]

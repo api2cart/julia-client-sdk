@@ -79,8 +79,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **customer_attribute_list**
-> customer_attribute_list(_api::CustomerApi, customer_id::String; count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, params=nothing, exclude=nothing, response_fields=nothing, _mediaType=nothing) -> ModelResponseCustomerAttributeList, OpenAPI.Clients.ApiResponse <br/>
-> customer_attribute_list(_api::CustomerApi, response_stream::Channel, customer_id::String; count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, params=nothing, exclude=nothing, response_fields=nothing, _mediaType=nothing) -> Channel{ ModelResponseCustomerAttributeList }, OpenAPI.Clients.ApiResponse
+> customer_attribute_list(_api::CustomerApi, customer_id::String; count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseCustomerAttributeList, OpenAPI.Clients.ApiResponse <br/>
+> customer_attribute_list(_api::CustomerApi, response_stream::Channel, customer_id::String; count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseCustomerAttributeList }, OpenAPI.Clients.ApiResponse
 
 customer.attribute.list
 
@@ -101,9 +101,9 @@ Name | Type | Description  | Notes
  **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
  **store_id** | **String** | Store Id | [default to nothing]
  **lang_id** | **String** | Language id | [default to nothing]
+ **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
  **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;force_all&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
- **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
 
 ### Return type
 
@@ -121,8 +121,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **customer_count**
-> customer_count(_api::CustomerApi; group_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, store_id=nothing, customer_list_id=nothing, avail=nothing, find_value=nothing, find_where=nothing, ids=nothing, since_id=nothing, _mediaType=nothing) -> CustomerCount200Response, OpenAPI.Clients.ApiResponse <br/>
-> customer_count(_api::CustomerApi, response_stream::Channel; group_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, store_id=nothing, customer_list_id=nothing, avail=nothing, find_value=nothing, find_where=nothing, ids=nothing, since_id=nothing, _mediaType=nothing) -> Channel{ CustomerCount200Response }, OpenAPI.Clients.ApiResponse
+> customer_count(_api::CustomerApi; ids=nothing, since_id=nothing, customer_list_id=nothing, group_id=nothing, store_id=nothing, avail=nothing, find_value=nothing, find_where=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, _mediaType=nothing) -> CustomerCount200Response, OpenAPI.Clients.ApiResponse <br/>
+> customer_count(_api::CustomerApi, response_stream::Channel; ids=nothing, since_id=nothing, customer_list_id=nothing, group_id=nothing, store_id=nothing, avail=nothing, find_value=nothing, find_where=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, _mediaType=nothing) -> Channel{ CustomerCount200Response }, OpenAPI.Clients.ApiResponse
 
 customer.count
 
@@ -138,18 +138,18 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ids** | **String** | Counts customers specified by ids | [default to nothing]
+ **since_id** | **String** | Retrieve entities starting from the specified id. | [default to nothing]
+ **customer_list_id** | **String** | The numeric ID of the customer list in Demandware. | [default to nothing]
  **group_id** | **String** | Customer group_id | [default to nothing]
+ **store_id** | **String** | Counts customer specified by store id | [default to nothing]
+ **avail** | **Bool** | Defines category&#39;s visibility status | [default to true]
+ **find_value** | **String** | Entity search that is specified by some value | [default to nothing]
+ **find_where** | **String** | Counts customers that are searched specified by field | [default to nothing]
  **created_from** | **String** | Retrieve entities from their creation date | [default to nothing]
  **created_to** | **String** | Retrieve entities to their creation date | [default to nothing]
  **modified_from** | **String** | Retrieve entities from their modification date | [default to nothing]
  **modified_to** | **String** | Retrieve entities to their modification date | [default to nothing]
- **store_id** | **String** | Counts customer specified by store id | [default to nothing]
- **customer_list_id** | **String** | The numeric ID of the customer list in Demandware. | [default to nothing]
- **avail** | **Bool** | Defines category&#39;s visibility status | [default to true]
- **find_value** | **String** | Entity search that is specified by some value | [default to nothing]
- **find_where** | **String** | Counts customers that are searched specified by field | [default to nothing]
- **ids** | **String** | Counts customers specified by ids | [default to nothing]
- **since_id** | **String** | Retrieve entities starting from the specified id. | [default to nothing]
 
 ### Return type
 
@@ -272,8 +272,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **customer_group_list**
-> customer_group_list(_api::CustomerApi; disable_cache=nothing, page_cursor=nothing, start=nothing, count=nothing, store_id=nothing, lang_id=nothing, group_ids=nothing, params=nothing, exclude=nothing, response_fields=nothing, _mediaType=nothing) -> ModelResponseCustomerGroupList, OpenAPI.Clients.ApiResponse <br/>
-> customer_group_list(_api::CustomerApi, response_stream::Channel; disable_cache=nothing, page_cursor=nothing, start=nothing, count=nothing, store_id=nothing, lang_id=nothing, group_ids=nothing, params=nothing, exclude=nothing, response_fields=nothing, _mediaType=nothing) -> Channel{ ModelResponseCustomerGroupList }, OpenAPI.Clients.ApiResponse
+> customer_group_list(_api::CustomerApi; start=nothing, count=nothing, page_cursor=nothing, group_ids=nothing, store_id=nothing, lang_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, disable_cache=nothing, _mediaType=nothing) -> ModelResponseCustomerGroupList, OpenAPI.Clients.ApiResponse <br/>
+> customer_group_list(_api::CustomerApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, group_ids=nothing, store_id=nothing, lang_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, disable_cache=nothing, _mediaType=nothing) -> Channel{ ModelResponseCustomerGroupList }, OpenAPI.Clients.ApiResponse
 
 customer.group.list
 
@@ -289,16 +289,16 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **disable_cache** | **Bool** | Disable cache for current request | [default to false]
- **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
+ **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
+ **group_ids** | **String** | Groups that will be assigned to a customer | [default to nothing]
  **store_id** | **String** | Store Id | [default to nothing]
  **lang_id** | **String** | Language id | [default to nothing]
- **group_ids** | **String** | Groups that will be assigned to a customer | [default to nothing]
+ **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
  **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,name,additional_fields&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
- **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+ **disable_cache** | **Bool** | Disable cache for current request | [default to false]
 
 ### Return type
 
@@ -316,8 +316,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **customer_info**
-> customer_info(_api::CustomerApi, id::String; params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, _mediaType=nothing) -> CustomerInfo200Response, OpenAPI.Clients.ApiResponse <br/>
-> customer_info(_api::CustomerApi, response_stream::Channel, id::String; params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, _mediaType=nothing) -> Channel{ CustomerInfo200Response }, OpenAPI.Clients.ApiResponse
+> customer_info(_api::CustomerApi, id::String; store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> CustomerInfo200Response, OpenAPI.Clients.ApiResponse <br/>
+> customer_info(_api::CustomerApi, response_stream::Channel, id::String; store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ CustomerInfo200Response }, OpenAPI.Clients.ApiResponse
 
 customer.info
 
@@ -334,10 +334,10 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,email,first_name,last_name&quot;]
- **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
  **store_id** | **String** | Retrieves customer info specified by store id | [default to nothing]
+ **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,email,first_name,last_name&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
 
 ### Return type
 
@@ -355,8 +355,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **customer_list**
-> customer_list(_api::CustomerApi; page_cursor=nothing, start=nothing, count=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, params=nothing, response_fields=nothing, exclude=nothing, group_id=nothing, store_id=nothing, customer_list_id=nothing, avail=nothing, find_value=nothing, find_where=nothing, sort_by=nothing, sort_direction=nothing, ids=nothing, since_id=nothing, _mediaType=nothing) -> ModelResponseCustomerList, OpenAPI.Clients.ApiResponse <br/>
-> customer_list(_api::CustomerApi, response_stream::Channel; page_cursor=nothing, start=nothing, count=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, params=nothing, response_fields=nothing, exclude=nothing, group_id=nothing, store_id=nothing, customer_list_id=nothing, avail=nothing, find_value=nothing, find_where=nothing, sort_by=nothing, sort_direction=nothing, ids=nothing, since_id=nothing, _mediaType=nothing) -> Channel{ ModelResponseCustomerList }, OpenAPI.Clients.ApiResponse
+> customer_list(_api::CustomerApi; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, since_id=nothing, customer_list_id=nothing, group_id=nothing, store_id=nothing, avail=nothing, find_value=nothing, find_where=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, sort_by=nothing, sort_direction=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseCustomerList, OpenAPI.Clients.ApiResponse <br/>
+> customer_list(_api::CustomerApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, since_id=nothing, customer_list_id=nothing, group_id=nothing, store_id=nothing, avail=nothing, find_value=nothing, find_where=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, sort_by=nothing, sort_direction=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseCustomerList }, OpenAPI.Clients.ApiResponse
 
 customer.list
 
@@ -372,26 +372,26 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
+ **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
+ **ids** | **String** | Retrieves customers specified by ids | [default to nothing]
+ **since_id** | **String** | Retrieve entities starting from the specified id. | [default to nothing]
+ **customer_list_id** | **String** | The numeric ID of the customer list in Demandware. | [default to nothing]
+ **group_id** | **String** | Customer group_id | [default to nothing]
+ **store_id** | **String** | Retrieves customers specified by store id | [default to nothing]
+ **avail** | **Bool** | Defines category&#39;s visibility status | [default to true]
+ **find_value** | **String** | Entity search that is specified by some value | [default to nothing]
+ **find_where** | **String** | Customer search that is specified by field | [default to nothing]
  **created_from** | **String** | Retrieve entities from their creation date | [default to nothing]
  **created_to** | **String** | Retrieve entities to their creation date | [default to nothing]
  **modified_from** | **String** | Retrieve entities from their modification date | [default to nothing]
  **modified_to** | **String** | Retrieve entities to their modification date | [default to nothing]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,email,first_name,last_name&quot;]
- **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
- **group_id** | **String** | Customer group_id | [default to nothing]
- **store_id** | **String** | Retrieves customers specified by store id | [default to nothing]
- **customer_list_id** | **String** | The numeric ID of the customer list in Demandware. | [default to nothing]
- **avail** | **Bool** | Defines category&#39;s visibility status | [default to true]
- **find_value** | **String** | Entity search that is specified by some value | [default to nothing]
- **find_where** | **String** | Customer search that is specified by field | [default to nothing]
  **sort_by** | **String** | Set field to sort by | [default to &quot;created_time&quot;]
  **sort_direction** | **String** | Set sorting direction | [default to &quot;asc&quot;]
- **ids** | **String** | Retrieves customers specified by ids | [default to nothing]
- **since_id** | **String** | Retrieve entities starting from the specified id. | [default to nothing]
+ **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,email,first_name,last_name&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
 
 ### Return type
 
@@ -439,8 +439,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **customer_wishlist_list**
-> customer_wishlist_list(_api::CustomerApi, customer_id::String; id=nothing, store_id=nothing, start=nothing, count=nothing, page_cursor=nothing, response_fields=nothing, _mediaType=nothing) -> ModelResponseCustomerWishlistList, OpenAPI.Clients.ApiResponse <br/>
-> customer_wishlist_list(_api::CustomerApi, response_stream::Channel, customer_id::String; id=nothing, store_id=nothing, start=nothing, count=nothing, page_cursor=nothing, response_fields=nothing, _mediaType=nothing) -> Channel{ ModelResponseCustomerWishlistList }, OpenAPI.Clients.ApiResponse
+> customer_wishlist_list(_api::CustomerApi, customer_id::String; start=nothing, count=nothing, page_cursor=nothing, id=nothing, store_id=nothing, response_fields=nothing, _mediaType=nothing) -> ModelResponseCustomerWishlistList, OpenAPI.Clients.ApiResponse <br/>
+> customer_wishlist_list(_api::CustomerApi, response_stream::Channel, customer_id::String; start=nothing, count=nothing, page_cursor=nothing, id=nothing, store_id=nothing, response_fields=nothing, _mediaType=nothing) -> Channel{ ModelResponseCustomerWishlistList }, OpenAPI.Clients.ApiResponse
 
 customer.wishlist.list
 
@@ -457,11 +457,11 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String** | Entity id | [default to nothing]
- **store_id** | **String** | Store Id | [default to nothing]
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
  **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
+ **id** | **String** | Entity id | [default to nothing]
+ **store_id** | **String** | Store Id | [default to nothing]
  **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;{return_code,return_message,pagination,result}&quot;]
 
 ### Return type

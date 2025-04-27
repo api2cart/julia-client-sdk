@@ -5,53 +5,53 @@
 @doc raw"""OrderShipmentUpdate
 
     OrderShipmentUpdate(;
-        store_id=nothing,
         shipment_id=nothing,
         order_id=nothing,
-        tracking_numbers=nothing,
-        replace=true,
-        is_shipped=true,
-        tracking_link=nothing,
-        delivered_at=nothing,
+        store_id=nothing,
         shipment_provider=nothing,
+        tracking_numbers=nothing,
+        tracking_link=nothing,
+        is_shipped=true,
+        delivered_at=nothing,
+        replace=true,
     )
 
-    - store_id::String : Store Id
     - shipment_id::String : Shipment id indicates the number of delivery
     - order_id::String : Defines the order that will be updated
-    - tracking_numbers::Vector{OrderShipmentAddTrackingNumbersInner} : Defines shipment&#39;s tracking numbers that have to be added&lt;/br&gt; How set tracking numbers to appropriate carrier:&lt;ul&gt;&lt;li&gt;tracking_numbers[]&#x3D;a2c.demo1,a2c.demo2 - set default carrier&lt;/li&gt;&lt;li&gt;tracking_numbers[&lt;b&gt;carrier_id&lt;/b&gt;]&#x3D;a2c.demo - set appropriate carrier&lt;/li&gt;&lt;/ul&gt;To get the list of carriers IDs that are available in your store, use the &lt;a href &#x3D; \&quot;https://api2cart.com/docs/#/cart/CartInfo\&quot;&gt;cart.info&lt;/a &gt; method
-    - replace::Bool : Allows rewrite tracking numbers
-    - is_shipped::Bool : Defines shipment&#39;s status
-    - tracking_link::String : Defines custom tracking link
-    - delivered_at::String : Defines the date of delivery
+    - store_id::String : Store Id
     - shipment_provider::String : Defines company name that provide tracking of shipment
+    - tracking_numbers::Vector{OrderShipmentAddTrackingNumbersInner} : Defines shipment&#39;s tracking numbers that have to be added&lt;/br&gt; How set tracking numbers to appropriate carrier:&lt;ul&gt;&lt;li&gt;tracking_numbers[]&#x3D;a2c.demo1,a2c.demo2 - set default carrier&lt;/li&gt;&lt;li&gt;tracking_numbers[&lt;b&gt;carrier_id&lt;/b&gt;]&#x3D;a2c.demo - set appropriate carrier&lt;/li&gt;&lt;/ul&gt;To get the list of carriers IDs that are available in your store, use the &lt;a href &#x3D; \&quot;https://api2cart.com/docs/#/cart/CartInfo\&quot;&gt;cart.info&lt;/a &gt; method
+    - tracking_link::String : Defines custom tracking link
+    - is_shipped::Bool : Defines shipment&#39;s status
+    - delivered_at::String : Defines the date of delivery
+    - replace::Bool : Allows rewrite tracking numbers
 """
 Base.@kwdef mutable struct OrderShipmentUpdate <: OpenAPI.APIModel
-    store_id::Union{Nothing, String} = nothing
     shipment_id::Union{Nothing, String} = nothing
     order_id::Union{Nothing, String} = nothing
-    tracking_numbers::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{OrderShipmentAddTrackingNumbersInner} }
-    replace::Union{Nothing, Bool} = true
-    is_shipped::Union{Nothing, Bool} = true
-    tracking_link::Union{Nothing, String} = nothing
-    delivered_at::Union{Nothing, String} = nothing
+    store_id::Union{Nothing, String} = nothing
     shipment_provider::Union{Nothing, String} = nothing
+    tracking_numbers::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{OrderShipmentAddTrackingNumbersInner} }
+    tracking_link::Union{Nothing, String} = nothing
+    is_shipped::Union{Nothing, Bool} = true
+    delivered_at::Union{Nothing, String} = nothing
+    replace::Union{Nothing, Bool} = true
 
-    function OrderShipmentUpdate(store_id, shipment_id, order_id, tracking_numbers, replace, is_shipped, tracking_link, delivered_at, shipment_provider, )
-        OpenAPI.validate_property(OrderShipmentUpdate, Symbol("store_id"), store_id)
+    function OrderShipmentUpdate(shipment_id, order_id, store_id, shipment_provider, tracking_numbers, tracking_link, is_shipped, delivered_at, replace, )
         OpenAPI.validate_property(OrderShipmentUpdate, Symbol("shipment_id"), shipment_id)
         OpenAPI.validate_property(OrderShipmentUpdate, Symbol("order_id"), order_id)
-        OpenAPI.validate_property(OrderShipmentUpdate, Symbol("tracking_numbers"), tracking_numbers)
-        OpenAPI.validate_property(OrderShipmentUpdate, Symbol("replace"), replace)
-        OpenAPI.validate_property(OrderShipmentUpdate, Symbol("is_shipped"), is_shipped)
-        OpenAPI.validate_property(OrderShipmentUpdate, Symbol("tracking_link"), tracking_link)
-        OpenAPI.validate_property(OrderShipmentUpdate, Symbol("delivered_at"), delivered_at)
+        OpenAPI.validate_property(OrderShipmentUpdate, Symbol("store_id"), store_id)
         OpenAPI.validate_property(OrderShipmentUpdate, Symbol("shipment_provider"), shipment_provider)
-        return new(store_id, shipment_id, order_id, tracking_numbers, replace, is_shipped, tracking_link, delivered_at, shipment_provider, )
+        OpenAPI.validate_property(OrderShipmentUpdate, Symbol("tracking_numbers"), tracking_numbers)
+        OpenAPI.validate_property(OrderShipmentUpdate, Symbol("tracking_link"), tracking_link)
+        OpenAPI.validate_property(OrderShipmentUpdate, Symbol("is_shipped"), is_shipped)
+        OpenAPI.validate_property(OrderShipmentUpdate, Symbol("delivered_at"), delivered_at)
+        OpenAPI.validate_property(OrderShipmentUpdate, Symbol("replace"), replace)
+        return new(shipment_id, order_id, store_id, shipment_provider, tracking_numbers, tracking_link, is_shipped, delivered_at, replace, )
     end
 end # type OrderShipmentUpdate
 
-const _property_types_OrderShipmentUpdate = Dict{Symbol,String}(Symbol("store_id")=>"String", Symbol("shipment_id")=>"String", Symbol("order_id")=>"String", Symbol("tracking_numbers")=>"Vector{OrderShipmentAddTrackingNumbersInner}", Symbol("replace")=>"Bool", Symbol("is_shipped")=>"Bool", Symbol("tracking_link")=>"String", Symbol("delivered_at")=>"String", Symbol("shipment_provider")=>"String", )
+const _property_types_OrderShipmentUpdate = Dict{Symbol,String}(Symbol("shipment_id")=>"String", Symbol("order_id")=>"String", Symbol("store_id")=>"String", Symbol("shipment_provider")=>"String", Symbol("tracking_numbers")=>"Vector{OrderShipmentAddTrackingNumbersInner}", Symbol("tracking_link")=>"String", Symbol("is_shipped")=>"Bool", Symbol("delivered_at")=>"String", Symbol("replace")=>"Bool", )
 OpenAPI.property_type(::Type{ OrderShipmentUpdate }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_OrderShipmentUpdate[name]))}
 
 function check_required(o::OrderShipmentUpdate)

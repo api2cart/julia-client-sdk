@@ -153,15 +153,15 @@ const _returntypes_webhook_list_WebhookApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => WebhookList200Response,
 )
 
-function _oacinternal_webhook_list(_api::WebhookApi; params=nothing, start=nothing, count=nothing, entity=nothing, action=nothing, active=nothing, ids=nothing, _mediaType=nothing)
+function _oacinternal_webhook_list(_api::WebhookApi; start=nothing, count=nothing, entity=nothing, action=nothing, active=nothing, ids=nothing, params=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_webhook_list_WebhookApi, "/webhook.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
-    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "entity", entity; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "action", action; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "active", active; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_param(_ctx.query, "ids", ids; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -172,23 +172,23 @@ end
 List registered webhook on the store.
 
 Params:
-- params::String
 - start::Int64
 - count::Int64
 - entity::String
 - action::String
 - active::Bool
 - ids::String
+- params::String
 
 Return: WebhookList200Response, OpenAPI.Clients.ApiResponse
 """
-function webhook_list(_api::WebhookApi; params=nothing, start=nothing, count=nothing, entity=nothing, action=nothing, active=nothing, ids=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_webhook_list(_api; params=params, start=start, count=count, entity=entity, action=action, active=active, ids=ids, _mediaType=_mediaType)
+function webhook_list(_api::WebhookApi; start=nothing, count=nothing, entity=nothing, action=nothing, active=nothing, ids=nothing, params=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_webhook_list(_api; start=start, count=count, entity=entity, action=action, active=active, ids=ids, params=params, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function webhook_list(_api::WebhookApi, response_stream::Channel; params=nothing, start=nothing, count=nothing, entity=nothing, action=nothing, active=nothing, ids=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_webhook_list(_api; params=params, start=start, count=count, entity=entity, action=action, active=active, ids=ids, _mediaType=_mediaType)
+function webhook_list(_api::WebhookApi, response_stream::Channel; start=nothing, count=nothing, entity=nothing, action=nothing, active=nothing, ids=nothing, params=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_webhook_list(_api; start=start, count=count, entity=entity, action=action, active=active, ids=ids, params=params, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 

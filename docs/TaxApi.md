@@ -9,8 +9,8 @@ Method | HTTP request | Description
 
 
 # **tax_class_info**
-> tax_class_info(_api::TaxApi, tax_class_id::String; store_id=nothing, lang_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseTaxClassInfo, OpenAPI.Clients.ApiResponse <br/>
-> tax_class_info(_api::TaxApi, response_stream::Channel, tax_class_id::String; store_id=nothing, lang_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseTaxClassInfo }, OpenAPI.Clients.ApiResponse
+> tax_class_info(_api::TaxApi, tax_class_id::String; store_id=nothing, lang_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseTaxClassInfo, OpenAPI.Clients.ApiResponse <br/>
+> tax_class_info(_api::TaxApi, response_stream::Channel, tax_class_id::String; store_id=nothing, lang_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseTaxClassInfo }, OpenAPI.Clients.ApiResponse
 
 tax.class.info
 
@@ -29,8 +29,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **store_id** | **String** | Store Id | [default to nothing]
  **lang_id** | **String** | Language id | [default to nothing]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;tax_class_id,name,avail&quot;]
  **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;tax_class_id,name,avail&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
 
 ### Return type
@@ -49,8 +49,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **tax_class_list**
-> tax_class_list(_api::TaxApi; created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, find_value=nothing, find_where=nothing, store_id=nothing, count=nothing, page_cursor=nothing, response_fields=nothing, _mediaType=nothing) -> ModelResponseTaxClassList, OpenAPI.Clients.ApiResponse <br/>
-> tax_class_list(_api::TaxApi, response_stream::Channel; created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, find_value=nothing, find_where=nothing, store_id=nothing, count=nothing, page_cursor=nothing, response_fields=nothing, _mediaType=nothing) -> Channel{ ModelResponseTaxClassList }, OpenAPI.Clients.ApiResponse
+> tax_class_list(_api::TaxApi; count=nothing, page_cursor=nothing, store_id=nothing, find_value=nothing, find_where=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, response_fields=nothing, _mediaType=nothing) -> ModelResponseTaxClassList, OpenAPI.Clients.ApiResponse <br/>
+> tax_class_list(_api::TaxApi, response_stream::Channel; count=nothing, page_cursor=nothing, store_id=nothing, find_value=nothing, find_where=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, response_fields=nothing, _mediaType=nothing) -> Channel{ ModelResponseTaxClassList }, OpenAPI.Clients.ApiResponse
 
 tax.class.list
 
@@ -66,15 +66,15 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
+ **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
+ **store_id** | **String** | Store Id | [default to nothing]
+ **find_value** | **String** | Entity search that is specified by some value | [default to nothing]
+ **find_where** | **String** | Tax class search that is specified by field | [default to nothing]
  **created_to** | **String** | Retrieve entities to their creation date | [default to nothing]
  **created_from** | **String** | Retrieve entities from their creation date | [default to nothing]
  **modified_to** | **String** | Retrieve entities to their modification date | [default to nothing]
  **modified_from** | **String** | Retrieve entities from their modification date | [default to nothing]
- **find_value** | **String** | Entity search that is specified by some value | [default to nothing]
- **find_where** | **String** | Tax class search that is specified by field | [default to nothing]
- **store_id** | **String** | Store Id | [default to nothing]
- **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
- **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
  **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;{return_code,return_message,pagination,result}&quot;]
 
 ### Return type

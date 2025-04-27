@@ -7,6 +7,7 @@
     ProductVariantImageAdd(;
         product_id=nothing,
         product_variant_id=nothing,
+        store_id=nothing,
         image_name=nothing,
         type="base",
         url=nothing,
@@ -14,12 +15,12 @@
         label=nothing,
         mime=nothing,
         position=0,
-        store_id=nothing,
         option_id=nothing,
     )
 
     - product_id::String : Defines product id where the variant image has to be added
     - product_variant_id::String : Defines product&#39;s variants specified by variant id
+    - store_id::String : Store Id
     - image_name::String : Defines image&#39;s name
     - type::String : Defines image&#39;s types that are specified by comma-separated list
     - url::String : Defines URL of the image that has to be added
@@ -27,12 +28,12 @@
     - label::String : Defines alternative text that has to be attached to the picture
     - mime::String : Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.
     - position::Int64 : Defines image’s position in the list
-    - store_id::String : Store Id
     - option_id::String : Defines option id of the product variant for which the image will be added
 """
 Base.@kwdef mutable struct ProductVariantImageAdd <: OpenAPI.APIModel
     product_id::Union{Nothing, String} = nothing
     product_variant_id::Union{Nothing, String} = nothing
+    store_id::Union{Nothing, String} = nothing
     image_name::Union{Nothing, String} = nothing
     type::Union{Nothing, String} = "base"
     url::Union{Nothing, String} = nothing
@@ -40,12 +41,12 @@ Base.@kwdef mutable struct ProductVariantImageAdd <: OpenAPI.APIModel
     label::Union{Nothing, String} = nothing
     mime::Union{Nothing, String} = nothing
     position::Union{Nothing, Int64} = 0
-    store_id::Union{Nothing, String} = nothing
     option_id::Union{Nothing, String} = nothing
 
-    function ProductVariantImageAdd(product_id, product_variant_id, image_name, type, url, content, label, mime, position, store_id, option_id, )
+    function ProductVariantImageAdd(product_id, product_variant_id, store_id, image_name, type, url, content, label, mime, position, option_id, )
         OpenAPI.validate_property(ProductVariantImageAdd, Symbol("product_id"), product_id)
         OpenAPI.validate_property(ProductVariantImageAdd, Symbol("product_variant_id"), product_variant_id)
+        OpenAPI.validate_property(ProductVariantImageAdd, Symbol("store_id"), store_id)
         OpenAPI.validate_property(ProductVariantImageAdd, Symbol("image_name"), image_name)
         OpenAPI.validate_property(ProductVariantImageAdd, Symbol("type"), type)
         OpenAPI.validate_property(ProductVariantImageAdd, Symbol("url"), url)
@@ -53,13 +54,12 @@ Base.@kwdef mutable struct ProductVariantImageAdd <: OpenAPI.APIModel
         OpenAPI.validate_property(ProductVariantImageAdd, Symbol("label"), label)
         OpenAPI.validate_property(ProductVariantImageAdd, Symbol("mime"), mime)
         OpenAPI.validate_property(ProductVariantImageAdd, Symbol("position"), position)
-        OpenAPI.validate_property(ProductVariantImageAdd, Symbol("store_id"), store_id)
         OpenAPI.validate_property(ProductVariantImageAdd, Symbol("option_id"), option_id)
-        return new(product_id, product_variant_id, image_name, type, url, content, label, mime, position, store_id, option_id, )
+        return new(product_id, product_variant_id, store_id, image_name, type, url, content, label, mime, position, option_id, )
     end
 end # type ProductVariantImageAdd
 
-const _property_types_ProductVariantImageAdd = Dict{Symbol,String}(Symbol("product_id")=>"String", Symbol("product_variant_id")=>"String", Symbol("image_name")=>"String", Symbol("type")=>"String", Symbol("url")=>"String", Symbol("content")=>"String", Symbol("label")=>"String", Symbol("mime")=>"String", Symbol("position")=>"Int64", Symbol("store_id")=>"String", Symbol("option_id")=>"String", )
+const _property_types_ProductVariantImageAdd = Dict{Symbol,String}(Symbol("product_id")=>"String", Symbol("product_variant_id")=>"String", Symbol("store_id")=>"String", Symbol("image_name")=>"String", Symbol("type")=>"String", Symbol("url")=>"String", Symbol("content")=>"String", Symbol("label")=>"String", Symbol("mime")=>"String", Symbol("position")=>"Int64", Symbol("option_id")=>"String", )
 OpenAPI.property_type(::Type{ ProductVariantImageAdd }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_ProductVariantImageAdd[name]))}
 
 function check_required(o::ProductVariantImageAdd)
@@ -74,10 +74,10 @@ function OpenAPI.validate_property(::Type{ ProductVariantImageAdd }, name::Symbo
 
 
 
+
     if name === Symbol("type")
         OpenAPI.validate_param(name, "ProductVariantImageAdd", :enum, val, ["small", "base", "additional", "thumbnail"])
     end
-
 
 
 

@@ -15,15 +15,15 @@ const _returntypes_batch_job_list_BatchApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseBatchJobList,
 )
 
-function _oacinternal_batch_job_list(_api::BatchApi; count=nothing, page_cursor=nothing, created_from=nothing, created_to=nothing, processed_from=nothing, processed_to=nothing, ids=nothing, response_fields=nothing, _mediaType=nothing)
+function _oacinternal_batch_job_list(_api::BatchApi; count=nothing, page_cursor=nothing, ids=nothing, created_from=nothing, created_to=nothing, processed_from=nothing, processed_to=nothing, response_fields=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_batch_job_list_BatchApi, "/batch.job.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "ids", ids; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "created_from", created_from; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "created_to", created_to; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "processed_from", processed_from; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "processed_to", processed_to; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "ids", ids; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -37,22 +37,22 @@ Get list of recent jobs
 Params:
 - count::Int64
 - page_cursor::String
+- ids::String
 - created_from::String
 - created_to::String
 - processed_from::String
 - processed_to::String
-- ids::String
 - response_fields::String
 
 Return: ModelResponseBatchJobList, OpenAPI.Clients.ApiResponse
 """
-function batch_job_list(_api::BatchApi; count=nothing, page_cursor=nothing, created_from=nothing, created_to=nothing, processed_from=nothing, processed_to=nothing, ids=nothing, response_fields=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_batch_job_list(_api; count=count, page_cursor=page_cursor, created_from=created_from, created_to=created_to, processed_from=processed_from, processed_to=processed_to, ids=ids, response_fields=response_fields, _mediaType=_mediaType)
+function batch_job_list(_api::BatchApi; count=nothing, page_cursor=nothing, ids=nothing, created_from=nothing, created_to=nothing, processed_from=nothing, processed_to=nothing, response_fields=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_batch_job_list(_api; count=count, page_cursor=page_cursor, ids=ids, created_from=created_from, created_to=created_to, processed_from=processed_from, processed_to=processed_to, response_fields=response_fields, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function batch_job_list(_api::BatchApi, response_stream::Channel; count=nothing, page_cursor=nothing, created_from=nothing, created_to=nothing, processed_from=nothing, processed_to=nothing, ids=nothing, response_fields=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_batch_job_list(_api; count=count, page_cursor=page_cursor, created_from=created_from, created_to=created_to, processed_from=processed_from, processed_to=processed_to, ids=ids, response_fields=response_fields, _mediaType=_mediaType)
+function batch_job_list(_api::BatchApi, response_stream::Channel; count=nothing, page_cursor=nothing, ids=nothing, created_from=nothing, created_to=nothing, processed_from=nothing, processed_to=nothing, response_fields=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_batch_job_list(_api; count=count, page_cursor=page_cursor, ids=ids, created_from=created_from, created_to=created_to, processed_from=processed_from, processed_to=processed_to, response_fields=response_fields, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 

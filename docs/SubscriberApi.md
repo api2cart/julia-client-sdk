@@ -8,8 +8,8 @@ Method | HTTP request | Description
 
 
 # **subscriber_list**
-> subscriber_list(_api::SubscriberApi; start=nothing, count=nothing, subscribed=nothing, store_id=nothing, email=nothing, params=nothing, exclude=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, page_cursor=nothing, response_fields=nothing, _mediaType=nothing) -> ModelResponseSubscriberList, OpenAPI.Clients.ApiResponse <br/>
-> subscriber_list(_api::SubscriberApi, response_stream::Channel; start=nothing, count=nothing, subscribed=nothing, store_id=nothing, email=nothing, params=nothing, exclude=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, page_cursor=nothing, response_fields=nothing, _mediaType=nothing) -> Channel{ ModelResponseSubscriberList }, OpenAPI.Clients.ApiResponse
+> subscriber_list(_api::SubscriberApi; start=nothing, count=nothing, page_cursor=nothing, subscribed=nothing, store_id=nothing, email=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseSubscriberList, OpenAPI.Clients.ApiResponse <br/>
+> subscriber_list(_api::SubscriberApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, subscribed=nothing, store_id=nothing, email=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseSubscriberList }, OpenAPI.Clients.ApiResponse
 
 subscriber.list
 
@@ -27,17 +27,17 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
+ **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
  **subscribed** | **Bool** | Filter by subscription status | [default to nothing]
  **store_id** | **String** | Store Id | [default to nothing]
  **email** | **String** | Filter subscribers by email | [default to nothing]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;force_all&quot;]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
  **created_from** | **String** | Retrieve entities from their creation date | [default to nothing]
  **created_to** | **String** | Retrieve entities to their creation date | [default to nothing]
  **modified_from** | **String** | Retrieve entities from their modification date | [default to nothing]
  **modified_to** | **String** | Retrieve entities to their modification date | [default to nothing]
- **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
  **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;force_all&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
 
 ### Return type
 

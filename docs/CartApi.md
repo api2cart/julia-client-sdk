@@ -89,8 +89,8 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **cart_catalog_price_rules_list**
-> cart_catalog_price_rules_list(_api::CartApi; page_cursor=nothing, start=nothing, count=nothing, ids=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseCartCatalogPriceRulesList, OpenAPI.Clients.ApiResponse <br/>
-> cart_catalog_price_rules_list(_api::CartApi, response_stream::Channel; page_cursor=nothing, start=nothing, count=nothing, ids=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseCartCatalogPriceRulesList }, OpenAPI.Clients.ApiResponse
+> cart_catalog_price_rules_list(_api::CartApi; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseCartCatalogPriceRulesList, OpenAPI.Clients.ApiResponse <br/>
+> cart_catalog_price_rules_list(_api::CartApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseCartCatalogPriceRulesList }, OpenAPI.Clients.ApiResponse
 
 cart.catalog_price_rules.list
 
@@ -106,12 +106,12 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
+ **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
  **ids** | **String** | Retrieves  catalog_price_rules by ids | [default to nothing]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,name,description&quot;]
  **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,name,description&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
 
 ### Return type
@@ -256,8 +256,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **cart_coupon_condition_add**
-> cart_coupon_condition_add(_api::CartApi, coupon_id::String, entity::String, key::String, operator::String, value::String; store_id=nothing, target=nothing, include_tax=nothing, include_shipping=nothing, _mediaType=nothing) -> BasketLiveShippingServiceDelete200Response, OpenAPI.Clients.ApiResponse <br/>
-> cart_coupon_condition_add(_api::CartApi, response_stream::Channel, coupon_id::String, entity::String, key::String, operator::String, value::String; store_id=nothing, target=nothing, include_tax=nothing, include_shipping=nothing, _mediaType=nothing) -> Channel{ BasketLiveShippingServiceDelete200Response }, OpenAPI.Clients.ApiResponse
+> cart_coupon_condition_add(_api::CartApi, coupon_id::String, entity::String, key::String, operator::String, value::String; target=nothing, include_tax=nothing, include_shipping=nothing, store_id=nothing, _mediaType=nothing) -> BasketLiveShippingServiceDelete200Response, OpenAPI.Clients.ApiResponse <br/>
+> cart_coupon_condition_add(_api::CartApi, response_stream::Channel, coupon_id::String, entity::String, key::String, operator::String, value::String; target=nothing, include_tax=nothing, include_shipping=nothing, store_id=nothing, _mediaType=nothing) -> Channel{ BasketLiveShippingServiceDelete200Response }, OpenAPI.Clients.ApiResponse
 
 cart.coupon.condition.add
 
@@ -278,10 +278,10 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **store_id** | **String** | Store Id | [default to nothing]
  **target** | **String** | Defines condition operator | [default to &quot;coupon_prerequisite&quot;]
  **include_tax** | **Bool** | Indicates whether to apply a discount for taxes. | [default to false]
  **include_shipping** | **Bool** | Indicates whether to apply a discount for shipping. | [default to false]
+ **store_id** | **String** | Store Id | [default to nothing]
 
 ### Return type
 
@@ -299,8 +299,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **cart_coupon_count**
-> cart_coupon_count(_api::CartApi; store_id=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, avail=nothing, _mediaType=nothing) -> CartCouponCount200Response, OpenAPI.Clients.ApiResponse <br/>
-> cart_coupon_count(_api::CartApi, response_stream::Channel; store_id=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, avail=nothing, _mediaType=nothing) -> Channel{ CartCouponCount200Response }, OpenAPI.Clients.ApiResponse
+> cart_coupon_count(_api::CartApi; store_id=nothing, avail=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, _mediaType=nothing) -> CartCouponCount200Response, OpenAPI.Clients.ApiResponse <br/>
+> cart_coupon_count(_api::CartApi, response_stream::Channel; store_id=nothing, avail=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, _mediaType=nothing) -> Channel{ CartCouponCount200Response }, OpenAPI.Clients.ApiResponse
 
 cart.coupon.count
 
@@ -317,11 +317,11 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **store_id** | **String** | Store Id | [default to nothing]
+ **avail** | **Bool** | Defines category&#39;s visibility status | [default to true]
  **date_start_from** | **String** | Filter entity by date_start (greater or equal) | [default to nothing]
  **date_start_to** | **String** | Filter entity by date_start (less or equal) | [default to nothing]
  **date_end_from** | **String** | Filter entity by date_end (greater or equal) | [default to nothing]
  **date_end_to** | **String** | Filter entity by date_end (less or equal) | [default to nothing]
- **avail** | **Bool** | Defines category&#39;s visibility status | [default to true]
 
 ### Return type
 
@@ -375,8 +375,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **cart_coupon_list**
-> cart_coupon_list(_api::CartApi; page_cursor=nothing, start=nothing, count=nothing, coupons_ids=nothing, store_id=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, avail=nothing, lang_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseCartCouponList, OpenAPI.Clients.ApiResponse <br/>
-> cart_coupon_list(_api::CartApi, response_stream::Channel; page_cursor=nothing, start=nothing, count=nothing, coupons_ids=nothing, store_id=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, avail=nothing, lang_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseCartCouponList }, OpenAPI.Clients.ApiResponse
+> cart_coupon_list(_api::CartApi; start=nothing, count=nothing, page_cursor=nothing, coupons_ids=nothing, store_id=nothing, lang_id=nothing, avail=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseCartCouponList, OpenAPI.Clients.ApiResponse <br/>
+> cart_coupon_list(_api::CartApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, coupons_ids=nothing, store_id=nothing, lang_id=nothing, avail=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseCartCouponList }, OpenAPI.Clients.ApiResponse
 
 cart.coupon.list
 
@@ -392,19 +392,19 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
+ **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
  **coupons_ids** | **String** | Filter coupons by ids | [default to nothing]
  **store_id** | **String** | Filter coupons by store id | [default to nothing]
+ **lang_id** | **String** | Language id | [default to nothing]
+ **avail** | **Bool** | Filter coupons by avail status | [default to nothing]
  **date_start_from** | **String** | Filter entity by date_start (greater or equal) | [default to nothing]
  **date_start_to** | **String** | Filter entity by date_start (less or equal) | [default to nothing]
  **date_end_from** | **String** | Filter entity by date_end (greater or equal) | [default to nothing]
  **date_end_to** | **String** | Filter entity by date_end (less or equal) | [default to nothing]
- **avail** | **Bool** | Filter coupons by avail status | [default to nothing]
- **lang_id** | **String** | Language id | [default to nothing]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,code,name,description&quot;]
  **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,code,name,description&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
 
 ### Return type
@@ -628,8 +628,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **cart_giftcard_list**
-> cart_giftcard_list(_api::CartApi; page_cursor=nothing, start=nothing, count=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseCartGiftCardList, OpenAPI.Clients.ApiResponse <br/>
-> cart_giftcard_list(_api::CartApi, response_stream::Channel; page_cursor=nothing, start=nothing, count=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseCartGiftCardList }, OpenAPI.Clients.ApiResponse
+> cart_giftcard_list(_api::CartApi; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseCartGiftCardList, OpenAPI.Clients.ApiResponse <br/>
+> cart_giftcard_list(_api::CartApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseCartGiftCardList }, OpenAPI.Clients.ApiResponse
 
 cart.giftcard.list
 
@@ -645,12 +645,12 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
+ **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
  **store_id** | **String** | Store Id | [default to nothing]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,code,name&quot;]
  **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,code,name&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
 
 ### Return type
@@ -669,8 +669,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **cart_info**
-> cart_info(_api::CartApi; params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, _mediaType=nothing) -> CartInfo200Response, OpenAPI.Clients.ApiResponse <br/>
-> cart_info(_api::CartApi, response_stream::Channel; params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, _mediaType=nothing) -> Channel{ CartInfo200Response }, OpenAPI.Clients.ApiResponse
+> cart_info(_api::CartApi; store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> CartInfo200Response, OpenAPI.Clients.ApiResponse <br/>
+> cart_info(_api::CartApi, response_stream::Channel; store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ CartInfo200Response }, OpenAPI.Clients.ApiResponse
 
 cart.info
 
@@ -686,10 +686,10 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;store_name,store_url,db_prefix&quot;]
- **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
  **store_id** | **String** | Store Id | [default to nothing]
+ **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;store_name,store_url,db_prefix&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
 
 ### Return type
 
@@ -733,8 +733,8 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **cart_meta_data_list**
-> cart_meta_data_list(_api::CartApi, entity_id::String; entity=nothing, store_id=nothing, lang_id=nothing, key=nothing, count=nothing, page_cursor=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseCartMetaDataList, OpenAPI.Clients.ApiResponse <br/>
-> cart_meta_data_list(_api::CartApi, response_stream::Channel, entity_id::String; entity=nothing, store_id=nothing, lang_id=nothing, key=nothing, count=nothing, page_cursor=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseCartMetaDataList }, OpenAPI.Clients.ApiResponse
+> cart_meta_data_list(_api::CartApi, entity_id::String; count=nothing, page_cursor=nothing, entity=nothing, store_id=nothing, lang_id=nothing, key=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseCartMetaDataList, OpenAPI.Clients.ApiResponse <br/>
+> cart_meta_data_list(_api::CartApi, response_stream::Channel, entity_id::String; count=nothing, page_cursor=nothing, entity=nothing, store_id=nothing, lang_id=nothing, key=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseCartMetaDataList }, OpenAPI.Clients.ApiResponse
 
 cart.meta_data.list
 
@@ -751,14 +751,14 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
+ **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
  **entity** | **String** | Entity | [default to &quot;product&quot;]
  **store_id** | **String** | Store Id | [default to nothing]
  **lang_id** | **String** | Language id | [default to nothing]
  **key** | **String** | Key | [default to nothing]
- **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
- **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;key,value&quot;]
  **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;key,value&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
 
 ### Return type
@@ -883,8 +883,8 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **cart_plugin_list**
-> cart_plugin_list(_api::CartApi; store_id=nothing, start=nothing, count=nothing, _mediaType=nothing) -> CartPluginList200Response, OpenAPI.Clients.ApiResponse <br/>
-> cart_plugin_list(_api::CartApi, response_stream::Channel; store_id=nothing, start=nothing, count=nothing, _mediaType=nothing) -> Channel{ CartPluginList200Response }, OpenAPI.Clients.ApiResponse
+> cart_plugin_list(_api::CartApi; start=nothing, count=nothing, store_id=nothing, _mediaType=nothing) -> CartPluginList200Response, OpenAPI.Clients.ApiResponse <br/>
+> cart_plugin_list(_api::CartApi, response_stream::Channel; start=nothing, count=nothing, store_id=nothing, _mediaType=nothing) -> Channel{ CartPluginList200Response }, OpenAPI.Clients.ApiResponse
 
 cart.plugin.list
 
@@ -900,9 +900,9 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **store_id** | **String** | Store Id | [default to nothing]
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
+ **store_id** | **String** | Store Id | [default to nothing]
 
 ### Return type
 
@@ -998,8 +998,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **cart_script_list**
-> cart_script_list(_api::CartApi; page_cursor=nothing, start=nothing, count=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, script_ids=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseCartScriptList, OpenAPI.Clients.ApiResponse <br/>
-> cart_script_list(_api::CartApi, response_stream::Channel; page_cursor=nothing, start=nothing, count=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, script_ids=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseCartScriptList }, OpenAPI.Clients.ApiResponse
+> cart_script_list(_api::CartApi; start=nothing, count=nothing, page_cursor=nothing, script_ids=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseCartScriptList, OpenAPI.Clients.ApiResponse <br/>
+> cart_script_list(_api::CartApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, script_ids=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseCartScriptList }, OpenAPI.Clients.ApiResponse
 
 cart.script.list
 
@@ -1015,17 +1015,17 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
+ **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
+ **script_ids** | **String** | Retrieves only scripts with specific ids | [default to nothing]
+ **store_id** | **String** | Store Id | [default to nothing]
  **created_from** | **String** | Retrieve entities from their creation date | [default to nothing]
  **created_to** | **String** | Retrieve entities to their creation date | [default to nothing]
  **modified_from** | **String** | Retrieve entities from their modification date | [default to nothing]
  **modified_to** | **String** | Retrieve entities to their modification date | [default to nothing]
- **script_ids** | **String** | Retrieves only scripts with specific ids | [default to nothing]
- **store_id** | **String** | Store Id | [default to nothing]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,name,description&quot;]
  **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,name,description&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
 
 ### Return type
@@ -1044,8 +1044,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **cart_shipping_zones_list**
-> cart_shipping_zones_list(_api::CartApi; store_id=nothing, start=nothing, count=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseCartShippingZonesList, OpenAPI.Clients.ApiResponse <br/>
-> cart_shipping_zones_list(_api::CartApi, response_stream::Channel; store_id=nothing, start=nothing, count=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseCartShippingZonesList }, OpenAPI.Clients.ApiResponse
+> cart_shipping_zones_list(_api::CartApi; start=nothing, count=nothing, store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseCartShippingZonesList, OpenAPI.Clients.ApiResponse <br/>
+> cart_shipping_zones_list(_api::CartApi, response_stream::Channel; start=nothing, count=nothing, store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseCartShippingZonesList }, OpenAPI.Clients.ApiResponse
 
 cart.shipping_zones.list
 
@@ -1061,11 +1061,11 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **store_id** | **String** | Store Id | [default to nothing]
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,name,enabled&quot;]
+ **store_id** | **String** | Store Id | [default to nothing]
  **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,name,enabled&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
 
 ### Return type

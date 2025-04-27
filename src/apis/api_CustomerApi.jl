@@ -75,16 +75,16 @@ const _returntypes_customer_attribute_list_CustomerApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseCustomerAttributeList,
 )
 
-function _oacinternal_customer_attribute_list(_api::CustomerApi, customer_id::String; count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, params=nothing, exclude=nothing, response_fields=nothing, _mediaType=nothing)
+function _oacinternal_customer_attribute_list(_api::CustomerApi, customer_id::String; count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_customer_attribute_list_CustomerApi, "/customer.attribute.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "customer_id", customer_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "lang_id", lang_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -100,19 +100,19 @@ Params:
 - page_cursor::String
 - store_id::String
 - lang_id::String
+- response_fields::String
 - params::String
 - exclude::String
-- response_fields::String
 
 Return: ModelResponseCustomerAttributeList, OpenAPI.Clients.ApiResponse
 """
-function customer_attribute_list(_api::CustomerApi, customer_id::String; count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, params=nothing, exclude=nothing, response_fields=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_customer_attribute_list(_api, customer_id; count=count, page_cursor=page_cursor, store_id=store_id, lang_id=lang_id, params=params, exclude=exclude, response_fields=response_fields, _mediaType=_mediaType)
+function customer_attribute_list(_api::CustomerApi, customer_id::String; count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_customer_attribute_list(_api, customer_id; count=count, page_cursor=page_cursor, store_id=store_id, lang_id=lang_id, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function customer_attribute_list(_api::CustomerApi, response_stream::Channel, customer_id::String; count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, params=nothing, exclude=nothing, response_fields=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_customer_attribute_list(_api, customer_id; count=count, page_cursor=page_cursor, store_id=store_id, lang_id=lang_id, params=params, exclude=exclude, response_fields=response_fields, _mediaType=_mediaType)
+function customer_attribute_list(_api::CustomerApi, response_stream::Channel, customer_id::String; count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_customer_attribute_list(_api, customer_id; count=count, page_cursor=page_cursor, store_id=store_id, lang_id=lang_id, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -120,20 +120,20 @@ const _returntypes_customer_count_CustomerApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => CustomerCount200Response,
 )
 
-function _oacinternal_customer_count(_api::CustomerApi; group_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, store_id=nothing, customer_list_id=nothing, avail=nothing, find_value=nothing, find_where=nothing, ids=nothing, since_id=nothing, _mediaType=nothing)
+function _oacinternal_customer_count(_api::CustomerApi; ids=nothing, since_id=nothing, customer_list_id=nothing, group_id=nothing, store_id=nothing, avail=nothing, find_value=nothing, find_where=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_customer_count_CustomerApi, "/customer.count.json", ["StoreKeyAuth", "ApiKeyAuth", ])
+    OpenAPI.Clients.set_param(_ctx.query, "ids", ids; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "since_id", since_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "customer_list_id", customer_list_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "group_id", group_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "avail", avail; style="form", is_explode=true)  # type Bool
+    OpenAPI.Clients.set_param(_ctx.query, "find_value", find_value; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "find_where", find_where; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "created_from", created_from; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "created_to", created_to; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "modified_from", modified_from; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "modified_to", modified_to; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "customer_list_id", customer_list_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "avail", avail; style="form", is_explode=true)  # type Bool
-    OpenAPI.Clients.set_param(_ctx.query, "find_value", find_value; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "find_where", find_where; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "ids", ids; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "since_id", since_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -144,28 +144,28 @@ end
 Get number of customers from store.
 
 Params:
+- ids::String
+- since_id::String
+- customer_list_id::String
 - group_id::String
+- store_id::String
+- avail::Bool
+- find_value::String
+- find_where::String
 - created_from::String
 - created_to::String
 - modified_from::String
 - modified_to::String
-- store_id::String
-- customer_list_id::String
-- avail::Bool
-- find_value::String
-- find_where::String
-- ids::String
-- since_id::String
 
 Return: CustomerCount200Response, OpenAPI.Clients.ApiResponse
 """
-function customer_count(_api::CustomerApi; group_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, store_id=nothing, customer_list_id=nothing, avail=nothing, find_value=nothing, find_where=nothing, ids=nothing, since_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_customer_count(_api; group_id=group_id, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, store_id=store_id, customer_list_id=customer_list_id, avail=avail, find_value=find_value, find_where=find_where, ids=ids, since_id=since_id, _mediaType=_mediaType)
+function customer_count(_api::CustomerApi; ids=nothing, since_id=nothing, customer_list_id=nothing, group_id=nothing, store_id=nothing, avail=nothing, find_value=nothing, find_where=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_customer_count(_api; ids=ids, since_id=since_id, customer_list_id=customer_list_id, group_id=group_id, store_id=store_id, avail=avail, find_value=find_value, find_where=find_where, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function customer_count(_api::CustomerApi, response_stream::Channel; group_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, store_id=nothing, customer_list_id=nothing, avail=nothing, find_value=nothing, find_where=nothing, ids=nothing, since_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_customer_count(_api; group_id=group_id, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, store_id=store_id, customer_list_id=customer_list_id, avail=avail, find_value=find_value, find_where=find_where, ids=ids, since_id=since_id, _mediaType=_mediaType)
+function customer_count(_api::CustomerApi, response_stream::Channel; ids=nothing, since_id=nothing, customer_list_id=nothing, group_id=nothing, store_id=nothing, avail=nothing, find_value=nothing, find_where=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_customer_count(_api; ids=ids, since_id=since_id, customer_list_id=customer_list_id, group_id=group_id, store_id=store_id, avail=avail, find_value=find_value, find_where=find_where, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -276,18 +276,18 @@ const _returntypes_customer_group_list_CustomerApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseCustomerGroupList,
 )
 
-function _oacinternal_customer_group_list(_api::CustomerApi; disable_cache=nothing, page_cursor=nothing, start=nothing, count=nothing, store_id=nothing, lang_id=nothing, group_ids=nothing, params=nothing, exclude=nothing, response_fields=nothing, _mediaType=nothing)
+function _oacinternal_customer_group_list(_api::CustomerApi; start=nothing, count=nothing, page_cursor=nothing, group_ids=nothing, store_id=nothing, lang_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, disable_cache=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_customer_group_list_CustomerApi, "/customer.group.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
-    OpenAPI.Clients.set_param(_ctx.query, "disable_cache", disable_cache; style="form", is_explode=true)  # type Bool
-    OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
+    OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "group_ids", group_ids; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "lang_id", lang_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "group_ids", group_ids; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "disable_cache", disable_cache; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -298,26 +298,26 @@ end
 Get list of customers groups.
 
 Params:
-- disable_cache::Bool
-- page_cursor::String
 - start::Int64
 - count::Int64
+- page_cursor::String
+- group_ids::String
 - store_id::String
 - lang_id::String
-- group_ids::String
+- response_fields::String
 - params::String
 - exclude::String
-- response_fields::String
+- disable_cache::Bool
 
 Return: ModelResponseCustomerGroupList, OpenAPI.Clients.ApiResponse
 """
-function customer_group_list(_api::CustomerApi; disable_cache=nothing, page_cursor=nothing, start=nothing, count=nothing, store_id=nothing, lang_id=nothing, group_ids=nothing, params=nothing, exclude=nothing, response_fields=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_customer_group_list(_api; disable_cache=disable_cache, page_cursor=page_cursor, start=start, count=count, store_id=store_id, lang_id=lang_id, group_ids=group_ids, params=params, exclude=exclude, response_fields=response_fields, _mediaType=_mediaType)
+function customer_group_list(_api::CustomerApi; start=nothing, count=nothing, page_cursor=nothing, group_ids=nothing, store_id=nothing, lang_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, disable_cache=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_customer_group_list(_api; start=start, count=count, page_cursor=page_cursor, group_ids=group_ids, store_id=store_id, lang_id=lang_id, response_fields=response_fields, params=params, exclude=exclude, disable_cache=disable_cache, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function customer_group_list(_api::CustomerApi, response_stream::Channel; disable_cache=nothing, page_cursor=nothing, start=nothing, count=nothing, store_id=nothing, lang_id=nothing, group_ids=nothing, params=nothing, exclude=nothing, response_fields=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_customer_group_list(_api; disable_cache=disable_cache, page_cursor=page_cursor, start=start, count=count, store_id=store_id, lang_id=lang_id, group_ids=group_ids, params=params, exclude=exclude, response_fields=response_fields, _mediaType=_mediaType)
+function customer_group_list(_api::CustomerApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, group_ids=nothing, store_id=nothing, lang_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, disable_cache=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_customer_group_list(_api; start=start, count=count, page_cursor=page_cursor, group_ids=group_ids, store_id=store_id, lang_id=lang_id, response_fields=response_fields, params=params, exclude=exclude, disable_cache=disable_cache, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -325,13 +325,13 @@ const _returntypes_customer_info_CustomerApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => CustomerInfo200Response,
 )
 
-function _oacinternal_customer_info(_api::CustomerApi, id::String; params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, _mediaType=nothing)
+function _oacinternal_customer_info(_api::CustomerApi, id::String; store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_customer_info_CustomerApi, "/customer.info.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "id", id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -343,20 +343,20 @@ Get customers' details from store.
 
 Params:
 - id::String (required)
-- params::String
-- response_fields::String
-- exclude::String
 - store_id::String
+- response_fields::String
+- params::String
+- exclude::String
 
 Return: CustomerInfo200Response, OpenAPI.Clients.ApiResponse
 """
-function customer_info(_api::CustomerApi, id::String; params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_customer_info(_api, id; params=params, response_fields=response_fields, exclude=exclude, store_id=store_id, _mediaType=_mediaType)
+function customer_info(_api::CustomerApi, id::String; store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_customer_info(_api, id; store_id=store_id, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function customer_info(_api::CustomerApi, response_stream::Channel, id::String; params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_customer_info(_api, id; params=params, response_fields=response_fields, exclude=exclude, store_id=store_id, _mediaType=_mediaType)
+function customer_info(_api::CustomerApi, response_stream::Channel, id::String; store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_customer_info(_api, id; store_id=store_id, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -364,28 +364,28 @@ const _returntypes_customer_list_CustomerApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseCustomerList,
 )
 
-function _oacinternal_customer_list(_api::CustomerApi; page_cursor=nothing, start=nothing, count=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, params=nothing, response_fields=nothing, exclude=nothing, group_id=nothing, store_id=nothing, customer_list_id=nothing, avail=nothing, find_value=nothing, find_where=nothing, sort_by=nothing, sort_direction=nothing, ids=nothing, since_id=nothing, _mediaType=nothing)
+function _oacinternal_customer_list(_api::CustomerApi; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, since_id=nothing, customer_list_id=nothing, group_id=nothing, store_id=nothing, avail=nothing, find_value=nothing, find_where=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, sort_by=nothing, sort_direction=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_customer_list_CustomerApi, "/customer.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
-    OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
+    OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "ids", ids; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "since_id", since_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "customer_list_id", customer_list_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "group_id", group_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "avail", avail; style="form", is_explode=true)  # type Bool
+    OpenAPI.Clients.set_param(_ctx.query, "find_value", find_value; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "find_where", find_where; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "created_from", created_from; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "created_to", created_to; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "modified_from", modified_from; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "modified_to", modified_to; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "group_id", group_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "customer_list_id", customer_list_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "avail", avail; style="form", is_explode=true)  # type Bool
-    OpenAPI.Clients.set_param(_ctx.query, "find_value", find_value; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "find_where", find_where; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "sort_by", sort_by; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "sort_direction", sort_direction; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "ids", ids; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "since_id", since_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -396,36 +396,36 @@ end
 Get list of customers from store.
 
 Params:
-- page_cursor::String
 - start::Int64
 - count::Int64
+- page_cursor::String
+- ids::String
+- since_id::String
+- customer_list_id::String
+- group_id::String
+- store_id::String
+- avail::Bool
+- find_value::String
+- find_where::String
 - created_from::String
 - created_to::String
 - modified_from::String
 - modified_to::String
-- params::String
-- response_fields::String
-- exclude::String
-- group_id::String
-- store_id::String
-- customer_list_id::String
-- avail::Bool
-- find_value::String
-- find_where::String
 - sort_by::String
 - sort_direction::String
-- ids::String
-- since_id::String
+- response_fields::String
+- params::String
+- exclude::String
 
 Return: ModelResponseCustomerList, OpenAPI.Clients.ApiResponse
 """
-function customer_list(_api::CustomerApi; page_cursor=nothing, start=nothing, count=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, params=nothing, response_fields=nothing, exclude=nothing, group_id=nothing, store_id=nothing, customer_list_id=nothing, avail=nothing, find_value=nothing, find_where=nothing, sort_by=nothing, sort_direction=nothing, ids=nothing, since_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_customer_list(_api; page_cursor=page_cursor, start=start, count=count, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, params=params, response_fields=response_fields, exclude=exclude, group_id=group_id, store_id=store_id, customer_list_id=customer_list_id, avail=avail, find_value=find_value, find_where=find_where, sort_by=sort_by, sort_direction=sort_direction, ids=ids, since_id=since_id, _mediaType=_mediaType)
+function customer_list(_api::CustomerApi; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, since_id=nothing, customer_list_id=nothing, group_id=nothing, store_id=nothing, avail=nothing, find_value=nothing, find_where=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, sort_by=nothing, sort_direction=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_customer_list(_api; start=start, count=count, page_cursor=page_cursor, ids=ids, since_id=since_id, customer_list_id=customer_list_id, group_id=group_id, store_id=store_id, avail=avail, find_value=find_value, find_where=find_where, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, sort_by=sort_by, sort_direction=sort_direction, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function customer_list(_api::CustomerApi, response_stream::Channel; page_cursor=nothing, start=nothing, count=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, params=nothing, response_fields=nothing, exclude=nothing, group_id=nothing, store_id=nothing, customer_list_id=nothing, avail=nothing, find_value=nothing, find_where=nothing, sort_by=nothing, sort_direction=nothing, ids=nothing, since_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_customer_list(_api; page_cursor=page_cursor, start=start, count=count, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, params=params, response_fields=response_fields, exclude=exclude, group_id=group_id, store_id=store_id, customer_list_id=customer_list_id, avail=avail, find_value=find_value, find_where=find_where, sort_by=sort_by, sort_direction=sort_direction, ids=ids, since_id=since_id, _mediaType=_mediaType)
+function customer_list(_api::CustomerApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, since_id=nothing, customer_list_id=nothing, group_id=nothing, store_id=nothing, avail=nothing, find_value=nothing, find_where=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, sort_by=nothing, sort_direction=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_customer_list(_api; start=start, count=count, page_cursor=page_cursor, ids=ids, since_id=since_id, customer_list_id=customer_list_id, group_id=group_id, store_id=store_id, avail=avail, find_value=find_value, find_where=find_where, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, sort_by=sort_by, sort_direction=sort_direction, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -463,14 +463,14 @@ const _returntypes_customer_wishlist_list_CustomerApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseCustomerWishlistList,
 )
 
-function _oacinternal_customer_wishlist_list(_api::CustomerApi, customer_id::String; id=nothing, store_id=nothing, start=nothing, count=nothing, page_cursor=nothing, response_fields=nothing, _mediaType=nothing)
+function _oacinternal_customer_wishlist_list(_api::CustomerApi, customer_id::String; start=nothing, count=nothing, page_cursor=nothing, id=nothing, store_id=nothing, response_fields=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_customer_wishlist_list_CustomerApi, "/customer.wishlist.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
-    OpenAPI.Clients.set_param(_ctx.query, "customer_id", customer_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "id", id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "customer_id", customer_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "id", id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -483,22 +483,22 @@ Get a Wish List of customer from the store.
 
 Params:
 - customer_id::String (required)
-- id::String
-- store_id::String
 - start::Int64
 - count::Int64
 - page_cursor::String
+- id::String
+- store_id::String
 - response_fields::String
 
 Return: ModelResponseCustomerWishlistList, OpenAPI.Clients.ApiResponse
 """
-function customer_wishlist_list(_api::CustomerApi, customer_id::String; id=nothing, store_id=nothing, start=nothing, count=nothing, page_cursor=nothing, response_fields=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_customer_wishlist_list(_api, customer_id; id=id, store_id=store_id, start=start, count=count, page_cursor=page_cursor, response_fields=response_fields, _mediaType=_mediaType)
+function customer_wishlist_list(_api::CustomerApi, customer_id::String; start=nothing, count=nothing, page_cursor=nothing, id=nothing, store_id=nothing, response_fields=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_customer_wishlist_list(_api, customer_id; start=start, count=count, page_cursor=page_cursor, id=id, store_id=store_id, response_fields=response_fields, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function customer_wishlist_list(_api::CustomerApi, response_stream::Channel, customer_id::String; id=nothing, store_id=nothing, start=nothing, count=nothing, page_cursor=nothing, response_fields=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_customer_wishlist_list(_api, customer_id; id=id, store_id=store_id, start=start, count=count, page_cursor=page_cursor, response_fields=response_fields, _mediaType=_mediaType)
+function customer_wishlist_list(_api::CustomerApi, response_stream::Channel, customer_id::String; start=nothing, count=nothing, page_cursor=nothing, id=nothing, store_id=nothing, response_fields=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_customer_wishlist_list(_api, customer_id; start=start, count=count, page_cursor=page_cursor, id=id, store_id=store_id, response_fields=response_fields, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 

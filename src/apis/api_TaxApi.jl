@@ -15,13 +15,13 @@ const _returntypes_tax_class_info_TaxApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseTaxClassInfo,
 )
 
-function _oacinternal_tax_class_info(_api::TaxApi, tax_class_id::String; store_id=nothing, lang_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing)
+function _oacinternal_tax_class_info(_api::TaxApi, tax_class_id::String; store_id=nothing, lang_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_tax_class_info_TaxApi, "/tax.class.info.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "tax_class_id", tax_class_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "lang_id", lang_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -36,19 +36,19 @@ Params:
 - tax_class_id::String (required)
 - store_id::String
 - lang_id::String
-- params::String
 - response_fields::String
+- params::String
 - exclude::String
 
 Return: ModelResponseTaxClassInfo, OpenAPI.Clients.ApiResponse
 """
-function tax_class_info(_api::TaxApi, tax_class_id::String; store_id=nothing, lang_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_tax_class_info(_api, tax_class_id; store_id=store_id, lang_id=lang_id, params=params, response_fields=response_fields, exclude=exclude, _mediaType=_mediaType)
+function tax_class_info(_api::TaxApi, tax_class_id::String; store_id=nothing, lang_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_tax_class_info(_api, tax_class_id; store_id=store_id, lang_id=lang_id, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function tax_class_info(_api::TaxApi, response_stream::Channel, tax_class_id::String; store_id=nothing, lang_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_tax_class_info(_api, tax_class_id; store_id=store_id, lang_id=lang_id, params=params, response_fields=response_fields, exclude=exclude, _mediaType=_mediaType)
+function tax_class_info(_api::TaxApi, response_stream::Channel, tax_class_id::String; store_id=nothing, lang_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_tax_class_info(_api, tax_class_id; store_id=store_id, lang_id=lang_id, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -56,17 +56,17 @@ const _returntypes_tax_class_list_TaxApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseTaxClassList,
 )
 
-function _oacinternal_tax_class_list(_api::TaxApi; created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, find_value=nothing, find_where=nothing, store_id=nothing, count=nothing, page_cursor=nothing, response_fields=nothing, _mediaType=nothing)
+function _oacinternal_tax_class_list(_api::TaxApi; count=nothing, page_cursor=nothing, store_id=nothing, find_value=nothing, find_where=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, response_fields=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_tax_class_list_TaxApi, "/tax.class.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
+    OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
+    OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "find_value", find_value; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "find_where", find_where; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "created_to", created_to; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "created_from", created_from; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "modified_to", modified_to; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "modified_from", modified_from; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "find_value", find_value; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "find_where", find_where; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
-    OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -78,26 +78,26 @@ end
 Get list of tax classes from your store.
 
 Params:
+- count::Int64
+- page_cursor::String
+- store_id::String
+- find_value::String
+- find_where::String
 - created_to::String
 - created_from::String
 - modified_to::String
 - modified_from::String
-- find_value::String
-- find_where::String
-- store_id::String
-- count::Int64
-- page_cursor::String
 - response_fields::String
 
 Return: ModelResponseTaxClassList, OpenAPI.Clients.ApiResponse
 """
-function tax_class_list(_api::TaxApi; created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, find_value=nothing, find_where=nothing, store_id=nothing, count=nothing, page_cursor=nothing, response_fields=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_tax_class_list(_api; created_to=created_to, created_from=created_from, modified_to=modified_to, modified_from=modified_from, find_value=find_value, find_where=find_where, store_id=store_id, count=count, page_cursor=page_cursor, response_fields=response_fields, _mediaType=_mediaType)
+function tax_class_list(_api::TaxApi; count=nothing, page_cursor=nothing, store_id=nothing, find_value=nothing, find_where=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, response_fields=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_tax_class_list(_api; count=count, page_cursor=page_cursor, store_id=store_id, find_value=find_value, find_where=find_where, created_to=created_to, created_from=created_from, modified_to=modified_to, modified_from=modified_from, response_fields=response_fields, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function tax_class_list(_api::TaxApi, response_stream::Channel; created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, find_value=nothing, find_where=nothing, store_id=nothing, count=nothing, page_cursor=nothing, response_fields=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_tax_class_list(_api; created_to=created_to, created_from=created_from, modified_to=modified_to, modified_from=modified_from, find_value=find_value, find_where=find_where, store_id=store_id, count=count, page_cursor=page_cursor, response_fields=response_fields, _mediaType=_mediaType)
+function tax_class_list(_api::TaxApi, response_stream::Channel; count=nothing, page_cursor=nothing, store_id=nothing, find_value=nothing, find_where=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, response_fields=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_tax_class_list(_api; count=count, page_cursor=page_cursor, store_id=store_id, find_value=find_value, find_where=find_where, created_to=created_to, created_from=created_from, modified_to=modified_to, modified_from=modified_from, response_fields=response_fields, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 

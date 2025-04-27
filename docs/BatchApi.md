@@ -9,8 +9,8 @@ Method | HTTP request | Description
 
 
 # **batch_job_list**
-> batch_job_list(_api::BatchApi; count=nothing, page_cursor=nothing, created_from=nothing, created_to=nothing, processed_from=nothing, processed_to=nothing, ids=nothing, response_fields=nothing, _mediaType=nothing) -> ModelResponseBatchJobList, OpenAPI.Clients.ApiResponse <br/>
-> batch_job_list(_api::BatchApi, response_stream::Channel; count=nothing, page_cursor=nothing, created_from=nothing, created_to=nothing, processed_from=nothing, processed_to=nothing, ids=nothing, response_fields=nothing, _mediaType=nothing) -> Channel{ ModelResponseBatchJobList }, OpenAPI.Clients.ApiResponse
+> batch_job_list(_api::BatchApi; count=nothing, page_cursor=nothing, ids=nothing, created_from=nothing, created_to=nothing, processed_from=nothing, processed_to=nothing, response_fields=nothing, _mediaType=nothing) -> ModelResponseBatchJobList, OpenAPI.Clients.ApiResponse <br/>
+> batch_job_list(_api::BatchApi, response_stream::Channel; count=nothing, page_cursor=nothing, ids=nothing, created_from=nothing, created_to=nothing, processed_from=nothing, processed_to=nothing, response_fields=nothing, _mediaType=nothing) -> Channel{ ModelResponseBatchJobList }, OpenAPI.Clients.ApiResponse
 
 batch.job.list
 
@@ -28,11 +28,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
  **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
+ **ids** | **String** | Filter batch jobs by ids | [default to nothing]
  **created_from** | **String** | Retrieve entities from their creation date | [default to nothing]
  **created_to** | **String** | Retrieve entities to their creation date | [default to nothing]
  **processed_from** | **String** | Retrieve entities according to their processing datetime | [default to nothing]
  **processed_to** | **String** | Retrieve entities according to their processing datetime | [default to nothing]
- **ids** | **String** | Filter batch jobs by ids | [default to nothing]
  **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;{return_code,return_message,pagination,result}&quot;]
 
 ### Return type

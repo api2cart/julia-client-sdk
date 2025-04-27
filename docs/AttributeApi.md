@@ -152,8 +152,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **attribute_attributeset_list**
-> attribute_attributeset_list(_api::AttributeApi; start=nothing, count=nothing, params=nothing, exclude=nothing, response_fields=nothing, _mediaType=nothing) -> ModelResponseAttributeAttributesetList, OpenAPI.Clients.ApiResponse <br/>
-> attribute_attributeset_list(_api::AttributeApi, response_stream::Channel; start=nothing, count=nothing, params=nothing, exclude=nothing, response_fields=nothing, _mediaType=nothing) -> Channel{ ModelResponseAttributeAttributesetList }, OpenAPI.Clients.ApiResponse
+> attribute_attributeset_list(_api::AttributeApi; start=nothing, count=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseAttributeAttributesetList, OpenAPI.Clients.ApiResponse <br/>
+> attribute_attributeset_list(_api::AttributeApi, response_stream::Channel; start=nothing, count=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseAttributeAttributesetList }, OpenAPI.Clients.ApiResponse
 
 attribute.attributeset.list
 
@@ -171,9 +171,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
+ **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
  **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,name&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
- **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
 
 ### Return type
 
@@ -268,8 +268,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **attribute_group_list**
-> attribute_group_list(_api::AttributeApi; start=nothing, count=nothing, lang_id=nothing, params=nothing, exclude=nothing, response_fields=nothing, attribute_set_id=nothing, _mediaType=nothing) -> ModelResponseAttributeGroupList, OpenAPI.Clients.ApiResponse <br/>
-> attribute_group_list(_api::AttributeApi, response_stream::Channel; start=nothing, count=nothing, lang_id=nothing, params=nothing, exclude=nothing, response_fields=nothing, attribute_set_id=nothing, _mediaType=nothing) -> Channel{ ModelResponseAttributeGroupList }, OpenAPI.Clients.ApiResponse
+> attribute_group_list(_api::AttributeApi; start=nothing, count=nothing, attribute_set_id=nothing, lang_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseAttributeGroupList, OpenAPI.Clients.ApiResponse <br/>
+> attribute_group_list(_api::AttributeApi, response_stream::Channel; start=nothing, count=nothing, attribute_set_id=nothing, lang_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseAttributeGroupList }, OpenAPI.Clients.ApiResponse
 
 attribute.group.list
 
@@ -287,11 +287,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
+ **attribute_set_id** | **String** | Attribute set id | [default to nothing]
  **lang_id** | **String** | Language id | [default to nothing]
+ **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
  **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,name&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
- **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
- **attribute_set_id** | **String** | Attribute set id | [default to nothing]
 
 ### Return type
 
@@ -309,8 +309,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **attribute_info**
-> attribute_info(_api::AttributeApi, id::String; attribute_set_id=nothing, store_id=nothing, lang_id=nothing, params=nothing, exclude=nothing, response_fields=nothing, _mediaType=nothing) -> AttributeInfo200Response, OpenAPI.Clients.ApiResponse <br/>
-> attribute_info(_api::AttributeApi, response_stream::Channel, id::String; attribute_set_id=nothing, store_id=nothing, lang_id=nothing, params=nothing, exclude=nothing, response_fields=nothing, _mediaType=nothing) -> Channel{ AttributeInfo200Response }, OpenAPI.Clients.ApiResponse
+> attribute_info(_api::AttributeApi, id::String; attribute_set_id=nothing, store_id=nothing, lang_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> AttributeInfo200Response, OpenAPI.Clients.ApiResponse <br/>
+> attribute_info(_api::AttributeApi, response_stream::Channel, id::String; attribute_set_id=nothing, store_id=nothing, lang_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ AttributeInfo200Response }, OpenAPI.Clients.ApiResponse
 
 attribute.info
 
@@ -330,9 +330,9 @@ Name | Type | Description  | Notes
  **attribute_set_id** | **String** | Attribute set id | [default to nothing]
  **store_id** | **String** | Store Id | [default to nothing]
  **lang_id** | **String** | Language id | [default to nothing]
+ **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
  **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;force_all&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
- **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
 
 ### Return type
 
@@ -350,8 +350,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **attribute_list**
-> attribute_list(_api::AttributeApi; start=nothing, count=nothing, type=nothing, attribute_ids=nothing, attribute_set_id=nothing, store_id=nothing, lang_id=nothing, params=nothing, exclude=nothing, response_fields=nothing, visible=nothing, required=nothing, system=nothing, _mediaType=nothing) -> ModelResponseAttributeList, OpenAPI.Clients.ApiResponse <br/>
-> attribute_list(_api::AttributeApi, response_stream::Channel; start=nothing, count=nothing, type=nothing, attribute_ids=nothing, attribute_set_id=nothing, store_id=nothing, lang_id=nothing, params=nothing, exclude=nothing, response_fields=nothing, visible=nothing, required=nothing, system=nothing, _mediaType=nothing) -> Channel{ ModelResponseAttributeList }, OpenAPI.Clients.ApiResponse
+> attribute_list(_api::AttributeApi; start=nothing, count=nothing, attribute_ids=nothing, attribute_set_id=nothing, store_id=nothing, lang_id=nothing, type=nothing, visible=nothing, required=nothing, system=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseAttributeList, OpenAPI.Clients.ApiResponse <br/>
+> attribute_list(_api::AttributeApi, response_stream::Channel; start=nothing, count=nothing, attribute_ids=nothing, attribute_set_id=nothing, store_id=nothing, lang_id=nothing, type=nothing, visible=nothing, required=nothing, system=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseAttributeList }, OpenAPI.Clients.ApiResponse
 
 attribute.list
 
@@ -369,17 +369,17 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
- **type** | **String** | Defines attribute&#39;s type | [default to nothing]
  **attribute_ids** | **String** | Filter attributes by ids | [default to nothing]
  **attribute_set_id** | **String** | Filter items by attribute set id | [default to nothing]
  **store_id** | **String** | Store Id | [default to nothing]
  **lang_id** | **String** | Retrieves attributes on specified language id | [default to nothing]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,name,code,type&quot;]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
- **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+ **type** | **String** | Defines attribute&#39;s type | [default to nothing]
  **visible** | **Bool** | Filter items by visibility status | [default to nothing]
  **required** | **Bool** | Defines if the option is required | [default to nothing]
  **system** | **Bool** | True if attribute is system | [default to nothing]
+ **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,name,code,type&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
 
 ### Return type
 

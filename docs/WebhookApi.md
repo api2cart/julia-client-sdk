@@ -147,8 +147,8 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **webhook_list**
-> webhook_list(_api::WebhookApi; params=nothing, start=nothing, count=nothing, entity=nothing, action=nothing, active=nothing, ids=nothing, _mediaType=nothing) -> WebhookList200Response, OpenAPI.Clients.ApiResponse <br/>
-> webhook_list(_api::WebhookApi, response_stream::Channel; params=nothing, start=nothing, count=nothing, entity=nothing, action=nothing, active=nothing, ids=nothing, _mediaType=nothing) -> Channel{ WebhookList200Response }, OpenAPI.Clients.ApiResponse
+> webhook_list(_api::WebhookApi; start=nothing, count=nothing, entity=nothing, action=nothing, active=nothing, ids=nothing, params=nothing, _mediaType=nothing) -> WebhookList200Response, OpenAPI.Clients.ApiResponse <br/>
+> webhook_list(_api::WebhookApi, response_stream::Channel; start=nothing, count=nothing, entity=nothing, action=nothing, active=nothing, ids=nothing, params=nothing, _mediaType=nothing) -> Channel{ WebhookList200Response }, OpenAPI.Clients.ApiResponse
 
 webhook.list
 
@@ -164,13 +164,13 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,entity,action,callback&quot;]
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
  **entity** | **String** | The entity you want to filter webhooks by (e.g. order or product) | [default to nothing]
  **action** | **String** | The action you want to filter webhooks by (e.g. add, update, or delete) | [default to nothing]
  **active** | **Bool** | The webhook status you want to filter webhooks by | [default to nothing]
  **ids** | **String** | List of сomma-separated webhook ids | [default to nothing]
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,entity,action,callback&quot;]
 
 ### Return type
 

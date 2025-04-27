@@ -15,23 +15,23 @@ const _returntypes_category_add_CategoryApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => CategoryAdd200Response,
 )
 
-function _oacinternal_category_add(_api::CategoryApi, name::String; parent_id=nothing, stores_ids=nothing, store_id=nothing, lang_id=nothing, avail=nothing, sort_order=nothing, created_time=nothing, modified_time=nothing, description=nothing, short_description=nothing, meta_title=nothing, meta_description=nothing, meta_keywords=nothing, seo_url=nothing, _mediaType=nothing)
+function _oacinternal_category_add(_api::CategoryApi, name::String; description=nothing, short_description=nothing, parent_id=nothing, avail=nothing, created_time=nothing, modified_time=nothing, sort_order=nothing, meta_title=nothing, meta_description=nothing, meta_keywords=nothing, seo_url=nothing, store_id=nothing, stores_ids=nothing, lang_id=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_category_add_CategoryApi, "/category.add.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "name", name; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "parent_id", parent_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "stores_ids", stores_ids; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "lang_id", lang_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "avail", avail; style="form", is_explode=true)  # type Bool
-    OpenAPI.Clients.set_param(_ctx.query, "sort_order", sort_order; style="form", is_explode=true)  # type Int64
-    OpenAPI.Clients.set_param(_ctx.query, "created_time", created_time; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "modified_time", modified_time; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "description", description; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "short_description", short_description; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "parent_id", parent_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "avail", avail; style="form", is_explode=true)  # type Bool
+    OpenAPI.Clients.set_param(_ctx.query, "created_time", created_time; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "modified_time", modified_time; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "sort_order", sort_order; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "meta_title", meta_title; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "meta_description", meta_description; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "meta_keywords", meta_keywords; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "seo_url", seo_url; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "stores_ids", stores_ids; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "lang_id", lang_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -43,30 +43,30 @@ Add new category in store
 
 Params:
 - name::String (required)
-- parent_id::String
-- stores_ids::String
-- store_id::String
-- lang_id::String
-- avail::Bool
-- sort_order::Int64
-- created_time::String
-- modified_time::String
 - description::String
 - short_description::String
+- parent_id::String
+- avail::Bool
+- created_time::String
+- modified_time::String
+- sort_order::Int64
 - meta_title::String
 - meta_description::String
 - meta_keywords::String
 - seo_url::String
+- store_id::String
+- stores_ids::String
+- lang_id::String
 
 Return: CategoryAdd200Response, OpenAPI.Clients.ApiResponse
 """
-function category_add(_api::CategoryApi, name::String; parent_id=nothing, stores_ids=nothing, store_id=nothing, lang_id=nothing, avail=nothing, sort_order=nothing, created_time=nothing, modified_time=nothing, description=nothing, short_description=nothing, meta_title=nothing, meta_description=nothing, meta_keywords=nothing, seo_url=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_category_add(_api, name; parent_id=parent_id, stores_ids=stores_ids, store_id=store_id, lang_id=lang_id, avail=avail, sort_order=sort_order, created_time=created_time, modified_time=modified_time, description=description, short_description=short_description, meta_title=meta_title, meta_description=meta_description, meta_keywords=meta_keywords, seo_url=seo_url, _mediaType=_mediaType)
+function category_add(_api::CategoryApi, name::String; description=nothing, short_description=nothing, parent_id=nothing, avail=nothing, created_time=nothing, modified_time=nothing, sort_order=nothing, meta_title=nothing, meta_description=nothing, meta_keywords=nothing, seo_url=nothing, store_id=nothing, stores_ids=nothing, lang_id=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_category_add(_api, name; description=description, short_description=short_description, parent_id=parent_id, avail=avail, created_time=created_time, modified_time=modified_time, sort_order=sort_order, meta_title=meta_title, meta_description=meta_description, meta_keywords=meta_keywords, seo_url=seo_url, store_id=store_id, stores_ids=stores_ids, lang_id=lang_id, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function category_add(_api::CategoryApi, response_stream::Channel, name::String; parent_id=nothing, stores_ids=nothing, store_id=nothing, lang_id=nothing, avail=nothing, sort_order=nothing, created_time=nothing, modified_time=nothing, description=nothing, short_description=nothing, meta_title=nothing, meta_description=nothing, meta_keywords=nothing, seo_url=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_category_add(_api, name; parent_id=parent_id, stores_ids=stores_ids, store_id=store_id, lang_id=lang_id, avail=avail, sort_order=sort_order, created_time=created_time, modified_time=modified_time, description=description, short_description=short_description, meta_title=meta_title, meta_description=meta_description, meta_keywords=meta_keywords, seo_url=seo_url, _mediaType=_mediaType)
+function category_add(_api::CategoryApi, response_stream::Channel, name::String; description=nothing, short_description=nothing, parent_id=nothing, avail=nothing, created_time=nothing, modified_time=nothing, sort_order=nothing, meta_title=nothing, meta_description=nothing, meta_keywords=nothing, seo_url=nothing, store_id=nothing, stores_ids=nothing, lang_id=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_category_add(_api, name; description=description, short_description=short_description, parent_id=parent_id, avail=avail, created_time=created_time, modified_time=modified_time, sort_order=sort_order, meta_title=meta_title, meta_description=meta_description, meta_keywords=meta_keywords, seo_url=seo_url, store_id=store_id, stores_ids=stores_ids, lang_id=lang_id, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -104,10 +104,10 @@ const _returntypes_category_assign_CategoryApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => CartConfigUpdate200Response,
 )
 
-function _oacinternal_category_assign(_api::CategoryApi, product_id::String, category_id::String; store_id=nothing, _mediaType=nothing)
+function _oacinternal_category_assign(_api::CategoryApi, category_id::String, product_id::String; store_id=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_category_assign_CategoryApi, "/category.assign.json", ["StoreKeyAuth", "ApiKeyAuth", ])
-    OpenAPI.Clients.set_param(_ctx.query, "product_id", product_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "category_id", category_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "product_id", product_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -119,19 +119,19 @@ end
 Assign category to product
 
 Params:
-- product_id::String (required)
 - category_id::String (required)
+- product_id::String (required)
 - store_id::String
 
 Return: CartConfigUpdate200Response, OpenAPI.Clients.ApiResponse
 """
-function category_assign(_api::CategoryApi, product_id::String, category_id::String; store_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_category_assign(_api, product_id, category_id; store_id=store_id, _mediaType=_mediaType)
+function category_assign(_api::CategoryApi, category_id::String, product_id::String; store_id=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_category_assign(_api, category_id, product_id; store_id=store_id, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function category_assign(_api::CategoryApi, response_stream::Channel, product_id::String, category_id::String; store_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_category_assign(_api, product_id, category_id; store_id=store_id, _mediaType=_mediaType)
+function category_assign(_api::CategoryApi, response_stream::Channel, category_id::String, product_id::String; store_id=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_category_assign(_api, category_id, product_id; store_id=store_id, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -139,16 +139,16 @@ const _returntypes_category_count_CategoryApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => CategoryCount200Response,
 )
 
-function _oacinternal_category_count(_api::CategoryApi; parent_id=nothing, store_id=nothing, lang_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, avail=nothing, product_type=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing)
+function _oacinternal_category_count(_api::CategoryApi; parent_id=nothing, store_id=nothing, lang_id=nothing, avail=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, product_type=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_category_count_CategoryApi, "/category.count.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "parent_id", parent_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "lang_id", lang_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "avail", avail; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_param(_ctx.query, "created_from", created_from; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "created_to", created_to; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "modified_from", modified_from; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "modified_to", modified_to; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "avail", avail; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_param(_ctx.query, "product_type", product_type; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "find_value", find_value; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "find_where", find_where; style="form", is_explode=true)  # type String
@@ -167,11 +167,11 @@ Params:
 - parent_id::String
 - store_id::String
 - lang_id::String
+- avail::Bool
 - created_from::String
 - created_to::String
 - modified_from::String
 - modified_to::String
-- avail::Bool
 - product_type::String
 - find_value::String
 - find_where::String
@@ -180,13 +180,13 @@ Params:
 
 Return: CategoryCount200Response, OpenAPI.Clients.ApiResponse
 """
-function category_count(_api::CategoryApi; parent_id=nothing, store_id=nothing, lang_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, avail=nothing, product_type=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_category_count(_api; parent_id=parent_id, store_id=store_id, lang_id=lang_id, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, avail=avail, product_type=product_type, find_value=find_value, find_where=find_where, report_request_id=report_request_id, disable_report_cache=disable_report_cache, _mediaType=_mediaType)
+function category_count(_api::CategoryApi; parent_id=nothing, store_id=nothing, lang_id=nothing, avail=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, product_type=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_category_count(_api; parent_id=parent_id, store_id=store_id, lang_id=lang_id, avail=avail, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, product_type=product_type, find_value=find_value, find_where=find_where, report_request_id=report_request_id, disable_report_cache=disable_report_cache, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function category_count(_api::CategoryApi, response_stream::Channel; parent_id=nothing, store_id=nothing, lang_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, avail=nothing, product_type=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_category_count(_api; parent_id=parent_id, store_id=store_id, lang_id=lang_id, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, avail=avail, product_type=product_type, find_value=find_value, find_where=find_where, report_request_id=report_request_id, disable_report_cache=disable_report_cache, _mediaType=_mediaType)
+function category_count(_api::CategoryApi, response_stream::Channel; parent_id=nothing, store_id=nothing, lang_id=nothing, avail=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, product_type=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_category_count(_api; parent_id=parent_id, store_id=store_id, lang_id=lang_id, avail=avail, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, product_type=product_type, find_value=find_value, find_where=find_where, report_request_id=report_request_id, disable_report_cache=disable_report_cache, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -266,16 +266,16 @@ const _returntypes_category_image_add_CategoryApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => CategoryImageAdd200Response,
 )
 
-function _oacinternal_category_image_add(_api::CategoryApi, category_id::String, image_name::String, url::String, type::String; label=nothing, mime=nothing, position=nothing, store_id=nothing, _mediaType=nothing)
+function _oacinternal_category_image_add(_api::CategoryApi, category_id::String, image_name::String, url::String, type::String; store_id=nothing, label=nothing, mime=nothing, position=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_category_image_add_CategoryApi, "/category.image.add.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "category_id", category_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "image_name", image_name; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "url", url; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "type", type; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "label", label; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "mime", mime; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "type", type; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "position", position; style="form", is_explode=true)  # type Int64
-    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -290,20 +290,20 @@ Params:
 - image_name::String (required)
 - url::String (required)
 - type::String (required)
+- store_id::String
 - label::String
 - mime::String
 - position::Int64
-- store_id::String
 
 Return: CategoryImageAdd200Response, OpenAPI.Clients.ApiResponse
 """
-function category_image_add(_api::CategoryApi, category_id::String, image_name::String, url::String, type::String; label=nothing, mime=nothing, position=nothing, store_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_category_image_add(_api, category_id, image_name, url, type; label=label, mime=mime, position=position, store_id=store_id, _mediaType=_mediaType)
+function category_image_add(_api::CategoryApi, category_id::String, image_name::String, url::String, type::String; store_id=nothing, label=nothing, mime=nothing, position=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_category_image_add(_api, category_id, image_name, url, type; store_id=store_id, label=label, mime=mime, position=position, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function category_image_add(_api::CategoryApi, response_stream::Channel, category_id::String, image_name::String, url::String, type::String; label=nothing, mime=nothing, position=nothing, store_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_category_image_add(_api, category_id, image_name, url, type; label=label, mime=mime, position=position, store_id=store_id, _mediaType=_mediaType)
+function category_image_add(_api::CategoryApi, response_stream::Channel, category_id::String, image_name::String, url::String, type::String; store_id=nothing, label=nothing, mime=nothing, position=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_category_image_add(_api, category_id, image_name, url, type; store_id=store_id, label=label, mime=mime, position=position, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -346,15 +346,15 @@ const _returntypes_category_info_CategoryApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => CategoryInfo200Response,
 )
 
-function _oacinternal_category_info(_api::CategoryApi, id::String; params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, lang_id=nothing, schema_type=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing)
+function _oacinternal_category_info(_api::CategoryApi, id::String; store_id=nothing, lang_id=nothing, schema_type=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_category_info_CategoryApi, "/category.info.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "id", id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "lang_id", lang_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "schema_type", schema_type; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "report_request_id", report_request_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "disable_report_cache", disable_report_cache; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
@@ -368,24 +368,24 @@ Get category info about category ID*** or specify other category ID.
 
 Params:
 - id::String (required)
-- params::String
-- response_fields::String
-- exclude::String
 - store_id::String
 - lang_id::String
 - schema_type::String
+- response_fields::String
+- params::String
+- exclude::String
 - report_request_id::String
 - disable_report_cache::Bool
 
 Return: CategoryInfo200Response, OpenAPI.Clients.ApiResponse
 """
-function category_info(_api::CategoryApi, id::String; params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, lang_id=nothing, schema_type=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_category_info(_api, id; params=params, response_fields=response_fields, exclude=exclude, store_id=store_id, lang_id=lang_id, schema_type=schema_type, report_request_id=report_request_id, disable_report_cache=disable_report_cache, _mediaType=_mediaType)
+function category_info(_api::CategoryApi, id::String; store_id=nothing, lang_id=nothing, schema_type=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_category_info(_api, id; store_id=store_id, lang_id=lang_id, schema_type=schema_type, response_fields=response_fields, params=params, exclude=exclude, report_request_id=report_request_id, disable_report_cache=disable_report_cache, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function category_info(_api::CategoryApi, response_stream::Channel, id::String; params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, lang_id=nothing, schema_type=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_category_info(_api, id; params=params, response_fields=response_fields, exclude=exclude, store_id=store_id, lang_id=lang_id, schema_type=schema_type, report_request_id=report_request_id, disable_report_cache=disable_report_cache, _mediaType=_mediaType)
+function category_info(_api::CategoryApi, response_stream::Channel, id::String; store_id=nothing, lang_id=nothing, schema_type=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_category_info(_api, id; store_id=store_id, lang_id=lang_id, schema_type=schema_type, response_fields=response_fields, params=params, exclude=exclude, report_request_id=report_request_id, disable_report_cache=disable_report_cache, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -393,25 +393,25 @@ const _returntypes_category_list_CategoryApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseCategoryList,
 )
 
-function _oacinternal_category_list(_api::CategoryApi; start=nothing, count=nothing, page_cursor=nothing, parent_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, lang_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, avail=nothing, product_type=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, disable_report_cache=nothing, disable_cache=nothing, _mediaType=nothing)
+function _oacinternal_category_list(_api::CategoryApi; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, parent_id=nothing, avail=nothing, product_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, find_value=nothing, find_where=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, disable_cache=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_category_list_CategoryApi, "/category.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "parent_id", parent_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "lang_id", lang_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "parent_id", parent_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "avail", avail; style="form", is_explode=true)  # type Bool
+    OpenAPI.Clients.set_param(_ctx.query, "product_type", product_type; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "created_from", created_from; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "created_to", created_to; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "modified_from", modified_from; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "modified_to", modified_to; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "avail", avail; style="form", is_explode=true)  # type Bool
-    OpenAPI.Clients.set_param(_ctx.query, "product_type", product_type; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "find_value", find_value; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "find_where", find_where; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "report_request_id", report_request_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "disable_report_cache", disable_report_cache; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_param(_ctx.query, "disable_cache", disable_cache; style="form", is_explode=true)  # type Bool
@@ -428,33 +428,33 @@ Params:
 - start::Int64
 - count::Int64
 - page_cursor::String
-- parent_id::String
-- params::String
-- response_fields::String
-- exclude::String
 - store_id::String
 - lang_id::String
+- parent_id::String
+- avail::Bool
+- product_type::String
 - created_from::String
 - created_to::String
 - modified_from::String
 - modified_to::String
-- avail::Bool
-- product_type::String
 - find_value::String
 - find_where::String
+- response_fields::String
+- params::String
+- exclude::String
 - report_request_id::String
 - disable_report_cache::Bool
 - disable_cache::Bool
 
 Return: ModelResponseCategoryList, OpenAPI.Clients.ApiResponse
 """
-function category_list(_api::CategoryApi; start=nothing, count=nothing, page_cursor=nothing, parent_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, lang_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, avail=nothing, product_type=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, disable_report_cache=nothing, disable_cache=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_category_list(_api; start=start, count=count, page_cursor=page_cursor, parent_id=parent_id, params=params, response_fields=response_fields, exclude=exclude, store_id=store_id, lang_id=lang_id, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, avail=avail, product_type=product_type, find_value=find_value, find_where=find_where, report_request_id=report_request_id, disable_report_cache=disable_report_cache, disable_cache=disable_cache, _mediaType=_mediaType)
+function category_list(_api::CategoryApi; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, parent_id=nothing, avail=nothing, product_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, find_value=nothing, find_where=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, disable_cache=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_category_list(_api; start=start, count=count, page_cursor=page_cursor, store_id=store_id, lang_id=lang_id, parent_id=parent_id, avail=avail, product_type=product_type, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, find_value=find_value, find_where=find_where, response_fields=response_fields, params=params, exclude=exclude, report_request_id=report_request_id, disable_report_cache=disable_report_cache, disable_cache=disable_cache, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function category_list(_api::CategoryApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, parent_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, lang_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, avail=nothing, product_type=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, disable_report_cache=nothing, disable_cache=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_category_list(_api; start=start, count=count, page_cursor=page_cursor, parent_id=parent_id, params=params, response_fields=response_fields, exclude=exclude, store_id=store_id, lang_id=lang_id, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, avail=avail, product_type=product_type, find_value=find_value, find_where=find_where, report_request_id=report_request_id, disable_report_cache=disable_report_cache, disable_cache=disable_cache, _mediaType=_mediaType)
+function category_list(_api::CategoryApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, parent_id=nothing, avail=nothing, product_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, find_value=nothing, find_where=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, disable_cache=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_category_list(_api; start=start, count=count, page_cursor=page_cursor, store_id=store_id, lang_id=lang_id, parent_id=parent_id, avail=avail, product_type=product_type, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, find_value=find_value, find_where=find_where, response_fields=response_fields, params=params, exclude=exclude, report_request_id=report_request_id, disable_report_cache=disable_report_cache, disable_cache=disable_cache, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -497,23 +497,23 @@ const _returntypes_category_update_CategoryApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => AccountConfigUpdate200Response,
 )
 
-function _oacinternal_category_update(_api::CategoryApi, id::String; name=nothing, parent_id=nothing, stores_ids=nothing, avail=nothing, sort_order=nothing, modified_time=nothing, description=nothing, short_description=nothing, meta_title=nothing, meta_description=nothing, meta_keywords=nothing, seo_url=nothing, lang_id=nothing, store_id=nothing, _mediaType=nothing)
+function _oacinternal_category_update(_api::CategoryApi, id::String; name=nothing, description=nothing, short_description=nothing, parent_id=nothing, avail=nothing, sort_order=nothing, modified_time=nothing, meta_title=nothing, meta_description=nothing, meta_keywords=nothing, seo_url=nothing, store_id=nothing, stores_ids=nothing, lang_id=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "PUT", _returntypes_category_update_CategoryApi, "/category.update.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "id", id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "name", name; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "description", description; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "short_description", short_description; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "parent_id", parent_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "stores_ids", stores_ids; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "avail", avail; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_param(_ctx.query, "sort_order", sort_order; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "modified_time", modified_time; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "description", description; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "short_description", short_description; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "meta_title", meta_title; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "meta_description", meta_description; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "meta_keywords", meta_keywords; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "seo_url", seo_url; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "lang_id", lang_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "stores_ids", stores_ids; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "lang_id", lang_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -526,29 +526,29 @@ Update category in store
 Params:
 - id::String (required)
 - name::String
+- description::String
+- short_description::String
 - parent_id::String
-- stores_ids::String
 - avail::Bool
 - sort_order::Int64
 - modified_time::String
-- description::String
-- short_description::String
 - meta_title::String
 - meta_description::String
 - meta_keywords::String
 - seo_url::String
-- lang_id::String
 - store_id::String
+- stores_ids::String
+- lang_id::String
 
 Return: AccountConfigUpdate200Response, OpenAPI.Clients.ApiResponse
 """
-function category_update(_api::CategoryApi, id::String; name=nothing, parent_id=nothing, stores_ids=nothing, avail=nothing, sort_order=nothing, modified_time=nothing, description=nothing, short_description=nothing, meta_title=nothing, meta_description=nothing, meta_keywords=nothing, seo_url=nothing, lang_id=nothing, store_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_category_update(_api, id; name=name, parent_id=parent_id, stores_ids=stores_ids, avail=avail, sort_order=sort_order, modified_time=modified_time, description=description, short_description=short_description, meta_title=meta_title, meta_description=meta_description, meta_keywords=meta_keywords, seo_url=seo_url, lang_id=lang_id, store_id=store_id, _mediaType=_mediaType)
+function category_update(_api::CategoryApi, id::String; name=nothing, description=nothing, short_description=nothing, parent_id=nothing, avail=nothing, sort_order=nothing, modified_time=nothing, meta_title=nothing, meta_description=nothing, meta_keywords=nothing, seo_url=nothing, store_id=nothing, stores_ids=nothing, lang_id=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_category_update(_api, id; name=name, description=description, short_description=short_description, parent_id=parent_id, avail=avail, sort_order=sort_order, modified_time=modified_time, meta_title=meta_title, meta_description=meta_description, meta_keywords=meta_keywords, seo_url=seo_url, store_id=store_id, stores_ids=stores_ids, lang_id=lang_id, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function category_update(_api::CategoryApi, response_stream::Channel, id::String; name=nothing, parent_id=nothing, stores_ids=nothing, avail=nothing, sort_order=nothing, modified_time=nothing, description=nothing, short_description=nothing, meta_title=nothing, meta_description=nothing, meta_keywords=nothing, seo_url=nothing, lang_id=nothing, store_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_category_update(_api, id; name=name, parent_id=parent_id, stores_ids=stores_ids, avail=avail, sort_order=sort_order, modified_time=modified_time, description=description, short_description=short_description, meta_title=meta_title, meta_description=meta_description, meta_keywords=meta_keywords, seo_url=seo_url, lang_id=lang_id, store_id=store_id, _mediaType=_mediaType)
+function category_update(_api::CategoryApi, response_stream::Channel, id::String; name=nothing, description=nothing, short_description=nothing, parent_id=nothing, avail=nothing, sort_order=nothing, modified_time=nothing, meta_title=nothing, meta_description=nothing, meta_keywords=nothing, seo_url=nothing, store_id=nothing, stores_ids=nothing, lang_id=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_category_update(_api, id; name=name, description=description, short_description=short_description, parent_id=parent_id, avail=avail, sort_order=sort_order, modified_time=modified_time, meta_title=meta_title, meta_description=meta_description, meta_keywords=meta_keywords, seo_url=seo_url, store_id=store_id, stores_ids=stores_ids, lang_id=lang_id, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 

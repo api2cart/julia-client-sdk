@@ -5,10 +5,10 @@
 @doc raw"""OrderPreestimateShippingList
 
     OrderPreestimateShippingList(;
-        store_id=nothing,
         warehouse_id=nothing,
-        customer_email=nothing,
         customer_id=nothing,
+        customer_email=nothing,
+        store_id=nothing,
         shipp_address_1=nothing,
         shipp_city=nothing,
         shipp_postcode=nothing,
@@ -19,10 +19,10 @@
         order_item=nothing,
     )
 
-    - store_id::String : Store Id
     - warehouse_id::String : This parameter is used for selecting a warehouse where you need to set/modify a product quantity.
-    - customer_email::String : Retrieves orders specified by customer email
     - customer_id::String : Retrieves orders specified by customer id
+    - customer_email::String : Retrieves orders specified by customer email
+    - store_id::String : Store Id
     - shipp_address_1::String : Specifies first shipping address
     - shipp_city::String : Specifies shipping city
     - shipp_postcode::String : Specifies shipping postcode
@@ -33,10 +33,10 @@
     - order_item::Vector{OrderPreestimateShippingListOrderItemInner}
 """
 Base.@kwdef mutable struct OrderPreestimateShippingList <: OpenAPI.APIModel
-    store_id::Union{Nothing, String} = nothing
     warehouse_id::Union{Nothing, String} = nothing
-    customer_email::Union{Nothing, String} = nothing
     customer_id::Union{Nothing, String} = nothing
+    customer_email::Union{Nothing, String} = nothing
+    store_id::Union{Nothing, String} = nothing
     shipp_address_1::Union{Nothing, String} = nothing
     shipp_city::Union{Nothing, String} = nothing
     shipp_postcode::Union{Nothing, String} = nothing
@@ -46,11 +46,11 @@ Base.@kwdef mutable struct OrderPreestimateShippingList <: OpenAPI.APIModel
     exclude::Union{Nothing, String} = nothing
     order_item::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{OrderPreestimateShippingListOrderItemInner} }
 
-    function OrderPreestimateShippingList(store_id, warehouse_id, customer_email, customer_id, shipp_address_1, shipp_city, shipp_postcode, shipp_state, shipp_country, params, exclude, order_item, )
-        OpenAPI.validate_property(OrderPreestimateShippingList, Symbol("store_id"), store_id)
+    function OrderPreestimateShippingList(warehouse_id, customer_id, customer_email, store_id, shipp_address_1, shipp_city, shipp_postcode, shipp_state, shipp_country, params, exclude, order_item, )
         OpenAPI.validate_property(OrderPreestimateShippingList, Symbol("warehouse_id"), warehouse_id)
-        OpenAPI.validate_property(OrderPreestimateShippingList, Symbol("customer_email"), customer_email)
         OpenAPI.validate_property(OrderPreestimateShippingList, Symbol("customer_id"), customer_id)
+        OpenAPI.validate_property(OrderPreestimateShippingList, Symbol("customer_email"), customer_email)
+        OpenAPI.validate_property(OrderPreestimateShippingList, Symbol("store_id"), store_id)
         OpenAPI.validate_property(OrderPreestimateShippingList, Symbol("shipp_address_1"), shipp_address_1)
         OpenAPI.validate_property(OrderPreestimateShippingList, Symbol("shipp_city"), shipp_city)
         OpenAPI.validate_property(OrderPreestimateShippingList, Symbol("shipp_postcode"), shipp_postcode)
@@ -59,11 +59,11 @@ Base.@kwdef mutable struct OrderPreestimateShippingList <: OpenAPI.APIModel
         OpenAPI.validate_property(OrderPreestimateShippingList, Symbol("params"), params)
         OpenAPI.validate_property(OrderPreestimateShippingList, Symbol("exclude"), exclude)
         OpenAPI.validate_property(OrderPreestimateShippingList, Symbol("order_item"), order_item)
-        return new(store_id, warehouse_id, customer_email, customer_id, shipp_address_1, shipp_city, shipp_postcode, shipp_state, shipp_country, params, exclude, order_item, )
+        return new(warehouse_id, customer_id, customer_email, store_id, shipp_address_1, shipp_city, shipp_postcode, shipp_state, shipp_country, params, exclude, order_item, )
     end
 end # type OrderPreestimateShippingList
 
-const _property_types_OrderPreestimateShippingList = Dict{Symbol,String}(Symbol("store_id")=>"String", Symbol("warehouse_id")=>"String", Symbol("customer_email")=>"String", Symbol("customer_id")=>"String", Symbol("shipp_address_1")=>"String", Symbol("shipp_city")=>"String", Symbol("shipp_postcode")=>"String", Symbol("shipp_state")=>"String", Symbol("shipp_country")=>"String", Symbol("params")=>"String", Symbol("exclude")=>"String", Symbol("order_item")=>"Vector{OrderPreestimateShippingListOrderItemInner}", )
+const _property_types_OrderPreestimateShippingList = Dict{Symbol,String}(Symbol("warehouse_id")=>"String", Symbol("customer_id")=>"String", Symbol("customer_email")=>"String", Symbol("store_id")=>"String", Symbol("shipp_address_1")=>"String", Symbol("shipp_city")=>"String", Symbol("shipp_postcode")=>"String", Symbol("shipp_state")=>"String", Symbol("shipp_country")=>"String", Symbol("params")=>"String", Symbol("exclude")=>"String", Symbol("order_item")=>"Vector{OrderPreestimateShippingListOrderItemInner}", )
 OpenAPI.property_type(::Type{ OrderPreestimateShippingList }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_OrderPreestimateShippingList[name]))}
 
 function check_required(o::OrderPreestimateShippingList)

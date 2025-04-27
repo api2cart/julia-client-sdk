@@ -5,49 +5,49 @@
 @doc raw"""OrderShipmentTrackingAdd
 
     OrderShipmentTrackingAdd(;
-        store_id=nothing,
         order_id=nothing,
         shipment_id=nothing,
         carrier_id=nothing,
+        store_id=nothing,
         tracking_provider=nothing,
         tracking_number=nothing,
         tracking_link=nothing,
         send_notifications=false,
     )
 
-    - store_id::String : Store Id
     - order_id::String : Defines the order id
     - shipment_id::String : Shipment id indicates the number of delivery
     - carrier_id::String : Defines tracking carrier id
+    - store_id::String : Store Id
     - tracking_provider::String : Defines name of the company which provides shipment tracking
     - tracking_number::String : Defines tracking number
     - tracking_link::String : Defines custom tracking link
     - send_notifications::Bool : Send notifications to customer after tracking was created
 """
 Base.@kwdef mutable struct OrderShipmentTrackingAdd <: OpenAPI.APIModel
-    store_id::Union{Nothing, String} = nothing
     order_id::Union{Nothing, String} = nothing
     shipment_id::Union{Nothing, String} = nothing
     carrier_id::Union{Nothing, String} = nothing
+    store_id::Union{Nothing, String} = nothing
     tracking_provider::Union{Nothing, String} = nothing
     tracking_number::Union{Nothing, String} = nothing
     tracking_link::Union{Nothing, String} = nothing
     send_notifications::Union{Nothing, Bool} = false
 
-    function OrderShipmentTrackingAdd(store_id, order_id, shipment_id, carrier_id, tracking_provider, tracking_number, tracking_link, send_notifications, )
-        OpenAPI.validate_property(OrderShipmentTrackingAdd, Symbol("store_id"), store_id)
+    function OrderShipmentTrackingAdd(order_id, shipment_id, carrier_id, store_id, tracking_provider, tracking_number, tracking_link, send_notifications, )
         OpenAPI.validate_property(OrderShipmentTrackingAdd, Symbol("order_id"), order_id)
         OpenAPI.validate_property(OrderShipmentTrackingAdd, Symbol("shipment_id"), shipment_id)
         OpenAPI.validate_property(OrderShipmentTrackingAdd, Symbol("carrier_id"), carrier_id)
+        OpenAPI.validate_property(OrderShipmentTrackingAdd, Symbol("store_id"), store_id)
         OpenAPI.validate_property(OrderShipmentTrackingAdd, Symbol("tracking_provider"), tracking_provider)
         OpenAPI.validate_property(OrderShipmentTrackingAdd, Symbol("tracking_number"), tracking_number)
         OpenAPI.validate_property(OrderShipmentTrackingAdd, Symbol("tracking_link"), tracking_link)
         OpenAPI.validate_property(OrderShipmentTrackingAdd, Symbol("send_notifications"), send_notifications)
-        return new(store_id, order_id, shipment_id, carrier_id, tracking_provider, tracking_number, tracking_link, send_notifications, )
+        return new(order_id, shipment_id, carrier_id, store_id, tracking_provider, tracking_number, tracking_link, send_notifications, )
     end
 end # type OrderShipmentTrackingAdd
 
-const _property_types_OrderShipmentTrackingAdd = Dict{Symbol,String}(Symbol("store_id")=>"String", Symbol("order_id")=>"String", Symbol("shipment_id")=>"String", Symbol("carrier_id")=>"String", Symbol("tracking_provider")=>"String", Symbol("tracking_number")=>"String", Symbol("tracking_link")=>"String", Symbol("send_notifications")=>"Bool", )
+const _property_types_OrderShipmentTrackingAdd = Dict{Symbol,String}(Symbol("order_id")=>"String", Symbol("shipment_id")=>"String", Symbol("carrier_id")=>"String", Symbol("store_id")=>"String", Symbol("tracking_provider")=>"String", Symbol("tracking_number")=>"String", Symbol("tracking_link")=>"String", Symbol("send_notifications")=>"Bool", )
 OpenAPI.property_type(::Type{ OrderShipmentTrackingAdd }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_OrderShipmentTrackingAdd[name]))}
 
 function check_required(o::OrderShipmentTrackingAdd)

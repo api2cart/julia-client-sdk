@@ -5,88 +5,88 @@
 @doc raw"""ProductImageAdd
 
     ProductImageAdd(;
-        product_id=nothing,
-        image_name=nothing,
         type=nothing,
-        url=nothing,
-        label=nothing,
-        mime=nothing,
-        position=0,
-        content=nothing,
+        image_name=nothing,
+        product_id=nothing,
         product_variant_id=nothing,
         variant_ids=nothing,
         option_value_ids=nothing,
         store_id=nothing,
         lang_id=nothing,
+        url=nothing,
+        content=nothing,
+        label=nothing,
+        mime=nothing,
+        position=0,
         use_latest_api_version=false,
     )
 
-    - product_id::String : Defines product id where the image should be added
-    - image_name::String : Defines image&#39;s name
     - type::String : Defines image&#39;s types that are specified by comma-separated list
-    - url::String : Defines URL of the image that has to be added
-    - label::String : Defines alternative text that has to be attached to the picture
-    - mime::String : Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.
-    - position::Int64 : Defines image’s position in the list
-    - content::String : Content(body) encoded in base64 of image file
+    - image_name::String : Defines image&#39;s name
+    - product_id::String : Defines product id where the image should be added
     - product_variant_id::String : Defines product&#39;s variants specified by variant id
     - variant_ids::String : Defines product&#39;s variants ids
     - option_value_ids::String : Defines product&#39;s option values ids
     - store_id::String : Store Id
     - lang_id::String : Add product image on specified language id
+    - url::String : Defines URL of the image that has to be added
+    - content::String : Content(body) encoded in base64 of image file
+    - label::String : Defines alternative text that has to be attached to the picture
+    - mime::String : Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.
+    - position::Int64 : Defines image’s position in the list
     - use_latest_api_version::Bool : Use the latest platform API version
 """
 Base.@kwdef mutable struct ProductImageAdd <: OpenAPI.APIModel
-    product_id::Union{Nothing, String} = nothing
-    image_name::Union{Nothing, String} = nothing
     type::Union{Nothing, String} = nothing
-    url::Union{Nothing, String} = nothing
-    label::Union{Nothing, String} = nothing
-    mime::Union{Nothing, String} = nothing
-    position::Union{Nothing, Int64} = 0
-    content::Union{Nothing, String} = nothing
+    image_name::Union{Nothing, String} = nothing
+    product_id::Union{Nothing, String} = nothing
     product_variant_id::Union{Nothing, String} = nothing
     variant_ids::Union{Nothing, String} = nothing
     option_value_ids::Union{Nothing, String} = nothing
     store_id::Union{Nothing, String} = nothing
     lang_id::Union{Nothing, String} = nothing
+    url::Union{Nothing, String} = nothing
+    content::Union{Nothing, String} = nothing
+    label::Union{Nothing, String} = nothing
+    mime::Union{Nothing, String} = nothing
+    position::Union{Nothing, Int64} = 0
     use_latest_api_version::Union{Nothing, Bool} = false
 
-    function ProductImageAdd(product_id, image_name, type, url, label, mime, position, content, product_variant_id, variant_ids, option_value_ids, store_id, lang_id, use_latest_api_version, )
-        OpenAPI.validate_property(ProductImageAdd, Symbol("product_id"), product_id)
-        OpenAPI.validate_property(ProductImageAdd, Symbol("image_name"), image_name)
+    function ProductImageAdd(type, image_name, product_id, product_variant_id, variant_ids, option_value_ids, store_id, lang_id, url, content, label, mime, position, use_latest_api_version, )
         OpenAPI.validate_property(ProductImageAdd, Symbol("type"), type)
-        OpenAPI.validate_property(ProductImageAdd, Symbol("url"), url)
-        OpenAPI.validate_property(ProductImageAdd, Symbol("label"), label)
-        OpenAPI.validate_property(ProductImageAdd, Symbol("mime"), mime)
-        OpenAPI.validate_property(ProductImageAdd, Symbol("position"), position)
-        OpenAPI.validate_property(ProductImageAdd, Symbol("content"), content)
+        OpenAPI.validate_property(ProductImageAdd, Symbol("image_name"), image_name)
+        OpenAPI.validate_property(ProductImageAdd, Symbol("product_id"), product_id)
         OpenAPI.validate_property(ProductImageAdd, Symbol("product_variant_id"), product_variant_id)
         OpenAPI.validate_property(ProductImageAdd, Symbol("variant_ids"), variant_ids)
         OpenAPI.validate_property(ProductImageAdd, Symbol("option_value_ids"), option_value_ids)
         OpenAPI.validate_property(ProductImageAdd, Symbol("store_id"), store_id)
         OpenAPI.validate_property(ProductImageAdd, Symbol("lang_id"), lang_id)
+        OpenAPI.validate_property(ProductImageAdd, Symbol("url"), url)
+        OpenAPI.validate_property(ProductImageAdd, Symbol("content"), content)
+        OpenAPI.validate_property(ProductImageAdd, Symbol("label"), label)
+        OpenAPI.validate_property(ProductImageAdd, Symbol("mime"), mime)
+        OpenAPI.validate_property(ProductImageAdd, Symbol("position"), position)
         OpenAPI.validate_property(ProductImageAdd, Symbol("use_latest_api_version"), use_latest_api_version)
-        return new(product_id, image_name, type, url, label, mime, position, content, product_variant_id, variant_ids, option_value_ids, store_id, lang_id, use_latest_api_version, )
+        return new(type, image_name, product_id, product_variant_id, variant_ids, option_value_ids, store_id, lang_id, url, content, label, mime, position, use_latest_api_version, )
     end
 end # type ProductImageAdd
 
-const _property_types_ProductImageAdd = Dict{Symbol,String}(Symbol("product_id")=>"String", Symbol("image_name")=>"String", Symbol("type")=>"String", Symbol("url")=>"String", Symbol("label")=>"String", Symbol("mime")=>"String", Symbol("position")=>"Int64", Symbol("content")=>"String", Symbol("product_variant_id")=>"String", Symbol("variant_ids")=>"String", Symbol("option_value_ids")=>"String", Symbol("store_id")=>"String", Symbol("lang_id")=>"String", Symbol("use_latest_api_version")=>"Bool", )
+const _property_types_ProductImageAdd = Dict{Symbol,String}(Symbol("type")=>"String", Symbol("image_name")=>"String", Symbol("product_id")=>"String", Symbol("product_variant_id")=>"String", Symbol("variant_ids")=>"String", Symbol("option_value_ids")=>"String", Symbol("store_id")=>"String", Symbol("lang_id")=>"String", Symbol("url")=>"String", Symbol("content")=>"String", Symbol("label")=>"String", Symbol("mime")=>"String", Symbol("position")=>"Int64", Symbol("use_latest_api_version")=>"Bool", )
 OpenAPI.property_type(::Type{ ProductImageAdd }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_ProductImageAdd[name]))}
 
 function check_required(o::ProductImageAdd)
-    o.image_name === nothing && (return false)
     o.type === nothing && (return false)
+    o.image_name === nothing && (return false)
     true
 end
 
 function OpenAPI.validate_property(::Type{ ProductImageAdd }, name::Symbol, val)
 
-
-
     if name === Symbol("type")
         OpenAPI.validate_param(name, "ProductImageAdd", :enum, val, ["small", "base", "additional", "thumbnail"])
     end
+
+
 
 
 

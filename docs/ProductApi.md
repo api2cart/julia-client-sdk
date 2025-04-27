@@ -119,8 +119,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_attribute_list**
-> product_attribute_list(_api::ProductApi, product_id::String; attribute_id=nothing, variant_id=nothing, page_cursor=nothing, start=nothing, count=nothing, attribute_group_id=nothing, set_name=nothing, lang_id=nothing, store_id=nothing, sort_by=nothing, sort_direction=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseProductAttributeList, OpenAPI.Clients.ApiResponse <br/>
-> product_attribute_list(_api::ProductApi, response_stream::Channel, product_id::String; attribute_id=nothing, variant_id=nothing, page_cursor=nothing, start=nothing, count=nothing, attribute_group_id=nothing, set_name=nothing, lang_id=nothing, store_id=nothing, sort_by=nothing, sort_direction=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseProductAttributeList }, OpenAPI.Clients.ApiResponse
+> product_attribute_list(_api::ProductApi, product_id::String; start=nothing, count=nothing, page_cursor=nothing, attribute_id=nothing, variant_id=nothing, attribute_group_id=nothing, lang_id=nothing, store_id=nothing, set_name=nothing, sort_by=nothing, sort_direction=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseProductAttributeList, OpenAPI.Clients.ApiResponse <br/>
+> product_attribute_list(_api::ProductApi, response_stream::Channel, product_id::String; start=nothing, count=nothing, page_cursor=nothing, attribute_id=nothing, variant_id=nothing, attribute_group_id=nothing, lang_id=nothing, store_id=nothing, set_name=nothing, sort_by=nothing, sort_direction=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseProductAttributeList }, OpenAPI.Clients.ApiResponse
 
 product.attribute.list
 
@@ -137,19 +137,19 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attribute_id** | **String** | Retrieves info for specified attribute_id | [default to nothing]
- **variant_id** | **String** | Defines product&#39;s variants specified by variant id | [default to nothing]
- **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
+ **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
+ **attribute_id** | **String** | Retrieves info for specified attribute_id | [default to nothing]
+ **variant_id** | **String** | Defines product&#39;s variants specified by variant id | [default to nothing]
  **attribute_group_id** | **String** | Filter by attribute_group_id | [default to nothing]
- **set_name** | **String** | Retrieves attributes specified by set_name in Magento | [default to nothing]
  **lang_id** | **String** | Retrieves attributes specified by language id | [default to nothing]
  **store_id** | **String** | Retrieves attributes specified by store id | [default to nothing]
+ **set_name** | **String** | Retrieves attributes specified by set_name in Magento | [default to nothing]
  **sort_by** | **String** | Set field to sort by | [default to &quot;attribute_id&quot;]
  **sort_direction** | **String** | Set sorting direction | [default to &quot;asc&quot;]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;attribute_id,name&quot;]
  **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;attribute_id,name&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
 
 ### Return type
@@ -250,8 +250,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_brand_list**
-> product_brand_list(_api::ProductApi; start=nothing, count=nothing, page_cursor=nothing, params=nothing, brand_ids=nothing, exclude=nothing, category_id=nothing, store_id=nothing, lang_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, parent_id=nothing, response_fields=nothing, find_where=nothing, find_value=nothing, _mediaType=nothing) -> ModelResponseProductBrandList, OpenAPI.Clients.ApiResponse <br/>
-> product_brand_list(_api::ProductApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, params=nothing, brand_ids=nothing, exclude=nothing, category_id=nothing, store_id=nothing, lang_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, parent_id=nothing, response_fields=nothing, find_where=nothing, find_value=nothing, _mediaType=nothing) -> Channel{ ModelResponseProductBrandList }, OpenAPI.Clients.ApiResponse
+> product_brand_list(_api::ProductApi; start=nothing, count=nothing, page_cursor=nothing, brand_ids=nothing, category_id=nothing, parent_id=nothing, store_id=nothing, lang_id=nothing, find_where=nothing, find_value=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseProductBrandList, OpenAPI.Clients.ApiResponse <br/>
+> product_brand_list(_api::ProductApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, brand_ids=nothing, category_id=nothing, parent_id=nothing, store_id=nothing, lang_id=nothing, find_where=nothing, find_value=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseProductBrandList }, OpenAPI.Clients.ApiResponse
 
 product.brand.list
 
@@ -270,20 +270,20 @@ Name | Type | Description  | Notes
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
  **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,name,short_description,active,url&quot;]
  **brand_ids** | **String** | Retrieves brands specified by brand ids | [default to nothing]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
  **category_id** | **String** | Retrieves product brands specified by category id | [default to nothing]
+ **parent_id** | **String** | Retrieves brands specified by parent id | [default to nothing]
  **store_id** | **String** | Store Id | [default to nothing]
  **lang_id** | **String** | Language id | [default to nothing]
+ **find_where** | **String** | Entity search that is specified by the comma-separated unique fields | [default to nothing]
+ **find_value** | **String** | Entity search that is specified by some value | [default to nothing]
  **created_from** | **String** | Retrieve entities from their creation date | [default to nothing]
  **created_to** | **String** | Retrieve entities to their creation date | [default to nothing]
  **modified_from** | **String** | Retrieve entities from their modification date | [default to nothing]
  **modified_to** | **String** | Retrieve entities to their modification date | [default to nothing]
- **parent_id** | **String** | Retrieves brands specified by parent id | [default to nothing]
  **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
- **find_where** | **String** | Entity search that is specified by the comma-separated unique fields | [default to nothing]
- **find_value** | **String** | Entity search that is specified by some value | [default to nothing]
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,name,short_description,active,url&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
 
 ### Return type
 
@@ -339,8 +339,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_child_item_info**
-> product_child_item_info(_api::ProductApi, product_id::String, id::String; params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, lang_id=nothing, currency_id=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> ProductChildItemInfo200Response, OpenAPI.Clients.ApiResponse <br/>
-> product_child_item_info(_api::ProductApi, response_stream::Channel, product_id::String, id::String; params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, lang_id=nothing, currency_id=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> Channel{ ProductChildItemInfo200Response }, OpenAPI.Clients.ApiResponse
+> product_child_item_info(_api::ProductApi, product_id::String, id::String; store_id=nothing, lang_id=nothing, currency_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> ProductChildItemInfo200Response, OpenAPI.Clients.ApiResponse <br/>
+> product_child_item_info(_api::ProductApi, response_stream::Channel, product_id::String, id::String; store_id=nothing, lang_id=nothing, currency_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> Channel{ ProductChildItemInfo200Response }, OpenAPI.Clients.ApiResponse
 
 product.child_item.info
 
@@ -358,12 +358,12 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;force_all&quot;]
- **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
  **store_id** | **String** | Store Id | [default to nothing]
  **lang_id** | **String** | Language id | [default to nothing]
  **currency_id** | **String** | Currency Id | [default to nothing]
+ **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;force_all&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
  **use_latest_api_version** | **Bool** | Use the latest platform API version | [default to false]
 
 ### Return type
@@ -382,8 +382,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_child_item_list**
-> product_child_item_list(_api::ProductApi; page_cursor=nothing, start=nothing, count=nothing, params=nothing, response_fields=nothing, exclude=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, product_id=nothing, product_ids=nothing, sku=nothing, store_id=nothing, lang_id=nothing, currency_id=nothing, avail_sale=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, return_global=nothing, _mediaType=nothing) -> ModelResponseProductChildItemList, OpenAPI.Clients.ApiResponse <br/>
-> product_child_item_list(_api::ProductApi, response_stream::Channel; page_cursor=nothing, start=nothing, count=nothing, params=nothing, response_fields=nothing, exclude=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, product_id=nothing, product_ids=nothing, sku=nothing, store_id=nothing, lang_id=nothing, currency_id=nothing, avail_sale=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, return_global=nothing, _mediaType=nothing) -> Channel{ ModelResponseProductChildItemList }, OpenAPI.Clients.ApiResponse
+> product_child_item_list(_api::ProductApi; start=nothing, count=nothing, page_cursor=nothing, product_id=nothing, product_ids=nothing, sku=nothing, store_id=nothing, lang_id=nothing, currency_id=nothing, avail_sale=nothing, find_value=nothing, find_where=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, return_global=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> ModelResponseProductChildItemList, OpenAPI.Clients.ApiResponse <br/>
+> product_child_item_list(_api::ProductApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, product_id=nothing, product_ids=nothing, sku=nothing, store_id=nothing, lang_id=nothing, currency_id=nothing, avail_sale=nothing, find_value=nothing, find_where=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, return_global=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> Channel{ ModelResponseProductChildItemList }, OpenAPI.Clients.ApiResponse
 
 product.child_item.list
 
@@ -399,16 +399,9 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_cursor** | **String** | Used to retrieve products child items via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;force_all&quot;]
- **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
- **created_from** | **String** | Retrieve entities from their creation date | [default to nothing]
- **created_to** | **String** | Retrieve entities to their creation date | [default to nothing]
- **modified_from** | **String** | Retrieve entities from their modification date | [default to nothing]
- **modified_to** | **String** | Retrieve entities to their modification date | [default to nothing]
+ **page_cursor** | **String** | Used to retrieve products child items via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
  **product_id** | **String** | Filter by parent product id | [default to nothing]
  **product_ids** | **String** | Filter by parent product ids | [default to nothing]
  **sku** | **String** | Filter by products variant&#39;s sku | [default to nothing]
@@ -418,10 +411,17 @@ Name | Type | Description  | Notes
  **avail_sale** | **Bool** | Specifies the set of available/not available products for sale | [default to nothing]
  **find_value** | **String** | Entity search that is specified by some value | [default to nothing]
  **find_where** | **String** | Child products search that is specified by field | [default to nothing]
+ **created_from** | **String** | Retrieve entities from their creation date | [default to nothing]
+ **created_to** | **String** | Retrieve entities to their creation date | [default to nothing]
+ **modified_from** | **String** | Retrieve entities from their modification date | [default to nothing]
+ **modified_to** | **String** | Retrieve entities to their modification date | [default to nothing]
+ **return_global** | **Bool** | Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned. | [default to false]
+ **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;force_all&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
  **report_request_id** | **String** | Report request id | [default to nothing]
  **disable_report_cache** | **Bool** | Disable report cache for current request | [default to false]
  **use_latest_api_version** | **Bool** | Use the latest platform API version | [default to false]
- **return_global** | **Bool** | Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned. | [default to false]
 
 ### Return type
 
@@ -439,8 +439,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_count**
-> product_count(_api::ProductApi; category_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, avail_view=nothing, avail_sale=nothing, store_id=nothing, lang_id=nothing, product_ids=nothing, since_id=nothing, report_request_id=nothing, disable_report_cache=nothing, brand_name=nothing, product_attributes=nothing, status=nothing, type=nothing, find_value=nothing, find_where=nothing, use_latest_api_version=nothing, return_global=nothing, categories_ids=nothing, _mediaType=nothing) -> ProductCount200Response, OpenAPI.Clients.ApiResponse <br/>
-> product_count(_api::ProductApi, response_stream::Channel; category_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, avail_view=nothing, avail_sale=nothing, store_id=nothing, lang_id=nothing, product_ids=nothing, since_id=nothing, report_request_id=nothing, disable_report_cache=nothing, brand_name=nothing, product_attributes=nothing, status=nothing, type=nothing, find_value=nothing, find_where=nothing, use_latest_api_version=nothing, return_global=nothing, categories_ids=nothing, _mediaType=nothing) -> Channel{ ProductCount200Response }, OpenAPI.Clients.ApiResponse
+> product_count(_api::ProductApi; product_ids=nothing, since_id=nothing, categories_ids=nothing, category_id=nothing, store_id=nothing, lang_id=nothing, avail_view=nothing, avail_sale=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, brand_name=nothing, product_attributes=nothing, status=nothing, type=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, return_global=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> ProductCount200Response, OpenAPI.Clients.ApiResponse <br/>
+> product_count(_api::ProductApi, response_stream::Channel; product_ids=nothing, since_id=nothing, categories_ids=nothing, category_id=nothing, store_id=nothing, lang_id=nothing, avail_view=nothing, avail_sale=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, brand_name=nothing, product_attributes=nothing, status=nothing, type=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, return_global=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> Channel{ ProductCount200Response }, OpenAPI.Clients.ApiResponse
 
 product.count
 
@@ -456,28 +456,28 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **product_ids** | **String** | Counts products specified by product ids | [default to nothing]
+ **since_id** | **String** | Retrieve entities starting from the specified id. | [default to nothing]
+ **categories_ids** | **String** | Defines product add that is specified by comma-separated categories id | [default to nothing]
  **category_id** | **String** | Counts products specified by category id | [default to nothing]
+ **store_id** | **String** | Counts products specified by store id | [default to nothing]
+ **lang_id** | **String** | Counts products specified by language id | [default to nothing]
+ **avail_view** | **Bool** | Specifies the set of visible/invisible products | [default to nothing]
+ **avail_sale** | **Bool** | Specifies the set of available/not available products for sale | [default to nothing]
  **created_from** | **String** | Retrieve entities from their creation date | [default to nothing]
  **created_to** | **String** | Retrieve entities to their creation date | [default to nothing]
  **modified_from** | **String** | Retrieve entities from their modification date | [default to nothing]
  **modified_to** | **String** | Retrieve entities to their modification date | [default to nothing]
- **avail_view** | **Bool** | Specifies the set of visible/invisible products | [default to nothing]
- **avail_sale** | **Bool** | Specifies the set of available/not available products for sale | [default to nothing]
- **store_id** | **String** | Counts products specified by store id | [default to nothing]
- **lang_id** | **String** | Counts products specified by language id | [default to nothing]
- **product_ids** | **String** | Counts products specified by product ids | [default to nothing]
- **since_id** | **String** | Retrieve entities starting from the specified id. | [default to nothing]
- **report_request_id** | **String** | Report request id | [default to nothing]
- **disable_report_cache** | **Bool** | Disable report cache for current request | [default to false]
  **brand_name** | **String** | Retrieves brands specified by brand name | [default to nothing]
  **product_attributes** | [**Vector{String}**](String.md) | Defines product attributes | [default to nothing]
  **status** | **String** | Defines product&#39;s status | [default to nothing]
  **type** | **String** | Defines products&#39;s type | [default to nothing]
  **find_value** | **String** | Entity search that is specified by some value | [default to nothing]
  **find_where** | **String** | Counts products that are searched specified by field | [default to nothing]
- **use_latest_api_version** | **Bool** | Use the latest platform API version | [default to false]
+ **report_request_id** | **String** | Report request id | [default to nothing]
  **return_global** | **Bool** | Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned. | [default to false]
- **categories_ids** | **String** | Defines product add that is specified by comma-separated categories id | [default to nothing]
+ **disable_report_cache** | **Bool** | Disable report cache for current request | [default to false]
+ **use_latest_api_version** | **Bool** | Use the latest platform API version | [default to false]
 
 ### Return type
 
@@ -536,8 +536,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_currency_list**
-> product_currency_list(_api::ProductApi; start=nothing, count=nothing, params=nothing, page_cursor=nothing, exclude=nothing, response_fields=nothing, default=nothing, avail=nothing, _mediaType=nothing) -> ModelResponseProductCurrencyList, OpenAPI.Clients.ApiResponse <br/>
-> product_currency_list(_api::ProductApi, response_stream::Channel; start=nothing, count=nothing, params=nothing, page_cursor=nothing, exclude=nothing, response_fields=nothing, default=nothing, avail=nothing, _mediaType=nothing) -> Channel{ ModelResponseProductCurrencyList }, OpenAPI.Clients.ApiResponse
+> product_currency_list(_api::ProductApi; start=nothing, count=nothing, page_cursor=nothing, default=nothing, avail=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseProductCurrencyList, OpenAPI.Clients.ApiResponse <br/>
+> product_currency_list(_api::ProductApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, default=nothing, avail=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseProductCurrencyList }, OpenAPI.Clients.ApiResponse
 
 product.currency.list
 
@@ -555,12 +555,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;name,iso3,default,avail&quot;]
  **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
- **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
  **default** | **Bool** | Specifies the set of default/not default currencies | [default to nothing]
  **avail** | **Bool** | Specifies the set of available/not available currencies | [default to nothing]
+ **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;name,iso3,default,avail&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
 
 ### Return type
 
@@ -777,8 +777,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_image_update**
-> product_image_update(_api::ProductApi, product_id::String, id::String; variant_ids=nothing, image_name=nothing, type=nothing, label=nothing, position=nothing, store_id=nothing, lang_id=nothing, hidden=nothing, _mediaType=nothing) -> ProductImageUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
-> product_image_update(_api::ProductApi, response_stream::Channel, product_id::String, id::String; variant_ids=nothing, image_name=nothing, type=nothing, label=nothing, position=nothing, store_id=nothing, lang_id=nothing, hidden=nothing, _mediaType=nothing) -> Channel{ ProductImageUpdate200Response }, OpenAPI.Clients.ApiResponse
+> product_image_update(_api::ProductApi, product_id::String, id::String; variant_ids=nothing, store_id=nothing, lang_id=nothing, image_name=nothing, type=nothing, label=nothing, position=nothing, hidden=nothing, _mediaType=nothing) -> ProductImageUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
+> product_image_update(_api::ProductApi, response_stream::Channel, product_id::String, id::String; variant_ids=nothing, store_id=nothing, lang_id=nothing, image_name=nothing, type=nothing, label=nothing, position=nothing, hidden=nothing, _mediaType=nothing) -> Channel{ ProductImageUpdate200Response }, OpenAPI.Clients.ApiResponse
 
 product.image.update
 
@@ -797,12 +797,12 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **variant_ids** | **String** | Defines product&#39;s variants ids | [default to nothing]
+ **store_id** | **String** | Store Id | [default to nothing]
+ **lang_id** | **String** | Language id | [default to nothing]
  **image_name** | **String** | Defines image&#39;s name | [default to nothing]
  **type** | **String** | Defines image&#39;s types that are specified by comma-separated list | [default to &quot;additional&quot;]
  **label** | **String** | Defines alternative text that has to be attached to the picture | [default to nothing]
  **position** | **Int64** | Defines image’s position in the list | [default to nothing]
- **store_id** | **String** | Store Id | [default to nothing]
- **lang_id** | **String** | Language id | [default to nothing]
  **hidden** | **Bool** | Define is hide image | [default to nothing]
 
 ### Return type
@@ -821,8 +821,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_info**
-> product_info(_api::ProductApi, id::String; params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, lang_id=nothing, currency_id=nothing, report_request_id=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> ProductInfo200Response, OpenAPI.Clients.ApiResponse <br/>
-> product_info(_api::ProductApi, response_stream::Channel, id::String; params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, lang_id=nothing, currency_id=nothing, report_request_id=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> Channel{ ProductInfo200Response }, OpenAPI.Clients.ApiResponse
+> product_info(_api::ProductApi, id::String; store_id=nothing, lang_id=nothing, currency_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> ProductInfo200Response, OpenAPI.Clients.ApiResponse <br/>
+> product_info(_api::ProductApi, response_stream::Channel, id::String; store_id=nothing, lang_id=nothing, currency_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> Channel{ ProductInfo200Response }, OpenAPI.Clients.ApiResponse
 
 product.info
 
@@ -839,12 +839,12 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,name,description,price,categories_ids&quot;]
- **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
  **store_id** | **String** | Retrieves product info specified by store id | [default to nothing]
  **lang_id** | **String** | Retrieves product info specified by language id | [default to nothing]
  **currency_id** | **String** | Currency Id | [default to nothing]
+ **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,name,description,price,categories_ids&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
  **report_request_id** | **String** | Report request id | [default to nothing]
  **disable_report_cache** | **Bool** | Disable report cache for current request | [default to false]
  **use_latest_api_version** | **Bool** | Use the latest platform API version | [default to false]
@@ -865,8 +865,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_list**
-> product_list(_api::ProductApi; page_cursor=nothing, start=nothing, count=nothing, params=nothing, response_fields=nothing, exclude=nothing, category_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, avail_view=nothing, avail_sale=nothing, store_id=nothing, lang_id=nothing, currency_id=nothing, product_ids=nothing, since_id=nothing, report_request_id=nothing, disable_report_cache=nothing, sort_by=nothing, sort_direction=nothing, sku=nothing, disable_cache=nothing, brand_name=nothing, product_attributes=nothing, status=nothing, type=nothing, find_value=nothing, find_where=nothing, use_latest_api_version=nothing, return_global=nothing, categories_ids=nothing, _mediaType=nothing) -> ModelResponseProductList, OpenAPI.Clients.ApiResponse <br/>
-> product_list(_api::ProductApi, response_stream::Channel; page_cursor=nothing, start=nothing, count=nothing, params=nothing, response_fields=nothing, exclude=nothing, category_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, avail_view=nothing, avail_sale=nothing, store_id=nothing, lang_id=nothing, currency_id=nothing, product_ids=nothing, since_id=nothing, report_request_id=nothing, disable_report_cache=nothing, sort_by=nothing, sort_direction=nothing, sku=nothing, disable_cache=nothing, brand_name=nothing, product_attributes=nothing, status=nothing, type=nothing, find_value=nothing, find_where=nothing, use_latest_api_version=nothing, return_global=nothing, categories_ids=nothing, _mediaType=nothing) -> Channel{ ModelResponseProductList }, OpenAPI.Clients.ApiResponse
+> product_list(_api::ProductApi; start=nothing, count=nothing, page_cursor=nothing, product_ids=nothing, since_id=nothing, categories_ids=nothing, category_id=nothing, store_id=nothing, lang_id=nothing, currency_id=nothing, avail_view=nothing, avail_sale=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, sku=nothing, brand_name=nothing, product_attributes=nothing, status=nothing, type=nothing, find_value=nothing, find_where=nothing, return_global=nothing, params=nothing, response_fields=nothing, exclude=nothing, sort_by=nothing, sort_direction=nothing, report_request_id=nothing, disable_cache=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> ModelResponseProductList, OpenAPI.Clients.ApiResponse <br/>
+> product_list(_api::ProductApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, product_ids=nothing, since_id=nothing, categories_ids=nothing, category_id=nothing, store_id=nothing, lang_id=nothing, currency_id=nothing, avail_view=nothing, avail_sale=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, sku=nothing, brand_name=nothing, product_attributes=nothing, status=nothing, type=nothing, find_value=nothing, find_where=nothing, return_global=nothing, params=nothing, response_fields=nothing, exclude=nothing, sort_by=nothing, sort_direction=nothing, report_request_id=nothing, disable_cache=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> Channel{ ModelResponseProductList }, OpenAPI.Clients.ApiResponse
 
 product.list
 
@@ -882,39 +882,39 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_cursor** | **String** | Used to retrieve products via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,name,description,price,categories_ids&quot;]
- **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
+ **page_cursor** | **String** | Used to retrieve products via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
+ **product_ids** | **String** | Retrieves products specified by product ids | [default to nothing]
+ **since_id** | **String** | Retrieve entities starting from the specified id. | [default to nothing]
+ **categories_ids** | **String** | Retrieves products specified by categories ids | [default to nothing]
  **category_id** | **String** | Retrieves products specified by category id | [default to nothing]
+ **store_id** | **String** | Retrieves products specified by store id | [default to nothing]
+ **lang_id** | **String** | Retrieves products specified by language id | [default to nothing]
+ **currency_id** | **String** | Currency Id | [default to nothing]
+ **avail_view** | **Bool** | Specifies the set of visible/invisible products | [default to nothing]
+ **avail_sale** | **Bool** | Specifies the set of available/not available products for sale | [default to nothing]
  **created_from** | **String** | Retrieve entities from their creation date | [default to nothing]
  **created_to** | **String** | Retrieve entities to their creation date | [default to nothing]
  **modified_from** | **String** | Retrieve entities from their modification date | [default to nothing]
  **modified_to** | **String** | Retrieve entities to their modification date | [default to nothing]
- **avail_view** | **Bool** | Specifies the set of visible/invisible products | [default to nothing]
- **avail_sale** | **Bool** | Specifies the set of available/not available products for sale | [default to nothing]
- **store_id** | **String** | Retrieves products specified by store id | [default to nothing]
- **lang_id** | **String** | Retrieves products specified by language id | [default to nothing]
- **currency_id** | **String** | Currency Id | [default to nothing]
- **product_ids** | **String** | Retrieves products specified by product ids | [default to nothing]
- **since_id** | **String** | Retrieve entities starting from the specified id. | [default to nothing]
- **report_request_id** | **String** | Report request id | [default to nothing]
- **disable_report_cache** | **Bool** | Disable report cache for current request | [default to false]
- **sort_by** | **String** | Set field to sort by | [default to &quot;id&quot;]
- **sort_direction** | **String** | Set sorting direction | [default to &quot;asc&quot;]
  **sku** | **String** | Filter by product&#39;s sku | [default to nothing]
- **disable_cache** | **Bool** | Disable cache for current request | [default to false]
  **brand_name** | **String** | Retrieves brands specified by brand name | [default to nothing]
  **product_attributes** | [**Vector{String}**](String.md) | Defines product attributes | [default to nothing]
  **status** | **String** | Defines product&#39;s status | [default to nothing]
  **type** | **String** | Defines products&#39;s type | [default to nothing]
  **find_value** | **String** | Entity search that is specified by some value | [default to nothing]
  **find_where** | **String** | Product search that is specified by field | [default to nothing]
- **use_latest_api_version** | **Bool** | Use the latest platform API version | [default to false]
  **return_global** | **Bool** | Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned. | [default to false]
- **categories_ids** | **String** | Retrieves products specified by categories ids | [default to nothing]
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,name,description,price,categories_ids&quot;]
+ **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
+ **sort_by** | **String** | Set field to sort by | [default to &quot;id&quot;]
+ **sort_direction** | **String** | Set sorting direction | [default to &quot;asc&quot;]
+ **report_request_id** | **String** | Report request id | [default to nothing]
+ **disable_cache** | **Bool** | Disable cache for current request | [default to false]
+ **disable_report_cache** | **Bool** | Disable report cache for current request | [default to false]
+ **use_latest_api_version** | **Bool** | Use the latest platform API version | [default to false]
 
 ### Return type
 
@@ -1076,8 +1076,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_option_list**
-> product_option_list(_api::ProductApi; start=nothing, count=nothing, params=nothing, exclude=nothing, response_fields=nothing, product_id=nothing, lang_id=nothing, store_id=nothing, _mediaType=nothing) -> ModelResponseProductOptionList, OpenAPI.Clients.ApiResponse <br/>
-> product_option_list(_api::ProductApi, response_stream::Channel; start=nothing, count=nothing, params=nothing, exclude=nothing, response_fields=nothing, product_id=nothing, lang_id=nothing, store_id=nothing, _mediaType=nothing) -> Channel{ ModelResponseProductOptionList }, OpenAPI.Clients.ApiResponse
+> product_option_list(_api::ProductApi; start=nothing, count=nothing, product_id=nothing, lang_id=nothing, store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseProductOptionList, OpenAPI.Clients.ApiResponse <br/>
+> product_option_list(_api::ProductApi, response_stream::Channel; start=nothing, count=nothing, product_id=nothing, lang_id=nothing, store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseProductOptionList }, OpenAPI.Clients.ApiResponse
 
 product.option.list
 
@@ -1095,12 +1095,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,name,description&quot;]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
- **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
  **product_id** | **String** | Retrieves products&#39; options specified by product id | [default to nothing]
  **lang_id** | **String** | Language id | [default to nothing]
  **store_id** | **String** | Store Id | [default to nothing]
+ **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,name,description&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
 
 ### Return type
 
@@ -1373,8 +1373,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_review_list**
-> product_review_list(_api::ProductApi, product_id::String; start=nothing, page_cursor=nothing, count=nothing, ids=nothing, store_id=nothing, status=nothing, params=nothing, exclude=nothing, response_fields=nothing, _mediaType=nothing) -> ModelResponseProductReviewList, OpenAPI.Clients.ApiResponse <br/>
-> product_review_list(_api::ProductApi, response_stream::Channel, product_id::String; start=nothing, page_cursor=nothing, count=nothing, ids=nothing, store_id=nothing, status=nothing, params=nothing, exclude=nothing, response_fields=nothing, _mediaType=nothing) -> Channel{ ModelResponseProductReviewList }, OpenAPI.Clients.ApiResponse
+> product_review_list(_api::ProductApi, product_id::String; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, store_id=nothing, status=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseProductReviewList, OpenAPI.Clients.ApiResponse <br/>
+> product_review_list(_api::ProductApi, response_stream::Channel, product_id::String; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, store_id=nothing, status=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseProductReviewList }, OpenAPI.Clients.ApiResponse
 
 product.review.list
 
@@ -1392,14 +1392,14 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
- **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
+ **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
  **ids** | **String** | Retrieves reviews specified by ids | [default to nothing]
  **store_id** | **String** | Store Id | [default to nothing]
  **status** | **String** | Defines status | [default to nothing]
+ **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
  **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,customer_id,email,message,status,product_id,nick_name,summary,rating,ratings,status,created_time&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
- **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
 
 ### Return type
 
@@ -1598,8 +1598,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_variant_count**
-> product_variant_count(_api::ProductApi, product_id::String; created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, category_id=nothing, store_id=nothing, _mediaType=nothing) -> ProductVariantCount200Response, OpenAPI.Clients.ApiResponse <br/>
-> product_variant_count(_api::ProductApi, response_stream::Channel, product_id::String; created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, category_id=nothing, store_id=nothing, _mediaType=nothing) -> Channel{ ProductVariantCount200Response }, OpenAPI.Clients.ApiResponse
+> product_variant_count(_api::ProductApi, product_id::String; category_id=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, _mediaType=nothing) -> ProductVariantCount200Response, OpenAPI.Clients.ApiResponse <br/>
+> product_variant_count(_api::ProductApi, response_stream::Channel, product_id::String; category_id=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, _mediaType=nothing) -> Channel{ ProductVariantCount200Response }, OpenAPI.Clients.ApiResponse
 
 product.variant.count
 
@@ -1616,12 +1616,12 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **category_id** | **String** | Counts products’ variants specified by category id | [default to nothing]
+ **store_id** | **String** | Retrieves variants specified by store id | [default to nothing]
  **created_from** | **String** | Retrieve entities from their creation date | [default to nothing]
  **created_to** | **String** | Retrieve entities to their creation date | [default to nothing]
  **modified_from** | **String** | Retrieve entities from their modification date | [default to nothing]
  **modified_to** | **String** | Retrieve entities to their modification date | [default to nothing]
- **category_id** | **String** | Counts products’ variants specified by category id | [default to nothing]
- **store_id** | **String** | Retrieves variants specified by store id | [default to nothing]
 
 ### Return type
 
@@ -1774,8 +1774,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_variant_info**
-> product_variant_info(_api::ProductApi, id::String; params=nothing, exclude=nothing, store_id=nothing, _mediaType=nothing) -> ProductInfo200Response, OpenAPI.Clients.ApiResponse <br/>
-> product_variant_info(_api::ProductApi, response_stream::Channel, id::String; params=nothing, exclude=nothing, store_id=nothing, _mediaType=nothing) -> Channel{ ProductInfo200Response }, OpenAPI.Clients.ApiResponse
+> product_variant_info(_api::ProductApi, id::String; store_id=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ProductInfo200Response, OpenAPI.Clients.ApiResponse <br/>
+> product_variant_info(_api::ProductApi, response_stream::Channel, id::String; store_id=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ProductInfo200Response }, OpenAPI.Clients.ApiResponse
 
 product.variant.info
 
@@ -1792,9 +1792,9 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **store_id** | **String** | Retrieves variant info specified by store id | [default to nothing]
  **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,name,description,price&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
- **store_id** | **String** | Retrieves variant info specified by store id | [default to nothing]
 
 ### Return type
 
@@ -1812,8 +1812,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_variant_list**
-> product_variant_list(_api::ProductApi; start=nothing, count=nothing, params=nothing, exclude=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, category_id=nothing, product_id=nothing, store_id=nothing, _mediaType=nothing) -> ProductVariantList200Response, OpenAPI.Clients.ApiResponse <br/>
-> product_variant_list(_api::ProductApi, response_stream::Channel; start=nothing, count=nothing, params=nothing, exclude=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, category_id=nothing, product_id=nothing, store_id=nothing, _mediaType=nothing) -> Channel{ ProductVariantList200Response }, OpenAPI.Clients.ApiResponse
+> product_variant_list(_api::ProductApi; start=nothing, count=nothing, product_id=nothing, category_id=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ProductVariantList200Response, OpenAPI.Clients.ApiResponse <br/>
+> product_variant_list(_api::ProductApi, response_stream::Channel; start=nothing, count=nothing, product_id=nothing, category_id=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ProductVariantList200Response }, OpenAPI.Clients.ApiResponse
 
 product.variant.list
 
@@ -1831,15 +1831,15 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,name,description,price&quot;]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
+ **product_id** | **String** | Retrieves products&#39; variants specified by product id | [default to nothing]
+ **category_id** | **String** | Retrieves products’ variants specified by category id | [default to nothing]
+ **store_id** | **String** | Retrieves variants specified by store id | [default to nothing]
  **created_from** | **String** | Retrieve entities from their creation date | [default to nothing]
  **created_to** | **String** | Retrieve entities to their creation date | [default to nothing]
  **modified_from** | **String** | Retrieve entities from their modification date | [default to nothing]
  **modified_to** | **String** | Retrieve entities to their modification date | [default to nothing]
- **category_id** | **String** | Retrieves products’ variants specified by category id | [default to nothing]
- **product_id** | **String** | Retrieves products&#39; variants specified by product id | [default to nothing]
- **store_id** | **String** | Retrieves variants specified by store id | [default to nothing]
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,name,description,price&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
 
 ### Return type
 

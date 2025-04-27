@@ -73,14 +73,14 @@ const _returntypes_cart_catalog_price_rules_list_CartApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseCartCatalogPriceRulesList,
 )
 
-function _oacinternal_cart_catalog_price_rules_list(_api::CartApi; page_cursor=nothing, start=nothing, count=nothing, ids=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing)
+function _oacinternal_cart_catalog_price_rules_list(_api::CartApi; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_cart_catalog_price_rules_list_CartApi, "/cart.catalog_price_rules.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
-    OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
+    OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "ids", ids; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -92,23 +92,23 @@ end
 Get cart catalog price rules discounts.
 
 Params:
-- page_cursor::String
 - start::Int64
 - count::Int64
+- page_cursor::String
 - ids::String
-- params::String
 - response_fields::String
+- params::String
 - exclude::String
 
 Return: ModelResponseCartCatalogPriceRulesList, OpenAPI.Clients.ApiResponse
 """
-function cart_catalog_price_rules_list(_api::CartApi; page_cursor=nothing, start=nothing, count=nothing, ids=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_catalog_price_rules_list(_api; page_cursor=page_cursor, start=start, count=count, ids=ids, params=params, response_fields=response_fields, exclude=exclude, _mediaType=_mediaType)
+function cart_catalog_price_rules_list(_api::CartApi; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_catalog_price_rules_list(_api; start=start, count=count, page_cursor=page_cursor, ids=ids, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function cart_catalog_price_rules_list(_api::CartApi, response_stream::Channel; page_cursor=nothing, start=nothing, count=nothing, ids=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_catalog_price_rules_list(_api; page_cursor=page_cursor, start=start, count=count, ids=ids, params=params, response_fields=response_fields, exclude=exclude, _mediaType=_mediaType)
+function cart_catalog_price_rules_list(_api::CartApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_catalog_price_rules_list(_api; start=start, count=count, page_cursor=page_cursor, ids=ids, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -240,17 +240,17 @@ const _returntypes_cart_coupon_condition_add_CartApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => BasketLiveShippingServiceDelete200Response,
 )
 
-function _oacinternal_cart_coupon_condition_add(_api::CartApi, coupon_id::String, entity::String, key::String, operator::String, value::String; store_id=nothing, target=nothing, include_tax=nothing, include_shipping=nothing, _mediaType=nothing)
+function _oacinternal_cart_coupon_condition_add(_api::CartApi, coupon_id::String, entity::String, key::String, operator::String, value::String; target=nothing, include_tax=nothing, include_shipping=nothing, store_id=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_cart_coupon_condition_add_CartApi, "/cart.coupon.condition.add.json", ["StoreKeyAuth", "ApiKeyAuth", ])
-    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "coupon_id", coupon_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "target", target; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "entity", entity; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "key", key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "operator", operator; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "value", value; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "target", target; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "include_tax", include_tax; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_param(_ctx.query, "include_shipping", include_shipping; style="form", is_explode=true)  # type Bool
+    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -266,20 +266,20 @@ Params:
 - key::String (required)
 - operator::String (required)
 - value::String (required)
-- store_id::String
 - target::String
 - include_tax::Bool
 - include_shipping::Bool
+- store_id::String
 
 Return: BasketLiveShippingServiceDelete200Response, OpenAPI.Clients.ApiResponse
 """
-function cart_coupon_condition_add(_api::CartApi, coupon_id::String, entity::String, key::String, operator::String, value::String; store_id=nothing, target=nothing, include_tax=nothing, include_shipping=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_coupon_condition_add(_api, coupon_id, entity, key, operator, value; store_id=store_id, target=target, include_tax=include_tax, include_shipping=include_shipping, _mediaType=_mediaType)
+function cart_coupon_condition_add(_api::CartApi, coupon_id::String, entity::String, key::String, operator::String, value::String; target=nothing, include_tax=nothing, include_shipping=nothing, store_id=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_coupon_condition_add(_api, coupon_id, entity, key, operator, value; target=target, include_tax=include_tax, include_shipping=include_shipping, store_id=store_id, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function cart_coupon_condition_add(_api::CartApi, response_stream::Channel, coupon_id::String, entity::String, key::String, operator::String, value::String; store_id=nothing, target=nothing, include_tax=nothing, include_shipping=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_coupon_condition_add(_api, coupon_id, entity, key, operator, value; store_id=store_id, target=target, include_tax=include_tax, include_shipping=include_shipping, _mediaType=_mediaType)
+function cart_coupon_condition_add(_api::CartApi, response_stream::Channel, coupon_id::String, entity::String, key::String, operator::String, value::String; target=nothing, include_tax=nothing, include_shipping=nothing, store_id=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_coupon_condition_add(_api, coupon_id, entity, key, operator, value; target=target, include_tax=include_tax, include_shipping=include_shipping, store_id=store_id, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -287,14 +287,14 @@ const _returntypes_cart_coupon_count_CartApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => CartCouponCount200Response,
 )
 
-function _oacinternal_cart_coupon_count(_api::CartApi; store_id=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, avail=nothing, _mediaType=nothing)
+function _oacinternal_cart_coupon_count(_api::CartApi; store_id=nothing, avail=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_cart_coupon_count_CartApi, "/cart.coupon.count.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "avail", avail; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_param(_ctx.query, "date_start_from", date_start_from; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "date_start_to", date_start_to; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "date_end_from", date_end_from; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "date_end_to", date_end_to; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "avail", avail; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -306,21 +306,21 @@ This method allows you to get the number of coupons. On some platforms, you can 
 
 Params:
 - store_id::String
+- avail::Bool
 - date_start_from::String
 - date_start_to::String
 - date_end_from::String
 - date_end_to::String
-- avail::Bool
 
 Return: CartCouponCount200Response, OpenAPI.Clients.ApiResponse
 """
-function cart_coupon_count(_api::CartApi; store_id=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, avail=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_coupon_count(_api; store_id=store_id, date_start_from=date_start_from, date_start_to=date_start_to, date_end_from=date_end_from, date_end_to=date_end_to, avail=avail, _mediaType=_mediaType)
+function cart_coupon_count(_api::CartApi; store_id=nothing, avail=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_coupon_count(_api; store_id=store_id, avail=avail, date_start_from=date_start_from, date_start_to=date_start_to, date_end_from=date_end_from, date_end_to=date_end_to, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function cart_coupon_count(_api::CartApi, response_stream::Channel; store_id=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, avail=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_coupon_count(_api; store_id=store_id, date_start_from=date_start_from, date_start_to=date_start_to, date_end_from=date_end_from, date_end_to=date_end_to, avail=avail, _mediaType=_mediaType)
+function cart_coupon_count(_api::CartApi, response_stream::Channel; store_id=nothing, avail=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_coupon_count(_api; store_id=store_id, avail=avail, date_start_from=date_start_from, date_start_to=date_start_to, date_end_from=date_end_from, date_end_to=date_end_to, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -361,21 +361,21 @@ const _returntypes_cart_coupon_list_CartApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseCartCouponList,
 )
 
-function _oacinternal_cart_coupon_list(_api::CartApi; page_cursor=nothing, start=nothing, count=nothing, coupons_ids=nothing, store_id=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, avail=nothing, lang_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing)
+function _oacinternal_cart_coupon_list(_api::CartApi; start=nothing, count=nothing, page_cursor=nothing, coupons_ids=nothing, store_id=nothing, lang_id=nothing, avail=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_cart_coupon_list_CartApi, "/cart.coupon.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
-    OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
+    OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "coupons_ids", coupons_ids; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "lang_id", lang_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "avail", avail; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_param(_ctx.query, "date_start_from", date_start_from; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "date_start_to", date_start_to; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "date_end_from", date_end_from; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "date_end_to", date_end_to; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "avail", avail; style="form", is_explode=true)  # type Bool
-    OpenAPI.Clients.set_param(_ctx.query, "lang_id", lang_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -387,30 +387,30 @@ end
 Get cart coupon discounts.
 
 Params:
-- page_cursor::String
 - start::Int64
 - count::Int64
+- page_cursor::String
 - coupons_ids::String
 - store_id::String
+- lang_id::String
+- avail::Bool
 - date_start_from::String
 - date_start_to::String
 - date_end_from::String
 - date_end_to::String
-- avail::Bool
-- lang_id::String
-- params::String
 - response_fields::String
+- params::String
 - exclude::String
 
 Return: ModelResponseCartCouponList, OpenAPI.Clients.ApiResponse
 """
-function cart_coupon_list(_api::CartApi; page_cursor=nothing, start=nothing, count=nothing, coupons_ids=nothing, store_id=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, avail=nothing, lang_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_coupon_list(_api; page_cursor=page_cursor, start=start, count=count, coupons_ids=coupons_ids, store_id=store_id, date_start_from=date_start_from, date_start_to=date_start_to, date_end_from=date_end_from, date_end_to=date_end_to, avail=avail, lang_id=lang_id, params=params, response_fields=response_fields, exclude=exclude, _mediaType=_mediaType)
+function cart_coupon_list(_api::CartApi; start=nothing, count=nothing, page_cursor=nothing, coupons_ids=nothing, store_id=nothing, lang_id=nothing, avail=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_coupon_list(_api; start=start, count=count, page_cursor=page_cursor, coupons_ids=coupons_ids, store_id=store_id, lang_id=lang_id, avail=avail, date_start_from=date_start_from, date_start_to=date_start_to, date_end_from=date_end_from, date_end_to=date_end_to, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function cart_coupon_list(_api::CartApi, response_stream::Channel; page_cursor=nothing, start=nothing, count=nothing, coupons_ids=nothing, store_id=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, avail=nothing, lang_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_coupon_list(_api; page_cursor=page_cursor, start=start, count=count, coupons_ids=coupons_ids, store_id=store_id, date_start_from=date_start_from, date_start_to=date_start_to, date_end_from=date_end_from, date_end_to=date_end_to, avail=avail, lang_id=lang_id, params=params, response_fields=response_fields, exclude=exclude, _mediaType=_mediaType)
+function cart_coupon_list(_api::CartApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, coupons_ids=nothing, store_id=nothing, lang_id=nothing, avail=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_coupon_list(_api; start=start, count=count, page_cursor=page_cursor, coupons_ids=coupons_ids, store_id=store_id, lang_id=lang_id, avail=avail, date_start_from=date_start_from, date_start_to=date_start_to, date_end_from=date_end_from, date_end_to=date_end_to, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -613,14 +613,14 @@ const _returntypes_cart_giftcard_list_CartApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseCartGiftCardList,
 )
 
-function _oacinternal_cart_giftcard_list(_api::CartApi; page_cursor=nothing, start=nothing, count=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing)
+function _oacinternal_cart_giftcard_list(_api::CartApi; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_cart_giftcard_list_CartApi, "/cart.giftcard.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
-    OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
+    OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -632,23 +632,23 @@ end
 Get gift cards list.
 
 Params:
-- page_cursor::String
 - start::Int64
 - count::Int64
+- page_cursor::String
 - store_id::String
-- params::String
 - response_fields::String
+- params::String
 - exclude::String
 
 Return: ModelResponseCartGiftCardList, OpenAPI.Clients.ApiResponse
 """
-function cart_giftcard_list(_api::CartApi; page_cursor=nothing, start=nothing, count=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_giftcard_list(_api; page_cursor=page_cursor, start=start, count=count, store_id=store_id, params=params, response_fields=response_fields, exclude=exclude, _mediaType=_mediaType)
+function cart_giftcard_list(_api::CartApi; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_giftcard_list(_api; start=start, count=count, page_cursor=page_cursor, store_id=store_id, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function cart_giftcard_list(_api::CartApi, response_stream::Channel; page_cursor=nothing, start=nothing, count=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_giftcard_list(_api; page_cursor=page_cursor, start=start, count=count, store_id=store_id, params=params, response_fields=response_fields, exclude=exclude, _mediaType=_mediaType)
+function cart_giftcard_list(_api::CartApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_giftcard_list(_api; start=start, count=count, page_cursor=page_cursor, store_id=store_id, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -656,12 +656,12 @@ const _returntypes_cart_info_CartApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => CartInfo200Response,
 )
 
-function _oacinternal_cart_info(_api::CartApi; params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, _mediaType=nothing)
+function _oacinternal_cart_info(_api::CartApi; store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_cart_info_CartApi, "/cart.info.json", ["StoreKeyAuth", "ApiKeyAuth", ])
-    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -672,20 +672,20 @@ end
 This method allows you to get various information about the store, including a list of stores (in the case of a multistore configuration), a list of supported languages, currencies, carriers, warehouses, and many other information. This information contains data that is relatively stable and rarely changes, so API2Cart can cache certain data to reduce the load on the store and speed up the execution of the request. We also recommend that you cache the response of this method on your side to save requests. If you need to clear the cache for a specific store, then use the cart.validate method.
 
 Params:
-- params::String
-- response_fields::String
-- exclude::String
 - store_id::String
+- response_fields::String
+- params::String
+- exclude::String
 
 Return: CartInfo200Response, OpenAPI.Clients.ApiResponse
 """
-function cart_info(_api::CartApi; params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_info(_api; params=params, response_fields=response_fields, exclude=exclude, store_id=store_id, _mediaType=_mediaType)
+function cart_info(_api::CartApi; store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_info(_api; store_id=store_id, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function cart_info(_api::CartApi, response_stream::Channel; params=nothing, response_fields=nothing, exclude=nothing, store_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_info(_api; params=params, response_fields=response_fields, exclude=exclude, store_id=store_id, _mediaType=_mediaType)
+function cart_info(_api::CartApi, response_stream::Channel; store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_info(_api; store_id=store_id, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -722,17 +722,17 @@ const _returntypes_cart_meta_data_list_CartApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseCartMetaDataList,
 )
 
-function _oacinternal_cart_meta_data_list(_api::CartApi, entity_id::String; entity=nothing, store_id=nothing, lang_id=nothing, key=nothing, count=nothing, page_cursor=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing)
+function _oacinternal_cart_meta_data_list(_api::CartApi, entity_id::String; count=nothing, page_cursor=nothing, entity=nothing, store_id=nothing, lang_id=nothing, key=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_cart_meta_data_list_CartApi, "/cart.meta_data.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
+    OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
+    OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "entity_id", entity_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "entity", entity; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "lang_id", lang_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "key", key; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
-    OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -745,25 +745,25 @@ Using this method, you can get a list of metadata for various entities (products
 
 Params:
 - entity_id::String (required)
+- count::Int64
+- page_cursor::String
 - entity::String
 - store_id::String
 - lang_id::String
 - key::String
-- count::Int64
-- page_cursor::String
-- params::String
 - response_fields::String
+- params::String
 - exclude::String
 
 Return: ModelResponseCartMetaDataList, OpenAPI.Clients.ApiResponse
 """
-function cart_meta_data_list(_api::CartApi, entity_id::String; entity=nothing, store_id=nothing, lang_id=nothing, key=nothing, count=nothing, page_cursor=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_meta_data_list(_api, entity_id; entity=entity, store_id=store_id, lang_id=lang_id, key=key, count=count, page_cursor=page_cursor, params=params, response_fields=response_fields, exclude=exclude, _mediaType=_mediaType)
+function cart_meta_data_list(_api::CartApi, entity_id::String; count=nothing, page_cursor=nothing, entity=nothing, store_id=nothing, lang_id=nothing, key=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_meta_data_list(_api, entity_id; count=count, page_cursor=page_cursor, entity=entity, store_id=store_id, lang_id=lang_id, key=key, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function cart_meta_data_list(_api::CartApi, response_stream::Channel, entity_id::String; entity=nothing, store_id=nothing, lang_id=nothing, key=nothing, count=nothing, page_cursor=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_meta_data_list(_api, entity_id; entity=entity, store_id=store_id, lang_id=lang_id, key=key, count=count, page_cursor=page_cursor, params=params, response_fields=response_fields, exclude=exclude, _mediaType=_mediaType)
+function cart_meta_data_list(_api::CartApi, response_stream::Channel, entity_id::String; count=nothing, page_cursor=nothing, entity=nothing, store_id=nothing, lang_id=nothing, key=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_meta_data_list(_api, entity_id; count=count, page_cursor=page_cursor, entity=entity, store_id=store_id, lang_id=lang_id, key=key, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -774,12 +774,12 @@ const _returntypes_cart_meta_data_set_CartApi = Dict{Regex,Type}(
 function _oacinternal_cart_meta_data_set(_api::CartApi, entity_id::String, key::String, value::String, namespace::String; entity=nothing, store_id=nothing, lang_id=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_cart_meta_data_set_CartApi, "/cart.meta_data.set.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "entity_id", entity_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "entity", entity; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "lang_id", lang_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "key", key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "value", value; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "namespace", namespace; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "entity", entity; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "lang_id", lang_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -817,10 +817,10 @@ const _returntypes_cart_meta_data_unset_CartApi = Dict{Regex,Type}(
 function _oacinternal_cart_meta_data_unset(_api::CartApi, entity_id::String, key::String, id::String; entity=nothing, store_id=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "DELETE", _returntypes_cart_meta_data_unset_CartApi, "/cart.meta_data.unset.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "entity_id", entity_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "entity", entity; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "key", key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "id", id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "entity", entity; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -882,11 +882,11 @@ const _returntypes_cart_plugin_list_CartApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => CartPluginList200Response,
 )
 
-function _oacinternal_cart_plugin_list(_api::CartApi; store_id=nothing, start=nothing, count=nothing, _mediaType=nothing)
+function _oacinternal_cart_plugin_list(_api::CartApi; start=nothing, count=nothing, store_id=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_cart_plugin_list_CartApi, "/cart.plugin.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
-    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
+    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -897,19 +897,19 @@ end
 Get a list of third-party plugins installed on the store.
 
 Params:
-- store_id::String
 - start::Int64
 - count::Int64
+- store_id::String
 
 Return: CartPluginList200Response, OpenAPI.Clients.ApiResponse
 """
-function cart_plugin_list(_api::CartApi; store_id=nothing, start=nothing, count=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_plugin_list(_api; store_id=store_id, start=start, count=count, _mediaType=_mediaType)
+function cart_plugin_list(_api::CartApi; start=nothing, count=nothing, store_id=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_plugin_list(_api; start=start, count=count, store_id=store_id, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function cart_plugin_list(_api::CartApi, response_stream::Channel; store_id=nothing, start=nothing, count=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_plugin_list(_api; store_id=store_id, start=start, count=count, _mediaType=_mediaType)
+function cart_plugin_list(_api::CartApi, response_stream::Channel; start=nothing, count=nothing, store_id=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_plugin_list(_api; start=start, count=count, store_id=store_id, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -995,19 +995,19 @@ const _returntypes_cart_script_list_CartApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseCartScriptList,
 )
 
-function _oacinternal_cart_script_list(_api::CartApi; page_cursor=nothing, start=nothing, count=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, script_ids=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing)
+function _oacinternal_cart_script_list(_api::CartApi; start=nothing, count=nothing, page_cursor=nothing, script_ids=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_cart_script_list_CartApi, "/cart.script.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
-    OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
+    OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "script_ids", script_ids; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "created_from", created_from; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "created_to", created_to; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "modified_from", modified_from; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "modified_to", modified_to; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "script_ids", script_ids; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -1019,28 +1019,28 @@ end
 Get scripts installed to the storefront
 
 Params:
-- page_cursor::String
 - start::Int64
 - count::Int64
+- page_cursor::String
+- script_ids::String
+- store_id::String
 - created_from::String
 - created_to::String
 - modified_from::String
 - modified_to::String
-- script_ids::String
-- store_id::String
-- params::String
 - response_fields::String
+- params::String
 - exclude::String
 
 Return: ModelResponseCartScriptList, OpenAPI.Clients.ApiResponse
 """
-function cart_script_list(_api::CartApi; page_cursor=nothing, start=nothing, count=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, script_ids=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_script_list(_api; page_cursor=page_cursor, start=start, count=count, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, script_ids=script_ids, store_id=store_id, params=params, response_fields=response_fields, exclude=exclude, _mediaType=_mediaType)
+function cart_script_list(_api::CartApi; start=nothing, count=nothing, page_cursor=nothing, script_ids=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_script_list(_api; start=start, count=count, page_cursor=page_cursor, script_ids=script_ids, store_id=store_id, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function cart_script_list(_api::CartApi, response_stream::Channel; page_cursor=nothing, start=nothing, count=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, script_ids=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_script_list(_api; page_cursor=page_cursor, start=start, count=count, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, script_ids=script_ids, store_id=store_id, params=params, response_fields=response_fields, exclude=exclude, _mediaType=_mediaType)
+function cart_script_list(_api::CartApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, script_ids=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_script_list(_api; start=start, count=count, page_cursor=page_cursor, script_ids=script_ids, store_id=store_id, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -1048,13 +1048,13 @@ const _returntypes_cart_shipping_zones_list_CartApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseCartShippingZonesList,
 )
 
-function _oacinternal_cart_shipping_zones_list(_api::CartApi; store_id=nothing, start=nothing, count=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing)
+function _oacinternal_cart_shipping_zones_list(_api::CartApi; start=nothing, count=nothing, store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_cart_shipping_zones_list_CartApi, "/cart.shipping_zones.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
-    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
-    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -1066,22 +1066,22 @@ end
 Get list of shipping zones
 
 Params:
-- store_id::String
 - start::Int64
 - count::Int64
-- params::String
+- store_id::String
 - response_fields::String
+- params::String
 - exclude::String
 
 Return: ModelResponseCartShippingZonesList, OpenAPI.Clients.ApiResponse
 """
-function cart_shipping_zones_list(_api::CartApi; store_id=nothing, start=nothing, count=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_shipping_zones_list(_api; store_id=store_id, start=start, count=count, params=params, response_fields=response_fields, exclude=exclude, _mediaType=_mediaType)
+function cart_shipping_zones_list(_api::CartApi; start=nothing, count=nothing, store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_shipping_zones_list(_api; start=start, count=count, store_id=store_id, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function cart_shipping_zones_list(_api::CartApi, response_stream::Channel; store_id=nothing, start=nothing, count=nothing, params=nothing, response_fields=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_shipping_zones_list(_api; store_id=store_id, start=start, count=count, params=params, response_fields=response_fields, exclude=exclude, _mediaType=_mediaType)
+function cart_shipping_zones_list(_api::CartApi, response_stream::Channel; start=nothing, count=nothing, store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_shipping_zones_list(_api; start=start, count=count, store_id=store_id, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
