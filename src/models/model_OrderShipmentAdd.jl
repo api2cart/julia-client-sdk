@@ -18,6 +18,7 @@
         adjust_stock=false,
         enable_cache=false,
         check_process_status=false,
+        tracking_provider=nothing,
         use_latest_api_version=false,
     )
 
@@ -34,6 +35,7 @@
     - adjust_stock::Bool : This parameter is used for adjust stock.
     - enable_cache::Bool : If the value is &#39;true&#39; and order exist in our cache, we will use order.info from cache to prepare shipment items.
     - check_process_status::Bool : Disable or enable check process status. Please note that the response will be slower due to additional requests to the store.
+    - tracking_provider::String : Defines name of the company which provides shipment tracking
     - use_latest_api_version::Bool : Use the latest platform API version
 """
 Base.@kwdef mutable struct OrderShipmentAdd <: OpenAPI.APIModel
@@ -50,9 +52,10 @@ Base.@kwdef mutable struct OrderShipmentAdd <: OpenAPI.APIModel
     adjust_stock::Union{Nothing, Bool} = false
     enable_cache::Union{Nothing, Bool} = false
     check_process_status::Union{Nothing, Bool} = false
+    tracking_provider::Union{Nothing, String} = nothing
     use_latest_api_version::Union{Nothing, Bool} = false
 
-    function OrderShipmentAdd(order_id, warehouse_id, store_id, shipment_provider, shipping_method, items, tracking_numbers, tracking_link, is_shipped, send_notifications, adjust_stock, enable_cache, check_process_status, use_latest_api_version, )
+    function OrderShipmentAdd(order_id, warehouse_id, store_id, shipment_provider, shipping_method, items, tracking_numbers, tracking_link, is_shipped, send_notifications, adjust_stock, enable_cache, check_process_status, tracking_provider, use_latest_api_version, )
         OpenAPI.validate_property(OrderShipmentAdd, Symbol("order_id"), order_id)
         OpenAPI.validate_property(OrderShipmentAdd, Symbol("warehouse_id"), warehouse_id)
         OpenAPI.validate_property(OrderShipmentAdd, Symbol("store_id"), store_id)
@@ -66,12 +69,13 @@ Base.@kwdef mutable struct OrderShipmentAdd <: OpenAPI.APIModel
         OpenAPI.validate_property(OrderShipmentAdd, Symbol("adjust_stock"), adjust_stock)
         OpenAPI.validate_property(OrderShipmentAdd, Symbol("enable_cache"), enable_cache)
         OpenAPI.validate_property(OrderShipmentAdd, Symbol("check_process_status"), check_process_status)
+        OpenAPI.validate_property(OrderShipmentAdd, Symbol("tracking_provider"), tracking_provider)
         OpenAPI.validate_property(OrderShipmentAdd, Symbol("use_latest_api_version"), use_latest_api_version)
-        return new(order_id, warehouse_id, store_id, shipment_provider, shipping_method, items, tracking_numbers, tracking_link, is_shipped, send_notifications, adjust_stock, enable_cache, check_process_status, use_latest_api_version, )
+        return new(order_id, warehouse_id, store_id, shipment_provider, shipping_method, items, tracking_numbers, tracking_link, is_shipped, send_notifications, adjust_stock, enable_cache, check_process_status, tracking_provider, use_latest_api_version, )
     end
 end # type OrderShipmentAdd
 
-const _property_types_OrderShipmentAdd = Dict{Symbol,String}(Symbol("order_id")=>"String", Symbol("warehouse_id")=>"String", Symbol("store_id")=>"String", Symbol("shipment_provider")=>"String", Symbol("shipping_method")=>"String", Symbol("items")=>"Vector{OrderShipmentAddItemsInner}", Symbol("tracking_numbers")=>"Vector{OrderShipmentAddTrackingNumbersInner}", Symbol("tracking_link")=>"String", Symbol("is_shipped")=>"Bool", Symbol("send_notifications")=>"Bool", Symbol("adjust_stock")=>"Bool", Symbol("enable_cache")=>"Bool", Symbol("check_process_status")=>"Bool", Symbol("use_latest_api_version")=>"Bool", )
+const _property_types_OrderShipmentAdd = Dict{Symbol,String}(Symbol("order_id")=>"String", Symbol("warehouse_id")=>"String", Symbol("store_id")=>"String", Symbol("shipment_provider")=>"String", Symbol("shipping_method")=>"String", Symbol("items")=>"Vector{OrderShipmentAddItemsInner}", Symbol("tracking_numbers")=>"Vector{OrderShipmentAddTrackingNumbersInner}", Symbol("tracking_link")=>"String", Symbol("is_shipped")=>"Bool", Symbol("send_notifications")=>"Bool", Symbol("adjust_stock")=>"Bool", Symbol("enable_cache")=>"Bool", Symbol("check_process_status")=>"Bool", Symbol("tracking_provider")=>"String", Symbol("use_latest_api_version")=>"Bool", )
 OpenAPI.property_type(::Type{ OrderShipmentAdd }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_OrderShipmentAdd[name]))}
 
 function check_required(o::OrderShipmentAdd)
@@ -79,6 +83,7 @@ function check_required(o::OrderShipmentAdd)
 end
 
 function OpenAPI.validate_property(::Type{ OrderShipmentAdd }, name::Symbol, val)
+
 
 
 

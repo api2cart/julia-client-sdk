@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **adjust_stock** | **Bool** | This parameter is used for adjust stock. | [optional] [default to false]
 **enable_cache** | **Bool** | If the value is &#39;true&#39; and order exist in our cache, we will use order.info from cache to prepare shipment items. | [optional] [default to false]
 **check_process_status** | **Bool** | Disable or enable check process status. Please note that the response will be slower due to additional requests to the store. | [optional] [default to false]
+**tracking_provider** | **String** | Defines name of the company which provides shipment tracking | [optional] [default to nothing]
 **use_latest_api_version** | **Bool** | Use the latest platform API version | [optional] [default to false]
 
 
