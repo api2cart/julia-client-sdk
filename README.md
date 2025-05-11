@@ -475,6 +475,7 @@ Class | Method
  - [ProductAddLogisticInfoInner](docs/ProductAddLogisticInfoInner.md)
  - [ProductAddManufacturerInfo](docs/ProductAddManufacturerInfo.md)
  - [ProductAddPackageDetails](docs/ProductAddPackageDetails.md)
+ - [ProductAddPersonalizationDetails](docs/ProductAddPersonalizationDetails.md)
  - [ProductAddSalesTax](docs/ProductAddSalesTax.md)
  - [ProductAddSellerProfiles](docs/ProductAddSellerProfiles.md)
  - [ProductAddShippingDetailsInner](docs/ProductAddShippingDetailsInner.md)

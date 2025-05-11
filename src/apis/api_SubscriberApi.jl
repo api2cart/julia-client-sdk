@@ -15,8 +15,9 @@ const _returntypes_subscriber_list_SubscriberApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseSubscriberList,
 )
 
-function _oacinternal_subscriber_list(_api::SubscriberApi; start=nothing, count=nothing, page_cursor=nothing, subscribed=nothing, store_id=nothing, email=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+function _oacinternal_subscriber_list(_api::SubscriberApi; ids=nothing, start=nothing, count=nothing, page_cursor=nothing, subscribed=nothing, store_id=nothing, email=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_subscriber_list_SubscriberApi, "/subscriber.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
+    OpenAPI.Clients.set_param(_ctx.query, "ids", ids; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
@@ -40,6 +41,7 @@ end
 Get subscribers list
 
 Params:
+- ids::String
 - start::Int64
 - count::Int64
 - page_cursor::String
@@ -56,13 +58,13 @@ Params:
 
 Return: ModelResponseSubscriberList, OpenAPI.Clients.ApiResponse
 """
-function subscriber_list(_api::SubscriberApi; start=nothing, count=nothing, page_cursor=nothing, subscribed=nothing, store_id=nothing, email=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_subscriber_list(_api; start=start, count=count, page_cursor=page_cursor, subscribed=subscribed, store_id=store_id, email=email, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
+function subscriber_list(_api::SubscriberApi; ids=nothing, start=nothing, count=nothing, page_cursor=nothing, subscribed=nothing, store_id=nothing, email=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_subscriber_list(_api; ids=ids, start=start, count=count, page_cursor=page_cursor, subscribed=subscribed, store_id=store_id, email=email, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function subscriber_list(_api::SubscriberApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, subscribed=nothing, store_id=nothing, email=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_subscriber_list(_api; start=start, count=count, page_cursor=page_cursor, subscribed=subscribed, store_id=store_id, email=email, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
+function subscriber_list(_api::SubscriberApi, response_stream::Channel; ids=nothing, start=nothing, count=nothing, page_cursor=nothing, subscribed=nothing, store_id=nothing, email=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_subscriber_list(_api; ids=ids, start=start, count=count, page_cursor=page_cursor, subscribed=subscribed, store_id=store_id, email=email, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 

@@ -8,8 +8,8 @@ Method | HTTP request | Description
 
 
 # **subscriber_list**
-> subscriber_list(_api::SubscriberApi; start=nothing, count=nothing, page_cursor=nothing, subscribed=nothing, store_id=nothing, email=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseSubscriberList, OpenAPI.Clients.ApiResponse <br/>
-> subscriber_list(_api::SubscriberApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, subscribed=nothing, store_id=nothing, email=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseSubscriberList }, OpenAPI.Clients.ApiResponse
+> subscriber_list(_api::SubscriberApi; ids=nothing, start=nothing, count=nothing, page_cursor=nothing, subscribed=nothing, store_id=nothing, email=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseSubscriberList, OpenAPI.Clients.ApiResponse <br/>
+> subscriber_list(_api::SubscriberApi, response_stream::Channel; ids=nothing, start=nothing, count=nothing, page_cursor=nothing, subscribed=nothing, store_id=nothing, email=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseSubscriberList }, OpenAPI.Clients.ApiResponse
 
 subscriber.list
 
@@ -25,6 +25,7 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ids** | **String** | Retrieves subscribers specified by ids | [default to nothing]
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
  **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
