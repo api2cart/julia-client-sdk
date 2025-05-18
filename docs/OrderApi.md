@@ -862,8 +862,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **order_update**
-> order_update(_api::OrderApi, order_id::String; store_id=nothing, order_status=nothing, financial_status=nothing, fulfillment_status=nothing, cancellation_reason=nothing, order_payment_method=nothing, comment=nothing, admin_comment=nothing, admin_private_comment=nothing, invoice_admin_comment=nothing, date_modified=nothing, date_finished=nothing, send_notifications=nothing, create_invoice=nothing, origin=nothing, _mediaType=nothing) -> AccountConfigUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
-> order_update(_api::OrderApi, response_stream::Channel, order_id::String; store_id=nothing, order_status=nothing, financial_status=nothing, fulfillment_status=nothing, cancellation_reason=nothing, order_payment_method=nothing, comment=nothing, admin_comment=nothing, admin_private_comment=nothing, invoice_admin_comment=nothing, date_modified=nothing, date_finished=nothing, send_notifications=nothing, create_invoice=nothing, origin=nothing, _mediaType=nothing) -> Channel{ AccountConfigUpdate200Response }, OpenAPI.Clients.ApiResponse
+> order_update(_api::OrderApi, order_id::String; store_id=nothing, order_status=nothing, financial_status=nothing, fulfillment_status=nothing, cancellation_reason=nothing, order_payment_method=nothing, comment=nothing, admin_comment=nothing, admin_private_comment=nothing, invoice_admin_comment=nothing, date_modified=nothing, date_finished=nothing, send_notifications=nothing, create_invoice=nothing, origin=nothing, tags=nothing, _mediaType=nothing) -> AccountConfigUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
+> order_update(_api::OrderApi, response_stream::Channel, order_id::String; store_id=nothing, order_status=nothing, financial_status=nothing, fulfillment_status=nothing, cancellation_reason=nothing, order_payment_method=nothing, comment=nothing, admin_comment=nothing, admin_private_comment=nothing, invoice_admin_comment=nothing, date_modified=nothing, date_finished=nothing, send_notifications=nothing, create_invoice=nothing, origin=nothing, tags=nothing, _mediaType=nothing) -> Channel{ AccountConfigUpdate200Response }, OpenAPI.Clients.ApiResponse
 
 order.update
 
@@ -895,6 +895,7 @@ Name | Type | Description  | Notes
  **send_notifications** | **Bool** | Send notifications to customer after order was created | [default to false]
  **create_invoice** | **Bool** | Determines whether an invoice should be created if it has not already been created | [default to nothing]
  **origin** | **String** | The source of the order | [default to nothing]
+ **tags** | **String** | Order tags | [default to nothing]
 
 ### Return type
 
