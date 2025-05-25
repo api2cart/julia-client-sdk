@@ -84,6 +84,12 @@ Name | Type | Description | Notes
 **shopify_api_key** | **String** | Shopify API Key | [optional] [default to nothing]
 **shopify_api_password** | **String** | Shopify API Password | [optional] [default to nothing]
 **shopify_shared_secret** | **String** | Shared secret | [optional] [default to nothing]
+**shopee_partner_id** | **String** | Shopee Partner ID | [optional] [default to nothing]
+**shopee_partner_key** | **String** | Shopee Partner Key | [optional] [default to nothing]
+**shopee_shop_id** | **String** | Shopee SHOP ID | [optional] [default to nothing]
+**shopee_refresh_token** | **String** | Shopee Refresh Token | [optional] [default to nothing]
+**shopee_region** | **String** | Shopee API endpoint Region. Use for Chinese Mainland or Brazil. | [optional] [default to nothing]
+**shopee_environment** | **String** | Shopee Environment | [optional] [default to "production"]
 **shoplazza_access_token** | **String** | Access token authorizing the app to access resources on behalf of a user | [optional] [default to nothing]
 **shoplazza_shared_secret** | **String** | Shared secret | [optional] [default to nothing]
 **shopware_access_key** | **String** | Shopware access key | [optional] [default to nothing]
@@ -155,6 +161,10 @@ Name | Type | Description | Notes
 **salla_client_secret** | **String** | Salla Client Secret | [optional] [default to nothing]
 **salla_refresh_token** | **String** | Salla Refresh Token | [optional] [default to nothing]
 **salla_access_token** | **String** | Salla Access Token | [optional] [default to nothing]
+**temu_app_key** | **String** | Temu App Key | [optional] [default to nothing]
+**temu_app_secret** | **String** | Temu App Secret | [optional] [default to nothing]
+**temu_access_token** | **String** | Temu Access Token | [default to nothing]
+**temu_region** | **String** | Temu API endpoint Region. | [optional] [default to "US"]
 
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)
