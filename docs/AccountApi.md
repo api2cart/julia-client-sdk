@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
  **temu_app_key** | **String** | Temu App Key | [default to nothing]
  **temu_app_secret** | **String** | Temu App Secret | [default to nothing]
  **temu_access_token** | **String** | Temu Access Token | [default to nothing]
- **temu_region** | **String** | Temu API endpoint Region. | [default to &quot;US&quot;]
+ **temu_region** | **String** | Temu API endpoint Region. | [default to nothing]
 
 ### Return type
 
