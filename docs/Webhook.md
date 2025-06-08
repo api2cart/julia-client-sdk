@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **id** | **Int64** |  | [optional] [default to nothing]
 **label** | **String** |  | [optional] [default to nothing]
 **store_id** | **String** |  | [optional] [default to nothing]
+**lang_id** | **String** |  | [optional] [default to nothing]
 **active** | **Bool** |  | [optional] [default to nothing]
 **callback** | **String** |  | [optional] [default to nothing]
 **fields** | **String** |  | [optional] [default to nothing]

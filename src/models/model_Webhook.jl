@@ -8,6 +8,7 @@
         id=nothing,
         label=nothing,
         store_id=nothing,
+        lang_id=nothing,
         active=nothing,
         callback=nothing,
         fields=nothing,
@@ -22,6 +23,7 @@
     - id::Int64
     - label::String
     - store_id::String
+    - lang_id::String
     - active::Bool
     - callback::String
     - fields::String
@@ -36,6 +38,7 @@ Base.@kwdef mutable struct Webhook <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
     label::Union{Nothing, String} = nothing
     store_id::Union{Nothing, String} = nothing
+    lang_id::Union{Nothing, String} = nothing
     active::Union{Nothing, Bool} = nothing
     callback::Union{Nothing, String} = nothing
     fields::Union{Nothing, String} = nothing
@@ -46,10 +49,11 @@ Base.@kwdef mutable struct Webhook <: OpenAPI.APIModel
     additional_fields::Union{Nothing, Any} = nothing
     custom_fields::Union{Nothing, Any} = nothing
 
-    function Webhook(id, label, store_id, active, callback, fields, created_at, updated_at, entity, action, additional_fields, custom_fields, )
+    function Webhook(id, label, store_id, lang_id, active, callback, fields, created_at, updated_at, entity, action, additional_fields, custom_fields, )
         OpenAPI.validate_property(Webhook, Symbol("id"), id)
         OpenAPI.validate_property(Webhook, Symbol("label"), label)
         OpenAPI.validate_property(Webhook, Symbol("store_id"), store_id)
+        OpenAPI.validate_property(Webhook, Symbol("lang_id"), lang_id)
         OpenAPI.validate_property(Webhook, Symbol("active"), active)
         OpenAPI.validate_property(Webhook, Symbol("callback"), callback)
         OpenAPI.validate_property(Webhook, Symbol("fields"), fields)
@@ -59,11 +63,11 @@ Base.@kwdef mutable struct Webhook <: OpenAPI.APIModel
         OpenAPI.validate_property(Webhook, Symbol("action"), action)
         OpenAPI.validate_property(Webhook, Symbol("additional_fields"), additional_fields)
         OpenAPI.validate_property(Webhook, Symbol("custom_fields"), custom_fields)
-        return new(id, label, store_id, active, callback, fields, created_at, updated_at, entity, action, additional_fields, custom_fields, )
+        return new(id, label, store_id, lang_id, active, callback, fields, created_at, updated_at, entity, action, additional_fields, custom_fields, )
     end
 end # type Webhook
 
-const _property_types_Webhook = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("label")=>"String", Symbol("store_id")=>"String", Symbol("active")=>"Bool", Symbol("callback")=>"String", Symbol("fields")=>"String", Symbol("created_at")=>"String", Symbol("updated_at")=>"String", Symbol("entity")=>"String", Symbol("action")=>"String", Symbol("additional_fields")=>"Any", Symbol("custom_fields")=>"Any", )
+const _property_types_Webhook = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("label")=>"String", Symbol("store_id")=>"String", Symbol("lang_id")=>"String", Symbol("active")=>"Bool", Symbol("callback")=>"String", Symbol("fields")=>"String", Symbol("created_at")=>"String", Symbol("updated_at")=>"String", Symbol("entity")=>"String", Symbol("action")=>"String", Symbol("additional_fields")=>"Any", Symbol("custom_fields")=>"Any", )
 OpenAPI.property_type(::Type{ Webhook }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_Webhook[name]))}
 
 function check_required(o::Webhook)
@@ -71,6 +75,7 @@ function check_required(o::Webhook)
 end
 
 function OpenAPI.validate_property(::Type{ Webhook }, name::Symbol, val)
+
 
 
 
