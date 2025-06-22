@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **avail_for_sale** | **Bool** |  | [optional] [default to nothing]
 **allow_backorders** | **Bool** |  | [optional] [default to nothing]
 **in_stock** | **Bool** |  | [optional] [default to nothing]
+**on_sale** | **Bool** |  | [optional] [default to nothing]
 **manage_stock** | **Bool** |  | [optional] [default to nothing]
 **inventory_level** | **Float64** |  | [optional] [default to nothing]
 **inventory** | [**Vector{ProductInventory}**](ProductInventory.md) |  | [optional] [default to nothing]

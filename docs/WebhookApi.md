@@ -50,8 +50,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **webhook_create**
-> webhook_create(_api::WebhookApi, entity::String, action::String; callback=nothing, label=nothing, fields=nothing, active=nothing, lang_id=nothing, store_id=nothing, _mediaType=nothing) -> BasketLiveShippingServiceCreate200Response, OpenAPI.Clients.ApiResponse <br/>
-> webhook_create(_api::WebhookApi, response_stream::Channel, entity::String, action::String; callback=nothing, label=nothing, fields=nothing, active=nothing, lang_id=nothing, store_id=nothing, _mediaType=nothing) -> Channel{ BasketLiveShippingServiceCreate200Response }, OpenAPI.Clients.ApiResponse
+> webhook_create(_api::WebhookApi, entity::String, action::String; callback=nothing, label=nothing, fields=nothing, response_fields=nothing, active=nothing, lang_id=nothing, store_id=nothing, _mediaType=nothing) -> BasketLiveShippingServiceCreate200Response, OpenAPI.Clients.ApiResponse <br/>
+> webhook_create(_api::WebhookApi, response_stream::Channel, entity::String, action::String; callback=nothing, label=nothing, fields=nothing, response_fields=nothing, active=nothing, lang_id=nothing, store_id=nothing, _mediaType=nothing) -> Channel{ BasketLiveShippingServiceCreate200Response }, OpenAPI.Clients.ApiResponse
 
 webhook.create
 
@@ -72,6 +72,7 @@ Name | Type | Description  | Notes
  **callback** | **String** | Callback url that returns shipping rates. It should be able to accept POST requests with json data. | [default to nothing]
  **label** | **String** | The name you give to the webhook | [default to nothing]
  **fields** | **String** | Fields the webhook should send | [default to &quot;force_all&quot;]
+ **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
  **active** | **Bool** | Webhook status | [default to true]
  **lang_id** | **String** | Language id | [default to nothing]
  **store_id** | **String** | Defines store id where the webhook should be assigned | [default to nothing]
@@ -189,8 +190,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **webhook_update**
-> webhook_update(_api::WebhookApi, id::String; callback=nothing, label=nothing, fields=nothing, active=nothing, lang_id=nothing, _mediaType=nothing) -> ProductImageUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
-> webhook_update(_api::WebhookApi, response_stream::Channel, id::String; callback=nothing, label=nothing, fields=nothing, active=nothing, lang_id=nothing, _mediaType=nothing) -> Channel{ ProductImageUpdate200Response }, OpenAPI.Clients.ApiResponse
+> webhook_update(_api::WebhookApi, id::String; callback=nothing, label=nothing, fields=nothing, response_fields=nothing, active=nothing, lang_id=nothing, _mediaType=nothing) -> ProductImageUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
+> webhook_update(_api::WebhookApi, response_stream::Channel, id::String; callback=nothing, label=nothing, fields=nothing, response_fields=nothing, active=nothing, lang_id=nothing, _mediaType=nothing) -> Channel{ ProductImageUpdate200Response }, OpenAPI.Clients.ApiResponse
 
 webhook.update
 
@@ -210,6 +211,7 @@ Name | Type | Description  | Notes
  **callback** | **String** | Callback url that returns shipping rates. It should be able to accept POST requests with json data. | [default to nothing]
  **label** | **String** | The name you give to the webhook | [default to nothing]
  **fields** | **String** | Fields the webhook should send | [default to nothing]
+ **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
  **active** | **Bool** | Webhook status | [default to nothing]
  **lang_id** | **String** | Language id | [default to nothing]
 

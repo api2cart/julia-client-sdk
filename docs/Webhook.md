@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **active** | **Bool** |  | [optional] [default to nothing]
 **callback** | **String** |  | [optional] [default to nothing]
 **fields** | **String** |  | [optional] [default to nothing]
+**response_fields** | **String** |  | [optional] [default to nothing]
 **created_at** | **String** |  | [optional] [default to nothing]
 **updated_at** | **String** |  | [optional] [default to nothing]
 **entity** | **String** |  | [optional] [default to nothing]
