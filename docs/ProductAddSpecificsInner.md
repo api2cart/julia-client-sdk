@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **values** | **Vector{String}** |  | [optional] [default to nothing]
 **used_for_variations** | **Bool** |  | [optional] [default to false]
 **scale_id** | **Int64** |  | [optional] [default to nothing]
+**input_value** | **String** |  | [optional] [default to nothing]
 **food_details** | [***ProductAddSpecificsInnerFoodDetails**](ProductAddSpecificsInnerFoodDetails.md) |  | [optional] [default to nothing]
 **group_products_details** | [**Vector{ProductAddSpecificsInnerGroupProductsDetailsInner}**](ProductAddSpecificsInnerGroupProductsDetailsInner.md) |  | [optional] [default to nothing]
 **booking_details** | [***ProductAddSpecificsInnerBookingDetails**](ProductAddSpecificsInnerBookingDetails.md) |  | [optional] [default to nothing]

@@ -683,7 +683,7 @@ Name | Type | Description  | Notes
 
 order.shipment.list
 
-Get list of shipments by orders.
+Get list of shipments per order.
 
 ### Required Parameters
 

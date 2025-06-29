@@ -10,6 +10,7 @@
         values=nothing,
         used_for_variations=false,
         scale_id=nothing,
+        input_value=nothing,
         food_details=nothing,
         group_products_details=nothing,
         booking_details=nothing,
@@ -20,6 +21,7 @@
     - values::Vector{String}
     - used_for_variations::Bool
     - scale_id::Int64
+    - input_value::String
     - food_details::ProductAddSpecificsInnerFoodDetails
     - group_products_details::Vector{ProductAddSpecificsInnerGroupProductsDetailsInner}
     - booking_details::ProductAddSpecificsInnerBookingDetails
@@ -30,24 +32,26 @@ Base.@kwdef mutable struct ProductAddSpecificsInner <: OpenAPI.APIModel
     values::Union{Nothing, Vector{String}} = nothing
     used_for_variations::Union{Nothing, Bool} = false
     scale_id::Union{Nothing, Int64} = nothing
+    input_value::Union{Nothing, String} = nothing
     food_details = nothing # spec type: Union{ Nothing, ProductAddSpecificsInnerFoodDetails }
     group_products_details::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ProductAddSpecificsInnerGroupProductsDetailsInner} }
     booking_details = nothing # spec type: Union{ Nothing, ProductAddSpecificsInnerBookingDetails }
 
-    function ProductAddSpecificsInner(name, value, values, used_for_variations, scale_id, food_details, group_products_details, booking_details, )
+    function ProductAddSpecificsInner(name, value, values, used_for_variations, scale_id, input_value, food_details, group_products_details, booking_details, )
         OpenAPI.validate_property(ProductAddSpecificsInner, Symbol("name"), name)
         OpenAPI.validate_property(ProductAddSpecificsInner, Symbol("value"), value)
         OpenAPI.validate_property(ProductAddSpecificsInner, Symbol("values"), values)
         OpenAPI.validate_property(ProductAddSpecificsInner, Symbol("used_for_variations"), used_for_variations)
         OpenAPI.validate_property(ProductAddSpecificsInner, Symbol("scale_id"), scale_id)
+        OpenAPI.validate_property(ProductAddSpecificsInner, Symbol("input_value"), input_value)
         OpenAPI.validate_property(ProductAddSpecificsInner, Symbol("food_details"), food_details)
         OpenAPI.validate_property(ProductAddSpecificsInner, Symbol("group_products_details"), group_products_details)
         OpenAPI.validate_property(ProductAddSpecificsInner, Symbol("booking_details"), booking_details)
-        return new(name, value, values, used_for_variations, scale_id, food_details, group_products_details, booking_details, )
+        return new(name, value, values, used_for_variations, scale_id, input_value, food_details, group_products_details, booking_details, )
     end
 end # type ProductAddSpecificsInner
 
-const _property_types_ProductAddSpecificsInner = Dict{Symbol,String}(Symbol("name")=>"String", Symbol("value")=>"String", Symbol("values")=>"Vector{String}", Symbol("used_for_variations")=>"Bool", Symbol("scale_id")=>"Int64", Symbol("food_details")=>"ProductAddSpecificsInnerFoodDetails", Symbol("group_products_details")=>"Vector{ProductAddSpecificsInnerGroupProductsDetailsInner}", Symbol("booking_details")=>"ProductAddSpecificsInnerBookingDetails", )
+const _property_types_ProductAddSpecificsInner = Dict{Symbol,String}(Symbol("name")=>"String", Symbol("value")=>"String", Symbol("values")=>"Vector{String}", Symbol("used_for_variations")=>"Bool", Symbol("scale_id")=>"Int64", Symbol("input_value")=>"String", Symbol("food_details")=>"ProductAddSpecificsInnerFoodDetails", Symbol("group_products_details")=>"Vector{ProductAddSpecificsInnerGroupProductsDetailsInner}", Symbol("booking_details")=>"ProductAddSpecificsInnerBookingDetails", )
 OpenAPI.property_type(::Type{ ProductAddSpecificsInner }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_ProductAddSpecificsInner[name]))}
 
 function check_required(o::ProductAddSpecificsInner)
@@ -61,6 +65,7 @@ function OpenAPI.validate_property(::Type{ ProductAddSpecificsInner }, name::Sym
     if name === Symbol("values")
         OpenAPI.validate_param(name, "ProductAddSpecificsInner", :minItems, val, 1)
     end
+
 
 
 
