@@ -17,6 +17,7 @@
         last_login=nothing,
         birth_day=nothing,
         status=nothing,
+        is_guest=nothing,
         news_letter_subscription=nothing,
         consents=nothing,
         gender=nothing,
@@ -45,6 +46,7 @@
     - last_login::A2CDateTime
     - birth_day::A2CDateTime
     - status::String
+    - is_guest::Bool
     - news_letter_subscription::Bool
     - consents::Vector{CustomerConsent}
     - gender::String
@@ -73,6 +75,7 @@ Base.@kwdef mutable struct Customer <: OpenAPI.APIModel
     last_login = nothing # spec type: Union{ Nothing, A2CDateTime }
     birth_day = nothing # spec type: Union{ Nothing, A2CDateTime }
     status::Union{Nothing, String} = nothing
+    is_guest::Union{Nothing, Bool} = nothing
     news_letter_subscription::Union{Nothing, Bool} = nothing
     consents::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{CustomerConsent} }
     gender::Union{Nothing, String} = nothing
@@ -88,7 +91,7 @@ Base.@kwdef mutable struct Customer <: OpenAPI.APIModel
     additional_fields::Union{Nothing, Any} = nothing
     custom_fields::Union{Nothing, Any} = nothing
 
-    function Customer(id, email, first_name, last_name, phone, created_time, modified_time, group, login, last_login, birth_day, status, news_letter_subscription, consents, gender, stores_ids, website, fax, company, ip_address, address_book, lang_id, orders_count, last_order_id, additional_fields, custom_fields, )
+    function Customer(id, email, first_name, last_name, phone, created_time, modified_time, group, login, last_login, birth_day, status, is_guest, news_letter_subscription, consents, gender, stores_ids, website, fax, company, ip_address, address_book, lang_id, orders_count, last_order_id, additional_fields, custom_fields, )
         OpenAPI.validate_property(Customer, Symbol("id"), id)
         OpenAPI.validate_property(Customer, Symbol("email"), email)
         OpenAPI.validate_property(Customer, Symbol("first_name"), first_name)
@@ -101,6 +104,7 @@ Base.@kwdef mutable struct Customer <: OpenAPI.APIModel
         OpenAPI.validate_property(Customer, Symbol("last_login"), last_login)
         OpenAPI.validate_property(Customer, Symbol("birth_day"), birth_day)
         OpenAPI.validate_property(Customer, Symbol("status"), status)
+        OpenAPI.validate_property(Customer, Symbol("is_guest"), is_guest)
         OpenAPI.validate_property(Customer, Symbol("news_letter_subscription"), news_letter_subscription)
         OpenAPI.validate_property(Customer, Symbol("consents"), consents)
         OpenAPI.validate_property(Customer, Symbol("gender"), gender)
@@ -115,11 +119,11 @@ Base.@kwdef mutable struct Customer <: OpenAPI.APIModel
         OpenAPI.validate_property(Customer, Symbol("last_order_id"), last_order_id)
         OpenAPI.validate_property(Customer, Symbol("additional_fields"), additional_fields)
         OpenAPI.validate_property(Customer, Symbol("custom_fields"), custom_fields)
-        return new(id, email, first_name, last_name, phone, created_time, modified_time, group, login, last_login, birth_day, status, news_letter_subscription, consents, gender, stores_ids, website, fax, company, ip_address, address_book, lang_id, orders_count, last_order_id, additional_fields, custom_fields, )
+        return new(id, email, first_name, last_name, phone, created_time, modified_time, group, login, last_login, birth_day, status, is_guest, news_letter_subscription, consents, gender, stores_ids, website, fax, company, ip_address, address_book, lang_id, orders_count, last_order_id, additional_fields, custom_fields, )
     end
 end # type Customer
 
-const _property_types_Customer = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("email")=>"String", Symbol("first_name")=>"String", Symbol("last_name")=>"String", Symbol("phone")=>"String", Symbol("created_time")=>"A2CDateTime", Symbol("modified_time")=>"A2CDateTime", Symbol("group")=>"Vector{CustomerGroup}", Symbol("login")=>"String", Symbol("last_login")=>"A2CDateTime", Symbol("birth_day")=>"A2CDateTime", Symbol("status")=>"String", Symbol("news_letter_subscription")=>"Bool", Symbol("consents")=>"Vector{CustomerConsent}", Symbol("gender")=>"String", Symbol("stores_ids")=>"Vector{String}", Symbol("website")=>"String", Symbol("fax")=>"String", Symbol("company")=>"String", Symbol("ip_address")=>"String", Symbol("address_book")=>"Vector{CustomerAddress}", Symbol("lang_id")=>"String", Symbol("orders_count")=>"Int64", Symbol("last_order_id")=>"String", Symbol("additional_fields")=>"Any", Symbol("custom_fields")=>"Any", )
+const _property_types_Customer = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("email")=>"String", Symbol("first_name")=>"String", Symbol("last_name")=>"String", Symbol("phone")=>"String", Symbol("created_time")=>"A2CDateTime", Symbol("modified_time")=>"A2CDateTime", Symbol("group")=>"Vector{CustomerGroup}", Symbol("login")=>"String", Symbol("last_login")=>"A2CDateTime", Symbol("birth_day")=>"A2CDateTime", Symbol("status")=>"String", Symbol("is_guest")=>"Bool", Symbol("news_letter_subscription")=>"Bool", Symbol("consents")=>"Vector{CustomerConsent}", Symbol("gender")=>"String", Symbol("stores_ids")=>"Vector{String}", Symbol("website")=>"String", Symbol("fax")=>"String", Symbol("company")=>"String", Symbol("ip_address")=>"String", Symbol("address_book")=>"Vector{CustomerAddress}", Symbol("lang_id")=>"String", Symbol("orders_count")=>"Int64", Symbol("last_order_id")=>"String", Symbol("additional_fields")=>"Any", Symbol("custom_fields")=>"Any", )
 OpenAPI.property_type(::Type{ Customer }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_Customer[name]))}
 
 function check_required(o::Customer)
@@ -127,6 +131,7 @@ function check_required(o::Customer)
 end
 
 function OpenAPI.validate_property(::Type{ Customer }, name::Symbol, val)
+
 
 
 

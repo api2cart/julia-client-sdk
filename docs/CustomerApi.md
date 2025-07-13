@@ -121,8 +121,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **customer_count**
-> customer_count(_api::CustomerApi; ids=nothing, since_id=nothing, customer_list_id=nothing, group_id=nothing, store_id=nothing, avail=nothing, find_value=nothing, find_where=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, _mediaType=nothing) -> CustomerCount200Response, OpenAPI.Clients.ApiResponse <br/>
-> customer_count(_api::CustomerApi, response_stream::Channel; ids=nothing, since_id=nothing, customer_list_id=nothing, group_id=nothing, store_id=nothing, avail=nothing, find_value=nothing, find_where=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, _mediaType=nothing) -> Channel{ CustomerCount200Response }, OpenAPI.Clients.ApiResponse
+> customer_count(_api::CustomerApi; ids=nothing, since_id=nothing, customer_list_id=nothing, group_id=nothing, store_id=nothing, avail=nothing, include_guests=nothing, find_value=nothing, find_where=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, _mediaType=nothing) -> CustomerCount200Response, OpenAPI.Clients.ApiResponse <br/>
+> customer_count(_api::CustomerApi, response_stream::Channel; ids=nothing, since_id=nothing, customer_list_id=nothing, group_id=nothing, store_id=nothing, avail=nothing, include_guests=nothing, find_value=nothing, find_where=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, _mediaType=nothing) -> Channel{ CustomerCount200Response }, OpenAPI.Clients.ApiResponse
 
 customer.count
 
@@ -144,6 +144,7 @@ Name | Type | Description  | Notes
  **group_id** | **String** | Customer group_id | [default to nothing]
  **store_id** | **String** | Counts customer specified by store id | [default to nothing]
  **avail** | **Bool** | Defines category&#39;s visibility status | [default to true]
+ **include_guests** | **Bool** | Indicates whether to include guest customers in the total count. | [default to false]
  **find_value** | **String** | Entity search that is specified by some value | [default to nothing]
  **find_where** | **String** | Counts customers that are searched specified by field | [default to nothing]
  **created_from** | **String** | Retrieve entities from their creation date | [default to nothing]
@@ -197,8 +198,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **customer_find**
-> customer_find(_api::CustomerApi, find_value::String; find_where=nothing, find_params=nothing, store_id=nothing, _mediaType=nothing) -> CustomerFind200Response, OpenAPI.Clients.ApiResponse <br/>
-> customer_find(_api::CustomerApi, response_stream::Channel, find_value::String; find_where=nothing, find_params=nothing, store_id=nothing, _mediaType=nothing) -> Channel{ CustomerFind200Response }, OpenAPI.Clients.ApiResponse
+> customer_find(_api::CustomerApi, find_value::String; find_where=nothing, find_params=nothing, store_id=nothing, include_guests=nothing, _mediaType=nothing) -> CustomerFind200Response, OpenAPI.Clients.ApiResponse <br/>
+> customer_find(_api::CustomerApi, response_stream::Channel, find_value::String; find_where=nothing, find_params=nothing, store_id=nothing, include_guests=nothing, _mediaType=nothing) -> Channel{ CustomerFind200Response }, OpenAPI.Clients.ApiResponse
 
 customer.find
 
@@ -218,6 +219,7 @@ Name | Type | Description  | Notes
  **find_where** | **String** | Entity search that is specified by the comma-separated unique fields | [default to &quot;email&quot;]
  **find_params** | **String** | Entity search that is specified by comma-separated parameters | [default to &quot;whole_words&quot;]
  **store_id** | **String** | Store Id | [default to nothing]
+ **include_guests** | **Bool** | Indicates whether to search among guest customers when looking up a customer. | [default to false]
 
 ### Return type
 
@@ -355,8 +357,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **customer_list**
-> customer_list(_api::CustomerApi; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, since_id=nothing, customer_list_id=nothing, group_id=nothing, store_id=nothing, avail=nothing, find_value=nothing, find_where=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, sort_by=nothing, sort_direction=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseCustomerList, OpenAPI.Clients.ApiResponse <br/>
-> customer_list(_api::CustomerApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, since_id=nothing, customer_list_id=nothing, group_id=nothing, store_id=nothing, avail=nothing, find_value=nothing, find_where=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, sort_by=nothing, sort_direction=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseCustomerList }, OpenAPI.Clients.ApiResponse
+> customer_list(_api::CustomerApi; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, since_id=nothing, customer_list_id=nothing, group_id=nothing, store_id=nothing, avail=nothing, include_guests=nothing, find_value=nothing, find_where=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, sort_by=nothing, sort_direction=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseCustomerList, OpenAPI.Clients.ApiResponse <br/>
+> customer_list(_api::CustomerApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, since_id=nothing, customer_list_id=nothing, group_id=nothing, store_id=nothing, avail=nothing, include_guests=nothing, find_value=nothing, find_where=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, sort_by=nothing, sort_direction=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseCustomerList }, OpenAPI.Clients.ApiResponse
 
 customer.list
 
@@ -381,6 +383,7 @@ Name | Type | Description  | Notes
  **group_id** | **String** | Customer group_id | [default to nothing]
  **store_id** | **String** | Retrieves customers specified by store id | [default to nothing]
  **avail** | **Bool** | Defines category&#39;s visibility status | [default to true]
+ **include_guests** | **Bool** | Indicates whether to include guest customers in the list results. | [default to false]
  **find_value** | **String** | Entity search that is specified by some value | [default to nothing]
  **find_where** | **String** | Customer search that is specified by field | [default to nothing]
  **created_from** | **String** | Retrieve entities from their creation date | [default to nothing]

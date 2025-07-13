@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **last_login** | [***A2CDateTime**](A2CDateTime.md) |  | [optional] [default to nothing]
 **birth_day** | [***A2CDateTime**](A2CDateTime.md) |  | [optional] [default to nothing]
 **status** | **String** |  | [optional] [default to nothing]
+**is_guest** | **Bool** |  | [optional] [default to nothing]
 **news_letter_subscription** | **Bool** |  | [optional] [default to nothing]
 **consents** | [**Vector{CustomerConsent}**](CustomerConsent.md) |  | [optional] [default to nothing]
 **gender** | **String** |  | [optional] [default to nothing]
