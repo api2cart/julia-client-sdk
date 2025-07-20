@@ -9,7 +9,7 @@ end
 The default API base path for APIs in `CategoryApi`.
 This can be used to construct the `OpenAPI.Clients.Client` instance.
 """
-basepath(::Type{ CategoryApi }) = "https://api.api2cart.com/v1.1"
+basepath(::Type{ CategoryApi }) = "https://api.api2cart.local.com/v1.1"
 
 const _returntypes_category_add_CategoryApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => CategoryAdd200Response,
@@ -101,7 +101,7 @@ function category_add_batch(_api::CategoryApi, response_stream::Channel, categor
 end
 
 const _returntypes_category_assign_CategoryApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => CartConfigUpdate200Response,
+    Regex("^" * replace("200", "x"=>".") * "\$") => CategoryAssign200Response,
 )
 
 function _oacinternal_category_assign(_api::CategoryApi, category_id::String, product_id::String; store_id=nothing, _mediaType=nothing)
@@ -123,7 +123,7 @@ Params:
 - product_id::String (required)
 - store_id::String
 
-Return: CartConfigUpdate200Response, OpenAPI.Clients.ApiResponse
+Return: CategoryAssign200Response, OpenAPI.Clients.ApiResponse
 """
 function category_assign(_api::CategoryApi, category_id::String, product_id::String; store_id=nothing, _mediaType=nothing)
     _ctx = _oacinternal_category_assign(_api, category_id, product_id; store_id=store_id, _mediaType=_mediaType)
@@ -459,7 +459,7 @@ function category_list(_api::CategoryApi, response_stream::Channel; start=nothin
 end
 
 const _returntypes_category_unassign_CategoryApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => CartConfigUpdate200Response,
+    Regex("^" * replace("200", "x"=>".") * "\$") => CategoryAssign200Response,
 )
 
 function _oacinternal_category_unassign(_api::CategoryApi, category_id::String, product_id::String; store_id=nothing, _mediaType=nothing)
@@ -481,7 +481,7 @@ Params:
 - product_id::String (required)
 - store_id::String
 
-Return: CartConfigUpdate200Response, OpenAPI.Clients.ApiResponse
+Return: CategoryAssign200Response, OpenAPI.Clients.ApiResponse
 """
 function category_unassign(_api::CategoryApi, category_id::String, product_id::String; store_id=nothing, _mediaType=nothing)
     _ctx = _oacinternal_category_unassign(_api, category_id, product_id; store_id=store_id, _mediaType=_mediaType)

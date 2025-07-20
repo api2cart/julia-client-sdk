@@ -9,36 +9,7 @@ end
 The default API base path for APIs in `CartApi`.
 This can be used to construct the `OpenAPI.Clients.Client` instance.
 """
-basepath(::Type{ CartApi }) = "https://api.api2cart.com/v1.1"
-
-const _returntypes_cart_bridge_CartApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => CartBridge200Response,
-)
-
-function _oacinternal_cart_bridge(_api::CartApi; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_cart_bridge_CartApi, "/cart.bridge.json", ["ApiKeyAuth", ])
-    OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
-    OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
-    return _ctx
-end
-
-@doc raw"""cart.bridge
-
-Get bridge key and store key
-
-Params:
-
-Return: CartBridge200Response, OpenAPI.Clients.ApiResponse
-"""
-function cart_bridge(_api::CartApi; _mediaType=nothing)
-    _ctx = _oacinternal_cart_bridge(_api; _mediaType=_mediaType)
-    return OpenAPI.Clients.exec(_ctx)
-end
-
-function cart_bridge(_api::CartApi, response_stream::Channel; _mediaType=nothing)
-    _ctx = _oacinternal_cart_bridge(_api; _mediaType=_mediaType)
-    return OpenAPI.Clients.exec(_ctx, response_stream)
-end
+basepath(::Type{ CartApi }) = "https://api.api2cart.local.com/v1.1"
 
 const _returntypes_cart_catalog_price_rules_count_CartApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => CartCatalogPriceRulesCount200Response,
@@ -109,100 +80,6 @@ end
 
 function cart_catalog_price_rules_list(_api::CartApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
     _ctx = _oacinternal_cart_catalog_price_rules_list(_api; start=start, count=count, page_cursor=page_cursor, ids=ids, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
-    return OpenAPI.Clients.exec(_ctx, response_stream)
-end
-
-const _returntypes_cart_clear_cache_CartApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => CartClearCache200Response,
-)
-
-function _oacinternal_cart_clear_cache(_api::CartApi, cache_type::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_cart_clear_cache_CartApi, "/cart.clear_cache.json", ["StoreKeyAuth", "ApiKeyAuth", ])
-    OpenAPI.Clients.set_param(_ctx.query, "cache_type", cache_type; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
-    OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
-    return _ctx
-end
-
-@doc raw"""cart.clear_cache
-
-Clear cache on store.
-
-Params:
-- cache_type::String (required)
-
-Return: CartClearCache200Response, OpenAPI.Clients.ApiResponse
-"""
-function cart_clear_cache(_api::CartApi, cache_type::String; _mediaType=nothing)
-    _ctx = _oacinternal_cart_clear_cache(_api, cache_type; _mediaType=_mediaType)
-    return OpenAPI.Clients.exec(_ctx)
-end
-
-function cart_clear_cache(_api::CartApi, response_stream::Channel, cache_type::String; _mediaType=nothing)
-    _ctx = _oacinternal_cart_clear_cache(_api, cache_type; _mediaType=_mediaType)
-    return OpenAPI.Clients.exec(_ctx, response_stream)
-end
-
-const _returntypes_cart_config_CartApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => CartConfig200Response,
-)
-
-function _oacinternal_cart_config(_api::CartApi; params=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_cart_config_CartApi, "/cart.config.json", ["StoreKeyAuth", "ApiKeyAuth", ])
-    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
-    OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
-    return _ctx
-end
-
-@doc raw"""cart.config
-
-Get list of cart configs
-
-Params:
-- params::String
-- exclude::String
-
-Return: CartConfig200Response, OpenAPI.Clients.ApiResponse
-"""
-function cart_config(_api::CartApi; params=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_config(_api; params=params, exclude=exclude, _mediaType=_mediaType)
-    return OpenAPI.Clients.exec(_ctx)
-end
-
-function cart_config(_api::CartApi, response_stream::Channel; params=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_config(_api; params=params, exclude=exclude, _mediaType=_mediaType)
-    return OpenAPI.Clients.exec(_ctx, response_stream)
-end
-
-const _returntypes_cart_config_update_CartApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => CartConfigUpdate200Response,
-)
-
-function _oacinternal_cart_config_update(_api::CartApi, cart_config_update_param::CartConfigUpdate; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "PUT", _returntypes_cart_config_update_CartApi, "/cart.config.update.json", ["StoreKeyAuth", "ApiKeyAuth", ], cart_config_update_param)
-    OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
-    OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? ["application/json", ] : [_mediaType])
-    return _ctx
-end
-
-@doc raw"""cart.config.update
-
-Use this API method to update custom data in client database.
-
-Params:
-- cart_config_update_param::CartConfigUpdate (required)
-
-Return: CartConfigUpdate200Response, OpenAPI.Clients.ApiResponse
-"""
-function cart_config_update(_api::CartApi, cart_config_update_param::CartConfigUpdate; _mediaType=nothing)
-    _ctx = _oacinternal_cart_config_update(_api, cart_config_update_param; _mediaType=_mediaType)
-    return OpenAPI.Clients.exec(_ctx)
-end
-
-function cart_config_update(_api::CartApi, response_stream::Channel, cart_config_update_param::CartConfigUpdate; _mediaType=nothing)
-    _ctx = _oacinternal_cart_config_update(_api, cart_config_update_param; _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -414,36 +291,6 @@ function cart_coupon_list(_api::CartApi, response_stream::Channel; start=nothing
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
-const _returntypes_cart_create_CartApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => AccountCartAdd200Response,
-)
-
-function _oacinternal_cart_create(_api::CartApi, cart_create_param::CartCreate; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_cart_create_CartApi, "/cart.create.json", ["ApiKeyAuth", ], cart_create_param)
-    OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
-    OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? ["application/json", ] : [_mediaType])
-    return _ctx
-end
-
-@doc raw"""cart.create
-
-Add store to the account
-
-Params:
-- cart_create_param::CartCreate (required)
-
-Return: AccountCartAdd200Response, OpenAPI.Clients.ApiResponse
-"""
-function cart_create(_api::CartApi, cart_create_param::CartCreate; _mediaType=nothing)
-    _ctx = _oacinternal_cart_create(_api, cart_create_param; _mediaType=_mediaType)
-    return OpenAPI.Clients.exec(_ctx)
-end
-
-function cart_create(_api::CartApi, response_stream::Channel, cart_create_param::CartCreate; _mediaType=nothing)
-    _ctx = _oacinternal_cart_create(_api, cart_create_param; _mediaType=_mediaType)
-    return OpenAPI.Clients.exec(_ctx, response_stream)
-end
-
 const _returntypes_cart_delete_CartApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => CartDelete200Response,
 )
@@ -472,37 +319,6 @@ end
 
 function cart_delete(_api::CartApi, response_stream::Channel; delete_bridge=nothing, _mediaType=nothing)
     _ctx = _oacinternal_cart_delete(_api; delete_bridge=delete_bridge, _mediaType=_mediaType)
-    return OpenAPI.Clients.exec(_ctx, response_stream)
-end
-
-const _returntypes_cart_disconnect_CartApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => CartDisconnect200Response,
-)
-
-function _oacinternal_cart_disconnect(_api::CartApi; delete_bridge=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_cart_disconnect_CartApi, "/cart.disconnect.json", ["StoreKeyAuth", "ApiKeyAuth", ])
-    OpenAPI.Clients.set_param(_ctx.query, "delete_bridge", delete_bridge; style="form", is_explode=true)  # type Bool
-    OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
-    OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
-    return _ctx
-end
-
-@doc raw"""cart.disconnect
-
-Disconnect with the store and clear store session data.
-
-Params:
-- delete_bridge::Bool
-
-Return: CartDisconnect200Response, OpenAPI.Clients.ApiResponse
-"""
-function cart_disconnect(_api::CartApi; delete_bridge=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_disconnect(_api; delete_bridge=delete_bridge, _mediaType=_mediaType)
-    return OpenAPI.Clients.exec(_ctx)
-end
-
-function cart_disconnect(_api::CartApi, response_stream::Channel; delete_bridge=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_disconnect(_api; delete_bridge=delete_bridge, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -686,35 +502,6 @@ end
 
 function cart_info(_api::CartApi, response_stream::Channel; store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
     _ctx = _oacinternal_cart_info(_api; store_id=store_id, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
-    return OpenAPI.Clients.exec(_ctx, response_stream)
-end
-
-const _returntypes_cart_list_CartApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => CartList200Response,
-)
-
-function _oacinternal_cart_list(_api::CartApi; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_cart_list_CartApi, "/cart.list.json", ["ApiKeyAuth", ])
-    OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
-    OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
-    return _ctx
-end
-
-@doc raw"""cart.list
-
-Get list of supported carts
-
-Params:
-
-Return: CartList200Response, OpenAPI.Clients.ApiResponse
-"""
-function cart_list(_api::CartApi; _mediaType=nothing)
-    _ctx = _oacinternal_cart_list(_api; _mediaType=_mediaType)
-    return OpenAPI.Clients.exec(_ctx)
-end
-
-function cart_list(_api::CartApi, response_stream::Channel; _mediaType=nothing)
-    _ctx = _oacinternal_cart_list(_api; _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -1116,26 +903,19 @@ function cart_validate(_api::CartApi, response_stream::Channel; validate_version
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
-export cart_bridge
 export cart_catalog_price_rules_count
 export cart_catalog_price_rules_list
-export cart_clear_cache
-export cart_config
-export cart_config_update
 export cart_coupon_add
 export cart_coupon_condition_add
 export cart_coupon_count
 export cart_coupon_delete
 export cart_coupon_list
-export cart_create
 export cart_delete
-export cart_disconnect
 export cart_giftcard_add
 export cart_giftcard_count
 export cart_giftcard_delete
 export cart_giftcard_list
 export cart_info
-export cart_list
 export cart_meta_data_list
 export cart_meta_data_set
 export cart_meta_data_unset

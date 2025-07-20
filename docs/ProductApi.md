@@ -1,6 +1,6 @@
 # ProductApi
 
-All URIs are relative to *https://api.api2cart.com/v1.1*
+All URIs are relative to *https://api.api2cart.local.com/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -18,7 +18,6 @@ Method | HTTP request | Description
 [**product_currency_list**](ProductApi.md#product_currency_list) | **GET** /product.currency.list.json | product.currency.list
 [**product_delete**](ProductApi.md#product_delete) | **DELETE** /product.delete.json | product.delete
 [**product_delete_batch**](ProductApi.md#product_delete_batch) | **POST** /product.delete.batch.json | product.delete.batch
-[**product_fields**](ProductApi.md#product_fields) | **GET** /product.fields.json | product.fields
 [**product_find**](ProductApi.md#product_find) | **GET** /product.find.json | product.find
 [**product_image_add**](ProductApi.md#product_image_add) | **POST** /product.image.add.json | product.image.add
 [**product_image_delete**](ProductApi.md#product_image_delete) | **DELETE** /product.image.delete.json | product.image.delete
@@ -44,13 +43,10 @@ Method | HTTP request | Description
 [**product_update_batch**](ProductApi.md#product_update_batch) | **POST** /product.update.batch.json | product.update.batch
 [**product_variant_add**](ProductApi.md#product_variant_add) | **POST** /product.variant.add.json | product.variant.add
 [**product_variant_add_batch**](ProductApi.md#product_variant_add_batch) | **POST** /product.variant.add.batch.json | product.variant.add.batch
-[**product_variant_count**](ProductApi.md#product_variant_count) | **GET** /product.variant.count.json | product.variant.count
 [**product_variant_delete**](ProductApi.md#product_variant_delete) | **DELETE** /product.variant.delete.json | product.variant.delete
 [**product_variant_delete_batch**](ProductApi.md#product_variant_delete_batch) | **POST** /product.variant.delete.batch.json | product.variant.delete.batch
 [**product_variant_image_add**](ProductApi.md#product_variant_image_add) | **POST** /product.variant.image.add.json | product.variant.image.add
 [**product_variant_image_delete**](ProductApi.md#product_variant_image_delete) | **DELETE** /product.variant.image.delete.json | product.variant.image.delete
-[**product_variant_info**](ProductApi.md#product_variant_info) | **GET** /product.variant.info.json | product.variant.info
-[**product_variant_list**](ProductApi.md#product_variant_list) | **GET** /product.variant.list.json | product.variant.list
 [**product_variant_price_add**](ProductApi.md#product_variant_price_add) | **POST** /product.variant.price.add.json | product.variant.price.add
 [**product_variant_price_delete**](ProductApi.md#product_variant_price_delete) | **DELETE** /product.variant.price.delete.json | product.variant.price.delete
 [**product_variant_price_update**](ProductApi.md#product_variant_price_update) | **PUT** /product.variant.price.update.json | product.variant.price.update
@@ -640,32 +636,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-# **product_fields**
-> product_fields(_api::ProductApi; _mediaType=nothing) -> CartConfigUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
-> product_fields(_api::ProductApi, response_stream::Channel; _mediaType=nothing) -> Channel{ CartConfigUpdate200Response }, OpenAPI.Clients.ApiResponse
-
-product.fields
-
-Retrieve all available fields for product item in store.
-
-### Required Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**CartConfigUpdate200Response**](CartConfigUpdate200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -1599,47 +1569,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
-# **product_variant_count**
-> product_variant_count(_api::ProductApi, product_id::String; category_id=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, _mediaType=nothing) -> ProductVariantCount200Response, OpenAPI.Clients.ApiResponse <br/>
-> product_variant_count(_api::ProductApi, response_stream::Channel, product_id::String; category_id=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, _mediaType=nothing) -> Channel{ ProductVariantCount200Response }, OpenAPI.Clients.ApiResponse
-
-product.variant.count
-
-Get count variants.
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **_api** | **ProductApi** | API context | 
-**product_id** | **String** | Retrieves products&#39; variants specified by product id |
-
-### Optional Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **category_id** | **String** | Counts products’ variants specified by category id | [default to nothing]
- **store_id** | **String** | Retrieves variants specified by store id | [default to nothing]
- **created_from** | **String** | Retrieve entities from their creation date | [default to nothing]
- **created_to** | **String** | Retrieve entities to their creation date | [default to nothing]
- **modified_from** | **String** | Retrieve entities from their modification date | [default to nothing]
- **modified_to** | **String** | Retrieve entities to their modification date | [default to nothing]
-
-### Return type
-
-[**ProductVariantCount200Response**](ProductVariantCount200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
 # **product_variant_delete**
 > product_variant_delete(_api::ProductApi, id::String, product_id::String; store_id=nothing, _mediaType=nothing) -> AttributeValueDelete200Response, OpenAPI.Clients.ApiResponse <br/>
 > product_variant_delete(_api::ProductApi, response_stream::Channel, id::String, product_id::String; store_id=nothing, _mediaType=nothing) -> Channel{ AttributeValueDelete200Response }, OpenAPI.Clients.ApiResponse
@@ -1763,89 +1692,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AttributeDelete200Response**](AttributeDelete200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-# **product_variant_info**
-> product_variant_info(_api::ProductApi, id::String; store_id=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ProductInfo200Response, OpenAPI.Clients.ApiResponse <br/>
-> product_variant_info(_api::ProductApi, response_stream::Channel, id::String; store_id=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ProductInfo200Response }, OpenAPI.Clients.ApiResponse
-
-product.variant.info
-
-Get variant info. This method is deprecated, and its development is stopped. Please use \"product.child_item.info\" instead.
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **_api** | **ProductApi** | API context | 
-**id** | **String** | Retrieves variant&#39;s info specified by variant id |
-
-### Optional Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **store_id** | **String** | Retrieves variant info specified by store id | [default to nothing]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,name,description,price&quot;]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
-
-### Return type
-
-[**ProductInfo200Response**](ProductInfo200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-# **product_variant_list**
-> product_variant_list(_api::ProductApi; start=nothing, count=nothing, product_id=nothing, category_id=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ProductVariantList200Response, OpenAPI.Clients.ApiResponse <br/>
-> product_variant_list(_api::ProductApi, response_stream::Channel; start=nothing, count=nothing, product_id=nothing, category_id=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ProductVariantList200Response }, OpenAPI.Clients.ApiResponse
-
-product.variant.list
-
-Get a list of variants. This method is deprecated, and its development is stopped. Please use \"product.child_item.list\" instead.
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **_api** | **ProductApi** | API context | 
-
-### Optional Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
- **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
- **product_id** | **String** | Retrieves products&#39; variants specified by product id | [default to nothing]
- **category_id** | **String** | Retrieves products’ variants specified by category id | [default to nothing]
- **store_id** | **String** | Retrieves variants specified by store id | [default to nothing]
- **created_from** | **String** | Retrieve entities from their creation date | [default to nothing]
- **created_to** | **String** | Retrieve entities to their creation date | [default to nothing]
- **modified_from** | **String** | Retrieve entities from their modification date | [default to nothing]
- **modified_to** | **String** | Retrieve entities to their modification date | [default to nothing]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,name,description,price&quot;]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
-
-### Return type
-
-[**ProductVariantList200Response**](ProductVariantList200Response.md)
 
 ### Authorization
 

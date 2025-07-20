@@ -9,7 +9,7 @@ end
 The default API base path for APIs in `WebhookApi`.
 This can be used to construct the `OpenAPI.Clients.Client` instance.
 """
-basepath(::Type{ WebhookApi }) = "https://api.api2cart.com/v1.1"
+basepath(::Type{ WebhookApi }) = "https://api.api2cart.local.com/v1.1"
 
 const _returntypes_webhook_count_WebhookApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => WebhookCount200Response,

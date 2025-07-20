@@ -9,7 +9,7 @@ end
 The default API base path for APIs in `BasketApi`.
 This can be used to construct the `OpenAPI.Clients.Client` instance.
 """
-basepath(::Type{ BasketApi }) = "https://api.api2cart.com/v1.1"
+basepath(::Type{ BasketApi }) = "https://api.api2cart.local.com/v1.1"
 
 const _returntypes_basket_info_BasketApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => BasketInfo200Response,

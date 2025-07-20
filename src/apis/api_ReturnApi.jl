@@ -9,7 +9,7 @@ end
 The default API base path for APIs in `ReturnApi`.
 This can be used to construct the `OpenAPI.Clients.Client` instance.
 """
-basepath(::Type{ ReturnApi }) = "https://api.api2cart.com/v1.1"
+basepath(::Type{ ReturnApi }) = "https://api.api2cart.local.com/v1.1"
 
 const _returntypes_return_action_list_ReturnApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ReturnActionList200Response,

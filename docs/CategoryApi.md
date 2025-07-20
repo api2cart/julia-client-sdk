@@ -1,6 +1,6 @@
 # CategoryApi
 
-All URIs are relative to *https://api.api2cart.com/v1.1*
+All URIs are relative to *https://api.api2cart.local.com/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -98,8 +98,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **category_assign**
-> category_assign(_api::CategoryApi, category_id::String, product_id::String; store_id=nothing, _mediaType=nothing) -> CartConfigUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
-> category_assign(_api::CategoryApi, response_stream::Channel, category_id::String, product_id::String; store_id=nothing, _mediaType=nothing) -> Channel{ CartConfigUpdate200Response }, OpenAPI.Clients.ApiResponse
+> category_assign(_api::CategoryApi, category_id::String, product_id::String; store_id=nothing, _mediaType=nothing) -> CategoryAssign200Response, OpenAPI.Clients.ApiResponse <br/>
+> category_assign(_api::CategoryApi, response_stream::Channel, category_id::String, product_id::String; store_id=nothing, _mediaType=nothing) -> Channel{ CategoryAssign200Response }, OpenAPI.Clients.ApiResponse
 
 category.assign
 
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CartConfigUpdate200Response**](CartConfigUpdate200Response.md)
+[**CategoryAssign200Response**](CategoryAssign200Response.md)
 
 ### Authorization
 
@@ -433,8 +433,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **category_unassign**
-> category_unassign(_api::CategoryApi, category_id::String, product_id::String; store_id=nothing, _mediaType=nothing) -> CartConfigUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
-> category_unassign(_api::CategoryApi, response_stream::Channel, category_id::String, product_id::String; store_id=nothing, _mediaType=nothing) -> Channel{ CartConfigUpdate200Response }, OpenAPI.Clients.ApiResponse
+> category_unassign(_api::CategoryApi, category_id::String, product_id::String; store_id=nothing, _mediaType=nothing) -> CategoryAssign200Response, OpenAPI.Clients.ApiResponse <br/>
+> category_unassign(_api::CategoryApi, response_stream::Channel, category_id::String, product_id::String; store_id=nothing, _mediaType=nothing) -> Channel{ CategoryAssign200Response }, OpenAPI.Clients.ApiResponse
 
 category.unassign
 
@@ -456,7 +456,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CartConfigUpdate200Response**](CartConfigUpdate200Response.md)
+[**CategoryAssign200Response**](CategoryAssign200Response.md)
 
 ### Authorization
 

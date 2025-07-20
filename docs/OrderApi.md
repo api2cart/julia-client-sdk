@@ -1,6 +1,6 @@
 # OrderApi
 
-All URIs are relative to *https://api.api2cart.com/v1.1*
+All URIs are relative to *https://api.api2cart.local.com/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,7 +8,6 @@ Method | HTTP request | Description
 [**order_add**](OrderApi.md#order_add) | **POST** /order.add.json | order.add
 [**order_count**](OrderApi.md#order_count) | **GET** /order.count.json | order.count
 [**order_financial_status_list**](OrderApi.md#order_financial_status_list) | **GET** /order.financial_status.list.json | order.financial_status.list
-[**order_find**](OrderApi.md#order_find) | **GET** /order.find.json | order.find
 [**order_fulfillment_status_list**](OrderApi.md#order_fulfillment_status_list) | **GET** /order.fulfillment_status.list.json | order.fulfillment_status.list
 [**order_info**](OrderApi.md#order_info) | **GET** /order.info.json | order.info
 [**order_list**](OrderApi.md#order_list) | **GET** /order.list.json | order.list
@@ -175,52 +174,6 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**OrderFinancialStatusList200Response**](OrderFinancialStatusList200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-# **order_find**
-> order_find(_api::OrderApi; start=nothing, count=nothing, customer_id=nothing, customer_email=nothing, order_status=nothing, financial_status=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> OrderFind200Response, OpenAPI.Clients.ApiResponse <br/>
-> order_find(_api::OrderApi, response_stream::Channel; start=nothing, count=nothing, customer_id=nothing, customer_email=nothing, order_status=nothing, financial_status=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ OrderFind200Response }, OpenAPI.Clients.ApiResponse
-
-order.find
-
-This method is deprecated and won't be supported in the future. Please use \"order.list\" instead.
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **_api** | **OrderApi** | API context | 
-
-### Optional Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
- **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
- **customer_id** | **String** | Retrieves orders specified by customer id | [default to nothing]
- **customer_email** | **String** | Retrieves orders specified by customer email | [default to nothing]
- **order_status** | **String** | Retrieves orders specified by order status | [default to nothing]
- **financial_status** | **String** | Retrieves orders specified by financial status | [default to nothing]
- **created_to** | **String** | Retrieve entities to their creation date | [default to nothing]
- **created_from** | **String** | Retrieve entities from their creation date | [default to nothing]
- **modified_to** | **String** | Retrieve entities to their modification date | [default to nothing]
- **modified_from** | **String** | Retrieve entities from their modification date | [default to nothing]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;order_id,customer,totals,address,items,bundles,status&quot;]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
-
-### Return type
-
-[**OrderFind200Response**](OrderFind200Response.md)
 
 ### Authorization
 

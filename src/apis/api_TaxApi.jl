@@ -9,7 +9,7 @@ end
 The default API base path for APIs in `TaxApi`.
 This can be used to construct the `OpenAPI.Clients.Client` instance.
 """
-basepath(::Type{ TaxApi }) = "https://api.api2cart.com/v1.1"
+basepath(::Type{ TaxApi }) = "https://api.api2cart.local.com/v1.1"
 
 const _returntypes_tax_class_info_TaxApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseTaxClassInfo,

@@ -9,7 +9,7 @@ end
 The default API base path for APIs in `OrderApi`.
 This can be used to construct the `OpenAPI.Clients.Client` instance.
 """
-basepath(::Type{ OrderApi }) = "https://api.api2cart.com/v1.1"
+basepath(::Type{ OrderApi }) = "https://api.api2cart.local.com/v1.1"
 
 const _returntypes_order_abandoned_list_OrderApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseOrderAbandonedList,
@@ -193,59 +193,6 @@ end
 
 function order_financial_status_list(_api::OrderApi, response_stream::Channel; _mediaType=nothing)
     _ctx = _oacinternal_order_financial_status_list(_api; _mediaType=_mediaType)
-    return OpenAPI.Clients.exec(_ctx, response_stream)
-end
-
-const _returntypes_order_find_OrderApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => OrderFind200Response,
-)
-
-function _oacinternal_order_find(_api::OrderApi; start=nothing, count=nothing, customer_id=nothing, customer_email=nothing, order_status=nothing, financial_status=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_order_find_OrderApi, "/order.find.json", ["StoreKeyAuth", "ApiKeyAuth", ])
-    OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
-    OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
-    OpenAPI.Clients.set_param(_ctx.query, "customer_id", customer_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "customer_email", customer_email; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "order_status", order_status; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "financial_status", financial_status; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "created_to", created_to; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "created_from", created_from; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "modified_to", modified_to; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "modified_from", modified_from; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
-    OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
-    return _ctx
-end
-
-@doc raw"""order.find
-
-This method is deprecated and won't be supported in the future. Please use \"order.list\" instead.
-
-Params:
-- start::Int64
-- count::Int64
-- customer_id::String
-- customer_email::String
-- order_status::String
-- financial_status::String
-- created_to::String
-- created_from::String
-- modified_to::String
-- modified_from::String
-- params::String
-- exclude::String
-
-Return: OrderFind200Response, OpenAPI.Clients.ApiResponse
-"""
-function order_find(_api::OrderApi; start=nothing, count=nothing, customer_id=nothing, customer_email=nothing, order_status=nothing, financial_status=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_find(_api; start=start, count=count, customer_id=customer_id, customer_email=customer_email, order_status=order_status, financial_status=financial_status, created_to=created_to, created_from=created_from, modified_to=modified_to, modified_from=modified_from, params=params, exclude=exclude, _mediaType=_mediaType)
-    return OpenAPI.Clients.exec(_ctx)
-end
-
-function order_find(_api::OrderApi, response_stream::Channel; start=nothing, count=nothing, customer_id=nothing, customer_email=nothing, order_status=nothing, financial_status=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_find(_api; start=start, count=count, customer_id=customer_id, customer_email=customer_email, order_status=order_status, financial_status=financial_status, created_to=created_to, created_from=created_from, modified_to=modified_to, modified_from=modified_from, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -981,7 +928,6 @@ export order_abandoned_list
 export order_add
 export order_count
 export order_financial_status_list
-export order_find
 export order_fulfillment_status_list
 export order_info
 export order_list

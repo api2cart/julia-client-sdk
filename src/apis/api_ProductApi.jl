@@ -9,7 +9,7 @@ end
 The default API base path for APIs in `ProductApi`.
 This can be used to construct the `OpenAPI.Clients.Client` instance.
 """
-basepath(::Type{ ProductApi }) = "https://api.api2cart.com/v1.1"
+basepath(::Type{ ProductApi }) = "https://api.api2cart.local.com/v1.1"
 
 const _returntypes_product_add_ProductApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ProductAdd200Response,
@@ -661,35 +661,6 @@ end
 
 function product_delete_batch(_api::ProductApi, response_stream::Channel, product_delete_batch_param::ProductDeleteBatch; _mediaType=nothing)
     _ctx = _oacinternal_product_delete_batch(_api, product_delete_batch_param; _mediaType=_mediaType)
-    return OpenAPI.Clients.exec(_ctx, response_stream)
-end
-
-const _returntypes_product_fields_ProductApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => CartConfigUpdate200Response,
-)
-
-function _oacinternal_product_fields(_api::ProductApi; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_product_fields_ProductApi, "/product.fields.json", ["StoreKeyAuth", "ApiKeyAuth", ])
-    OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
-    OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
-    return _ctx
-end
-
-@doc raw"""product.fields
-
-Retrieve all available fields for product item in store.
-
-Params:
-
-Return: CartConfigUpdate200Response, OpenAPI.Clients.ApiResponse
-"""
-function product_fields(_api::ProductApi; _mediaType=nothing)
-    _ctx = _oacinternal_product_fields(_api; _mediaType=_mediaType)
-    return OpenAPI.Clients.exec(_ctx)
-end
-
-function product_fields(_api::ProductApi, response_stream::Channel; _mediaType=nothing)
-    _ctx = _oacinternal_product_fields(_api; _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -1667,49 +1638,6 @@ function product_variant_add_batch(_api::ProductApi, response_stream::Channel, p
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
-const _returntypes_product_variant_count_ProductApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => ProductVariantCount200Response,
-)
-
-function _oacinternal_product_variant_count(_api::ProductApi, product_id::String; category_id=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_product_variant_count_ProductApi, "/product.variant.count.json", ["StoreKeyAuth", "ApiKeyAuth", ])
-    OpenAPI.Clients.set_param(_ctx.query, "product_id", product_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "category_id", category_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "created_from", created_from; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "created_to", created_to; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "modified_from", modified_from; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "modified_to", modified_to; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
-    OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
-    return _ctx
-end
-
-@doc raw"""product.variant.count
-
-Get count variants.
-
-Params:
-- product_id::String (required)
-- category_id::String
-- store_id::String
-- created_from::String
-- created_to::String
-- modified_from::String
-- modified_to::String
-
-Return: ProductVariantCount200Response, OpenAPI.Clients.ApiResponse
-"""
-function product_variant_count(_api::ProductApi, product_id::String; category_id=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_variant_count(_api, product_id; category_id=category_id, store_id=store_id, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, _mediaType=_mediaType)
-    return OpenAPI.Clients.exec(_ctx)
-end
-
-function product_variant_count(_api::ProductApi, response_stream::Channel, product_id::String; category_id=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_variant_count(_api, product_id; category_id=category_id, store_id=store_id, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, _mediaType=_mediaType)
-    return OpenAPI.Clients.exec(_ctx, response_stream)
-end
-
 const _returntypes_product_variant_delete_ProductApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => AttributeValueDelete200Response,
 )
@@ -1839,94 +1767,6 @@ end
 
 function product_variant_image_delete(_api::ProductApi, response_stream::Channel, product_id::String, product_variant_id::String, id::String; store_id=nothing, _mediaType=nothing)
     _ctx = _oacinternal_product_variant_image_delete(_api, product_id, product_variant_id, id; store_id=store_id, _mediaType=_mediaType)
-    return OpenAPI.Clients.exec(_ctx, response_stream)
-end
-
-const _returntypes_product_variant_info_ProductApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => ProductInfo200Response,
-)
-
-function _oacinternal_product_variant_info(_api::ProductApi, id::String; store_id=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_product_variant_info_ProductApi, "/product.variant.info.json", ["StoreKeyAuth", "ApiKeyAuth", ])
-    OpenAPI.Clients.set_param(_ctx.query, "id", id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
-    OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
-    return _ctx
-end
-
-@doc raw"""product.variant.info
-
-Get variant info. This method is deprecated, and its development is stopped. Please use \"product.child_item.info\" instead.
-
-Params:
-- id::String (required)
-- store_id::String
-- params::String
-- exclude::String
-
-Return: ProductInfo200Response, OpenAPI.Clients.ApiResponse
-"""
-function product_variant_info(_api::ProductApi, id::String; store_id=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_variant_info(_api, id; store_id=store_id, params=params, exclude=exclude, _mediaType=_mediaType)
-    return OpenAPI.Clients.exec(_ctx)
-end
-
-function product_variant_info(_api::ProductApi, response_stream::Channel, id::String; store_id=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_variant_info(_api, id; store_id=store_id, params=params, exclude=exclude, _mediaType=_mediaType)
-    return OpenAPI.Clients.exec(_ctx, response_stream)
-end
-
-const _returntypes_product_variant_list_ProductApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => ProductVariantList200Response,
-)
-
-function _oacinternal_product_variant_list(_api::ProductApi; start=nothing, count=nothing, product_id=nothing, category_id=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_product_variant_list_ProductApi, "/product.variant.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
-    OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
-    OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
-    OpenAPI.Clients.set_param(_ctx.query, "product_id", product_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "category_id", category_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "created_from", created_from; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "created_to", created_to; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "modified_from", modified_from; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "modified_to", modified_to; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
-    OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
-    return _ctx
-end
-
-@doc raw"""product.variant.list
-
-Get a list of variants. This method is deprecated, and its development is stopped. Please use \"product.child_item.list\" instead.
-
-Params:
-- start::Int64
-- count::Int64
-- product_id::String
-- category_id::String
-- store_id::String
-- created_from::String
-- created_to::String
-- modified_from::String
-- modified_to::String
-- params::String
-- exclude::String
-
-Return: ProductVariantList200Response, OpenAPI.Clients.ApiResponse
-"""
-function product_variant_list(_api::ProductApi; start=nothing, count=nothing, product_id=nothing, category_id=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_variant_list(_api; start=start, count=count, product_id=product_id, category_id=category_id, store_id=store_id, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, params=params, exclude=exclude, _mediaType=_mediaType)
-    return OpenAPI.Clients.exec(_ctx)
-end
-
-function product_variant_list(_api::ProductApi, response_stream::Channel; start=nothing, count=nothing, product_id=nothing, category_id=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_variant_list(_api; start=start, count=count, product_id=product_id, category_id=category_id, store_id=store_id, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -2101,7 +1941,6 @@ export product_currency_add
 export product_currency_list
 export product_delete
 export product_delete_batch
-export product_fields
 export product_find
 export product_image_add
 export product_image_delete
@@ -2127,13 +1966,10 @@ export product_update
 export product_update_batch
 export product_variant_add
 export product_variant_add_batch
-export product_variant_count
 export product_variant_delete
 export product_variant_delete_batch
 export product_variant_image_add
 export product_variant_image_delete
-export product_variant_info
-export product_variant_list
 export product_variant_price_add
 export product_variant_price_delete
 export product_variant_price_update

@@ -9,7 +9,7 @@ end
 The default API base path for APIs in `MarketplaceApi`.
 This can be used to construct the `OpenAPI.Clients.Client` instance.
 """
-basepath(::Type{ MarketplaceApi }) = "https://api.api2cart.com/v1.1"
+basepath(::Type{ MarketplaceApi }) = "https://api.api2cart.local.com/v1.1"
 
 const _returntypes_marketplace_product_find_MarketplaceApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseMarketplaceProductFind,

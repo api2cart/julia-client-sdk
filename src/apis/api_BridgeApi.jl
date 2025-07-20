@@ -9,7 +9,7 @@ end
 The default API base path for APIs in `BridgeApi`.
 This can be used to construct the `OpenAPI.Clients.Client` instance.
 """
-basepath(::Type{ BridgeApi }) = "https://api.api2cart.com/v1.1"
+basepath(::Type{ BridgeApi }) = "https://api.api2cart.local.com/v1.1"
 
 const _returntypes_bridge_delete_BridgeApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => AttributeValueDelete200Response,
