@@ -37,6 +37,7 @@
         inventory_level=nothing,
         inventory=nothing,
         min_quantity=nothing,
+        low_stock_threshold=nothing,
         default_qty_in_pack=nothing,
         is_qty_in_pack_fixed=nothing,
         weight_unit=nothing,
@@ -86,6 +87,7 @@
     - inventory_level::Float64
     - inventory::Vector{ProductInventory}
     - min_quantity::Float64
+    - low_stock_threshold::Float64
     - default_qty_in_pack::Float64
     - is_qty_in_pack_fixed::Bool
     - weight_unit::String
@@ -135,6 +137,7 @@ Base.@kwdef mutable struct Child <: OpenAPI.APIModel
     inventory_level::Union{Nothing, Float64} = nothing
     inventory::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ProductInventory} }
     min_quantity::Union{Nothing, Float64} = nothing
+    low_stock_threshold::Union{Nothing, Float64} = nothing
     default_qty_in_pack::Union{Nothing, Float64} = nothing
     is_qty_in_pack_fixed::Union{Nothing, Bool} = nothing
     weight_unit::Union{Nothing, String} = nothing
@@ -151,7 +154,7 @@ Base.@kwdef mutable struct Child <: OpenAPI.APIModel
     additional_fields::Union{Nothing, Any} = nothing
     custom_fields::Union{Nothing, Any} = nothing
 
-    function Child(id, parent_id, sku, upc, ean, mpn, gtin, isbn, url, seo_url, sort_order, created_time, modified_time, name, short_description, full_description, images, combination, default_price, cost_price, list_price, wholesale_price, advanced_price, tax_class_id, avail_for_sale, allow_backorders, in_stock, on_sale, manage_stock, inventory_level, inventory, min_quantity, default_qty_in_pack, is_qty_in_pack_fixed, weight_unit, weight, dimensions_unit, width, height, length, meta_title, meta_description, meta_keywords, discounts, is_virtual, additional_fields, custom_fields, )
+    function Child(id, parent_id, sku, upc, ean, mpn, gtin, isbn, url, seo_url, sort_order, created_time, modified_time, name, short_description, full_description, images, combination, default_price, cost_price, list_price, wholesale_price, advanced_price, tax_class_id, avail_for_sale, allow_backorders, in_stock, on_sale, manage_stock, inventory_level, inventory, min_quantity, low_stock_threshold, default_qty_in_pack, is_qty_in_pack_fixed, weight_unit, weight, dimensions_unit, width, height, length, meta_title, meta_description, meta_keywords, discounts, is_virtual, additional_fields, custom_fields, )
         OpenAPI.validate_property(Child, Symbol("id"), id)
         OpenAPI.validate_property(Child, Symbol("parent_id"), parent_id)
         OpenAPI.validate_property(Child, Symbol("sku"), sku)
@@ -184,6 +187,7 @@ Base.@kwdef mutable struct Child <: OpenAPI.APIModel
         OpenAPI.validate_property(Child, Symbol("inventory_level"), inventory_level)
         OpenAPI.validate_property(Child, Symbol("inventory"), inventory)
         OpenAPI.validate_property(Child, Symbol("min_quantity"), min_quantity)
+        OpenAPI.validate_property(Child, Symbol("low_stock_threshold"), low_stock_threshold)
         OpenAPI.validate_property(Child, Symbol("default_qty_in_pack"), default_qty_in_pack)
         OpenAPI.validate_property(Child, Symbol("is_qty_in_pack_fixed"), is_qty_in_pack_fixed)
         OpenAPI.validate_property(Child, Symbol("weight_unit"), weight_unit)
@@ -199,11 +203,11 @@ Base.@kwdef mutable struct Child <: OpenAPI.APIModel
         OpenAPI.validate_property(Child, Symbol("is_virtual"), is_virtual)
         OpenAPI.validate_property(Child, Symbol("additional_fields"), additional_fields)
         OpenAPI.validate_property(Child, Symbol("custom_fields"), custom_fields)
-        return new(id, parent_id, sku, upc, ean, mpn, gtin, isbn, url, seo_url, sort_order, created_time, modified_time, name, short_description, full_description, images, combination, default_price, cost_price, list_price, wholesale_price, advanced_price, tax_class_id, avail_for_sale, allow_backorders, in_stock, on_sale, manage_stock, inventory_level, inventory, min_quantity, default_qty_in_pack, is_qty_in_pack_fixed, weight_unit, weight, dimensions_unit, width, height, length, meta_title, meta_description, meta_keywords, discounts, is_virtual, additional_fields, custom_fields, )
+        return new(id, parent_id, sku, upc, ean, mpn, gtin, isbn, url, seo_url, sort_order, created_time, modified_time, name, short_description, full_description, images, combination, default_price, cost_price, list_price, wholesale_price, advanced_price, tax_class_id, avail_for_sale, allow_backorders, in_stock, on_sale, manage_stock, inventory_level, inventory, min_quantity, low_stock_threshold, default_qty_in_pack, is_qty_in_pack_fixed, weight_unit, weight, dimensions_unit, width, height, length, meta_title, meta_description, meta_keywords, discounts, is_virtual, additional_fields, custom_fields, )
     end
 end # type Child
 
-const _property_types_Child = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("parent_id")=>"String", Symbol("sku")=>"String", Symbol("upc")=>"String", Symbol("ean")=>"String", Symbol("mpn")=>"String", Symbol("gtin")=>"String", Symbol("isbn")=>"String", Symbol("url")=>"String", Symbol("seo_url")=>"String", Symbol("sort_order")=>"Int64", Symbol("created_time")=>"A2CDateTime", Symbol("modified_time")=>"A2CDateTime", Symbol("name")=>"String", Symbol("short_description")=>"String", Symbol("full_description")=>"String", Symbol("images")=>"Vector{Image}", Symbol("combination")=>"Vector{ProductChildItemCombination}", Symbol("default_price")=>"Float64", Symbol("cost_price")=>"Float64", Symbol("list_price")=>"Float64", Symbol("wholesale_price")=>"Float64", Symbol("advanced_price")=>"Vector{ProductAdvancedPrice}", Symbol("tax_class_id")=>"String", Symbol("avail_for_sale")=>"Bool", Symbol("allow_backorders")=>"Bool", Symbol("in_stock")=>"Bool", Symbol("on_sale")=>"Bool", Symbol("manage_stock")=>"Bool", Symbol("inventory_level")=>"Float64", Symbol("inventory")=>"Vector{ProductInventory}", Symbol("min_quantity")=>"Float64", Symbol("default_qty_in_pack")=>"Float64", Symbol("is_qty_in_pack_fixed")=>"Bool", Symbol("weight_unit")=>"String", Symbol("weight")=>"Float64", Symbol("dimensions_unit")=>"String", Symbol("width")=>"Float64", Symbol("height")=>"Float64", Symbol("length")=>"Float64", Symbol("meta_title")=>"String", Symbol("meta_description")=>"String", Symbol("meta_keywords")=>"String", Symbol("discounts")=>"Vector{Discount}", Symbol("is_virtual")=>"Bool", Symbol("additional_fields")=>"Any", Symbol("custom_fields")=>"Any", )
+const _property_types_Child = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("parent_id")=>"String", Symbol("sku")=>"String", Symbol("upc")=>"String", Symbol("ean")=>"String", Symbol("mpn")=>"String", Symbol("gtin")=>"String", Symbol("isbn")=>"String", Symbol("url")=>"String", Symbol("seo_url")=>"String", Symbol("sort_order")=>"Int64", Symbol("created_time")=>"A2CDateTime", Symbol("modified_time")=>"A2CDateTime", Symbol("name")=>"String", Symbol("short_description")=>"String", Symbol("full_description")=>"String", Symbol("images")=>"Vector{Image}", Symbol("combination")=>"Vector{ProductChildItemCombination}", Symbol("default_price")=>"Float64", Symbol("cost_price")=>"Float64", Symbol("list_price")=>"Float64", Symbol("wholesale_price")=>"Float64", Symbol("advanced_price")=>"Vector{ProductAdvancedPrice}", Symbol("tax_class_id")=>"String", Symbol("avail_for_sale")=>"Bool", Symbol("allow_backorders")=>"Bool", Symbol("in_stock")=>"Bool", Symbol("on_sale")=>"Bool", Symbol("manage_stock")=>"Bool", Symbol("inventory_level")=>"Float64", Symbol("inventory")=>"Vector{ProductInventory}", Symbol("min_quantity")=>"Float64", Symbol("low_stock_threshold")=>"Float64", Symbol("default_qty_in_pack")=>"Float64", Symbol("is_qty_in_pack_fixed")=>"Bool", Symbol("weight_unit")=>"String", Symbol("weight")=>"Float64", Symbol("dimensions_unit")=>"String", Symbol("width")=>"Float64", Symbol("height")=>"Float64", Symbol("length")=>"Float64", Symbol("meta_title")=>"String", Symbol("meta_description")=>"String", Symbol("meta_keywords")=>"String", Symbol("discounts")=>"Vector{Discount}", Symbol("is_virtual")=>"Bool", Symbol("additional_fields")=>"Any", Symbol("custom_fields")=>"Any", )
 OpenAPI.property_type(::Type{ Child }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_Child[name]))}
 
 function check_required(o::Child)
@@ -211,6 +215,7 @@ function check_required(o::Child)
 end
 
 function OpenAPI.validate_property(::Type{ Child }, name::Symbol, val)
+
 
 
 

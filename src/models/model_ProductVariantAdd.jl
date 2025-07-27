@@ -31,6 +31,7 @@
         in_stock=nothing,
         backorder_status=nothing,
         manage_stock=nothing,
+        low_stock_threshold=nothing,
         weight=0,
         width=nothing,
         height=nothing,
@@ -85,6 +86,7 @@
     - in_stock::Bool : Set stock status
     - backorder_status::String : Set backorder status
     - manage_stock::Bool : Defines inventory tracking for product variant
+    - low_stock_threshold::Float64 : Specify the quantity threshold below which the product is considered low in stock
     - weight::Float64 : Weight
     - width::Float64 : Defines product&#39;s width
     - height::Float64 : Defines product&#39;s height
@@ -139,6 +141,7 @@ Base.@kwdef mutable struct ProductVariantAdd <: OpenAPI.APIModel
     in_stock::Union{Nothing, Bool} = nothing
     backorder_status::Union{Nothing, String} = nothing
     manage_stock::Union{Nothing, Bool} = nothing
+    low_stock_threshold::Union{Nothing, Float64} = nothing
     weight::Union{Nothing, Float64} = 0
     width::Union{Nothing, Float64} = nothing
     height::Union{Nothing, Float64} = nothing
@@ -166,7 +169,7 @@ Base.@kwdef mutable struct ProductVariantAdd <: OpenAPI.APIModel
     marketplace_item_properties::Union{Nothing, String} = nothing
     clear_cache::Union{Nothing, Bool} = true
 
-    function ProductVariantAdd(product_id, attributes, name, model, description, short_description, available_for_view, available_for_sale, is_virtual, is_default, store_id, stores_ids, lang_id, price, old_price, cost_price, special_price, sprice_create, sprice_modified, sprice_expire, tier_prices, quantity, warehouse_id, in_stock, backorder_status, manage_stock, weight, width, height, length, weight_unit, sku, barcode, gtin, upc, ean, mpn, isbn, manufacturer, created_at, meta_title, meta_keywords, meta_description, url, tax_class_id, taxable, fixed_cost_shipping_price, is_free_shipping, country_of_origin, harmonized_system_code, marketplace_item_properties, clear_cache, )
+    function ProductVariantAdd(product_id, attributes, name, model, description, short_description, available_for_view, available_for_sale, is_virtual, is_default, store_id, stores_ids, lang_id, price, old_price, cost_price, special_price, sprice_create, sprice_modified, sprice_expire, tier_prices, quantity, warehouse_id, in_stock, backorder_status, manage_stock, low_stock_threshold, weight, width, height, length, weight_unit, sku, barcode, gtin, upc, ean, mpn, isbn, manufacturer, created_at, meta_title, meta_keywords, meta_description, url, tax_class_id, taxable, fixed_cost_shipping_price, is_free_shipping, country_of_origin, harmonized_system_code, marketplace_item_properties, clear_cache, )
         OpenAPI.validate_property(ProductVariantAdd, Symbol("product_id"), product_id)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("attributes"), attributes)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("name"), name)
@@ -193,6 +196,7 @@ Base.@kwdef mutable struct ProductVariantAdd <: OpenAPI.APIModel
         OpenAPI.validate_property(ProductVariantAdd, Symbol("in_stock"), in_stock)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("backorder_status"), backorder_status)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("manage_stock"), manage_stock)
+        OpenAPI.validate_property(ProductVariantAdd, Symbol("low_stock_threshold"), low_stock_threshold)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("weight"), weight)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("width"), width)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("height"), height)
@@ -219,11 +223,11 @@ Base.@kwdef mutable struct ProductVariantAdd <: OpenAPI.APIModel
         OpenAPI.validate_property(ProductVariantAdd, Symbol("harmonized_system_code"), harmonized_system_code)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("marketplace_item_properties"), marketplace_item_properties)
         OpenAPI.validate_property(ProductVariantAdd, Symbol("clear_cache"), clear_cache)
-        return new(product_id, attributes, name, model, description, short_description, available_for_view, available_for_sale, is_virtual, is_default, store_id, stores_ids, lang_id, price, old_price, cost_price, special_price, sprice_create, sprice_modified, sprice_expire, tier_prices, quantity, warehouse_id, in_stock, backorder_status, manage_stock, weight, width, height, length, weight_unit, sku, barcode, gtin, upc, ean, mpn, isbn, manufacturer, created_at, meta_title, meta_keywords, meta_description, url, tax_class_id, taxable, fixed_cost_shipping_price, is_free_shipping, country_of_origin, harmonized_system_code, marketplace_item_properties, clear_cache, )
+        return new(product_id, attributes, name, model, description, short_description, available_for_view, available_for_sale, is_virtual, is_default, store_id, stores_ids, lang_id, price, old_price, cost_price, special_price, sprice_create, sprice_modified, sprice_expire, tier_prices, quantity, warehouse_id, in_stock, backorder_status, manage_stock, low_stock_threshold, weight, width, height, length, weight_unit, sku, barcode, gtin, upc, ean, mpn, isbn, manufacturer, created_at, meta_title, meta_keywords, meta_description, url, tax_class_id, taxable, fixed_cost_shipping_price, is_free_shipping, country_of_origin, harmonized_system_code, marketplace_item_properties, clear_cache, )
     end
 end # type ProductVariantAdd
 
-const _property_types_ProductVariantAdd = Dict{Symbol,String}(Symbol("product_id")=>"String", Symbol("attributes")=>"Vector{ProductVariantAddAttributesInner}", Symbol("name")=>"String", Symbol("model")=>"String", Symbol("description")=>"String", Symbol("short_description")=>"String", Symbol("available_for_view")=>"Bool", Symbol("available_for_sale")=>"Bool", Symbol("is_virtual")=>"Bool", Symbol("is_default")=>"Bool", Symbol("store_id")=>"String", Symbol("stores_ids")=>"String", Symbol("lang_id")=>"String", Symbol("price")=>"Float64", Symbol("old_price")=>"Float64", Symbol("cost_price")=>"Float64", Symbol("special_price")=>"Float64", Symbol("sprice_create")=>"String", Symbol("sprice_modified")=>"String", Symbol("sprice_expire")=>"String", Symbol("tier_prices")=>"Vector{ProductAddTierPricesInner}", Symbol("quantity")=>"Float64", Symbol("warehouse_id")=>"String", Symbol("in_stock")=>"Bool", Symbol("backorder_status")=>"String", Symbol("manage_stock")=>"Bool", Symbol("weight")=>"Float64", Symbol("width")=>"Float64", Symbol("height")=>"Float64", Symbol("length")=>"Float64", Symbol("weight_unit")=>"String", Symbol("sku")=>"String", Symbol("barcode")=>"String", Symbol("gtin")=>"String", Symbol("upc")=>"String", Symbol("ean")=>"String", Symbol("mpn")=>"String", Symbol("isbn")=>"String", Symbol("manufacturer")=>"String", Symbol("created_at")=>"String", Symbol("meta_title")=>"String", Symbol("meta_keywords")=>"String", Symbol("meta_description")=>"String", Symbol("url")=>"String", Symbol("tax_class_id")=>"String", Symbol("taxable")=>"Bool", Symbol("fixed_cost_shipping_price")=>"Float64", Symbol("is_free_shipping")=>"Bool", Symbol("country_of_origin")=>"String", Symbol("harmonized_system_code")=>"String", Symbol("marketplace_item_properties")=>"String", Symbol("clear_cache")=>"Bool", )
+const _property_types_ProductVariantAdd = Dict{Symbol,String}(Symbol("product_id")=>"String", Symbol("attributes")=>"Vector{ProductVariantAddAttributesInner}", Symbol("name")=>"String", Symbol("model")=>"String", Symbol("description")=>"String", Symbol("short_description")=>"String", Symbol("available_for_view")=>"Bool", Symbol("available_for_sale")=>"Bool", Symbol("is_virtual")=>"Bool", Symbol("is_default")=>"Bool", Symbol("store_id")=>"String", Symbol("stores_ids")=>"String", Symbol("lang_id")=>"String", Symbol("price")=>"Float64", Symbol("old_price")=>"Float64", Symbol("cost_price")=>"Float64", Symbol("special_price")=>"Float64", Symbol("sprice_create")=>"String", Symbol("sprice_modified")=>"String", Symbol("sprice_expire")=>"String", Symbol("tier_prices")=>"Vector{ProductAddTierPricesInner}", Symbol("quantity")=>"Float64", Symbol("warehouse_id")=>"String", Symbol("in_stock")=>"Bool", Symbol("backorder_status")=>"String", Symbol("manage_stock")=>"Bool", Symbol("low_stock_threshold")=>"Float64", Symbol("weight")=>"Float64", Symbol("width")=>"Float64", Symbol("height")=>"Float64", Symbol("length")=>"Float64", Symbol("weight_unit")=>"String", Symbol("sku")=>"String", Symbol("barcode")=>"String", Symbol("gtin")=>"String", Symbol("upc")=>"String", Symbol("ean")=>"String", Symbol("mpn")=>"String", Symbol("isbn")=>"String", Symbol("manufacturer")=>"String", Symbol("created_at")=>"String", Symbol("meta_title")=>"String", Symbol("meta_keywords")=>"String", Symbol("meta_description")=>"String", Symbol("url")=>"String", Symbol("tax_class_id")=>"String", Symbol("taxable")=>"Bool", Symbol("fixed_cost_shipping_price")=>"Float64", Symbol("is_free_shipping")=>"Bool", Symbol("country_of_origin")=>"String", Symbol("harmonized_system_code")=>"String", Symbol("marketplace_item_properties")=>"String", Symbol("clear_cache")=>"Bool", )
 OpenAPI.property_type(::Type{ ProductVariantAdd }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_ProductVariantAdd[name]))}
 
 function check_required(o::ProductVariantAdd)
@@ -232,6 +236,7 @@ function check_required(o::ProductVariantAdd)
 end
 
 function OpenAPI.validate_property(::Type{ ProductVariantAdd }, name::Symbol, val)
+
 
 
 

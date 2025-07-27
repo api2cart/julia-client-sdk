@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **inventory_level** | **Float64** |  | [optional] [default to nothing]
 **inventory** | [**Vector{ProductInventory}**](ProductInventory.md) |  | [optional] [default to nothing]
 **min_quantity** | **Float64** |  | [optional] [default to nothing]
+**low_stock_threshold** | **Float64** |  | [optional] [default to nothing]
 **default_qty_in_pack** | **Float64** |  | [optional] [default to nothing]
 **is_qty_in_pack_fixed** | **Bool** |  | [optional] [default to nothing]
 **weight_unit** | **String** |  | [optional] [default to nothing]

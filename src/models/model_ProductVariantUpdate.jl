@@ -18,6 +18,7 @@
         visible=nothing,
         status=nothing,
         backorder_status=nothing,
+        low_stock_threshold=nothing,
         available_for_sale=true,
         avail=true,
         is_default=nothing,
@@ -73,6 +74,7 @@
     - visible::String : Set visibility status
     - status::String : Defines product variant&#39;s status
     - backorder_status::String : Set backorder status
+    - low_stock_threshold::Float64 : Specify the quantity threshold below which the product is considered low in stock
     - available_for_sale::Bool : Specifies the set of visible/invisible product&#39;s variants for sale
     - avail::Bool : Defines category&#39;s visibility status
     - is_default::Bool : Defines as a default variant
@@ -128,6 +130,7 @@ Base.@kwdef mutable struct ProductVariantUpdate <: OpenAPI.APIModel
     visible::Union{Nothing, String} = nothing
     status::Union{Nothing, String} = nothing
     backorder_status::Union{Nothing, String} = nothing
+    low_stock_threshold::Union{Nothing, Float64} = nothing
     available_for_sale::Union{Nothing, Bool} = true
     avail::Union{Nothing, Bool} = true
     is_default::Union{Nothing, Bool} = nothing
@@ -169,7 +172,7 @@ Base.@kwdef mutable struct ProductVariantUpdate <: OpenAPI.APIModel
     reindex::Union{Nothing, Bool} = true
     clear_cache::Union{Nothing, Bool} = true
 
-    function ProductVariantUpdate(id, product_id, store_id, lang_id, options, name, description, short_description, model, sku, visible, status, backorder_status, available_for_sale, avail, is_default, is_free_shipping, taxable, tax_class_id, is_virtual, manage_stock, in_stock, warehouse_id, reserve_quantity, quantity, increase_quantity, reduce_quantity, price, special_price, retail_price, old_price, cost_price, fixed_cost_shipping_price, sprice_create, sprice_expire, weight, barcode, width, weight_unit, height, length, gtin, upc, mpn, ean, isbn, harmonized_system_code, country_of_origin, meta_title, meta_description, meta_keywords, reindex, clear_cache, )
+    function ProductVariantUpdate(id, product_id, store_id, lang_id, options, name, description, short_description, model, sku, visible, status, backorder_status, low_stock_threshold, available_for_sale, avail, is_default, is_free_shipping, taxable, tax_class_id, is_virtual, manage_stock, in_stock, warehouse_id, reserve_quantity, quantity, increase_quantity, reduce_quantity, price, special_price, retail_price, old_price, cost_price, fixed_cost_shipping_price, sprice_create, sprice_expire, weight, barcode, width, weight_unit, height, length, gtin, upc, mpn, ean, isbn, harmonized_system_code, country_of_origin, meta_title, meta_description, meta_keywords, reindex, clear_cache, )
         OpenAPI.validate_property(ProductVariantUpdate, Symbol("id"), id)
         OpenAPI.validate_property(ProductVariantUpdate, Symbol("product_id"), product_id)
         OpenAPI.validate_property(ProductVariantUpdate, Symbol("store_id"), store_id)
@@ -183,6 +186,7 @@ Base.@kwdef mutable struct ProductVariantUpdate <: OpenAPI.APIModel
         OpenAPI.validate_property(ProductVariantUpdate, Symbol("visible"), visible)
         OpenAPI.validate_property(ProductVariantUpdate, Symbol("status"), status)
         OpenAPI.validate_property(ProductVariantUpdate, Symbol("backorder_status"), backorder_status)
+        OpenAPI.validate_property(ProductVariantUpdate, Symbol("low_stock_threshold"), low_stock_threshold)
         OpenAPI.validate_property(ProductVariantUpdate, Symbol("available_for_sale"), available_for_sale)
         OpenAPI.validate_property(ProductVariantUpdate, Symbol("avail"), avail)
         OpenAPI.validate_property(ProductVariantUpdate, Symbol("is_default"), is_default)
@@ -223,11 +227,11 @@ Base.@kwdef mutable struct ProductVariantUpdate <: OpenAPI.APIModel
         OpenAPI.validate_property(ProductVariantUpdate, Symbol("meta_keywords"), meta_keywords)
         OpenAPI.validate_property(ProductVariantUpdate, Symbol("reindex"), reindex)
         OpenAPI.validate_property(ProductVariantUpdate, Symbol("clear_cache"), clear_cache)
-        return new(id, product_id, store_id, lang_id, options, name, description, short_description, model, sku, visible, status, backorder_status, available_for_sale, avail, is_default, is_free_shipping, taxable, tax_class_id, is_virtual, manage_stock, in_stock, warehouse_id, reserve_quantity, quantity, increase_quantity, reduce_quantity, price, special_price, retail_price, old_price, cost_price, fixed_cost_shipping_price, sprice_create, sprice_expire, weight, barcode, width, weight_unit, height, length, gtin, upc, mpn, ean, isbn, harmonized_system_code, country_of_origin, meta_title, meta_description, meta_keywords, reindex, clear_cache, )
+        return new(id, product_id, store_id, lang_id, options, name, description, short_description, model, sku, visible, status, backorder_status, low_stock_threshold, available_for_sale, avail, is_default, is_free_shipping, taxable, tax_class_id, is_virtual, manage_stock, in_stock, warehouse_id, reserve_quantity, quantity, increase_quantity, reduce_quantity, price, special_price, retail_price, old_price, cost_price, fixed_cost_shipping_price, sprice_create, sprice_expire, weight, barcode, width, weight_unit, height, length, gtin, upc, mpn, ean, isbn, harmonized_system_code, country_of_origin, meta_title, meta_description, meta_keywords, reindex, clear_cache, )
     end
 end # type ProductVariantUpdate
 
-const _property_types_ProductVariantUpdate = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("product_id")=>"String", Symbol("store_id")=>"String", Symbol("lang_id")=>"String", Symbol("options")=>"Vector{ProductVariantUpdateOptionsInner}", Symbol("name")=>"String", Symbol("description")=>"String", Symbol("short_description")=>"String", Symbol("model")=>"String", Symbol("sku")=>"String", Symbol("visible")=>"String", Symbol("status")=>"String", Symbol("backorder_status")=>"String", Symbol("available_for_sale")=>"Bool", Symbol("avail")=>"Bool", Symbol("is_default")=>"Bool", Symbol("is_free_shipping")=>"Bool", Symbol("taxable")=>"Bool", Symbol("tax_class_id")=>"String", Symbol("is_virtual")=>"Bool", Symbol("manage_stock")=>"Bool", Symbol("in_stock")=>"Bool", Symbol("warehouse_id")=>"String", Symbol("reserve_quantity")=>"Float64", Symbol("quantity")=>"Float64", Symbol("increase_quantity")=>"Float64", Symbol("reduce_quantity")=>"Float64", Symbol("price")=>"Float64", Symbol("special_price")=>"Float64", Symbol("retail_price")=>"Float64", Symbol("old_price")=>"Float64", Symbol("cost_price")=>"Float64", Symbol("fixed_cost_shipping_price")=>"Float64", Symbol("sprice_create")=>"String", Symbol("sprice_expire")=>"String", Symbol("weight")=>"Float64", Symbol("barcode")=>"String", Symbol("width")=>"Float64", Symbol("weight_unit")=>"String", Symbol("height")=>"Float64", Symbol("length")=>"Float64", Symbol("gtin")=>"String", Symbol("upc")=>"String", Symbol("mpn")=>"String", Symbol("ean")=>"String", Symbol("isbn")=>"String", Symbol("harmonized_system_code")=>"String", Symbol("country_of_origin")=>"String", Symbol("meta_title")=>"String", Symbol("meta_description")=>"String", Symbol("meta_keywords")=>"String", Symbol("reindex")=>"Bool", Symbol("clear_cache")=>"Bool", )
+const _property_types_ProductVariantUpdate = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("product_id")=>"String", Symbol("store_id")=>"String", Symbol("lang_id")=>"String", Symbol("options")=>"Vector{ProductVariantUpdateOptionsInner}", Symbol("name")=>"String", Symbol("description")=>"String", Symbol("short_description")=>"String", Symbol("model")=>"String", Symbol("sku")=>"String", Symbol("visible")=>"String", Symbol("status")=>"String", Symbol("backorder_status")=>"String", Symbol("low_stock_threshold")=>"Float64", Symbol("available_for_sale")=>"Bool", Symbol("avail")=>"Bool", Symbol("is_default")=>"Bool", Symbol("is_free_shipping")=>"Bool", Symbol("taxable")=>"Bool", Symbol("tax_class_id")=>"String", Symbol("is_virtual")=>"Bool", Symbol("manage_stock")=>"Bool", Symbol("in_stock")=>"Bool", Symbol("warehouse_id")=>"String", Symbol("reserve_quantity")=>"Float64", Symbol("quantity")=>"Float64", Symbol("increase_quantity")=>"Float64", Symbol("reduce_quantity")=>"Float64", Symbol("price")=>"Float64", Symbol("special_price")=>"Float64", Symbol("retail_price")=>"Float64", Symbol("old_price")=>"Float64", Symbol("cost_price")=>"Float64", Symbol("fixed_cost_shipping_price")=>"Float64", Symbol("sprice_create")=>"String", Symbol("sprice_expire")=>"String", Symbol("weight")=>"Float64", Symbol("barcode")=>"String", Symbol("width")=>"Float64", Symbol("weight_unit")=>"String", Symbol("height")=>"Float64", Symbol("length")=>"Float64", Symbol("gtin")=>"String", Symbol("upc")=>"String", Symbol("mpn")=>"String", Symbol("ean")=>"String", Symbol("isbn")=>"String", Symbol("harmonized_system_code")=>"String", Symbol("country_of_origin")=>"String", Symbol("meta_title")=>"String", Symbol("meta_description")=>"String", Symbol("meta_keywords")=>"String", Symbol("reindex")=>"Bool", Symbol("clear_cache")=>"Bool", )
 OpenAPI.property_type(::Type{ ProductVariantUpdate }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_ProductVariantUpdate[name]))}
 
 function check_required(o::ProductVariantUpdate)
@@ -235,6 +239,7 @@ function check_required(o::ProductVariantUpdate)
 end
 
 function OpenAPI.validate_property(::Type{ ProductVariantUpdate }, name::Symbol, val)
+
 
 
 
