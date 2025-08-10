@@ -680,16 +680,6 @@ OpenAPI.property_type(::Type{ AccountCartAdd }, name::Symbol) = Union{Nothing,ev
 
 function check_required(o::AccountCartAdd)
     o.cart_id === nothing && (return false)
-    o.bigcartel_user_name === nothing && (return false)
-    o.bigcartel_password === nothing && (return false)
-    o.bricklink_consumer_key === nothing && (return false)
-    o.bricklink_consumer_secret === nothing && (return false)
-    o.bricklink_token === nothing && (return false)
-    o.bricklink_token_secret === nothing && (return false)
-    o.wix_app_id === nothing && (return false)
-    o.wix_app_secret_key === nothing && (return false)
-    o.temu_access_token === nothing && (return false)
-    o.temu_region === nothing && (return false)
     true
 end
 
@@ -865,9 +855,5 @@ function OpenAPI.validate_property(::Type{ AccountCartAdd }, name::Symbol, val)
 
 
 
-
-    if name === Symbol("temu_region")
-        OpenAPI.validate_param(name, "AccountCartAdd", :enum, val, ["US", "EU", "GLOBAL"])
-    end
 
 end

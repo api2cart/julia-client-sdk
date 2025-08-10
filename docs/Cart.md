@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **name** | **String** |  | [optional] [default to nothing]
 **url** | **String** |  | [optional] [default to nothing]
 **version** | **String** |  | [optional] [default to nothing]
+**bridge_version** | **String** |  | [optional] [default to nothing]
 **db_prefix** | **String** |  | [optional] [default to nothing]
 **stores_info** | [**Vector{CartStoreInfo}**](CartStoreInfo.md) |  | [optional] [default to nothing]
 **warehouses** | [**Vector{CartWarehouse}**](CartWarehouse.md) |  | [optional] [default to nothing]
