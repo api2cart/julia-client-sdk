@@ -238,7 +238,7 @@ const _returntypes_cart_coupon_list_CartApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseCartCouponList,
 )
 
-function _oacinternal_cart_coupon_list(_api::CartApi; start=nothing, count=nothing, page_cursor=nothing, coupons_ids=nothing, store_id=nothing, lang_id=nothing, avail=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+function _oacinternal_cart_coupon_list(_api::CartApi; start=nothing, count=nothing, page_cursor=nothing, coupons_ids=nothing, store_id=nothing, lang_id=nothing, avail=nothing, status=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_cart_coupon_list_CartApi, "/cart.coupon.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
@@ -247,6 +247,7 @@ function _oacinternal_cart_coupon_list(_api::CartApi; start=nothing, count=nothi
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "lang_id", lang_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "avail", avail; style="form", is_explode=true)  # type Bool
+    OpenAPI.Clients.set_param(_ctx.query, "status", status; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "date_start_from", date_start_from; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "date_start_to", date_start_to; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "date_end_from", date_end_from; style="form", is_explode=true)  # type String
@@ -271,6 +272,7 @@ Params:
 - store_id::String
 - lang_id::String
 - avail::Bool
+- status::String
 - date_start_from::String
 - date_start_to::String
 - date_end_from::String
@@ -281,13 +283,13 @@ Params:
 
 Return: ModelResponseCartCouponList, OpenAPI.Clients.ApiResponse
 """
-function cart_coupon_list(_api::CartApi; start=nothing, count=nothing, page_cursor=nothing, coupons_ids=nothing, store_id=nothing, lang_id=nothing, avail=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_coupon_list(_api; start=start, count=count, page_cursor=page_cursor, coupons_ids=coupons_ids, store_id=store_id, lang_id=lang_id, avail=avail, date_start_from=date_start_from, date_start_to=date_start_to, date_end_from=date_end_from, date_end_to=date_end_to, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
+function cart_coupon_list(_api::CartApi; start=nothing, count=nothing, page_cursor=nothing, coupons_ids=nothing, store_id=nothing, lang_id=nothing, avail=nothing, status=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_coupon_list(_api; start=start, count=count, page_cursor=page_cursor, coupons_ids=coupons_ids, store_id=store_id, lang_id=lang_id, avail=avail, status=status, date_start_from=date_start_from, date_start_to=date_start_to, date_end_from=date_end_from, date_end_to=date_end_to, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function cart_coupon_list(_api::CartApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, coupons_ids=nothing, store_id=nothing, lang_id=nothing, avail=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_coupon_list(_api; start=start, count=count, page_cursor=page_cursor, coupons_ids=coupons_ids, store_id=store_id, lang_id=lang_id, avail=avail, date_start_from=date_start_from, date_start_to=date_start_to, date_end_from=date_end_from, date_end_to=date_end_to, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
+function cart_coupon_list(_api::CartApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, coupons_ids=nothing, store_id=nothing, lang_id=nothing, avail=nothing, status=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_coupon_list(_api; start=start, count=count, page_cursor=page_cursor, coupons_ids=coupons_ids, store_id=store_id, lang_id=lang_id, avail=avail, status=status, date_start_from=date_start_from, date_start_to=date_start_to, date_end_from=date_end_from, date_end_to=date_end_to, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 

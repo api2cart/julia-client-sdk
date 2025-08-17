@@ -246,8 +246,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **cart_coupon_list**
-> cart_coupon_list(_api::CartApi; start=nothing, count=nothing, page_cursor=nothing, coupons_ids=nothing, store_id=nothing, lang_id=nothing, avail=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseCartCouponList, OpenAPI.Clients.ApiResponse <br/>
-> cart_coupon_list(_api::CartApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, coupons_ids=nothing, store_id=nothing, lang_id=nothing, avail=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseCartCouponList }, OpenAPI.Clients.ApiResponse
+> cart_coupon_list(_api::CartApi; start=nothing, count=nothing, page_cursor=nothing, coupons_ids=nothing, store_id=nothing, lang_id=nothing, avail=nothing, status=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseCartCouponList, OpenAPI.Clients.ApiResponse <br/>
+> cart_coupon_list(_api::CartApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, coupons_ids=nothing, store_id=nothing, lang_id=nothing, avail=nothing, status=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseCartCouponList }, OpenAPI.Clients.ApiResponse
 
 cart.coupon.list
 
@@ -270,6 +270,7 @@ Name | Type | Description  | Notes
  **store_id** | **String** | Filter coupons by store id | [default to nothing]
  **lang_id** | **String** | Language id | [default to nothing]
  **avail** | **Bool** | Filter coupons by avail status | [default to nothing]
+ **status** | **String** | Defines coupon&#39;s status | [default to nothing]
  **date_start_from** | **String** | Filter entity by date_start (greater or equal) | [default to nothing]
  **date_start_to** | **String** | Filter entity by date_start (less or equal) | [default to nothing]
  **date_end_from** | **String** | Filter entity by date_end (greater or equal) | [default to nothing]

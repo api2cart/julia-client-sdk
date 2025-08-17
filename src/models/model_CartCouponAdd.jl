@@ -23,6 +23,7 @@
         include_tax=false,
         store_id=nothing,
         free_cash_on_delivery=nothing,
+        customer_id=nothing,
     )
 
     - code::String : Coupon code
@@ -43,6 +44,7 @@
     - include_tax::Bool : Indicates whether to apply a discount for taxes.
     - store_id::String : Store Id
     - free_cash_on_delivery::Bool : Defines whether the coupon provides free cash on delivery
+    - customer_id::String : Retrieves orders specified by customer id
 """
 Base.@kwdef mutable struct CartCouponAdd <: OpenAPI.APIModel
     code::Union{Nothing, String} = nothing
@@ -63,8 +65,9 @@ Base.@kwdef mutable struct CartCouponAdd <: OpenAPI.APIModel
     include_tax::Union{Nothing, Bool} = false
     store_id::Union{Nothing, String} = nothing
     free_cash_on_delivery::Union{Nothing, Bool} = nothing
+    customer_id::Union{Nothing, String} = nothing
 
-    function CartCouponAdd(code, action_type, action_apply_to, action_scope, action_amount, codes, name, date_start, date_end, usage_limit, usage_limit_per_customer, action_condition_entity, action_condition_key, action_condition_operator, action_condition_value, include_tax, store_id, free_cash_on_delivery, )
+    function CartCouponAdd(code, action_type, action_apply_to, action_scope, action_amount, codes, name, date_start, date_end, usage_limit, usage_limit_per_customer, action_condition_entity, action_condition_key, action_condition_operator, action_condition_value, include_tax, store_id, free_cash_on_delivery, customer_id, )
         OpenAPI.validate_property(CartCouponAdd, Symbol("code"), code)
         OpenAPI.validate_property(CartCouponAdd, Symbol("action_type"), action_type)
         OpenAPI.validate_property(CartCouponAdd, Symbol("action_apply_to"), action_apply_to)
@@ -83,11 +86,12 @@ Base.@kwdef mutable struct CartCouponAdd <: OpenAPI.APIModel
         OpenAPI.validate_property(CartCouponAdd, Symbol("include_tax"), include_tax)
         OpenAPI.validate_property(CartCouponAdd, Symbol("store_id"), store_id)
         OpenAPI.validate_property(CartCouponAdd, Symbol("free_cash_on_delivery"), free_cash_on_delivery)
-        return new(code, action_type, action_apply_to, action_scope, action_amount, codes, name, date_start, date_end, usage_limit, usage_limit_per_customer, action_condition_entity, action_condition_key, action_condition_operator, action_condition_value, include_tax, store_id, free_cash_on_delivery, )
+        OpenAPI.validate_property(CartCouponAdd, Symbol("customer_id"), customer_id)
+        return new(code, action_type, action_apply_to, action_scope, action_amount, codes, name, date_start, date_end, usage_limit, usage_limit_per_customer, action_condition_entity, action_condition_key, action_condition_operator, action_condition_value, include_tax, store_id, free_cash_on_delivery, customer_id, )
     end
 end # type CartCouponAdd
 
-const _property_types_CartCouponAdd = Dict{Symbol,String}(Symbol("code")=>"String", Symbol("action_type")=>"String", Symbol("action_apply_to")=>"String", Symbol("action_scope")=>"String", Symbol("action_amount")=>"Float64", Symbol("codes")=>"Vector{String}", Symbol("name")=>"String", Symbol("date_start")=>"String", Symbol("date_end")=>"String", Symbol("usage_limit")=>"Int64", Symbol("usage_limit_per_customer")=>"Int64", Symbol("action_condition_entity")=>"String", Symbol("action_condition_key")=>"String", Symbol("action_condition_operator")=>"String", Symbol("action_condition_value")=>"String", Symbol("include_tax")=>"Bool", Symbol("store_id")=>"String", Symbol("free_cash_on_delivery")=>"Bool", )
+const _property_types_CartCouponAdd = Dict{Symbol,String}(Symbol("code")=>"String", Symbol("action_type")=>"String", Symbol("action_apply_to")=>"String", Symbol("action_scope")=>"String", Symbol("action_amount")=>"Float64", Symbol("codes")=>"Vector{String}", Symbol("name")=>"String", Symbol("date_start")=>"String", Symbol("date_end")=>"String", Symbol("usage_limit")=>"Int64", Symbol("usage_limit_per_customer")=>"Int64", Symbol("action_condition_entity")=>"String", Symbol("action_condition_key")=>"String", Symbol("action_condition_operator")=>"String", Symbol("action_condition_value")=>"String", Symbol("include_tax")=>"Bool", Symbol("store_id")=>"String", Symbol("free_cash_on_delivery")=>"Bool", Symbol("customer_id")=>"String", )
 OpenAPI.property_type(::Type{ CartCouponAdd }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_CartCouponAdd[name]))}
 
 function check_required(o::CartCouponAdd)
@@ -115,6 +119,7 @@ function OpenAPI.validate_property(::Type{ CartCouponAdd }, name::Symbol, val)
     if name === Symbol("action_scope")
         OpenAPI.validate_param(name, "CartCouponAdd", :enum, val, ["order", "matching_items"])
     end
+
 
 
 
