@@ -90,6 +90,7 @@ Name | Type | Description | Notes
 **specifics** | [**Vector{ProductAddSpecificsInner}**](ProductAddSpecificsInner.md) | An array of Item Specific Name/Value pairs used by the seller to provide descriptive details of an item in a structured manner.         The list of possible specifications can be obtained using the category.info method (additional_fields-&gt;product_specifics).         &lt;b&gt;The structure of the parameter is different for specific platforms.&lt;/b&gt; | [optional] [default to nothing]
 **shop_section_id** | **Int64** | Add Shop Section Id | [optional] [default to nothing]
 **personalization_details** | [***ProductAddPersonalizationDetails**](ProductAddPersonalizationDetails.md) |  | [optional] [default to nothing]
+**external_product_link** | **String** | External product link | [optional] [default to nothing]
 **marketplace_item_properties** | **String** | String containing the JSON representation of the supplied data | [optional] [default to nothing]
 **min_order_quantity** | **Float64** | The minimum quantity an order must contain, to be eligible to purchase this product. | [optional] [default to nothing]
 
