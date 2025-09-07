@@ -102,6 +102,7 @@ Class | Method
 *MarketplaceApi* | [**marketplace_product_find**](docs/MarketplaceApi.md#marketplace_product_find)<br/>**GET** /marketplace.product.find.json<br/>marketplace.product.find
 *OrderApi* | [**order_abandoned_list**](docs/OrderApi.md#order_abandoned_list)<br/>**GET** /order.abandoned.list.json<br/>order.abandoned.list
 *OrderApi* | [**order_add**](docs/OrderApi.md#order_add)<br/>**POST** /order.add.json<br/>order.add
+*OrderApi* | [**order_calculate**](docs/OrderApi.md#order_calculate)<br/>**POST** /order.calculate.json<br/>order.calculate
 *OrderApi* | [**order_count**](docs/OrderApi.md#order_count)<br/>**GET** /order.count.json<br/>order.count
 *OrderApi* | [**order_financial_status_list**](docs/OrderApi.md#order_financial_status_list)<br/>**GET** /order.financial_status.list.json<br/>order.financial_status.list
 *OrderApi* | [**order_fulfillment_status_list**](docs/OrderApi.md#order_fulfillment_status_list)<br/>**GET** /order.fulfillment_status.list.json<br/>order.fulfillment_status.list
@@ -378,6 +379,15 @@ Class | Method
  - [OrderAddOrderItemInner](docs/OrderAddOrderItemInner.md)
  - [OrderAddOrderItemInnerOrderItemOptionInner](docs/OrderAddOrderItemInnerOrderItemOptionInner.md)
  - [OrderAddOrderItemInnerOrderItemPropertyInner](docs/OrderAddOrderItemInnerOrderItemPropertyInner.md)
+ - [OrderCalculate](docs/OrderCalculate.md)
+ - [OrderCalculate200Response](docs/OrderCalculate200Response.md)
+ - [OrderCalculateDiscount](docs/OrderCalculateDiscount.md)
+ - [OrderCalculateItem](docs/OrderCalculateItem.md)
+ - [OrderCalculateOrderItemInner](docs/OrderCalculateOrderItemInner.md)
+ - [OrderCalculateOrderItemInnerOrderItemOptionInner](docs/OrderCalculateOrderItemInnerOrderItemOptionInner.md)
+ - [OrderCalculateShippingRate](docs/OrderCalculateShippingRate.md)
+ - [OrderCalculateSubtotal](docs/OrderCalculateSubtotal.md)
+ - [OrderCalculateTax](docs/OrderCalculateTax.md)
  - [OrderCount200Response](docs/OrderCount200Response.md)
  - [OrderCount200ResponseResult](docs/OrderCount200ResponseResult.md)
  - [OrderFinancialStatusList200Response](docs/OrderFinancialStatusList200Response.md)

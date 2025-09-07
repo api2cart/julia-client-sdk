@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **ratings** | [**Vector{ProductReviewRating}**](ProductReviewRating.md) |  | [optional] [default to nothing]
 **status** | **String** |  | [optional] [default to nothing]
 **created_time** | [***A2CDateTime**](A2CDateTime.md) |  | [optional] [default to nothing]
+**modified_time** | [***A2CDateTime**](A2CDateTime.md) |  | [optional] [default to nothing]
 **medias** | [**Vector{Media}**](Media.md) |  | [optional] [default to nothing]
 **additional_fields** | **Any** |  | [optional] [default to nothing]
 **custom_fields** | **Any** |  | [optional] [default to nothing]

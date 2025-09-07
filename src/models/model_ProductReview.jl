@@ -16,6 +16,7 @@
         ratings=nothing,
         status=nothing,
         created_time=nothing,
+        modified_time=nothing,
         medias=nothing,
         additional_fields=nothing,
         custom_fields=nothing,
@@ -32,6 +33,7 @@
     - ratings::Vector{ProductReviewRating}
     - status::String
     - created_time::A2CDateTime
+    - modified_time::A2CDateTime
     - medias::Vector{Media}
     - additional_fields::Any
     - custom_fields::Any
@@ -48,11 +50,12 @@ Base.@kwdef mutable struct ProductReview <: OpenAPI.APIModel
     ratings::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ProductReviewRating} }
     status::Union{Nothing, String} = nothing
     created_time = nothing # spec type: Union{ Nothing, A2CDateTime }
+    modified_time = nothing # spec type: Union{ Nothing, A2CDateTime }
     medias::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{Media} }
     additional_fields::Union{Nothing, Any} = nothing
     custom_fields::Union{Nothing, Any} = nothing
 
-    function ProductReview(id, product_id, customer_id, nick_name, email, summary, message, rating, ratings, status, created_time, medias, additional_fields, custom_fields, )
+    function ProductReview(id, product_id, customer_id, nick_name, email, summary, message, rating, ratings, status, created_time, modified_time, medias, additional_fields, custom_fields, )
         OpenAPI.validate_property(ProductReview, Symbol("id"), id)
         OpenAPI.validate_property(ProductReview, Symbol("product_id"), product_id)
         OpenAPI.validate_property(ProductReview, Symbol("customer_id"), customer_id)
@@ -64,14 +67,15 @@ Base.@kwdef mutable struct ProductReview <: OpenAPI.APIModel
         OpenAPI.validate_property(ProductReview, Symbol("ratings"), ratings)
         OpenAPI.validate_property(ProductReview, Symbol("status"), status)
         OpenAPI.validate_property(ProductReview, Symbol("created_time"), created_time)
+        OpenAPI.validate_property(ProductReview, Symbol("modified_time"), modified_time)
         OpenAPI.validate_property(ProductReview, Symbol("medias"), medias)
         OpenAPI.validate_property(ProductReview, Symbol("additional_fields"), additional_fields)
         OpenAPI.validate_property(ProductReview, Symbol("custom_fields"), custom_fields)
-        return new(id, product_id, customer_id, nick_name, email, summary, message, rating, ratings, status, created_time, medias, additional_fields, custom_fields, )
+        return new(id, product_id, customer_id, nick_name, email, summary, message, rating, ratings, status, created_time, modified_time, medias, additional_fields, custom_fields, )
     end
 end # type ProductReview
 
-const _property_types_ProductReview = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("product_id")=>"String", Symbol("customer_id")=>"String", Symbol("nick_name")=>"String", Symbol("email")=>"String", Symbol("summary")=>"String", Symbol("message")=>"String", Symbol("rating")=>"Float64", Symbol("ratings")=>"Vector{ProductReviewRating}", Symbol("status")=>"String", Symbol("created_time")=>"A2CDateTime", Symbol("medias")=>"Vector{Media}", Symbol("additional_fields")=>"Any", Symbol("custom_fields")=>"Any", )
+const _property_types_ProductReview = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("product_id")=>"String", Symbol("customer_id")=>"String", Symbol("nick_name")=>"String", Symbol("email")=>"String", Symbol("summary")=>"String", Symbol("message")=>"String", Symbol("rating")=>"Float64", Symbol("ratings")=>"Vector{ProductReviewRating}", Symbol("status")=>"String", Symbol("created_time")=>"A2CDateTime", Symbol("modified_time")=>"A2CDateTime", Symbol("medias")=>"Vector{Media}", Symbol("additional_fields")=>"Any", Symbol("custom_fields")=>"Any", )
 OpenAPI.property_type(::Type{ ProductReview }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_ProductReview[name]))}
 
 function check_required(o::ProductReview)
@@ -79,6 +83,7 @@ function check_required(o::ProductReview)
 end
 
 function OpenAPI.validate_property(::Type{ ProductReview }, name::Symbol, val)
+
 
 
 

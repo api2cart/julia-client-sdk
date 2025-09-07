@@ -971,11 +971,17 @@ const _returntypes_product_manufacturer_add_ProductApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ProductManufacturerAdd200Response,
 )
 
-function _oacinternal_product_manufacturer_add(_api::ProductApi, product_id::String, manufacturer::String; store_id=nothing, _mediaType=nothing)
+function _oacinternal_product_manufacturer_add(_api::ProductApi, product_id::String, manufacturer::String; store_id=nothing, meta_title=nothing, meta_keywords=nothing, meta_description=nothing, search_keywords=nothing, image_url=nothing, seo_url=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_product_manufacturer_add_ProductApi, "/product.manufacturer.add.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "product_id", product_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "manufacturer", manufacturer; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "meta_title", meta_title; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "meta_keywords", meta_keywords; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "meta_description", meta_description; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "search_keywords", search_keywords; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "image_url", image_url; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "seo_url", seo_url; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -989,16 +995,22 @@ Params:
 - product_id::String (required)
 - manufacturer::String (required)
 - store_id::String
+- meta_title::String
+- meta_keywords::String
+- meta_description::String
+- search_keywords::String
+- image_url::String
+- seo_url::String
 
 Return: ProductManufacturerAdd200Response, OpenAPI.Clients.ApiResponse
 """
-function product_manufacturer_add(_api::ProductApi, product_id::String, manufacturer::String; store_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_manufacturer_add(_api, product_id, manufacturer; store_id=store_id, _mediaType=_mediaType)
+function product_manufacturer_add(_api::ProductApi, product_id::String, manufacturer::String; store_id=nothing, meta_title=nothing, meta_keywords=nothing, meta_description=nothing, search_keywords=nothing, image_url=nothing, seo_url=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_product_manufacturer_add(_api, product_id, manufacturer; store_id=store_id, meta_title=meta_title, meta_keywords=meta_keywords, meta_description=meta_description, search_keywords=search_keywords, image_url=image_url, seo_url=seo_url, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function product_manufacturer_add(_api::ProductApi, response_stream::Channel, product_id::String, manufacturer::String; store_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_manufacturer_add(_api, product_id, manufacturer; store_id=store_id, _mediaType=_mediaType)
+function product_manufacturer_add(_api::ProductApi, response_stream::Channel, product_id::String, manufacturer::String; store_id=nothing, meta_title=nothing, meta_keywords=nothing, meta_description=nothing, search_keywords=nothing, image_url=nothing, seo_url=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_product_manufacturer_add(_api, product_id, manufacturer; store_id=store_id, meta_title=meta_title, meta_keywords=meta_keywords, meta_description=meta_description, search_keywords=search_keywords, image_url=image_url, seo_url=seo_url, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -1412,7 +1424,7 @@ const _returntypes_product_review_list_ProductApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseProductReviewList,
 )
 
-function _oacinternal_product_review_list(_api::ProductApi, product_id::String; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, store_id=nothing, status=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+function _oacinternal_product_review_list(_api::ProductApi, product_id::String; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, store_id=nothing, lang_id=nothing, status=nothing, created_from=nothing, created_to=nothing, customer_id=nothing, sort_by=nothing, sort_direction=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_product_review_list_ProductApi, "/product.review.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
@@ -1420,7 +1432,13 @@ function _oacinternal_product_review_list(_api::ProductApi, product_id::String; 
     OpenAPI.Clients.set_param(_ctx.query, "product_id", product_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "ids", ids; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "lang_id", lang_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "status", status; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "created_from", created_from; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "created_to", created_to; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "customer_id", customer_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "sort_by", sort_by; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "sort_direction", sort_direction; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
@@ -1440,20 +1458,26 @@ Params:
 - page_cursor::String
 - ids::String
 - store_id::String
+- lang_id::String
 - status::String
+- created_from::String
+- created_to::String
+- customer_id::String
+- sort_by::String
+- sort_direction::String
 - response_fields::String
 - params::String
 - exclude::String
 
 Return: ModelResponseProductReviewList, OpenAPI.Clients.ApiResponse
 """
-function product_review_list(_api::ProductApi, product_id::String; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, store_id=nothing, status=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_review_list(_api, product_id; start=start, count=count, page_cursor=page_cursor, ids=ids, store_id=store_id, status=status, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
+function product_review_list(_api::ProductApi, product_id::String; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, store_id=nothing, lang_id=nothing, status=nothing, created_from=nothing, created_to=nothing, customer_id=nothing, sort_by=nothing, sort_direction=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_product_review_list(_api, product_id; start=start, count=count, page_cursor=page_cursor, ids=ids, store_id=store_id, lang_id=lang_id, status=status, created_from=created_from, created_to=created_to, customer_id=customer_id, sort_by=sort_by, sort_direction=sort_direction, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function product_review_list(_api::ProductApi, response_stream::Channel, product_id::String; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, store_id=nothing, status=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_review_list(_api, product_id; start=start, count=count, page_cursor=page_cursor, ids=ids, store_id=store_id, status=status, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
+function product_review_list(_api::ProductApi, response_stream::Channel, product_id::String; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, store_id=nothing, lang_id=nothing, status=nothing, created_from=nothing, created_to=nothing, customer_id=nothing, sort_by=nothing, sort_direction=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_product_review_list(_api, product_id; start=start, count=count, page_cursor=page_cursor, ids=ids, store_id=store_id, lang_id=lang_id, status=status, created_from=created_from, created_to=created_to, customer_id=customer_id, sort_by=sort_by, sort_direction=sort_direction, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 

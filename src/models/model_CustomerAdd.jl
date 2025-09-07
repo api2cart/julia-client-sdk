@@ -10,6 +10,7 @@
         last_name=nothing,
         password=nothing,
         group=nothing,
+        group_id=nothing,
         group_ids=nothing,
         status="enabled",
         created_time=nothing,
@@ -35,6 +36,7 @@
     - last_name::String : Defines customer&#39;s last name
     - password::String : Defines customer&#39;s unique password
     - group::String : Defines the group where the customer
+    - group_id::String : Customer group_id
     - group_ids::String : Groups that will be assigned to a customer
     - status::String : Defines customer&#39;s status
     - created_time::String : Entity&#39;s date creation
@@ -60,6 +62,7 @@ Base.@kwdef mutable struct CustomerAdd <: OpenAPI.APIModel
     last_name::Union{Nothing, String} = nothing
     password::Union{Nothing, String} = nothing
     group::Union{Nothing, String} = nothing
+    group_id::Union{Nothing, String} = nothing
     group_ids::Union{Nothing, String} = nothing
     status::Union{Nothing, String} = "enabled"
     created_time::Union{Nothing, String} = nothing
@@ -79,12 +82,13 @@ Base.@kwdef mutable struct CustomerAdd <: OpenAPI.APIModel
     store_id::Union{Nothing, String} = nothing
     address::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{CustomerAddAddressInner} }
 
-    function CustomerAdd(email, first_name, last_name, password, group, group_ids, status, created_time, modified_time, login, last_login, birth_day, news_letter_subscription, consents, gender, website, fax, company, phone, note, country, store_id, address, )
+    function CustomerAdd(email, first_name, last_name, password, group, group_id, group_ids, status, created_time, modified_time, login, last_login, birth_day, news_letter_subscription, consents, gender, website, fax, company, phone, note, country, store_id, address, )
         OpenAPI.validate_property(CustomerAdd, Symbol("email"), email)
         OpenAPI.validate_property(CustomerAdd, Symbol("first_name"), first_name)
         OpenAPI.validate_property(CustomerAdd, Symbol("last_name"), last_name)
         OpenAPI.validate_property(CustomerAdd, Symbol("password"), password)
         OpenAPI.validate_property(CustomerAdd, Symbol("group"), group)
+        OpenAPI.validate_property(CustomerAdd, Symbol("group_id"), group_id)
         OpenAPI.validate_property(CustomerAdd, Symbol("group_ids"), group_ids)
         OpenAPI.validate_property(CustomerAdd, Symbol("status"), status)
         OpenAPI.validate_property(CustomerAdd, Symbol("created_time"), created_time)
@@ -103,11 +107,11 @@ Base.@kwdef mutable struct CustomerAdd <: OpenAPI.APIModel
         OpenAPI.validate_property(CustomerAdd, Symbol("country"), country)
         OpenAPI.validate_property(CustomerAdd, Symbol("store_id"), store_id)
         OpenAPI.validate_property(CustomerAdd, Symbol("address"), address)
-        return new(email, first_name, last_name, password, group, group_ids, status, created_time, modified_time, login, last_login, birth_day, news_letter_subscription, consents, gender, website, fax, company, phone, note, country, store_id, address, )
+        return new(email, first_name, last_name, password, group, group_id, group_ids, status, created_time, modified_time, login, last_login, birth_day, news_letter_subscription, consents, gender, website, fax, company, phone, note, country, store_id, address, )
     end
 end # type CustomerAdd
 
-const _property_types_CustomerAdd = Dict{Symbol,String}(Symbol("email")=>"String", Symbol("first_name")=>"String", Symbol("last_name")=>"String", Symbol("password")=>"String", Symbol("group")=>"String", Symbol("group_ids")=>"String", Symbol("status")=>"String", Symbol("created_time")=>"String", Symbol("modified_time")=>"String", Symbol("login")=>"String", Symbol("last_login")=>"String", Symbol("birth_day")=>"String", Symbol("news_letter_subscription")=>"Bool", Symbol("consents")=>"Vector{CustomerAddConsentsInner}", Symbol("gender")=>"String", Symbol("website")=>"String", Symbol("fax")=>"String", Symbol("company")=>"String", Symbol("phone")=>"String", Symbol("note")=>"String", Symbol("country")=>"String", Symbol("store_id")=>"String", Symbol("address")=>"Vector{CustomerAddAddressInner}", )
+const _property_types_CustomerAdd = Dict{Symbol,String}(Symbol("email")=>"String", Symbol("first_name")=>"String", Symbol("last_name")=>"String", Symbol("password")=>"String", Symbol("group")=>"String", Symbol("group_id")=>"String", Symbol("group_ids")=>"String", Symbol("status")=>"String", Symbol("created_time")=>"String", Symbol("modified_time")=>"String", Symbol("login")=>"String", Symbol("last_login")=>"String", Symbol("birth_day")=>"String", Symbol("news_letter_subscription")=>"Bool", Symbol("consents")=>"Vector{CustomerAddConsentsInner}", Symbol("gender")=>"String", Symbol("website")=>"String", Symbol("fax")=>"String", Symbol("company")=>"String", Symbol("phone")=>"String", Symbol("note")=>"String", Symbol("country")=>"String", Symbol("store_id")=>"String", Symbol("address")=>"Vector{CustomerAddAddressInner}", )
 OpenAPI.property_type(::Type{ CustomerAdd }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_CustomerAdd[name]))}
 
 function check_required(o::CustomerAdd)
@@ -116,6 +120,7 @@ function check_required(o::CustomerAdd)
 end
 
 function OpenAPI.validate_property(::Type{ CustomerAdd }, name::Symbol, val)
+
 
 
 

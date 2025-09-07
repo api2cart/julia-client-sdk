@@ -98,6 +98,36 @@ function order_add(_api::OrderApi, response_stream::Channel, order_add_param::Or
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
+const _returntypes_order_calculate_OrderApi = Dict{Regex,Type}(
+    Regex("^" * replace("200", "x"=>".") * "\$") => OrderCalculate200Response,
+)
+
+function _oacinternal_order_calculate(_api::OrderApi, order_calculate_param::OrderCalculate; _mediaType=nothing)
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_order_calculate_OrderApi, "/order.calculate.json", ["StoreKeyAuth", "ApiKeyAuth", ], order_calculate_param)
+    OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
+    OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? ["application/json", ] : [_mediaType])
+    return _ctx
+end
+
+@doc raw"""order.calculate
+
+<p>Calculates the total cost of an order for a given customer and a set of products, as well as the available shipping methods based on the specified address. The calculation takes into account store product prices, discounts, taxes, shipping costs, and other store settings. The result includes a detailed breakdown of the final order cost by its components.</p> <p>Note that the final totals, taxes, and other amounts must include the corresponding values for the selected shipping method.</p><p>The result of this method can be used when creating an order using the <strong>order.add</strong> method.</p>
+
+Params:
+- order_calculate_param::OrderCalculate (required)
+
+Return: OrderCalculate200Response, OpenAPI.Clients.ApiResponse
+"""
+function order_calculate(_api::OrderApi, order_calculate_param::OrderCalculate; _mediaType=nothing)
+    _ctx = _oacinternal_order_calculate(_api, order_calculate_param; _mediaType=_mediaType)
+    return OpenAPI.Clients.exec(_ctx)
+end
+
+function order_calculate(_api::OrderApi, response_stream::Channel, order_calculate_param::OrderCalculate; _mediaType=nothing)
+    _ctx = _oacinternal_order_calculate(_api, order_calculate_param; _mediaType=_mediaType)
+    return OpenAPI.Clients.exec(_ctx, response_stream)
+end
+
 const _returntypes_order_count_OrderApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => OrderCount200Response,
 )
@@ -926,6 +956,7 @@ end
 
 export order_abandoned_list
 export order_add
+export order_calculate
 export order_count
 export order_financial_status_list
 export order_fulfillment_status_list

@@ -905,8 +905,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_manufacturer_add**
-> product_manufacturer_add(_api::ProductApi, product_id::String, manufacturer::String; store_id=nothing, _mediaType=nothing) -> ProductManufacturerAdd200Response, OpenAPI.Clients.ApiResponse <br/>
-> product_manufacturer_add(_api::ProductApi, response_stream::Channel, product_id::String, manufacturer::String; store_id=nothing, _mediaType=nothing) -> Channel{ ProductManufacturerAdd200Response }, OpenAPI.Clients.ApiResponse
+> product_manufacturer_add(_api::ProductApi, product_id::String, manufacturer::String; store_id=nothing, meta_title=nothing, meta_keywords=nothing, meta_description=nothing, search_keywords=nothing, image_url=nothing, seo_url=nothing, _mediaType=nothing) -> ProductManufacturerAdd200Response, OpenAPI.Clients.ApiResponse <br/>
+> product_manufacturer_add(_api::ProductApi, response_stream::Channel, product_id::String, manufacturer::String; store_id=nothing, meta_title=nothing, meta_keywords=nothing, meta_description=nothing, search_keywords=nothing, image_url=nothing, seo_url=nothing, _mediaType=nothing) -> Channel{ ProductManufacturerAdd200Response }, OpenAPI.Clients.ApiResponse
 
 product.manufacturer.add
 
@@ -925,6 +925,12 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **store_id** | **String** | Store Id | [default to nothing]
+ **meta_title** | **String** | Defines unique meta title for each entity | [default to nothing]
+ **meta_keywords** | **String** | Defines unique meta keywords for each entity | [default to nothing]
+ **meta_description** | **String** | Defines unique meta description of a entity | [default to nothing]
+ **search_keywords** | **String** | Defines unique search keywords | [default to nothing]
+ **image_url** | **String** | Image Url | [default to nothing]
+ **seo_url** | **String** | Defines unique URL for SEO | [default to nothing]
 
 ### Return type
 
@@ -1346,8 +1352,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_review_list**
-> product_review_list(_api::ProductApi, product_id::String; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, store_id=nothing, status=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseProductReviewList, OpenAPI.Clients.ApiResponse <br/>
-> product_review_list(_api::ProductApi, response_stream::Channel, product_id::String; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, store_id=nothing, status=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseProductReviewList }, OpenAPI.Clients.ApiResponse
+> product_review_list(_api::ProductApi, product_id::String; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, store_id=nothing, lang_id=nothing, status=nothing, created_from=nothing, created_to=nothing, customer_id=nothing, sort_by=nothing, sort_direction=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseProductReviewList, OpenAPI.Clients.ApiResponse <br/>
+> product_review_list(_api::ProductApi, response_stream::Channel, product_id::String; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, store_id=nothing, lang_id=nothing, status=nothing, created_from=nothing, created_to=nothing, customer_id=nothing, sort_by=nothing, sort_direction=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseProductReviewList }, OpenAPI.Clients.ApiResponse
 
 product.review.list
 
@@ -1369,7 +1375,13 @@ Name | Type | Description  | Notes
  **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
  **ids** | **String** | Retrieves reviews specified by ids | [default to nothing]
  **store_id** | **String** | Store Id | [default to nothing]
+ **lang_id** | **String** | Language id | [default to nothing]
  **status** | **String** | Defines status | [default to nothing]
+ **created_from** | **String** | Retrieve entities from their creation date | [default to nothing]
+ **created_to** | **String** | Retrieve entities to their creation date | [default to nothing]
+ **customer_id** | **String** | Retrieves orders specified by customer id | [default to nothing]
+ **sort_by** | **String** | Set field to sort by | [default to &quot;id&quot;]
+ **sort_direction** | **String** | Set sorting direction | [default to &quot;asc&quot;]
  **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
  **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,customer_id,email,message,status,product_id,nick_name,summary,rating,ratings,status,created_time&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
