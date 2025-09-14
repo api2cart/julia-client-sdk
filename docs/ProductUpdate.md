@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **avail** | **Bool** | Defines category&#39;s visibility status | [optional] [default to true]
 **avail_from** | **String** | Allows to schedule a time in the future that the item becomes available. The value should be greater than the current date and time. | [optional] [default to nothing]
 **product_class** | **String** | A categorization for the product | [optional] [default to nothing]
+**brand_name** | **String** | Retrieves brands specified by brand name | [optional] [default to nothing]
 **available_for_view** | **Bool** | Specifies the set of visible/invisible products for users | [optional] [default to nothing]
 **stores_ids** | **String** | Assign product to the stores that is specified by comma-separated stores&#39; id | [optional] [default to nothing]
 **store_id** | **String** | Defines store id where the product should be found | [optional] [default to nothing]
