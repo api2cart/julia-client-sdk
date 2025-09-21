@@ -22,7 +22,7 @@
         tier_prices=nothing,
         reserve_price=nothing,
         buyitnow_price=nothing,
-        taxable=true,
+        taxable=nothing,
         tax_class_id=nothing,
         type=nothing,
         status=nothing,
@@ -206,7 +206,7 @@ Base.@kwdef mutable struct ProductUpdate <: OpenAPI.APIModel
     tier_prices::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ProductAddTierPricesInner} }
     reserve_price::Union{Nothing, Float64} = nothing
     buyitnow_price::Union{Nothing, Float64} = nothing
-    taxable::Union{Nothing, Bool} = true
+    taxable::Union{Nothing, Bool} = nothing
     tax_class_id::Union{Nothing, String} = nothing
     type::Union{Nothing, String} = nothing
     status::Union{Nothing, String} = nothing

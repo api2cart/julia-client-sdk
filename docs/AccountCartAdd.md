@@ -97,6 +97,7 @@ Name | Type | Description | Notes
 **shoplazza_access_token** | **String** | Access token authorizing the app to access resources on behalf of a user | [optional] [default to nothing]
 **shoplazza_shared_secret** | **String** | Shared secret | [optional] [default to nothing]
 **shopware_access_key** | **String** | Shopware access key | [optional] [default to nothing]
+**unas_api_key** | **String** | UNAS API Key | [optional] [default to nothing]
 **shopware_api_key** | **String** | Shopware api key | [optional] [default to nothing]
 **shopware_api_secret** | **String** | Shopware client secret access key | [optional] [default to nothing]
 **miva_access_token** | **String** | Miva access token | [optional] [default to nothing]

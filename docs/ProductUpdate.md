@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **tier_prices** | [**Vector{ProductAddTierPricesInner}**](ProductAddTierPricesInner.md) | Defines product&#39;s tier prices | [optional] [default to nothing]
 **reserve_price** | **Float64** | Defines reserve price value | [optional] [default to nothing]
 **buyitnow_price** | **Float64** | Defines buy it now value | [optional] [default to nothing]
-**taxable** | **Bool** | Specifies whether a tax is charged | [optional] [default to true]
+**taxable** | **Bool** | Specifies whether a tax is charged | [optional] [default to nothing]
 **tax_class_id** | **String** | Defines tax classes where entity has to be added | [optional] [default to nothing]
 **type** | **String** | Defines product&#39;s type | [optional] [default to nothing]
 **status** | **String** | Defines product&#39;s status | [optional] [default to nothing]
