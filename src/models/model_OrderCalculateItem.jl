@@ -17,6 +17,7 @@
         weight_unit=nothing,
         barcode=nothing,
         variant_id=nothing,
+        bundle_product_id=nothing,
         options=nothing,
         additional_fields=nothing,
         custom_fields=nothing,
@@ -34,6 +35,7 @@
     - weight_unit::String
     - barcode::String
     - variant_id::String
+    - bundle_product_id::String
     - options::Vector{OrderItemOption}
     - additional_fields::Any
     - custom_fields::Any
@@ -51,11 +53,12 @@ Base.@kwdef mutable struct OrderCalculateItem <: OpenAPI.APIModel
     weight_unit::Union{Nothing, String} = nothing
     barcode::Union{Nothing, String} = nothing
     variant_id::Union{Nothing, String} = nothing
+    bundle_product_id::Union{Nothing, String} = nothing
     options::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{OrderItemOption} }
     additional_fields::Union{Nothing, Any} = nothing
     custom_fields::Union{Nothing, Any} = nothing
 
-    function OrderCalculateItem(product_id, sku, name, quantity, price, price_inc_tax, tax_rate, unit_discount, weight, weight_unit, barcode, variant_id, options, additional_fields, custom_fields, )
+    function OrderCalculateItem(product_id, sku, name, quantity, price, price_inc_tax, tax_rate, unit_discount, weight, weight_unit, barcode, variant_id, bundle_product_id, options, additional_fields, custom_fields, )
         OpenAPI.validate_property(OrderCalculateItem, Symbol("product_id"), product_id)
         OpenAPI.validate_property(OrderCalculateItem, Symbol("sku"), sku)
         OpenAPI.validate_property(OrderCalculateItem, Symbol("name"), name)
@@ -68,14 +71,15 @@ Base.@kwdef mutable struct OrderCalculateItem <: OpenAPI.APIModel
         OpenAPI.validate_property(OrderCalculateItem, Symbol("weight_unit"), weight_unit)
         OpenAPI.validate_property(OrderCalculateItem, Symbol("barcode"), barcode)
         OpenAPI.validate_property(OrderCalculateItem, Symbol("variant_id"), variant_id)
+        OpenAPI.validate_property(OrderCalculateItem, Symbol("bundle_product_id"), bundle_product_id)
         OpenAPI.validate_property(OrderCalculateItem, Symbol("options"), options)
         OpenAPI.validate_property(OrderCalculateItem, Symbol("additional_fields"), additional_fields)
         OpenAPI.validate_property(OrderCalculateItem, Symbol("custom_fields"), custom_fields)
-        return new(product_id, sku, name, quantity, price, price_inc_tax, tax_rate, unit_discount, weight, weight_unit, barcode, variant_id, options, additional_fields, custom_fields, )
+        return new(product_id, sku, name, quantity, price, price_inc_tax, tax_rate, unit_discount, weight, weight_unit, barcode, variant_id, bundle_product_id, options, additional_fields, custom_fields, )
     end
 end # type OrderCalculateItem
 
-const _property_types_OrderCalculateItem = Dict{Symbol,String}(Symbol("product_id")=>"String", Symbol("sku")=>"String", Symbol("name")=>"String", Symbol("quantity")=>"Int64", Symbol("price")=>"Float64", Symbol("price_inc_tax")=>"Float64", Symbol("tax_rate")=>"Float64", Symbol("unit_discount")=>"Float64", Symbol("weight")=>"Float64", Symbol("weight_unit")=>"String", Symbol("barcode")=>"String", Symbol("variant_id")=>"String", Symbol("options")=>"Vector{OrderItemOption}", Symbol("additional_fields")=>"Any", Symbol("custom_fields")=>"Any", )
+const _property_types_OrderCalculateItem = Dict{Symbol,String}(Symbol("product_id")=>"String", Symbol("sku")=>"String", Symbol("name")=>"String", Symbol("quantity")=>"Int64", Symbol("price")=>"Float64", Symbol("price_inc_tax")=>"Float64", Symbol("tax_rate")=>"Float64", Symbol("unit_discount")=>"Float64", Symbol("weight")=>"Float64", Symbol("weight_unit")=>"String", Symbol("barcode")=>"String", Symbol("variant_id")=>"String", Symbol("bundle_product_id")=>"String", Symbol("options")=>"Vector{OrderItemOption}", Symbol("additional_fields")=>"Any", Symbol("custom_fields")=>"Any", )
 OpenAPI.property_type(::Type{ OrderCalculateItem }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_OrderCalculateItem[name]))}
 
 function check_required(o::OrderCalculateItem)
@@ -83,6 +87,7 @@ function check_required(o::OrderCalculateItem)
 end
 
 function OpenAPI.validate_property(::Type{ OrderCalculateItem }, name::Symbol, val)
+
 
 
 

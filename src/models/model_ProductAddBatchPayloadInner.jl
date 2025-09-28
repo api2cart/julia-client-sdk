@@ -15,6 +15,7 @@
         ean=nothing,
         gtin=nothing,
         mpn=nothing,
+        isbn=nothing,
         barcode=nothing,
         price=nothing,
         old_price=nothing,
@@ -22,8 +23,12 @@
         special_price=nothing,
         sprice_create=nothing,
         sprice_expire=nothing,
+        avail_from=nothing,
         advanced_prices=nothing,
         fixed_cost_shipping_price=nothing,
+        buyitnow_price=nothing,
+        reserve_price=nothing,
+        best_offer=nothing,
         quantity=nothing,
         manage_stock=nothing,
         product_type=nothing,
@@ -33,12 +38,15 @@
         taxable=nothing,
         status=nothing,
         condition=nothing,
+        condition_description=nothing,
         visible=nothing,
         available_for_view=nothing,
         available_for_sale=nothing,
         is_virtual=nothing,
         in_stock=nothing,
         type=nothing,
+        listing_type=nothing,
+        listing_duration=nothing,
         downloadable=nothing,
         weight=nothing,
         length=nothing,
@@ -56,6 +64,7 @@
         cross_sell_products_ids=nothing,
         stores_ids=nothing,
         tax_class_id=nothing,
+        sales_tax=nothing,
         meta_title=nothing,
         meta_description=nothing,
         meta_keywords=nothing,
@@ -82,6 +91,7 @@
     - ean::String
     - gtin::String
     - mpn::String
+    - isbn::String
     - barcode::String
     - price::Float64
     - old_price::Float64
@@ -89,8 +99,12 @@
     - special_price::Float64
     - sprice_create::String
     - sprice_expire::String
+    - avail_from::String
     - advanced_prices::Vector{ProductAddBatchPayloadInnerAdvancedPricesInner}
     - fixed_cost_shipping_price::Float64
+    - buyitnow_price::Float64
+    - reserve_price::Float64
+    - best_offer::Float64
     - quantity::Float64
     - manage_stock::Bool
     - product_type::String
@@ -100,12 +114,15 @@
     - taxable::Bool
     - status::String
     - condition::String
+    - condition_description::String
     - visible::String
     - available_for_view::Bool
     - available_for_sale::Bool
     - is_virtual::Bool
     - in_stock::Bool
     - type::String
+    - listing_type::String
+    - listing_duration::String
     - downloadable::Bool
     - weight::Float64
     - length::Float64
@@ -123,6 +140,7 @@
     - cross_sell_products_ids::Vector{String}
     - stores_ids::Vector{String}
     - tax_class_id::String
+    - sales_tax::ProductAddBatchPayloadInnerSalesTax
     - meta_title::String
     - meta_description::String
     - meta_keywords::Vector{String}
@@ -149,6 +167,7 @@ Base.@kwdef mutable struct ProductAddBatchPayloadInner <: OpenAPI.APIModel
     ean::Union{Nothing, String} = nothing
     gtin::Union{Nothing, String} = nothing
     mpn::Union{Nothing, String} = nothing
+    isbn::Union{Nothing, String} = nothing
     barcode::Union{Nothing, String} = nothing
     price::Union{Nothing, Float64} = nothing
     old_price::Union{Nothing, Float64} = nothing
@@ -156,8 +175,12 @@ Base.@kwdef mutable struct ProductAddBatchPayloadInner <: OpenAPI.APIModel
     special_price::Union{Nothing, Float64} = nothing
     sprice_create::Union{Nothing, String} = nothing
     sprice_expire::Union{Nothing, String} = nothing
+    avail_from::Union{Nothing, String} = nothing
     advanced_prices::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ProductAddBatchPayloadInnerAdvancedPricesInner} }
     fixed_cost_shipping_price::Union{Nothing, Float64} = nothing
+    buyitnow_price::Union{Nothing, Float64} = nothing
+    reserve_price::Union{Nothing, Float64} = nothing
+    best_offer::Union{Nothing, Float64} = nothing
     quantity::Union{Nothing, Float64} = nothing
     manage_stock::Union{Nothing, Bool} = nothing
     product_type::Union{Nothing, String} = nothing
@@ -167,12 +190,15 @@ Base.@kwdef mutable struct ProductAddBatchPayloadInner <: OpenAPI.APIModel
     taxable::Union{Nothing, Bool} = nothing
     status::Union{Nothing, String} = nothing
     condition::Union{Nothing, String} = nothing
+    condition_description::Union{Nothing, String} = nothing
     visible::Union{Nothing, String} = nothing
     available_for_view::Union{Nothing, Bool} = nothing
     available_for_sale::Union{Nothing, Bool} = nothing
     is_virtual::Union{Nothing, Bool} = nothing
     in_stock::Union{Nothing, Bool} = nothing
     type::Union{Nothing, String} = nothing
+    listing_type::Union{Nothing, String} = nothing
+    listing_duration::Union{Nothing, String} = nothing
     downloadable::Union{Nothing, Bool} = nothing
     weight::Union{Nothing, Float64} = nothing
     length::Union{Nothing, Float64} = nothing
@@ -190,6 +216,7 @@ Base.@kwdef mutable struct ProductAddBatchPayloadInner <: OpenAPI.APIModel
     cross_sell_products_ids::Union{Nothing, Vector{String}} = nothing
     stores_ids::Union{Nothing, Vector{String}} = nothing
     tax_class_id::Union{Nothing, String} = nothing
+    sales_tax = nothing # spec type: Union{ Nothing, ProductAddBatchPayloadInnerSalesTax }
     meta_title::Union{Nothing, String} = nothing
     meta_description::Union{Nothing, String} = nothing
     meta_keywords::Union{Nothing, Vector{String}} = nothing
@@ -205,7 +232,7 @@ Base.@kwdef mutable struct ProductAddBatchPayloadInner <: OpenAPI.APIModel
     tags::Union{Nothing, Vector{String}} = nothing
     files::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ProductAddFilesInner} }
 
-    function ProductAddBatchPayloadInner(name, description, short_description, sku, model, asin, upc, ean, gtin, mpn, barcode, price, old_price, cost_price, special_price, sprice_create, sprice_expire, advanced_prices, fixed_cost_shipping_price, quantity, manage_stock, product_type, marketplace_item_properties, specifics, is_free_shipping, taxable, status, condition, visible, available_for_view, available_for_sale, is_virtual, in_stock, type, downloadable, weight, length, width, height, weight_unit, dimensions_unit, store_id, lang_id, category_id, warehouse_id, categories_ids, related_products_ids, up_sell_products_ids, cross_sell_products_ids, stores_ids, tax_class_id, meta_title, meta_description, meta_keywords, search_keywords, harmonized_system_code, url, seo_url, external_product_link, manufacturer, manufacturer_id, backorder_status, images, tags, files, )
+    function ProductAddBatchPayloadInner(name, description, short_description, sku, model, asin, upc, ean, gtin, mpn, isbn, barcode, price, old_price, cost_price, special_price, sprice_create, sprice_expire, avail_from, advanced_prices, fixed_cost_shipping_price, buyitnow_price, reserve_price, best_offer, quantity, manage_stock, product_type, marketplace_item_properties, specifics, is_free_shipping, taxable, status, condition, condition_description, visible, available_for_view, available_for_sale, is_virtual, in_stock, type, listing_type, listing_duration, downloadable, weight, length, width, height, weight_unit, dimensions_unit, store_id, lang_id, category_id, warehouse_id, categories_ids, related_products_ids, up_sell_products_ids, cross_sell_products_ids, stores_ids, tax_class_id, sales_tax, meta_title, meta_description, meta_keywords, search_keywords, harmonized_system_code, url, seo_url, external_product_link, manufacturer, manufacturer_id, backorder_status, images, tags, files, )
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("name"), name)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("description"), description)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("short_description"), short_description)
@@ -216,6 +243,7 @@ Base.@kwdef mutable struct ProductAddBatchPayloadInner <: OpenAPI.APIModel
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("ean"), ean)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("gtin"), gtin)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("mpn"), mpn)
+        OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("isbn"), isbn)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("barcode"), barcode)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("price"), price)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("old_price"), old_price)
@@ -223,8 +251,12 @@ Base.@kwdef mutable struct ProductAddBatchPayloadInner <: OpenAPI.APIModel
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("special_price"), special_price)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("sprice_create"), sprice_create)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("sprice_expire"), sprice_expire)
+        OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("avail_from"), avail_from)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("advanced_prices"), advanced_prices)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("fixed_cost_shipping_price"), fixed_cost_shipping_price)
+        OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("buyitnow_price"), buyitnow_price)
+        OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("reserve_price"), reserve_price)
+        OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("best_offer"), best_offer)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("quantity"), quantity)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("manage_stock"), manage_stock)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("product_type"), product_type)
@@ -234,12 +266,15 @@ Base.@kwdef mutable struct ProductAddBatchPayloadInner <: OpenAPI.APIModel
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("taxable"), taxable)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("status"), status)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("condition"), condition)
+        OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("condition_description"), condition_description)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("visible"), visible)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("available_for_view"), available_for_view)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("available_for_sale"), available_for_sale)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("is_virtual"), is_virtual)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("in_stock"), in_stock)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("type"), type)
+        OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("listing_type"), listing_type)
+        OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("listing_duration"), listing_duration)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("downloadable"), downloadable)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("weight"), weight)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("length"), length)
@@ -257,6 +292,7 @@ Base.@kwdef mutable struct ProductAddBatchPayloadInner <: OpenAPI.APIModel
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("cross_sell_products_ids"), cross_sell_products_ids)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("stores_ids"), stores_ids)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("tax_class_id"), tax_class_id)
+        OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("sales_tax"), sales_tax)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("meta_title"), meta_title)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("meta_description"), meta_description)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("meta_keywords"), meta_keywords)
@@ -271,11 +307,11 @@ Base.@kwdef mutable struct ProductAddBatchPayloadInner <: OpenAPI.APIModel
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("images"), images)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("tags"), tags)
         OpenAPI.validate_property(ProductAddBatchPayloadInner, Symbol("files"), files)
-        return new(name, description, short_description, sku, model, asin, upc, ean, gtin, mpn, barcode, price, old_price, cost_price, special_price, sprice_create, sprice_expire, advanced_prices, fixed_cost_shipping_price, quantity, manage_stock, product_type, marketplace_item_properties, specifics, is_free_shipping, taxable, status, condition, visible, available_for_view, available_for_sale, is_virtual, in_stock, type, downloadable, weight, length, width, height, weight_unit, dimensions_unit, store_id, lang_id, category_id, warehouse_id, categories_ids, related_products_ids, up_sell_products_ids, cross_sell_products_ids, stores_ids, tax_class_id, meta_title, meta_description, meta_keywords, search_keywords, harmonized_system_code, url, seo_url, external_product_link, manufacturer, manufacturer_id, backorder_status, images, tags, files, )
+        return new(name, description, short_description, sku, model, asin, upc, ean, gtin, mpn, isbn, barcode, price, old_price, cost_price, special_price, sprice_create, sprice_expire, avail_from, advanced_prices, fixed_cost_shipping_price, buyitnow_price, reserve_price, best_offer, quantity, manage_stock, product_type, marketplace_item_properties, specifics, is_free_shipping, taxable, status, condition, condition_description, visible, available_for_view, available_for_sale, is_virtual, in_stock, type, listing_type, listing_duration, downloadable, weight, length, width, height, weight_unit, dimensions_unit, store_id, lang_id, category_id, warehouse_id, categories_ids, related_products_ids, up_sell_products_ids, cross_sell_products_ids, stores_ids, tax_class_id, sales_tax, meta_title, meta_description, meta_keywords, search_keywords, harmonized_system_code, url, seo_url, external_product_link, manufacturer, manufacturer_id, backorder_status, images, tags, files, )
     end
 end # type ProductAddBatchPayloadInner
 
-const _property_types_ProductAddBatchPayloadInner = Dict{Symbol,String}(Symbol("name")=>"String", Symbol("description")=>"String", Symbol("short_description")=>"String", Symbol("sku")=>"String", Symbol("model")=>"String", Symbol("asin")=>"String", Symbol("upc")=>"String", Symbol("ean")=>"String", Symbol("gtin")=>"String", Symbol("mpn")=>"String", Symbol("barcode")=>"String", Symbol("price")=>"Float64", Symbol("old_price")=>"Float64", Symbol("cost_price")=>"Float64", Symbol("special_price")=>"Float64", Symbol("sprice_create")=>"String", Symbol("sprice_expire")=>"String", Symbol("advanced_prices")=>"Vector{ProductAddBatchPayloadInnerAdvancedPricesInner}", Symbol("fixed_cost_shipping_price")=>"Float64", Symbol("quantity")=>"Float64", Symbol("manage_stock")=>"Bool", Symbol("product_type")=>"String", Symbol("marketplace_item_properties")=>"Any", Symbol("specifics")=>"Any", Symbol("is_free_shipping")=>"Bool", Symbol("taxable")=>"Bool", Symbol("status")=>"String", Symbol("condition")=>"String", Symbol("visible")=>"String", Symbol("available_for_view")=>"Bool", Symbol("available_for_sale")=>"Bool", Symbol("is_virtual")=>"Bool", Symbol("in_stock")=>"Bool", Symbol("type")=>"String", Symbol("downloadable")=>"Bool", Symbol("weight")=>"Float64", Symbol("length")=>"Float64", Symbol("width")=>"Float64", Symbol("height")=>"Float64", Symbol("weight_unit")=>"String", Symbol("dimensions_unit")=>"String", Symbol("store_id")=>"String", Symbol("lang_id")=>"String", Symbol("category_id")=>"String", Symbol("warehouse_id")=>"String", Symbol("categories_ids")=>"Vector{String}", Symbol("related_products_ids")=>"Vector{String}", Symbol("up_sell_products_ids")=>"Vector{String}", Symbol("cross_sell_products_ids")=>"Vector{String}", Symbol("stores_ids")=>"Vector{String}", Symbol("tax_class_id")=>"String", Symbol("meta_title")=>"String", Symbol("meta_description")=>"String", Symbol("meta_keywords")=>"Vector{String}", Symbol("search_keywords")=>"Vector{String}", Symbol("harmonized_system_code")=>"String", Symbol("url")=>"String", Symbol("seo_url")=>"String", Symbol("external_product_link")=>"String", Symbol("manufacturer")=>"String", Symbol("manufacturer_id")=>"String", Symbol("backorder_status")=>"String", Symbol("images")=>"Vector{ProductAddBatchPayloadInnerImagesInner}", Symbol("tags")=>"Vector{String}", Symbol("files")=>"Vector{ProductAddFilesInner}", )
+const _property_types_ProductAddBatchPayloadInner = Dict{Symbol,String}(Symbol("name")=>"String", Symbol("description")=>"String", Symbol("short_description")=>"String", Symbol("sku")=>"String", Symbol("model")=>"String", Symbol("asin")=>"String", Symbol("upc")=>"String", Symbol("ean")=>"String", Symbol("gtin")=>"String", Symbol("mpn")=>"String", Symbol("isbn")=>"String", Symbol("barcode")=>"String", Symbol("price")=>"Float64", Symbol("old_price")=>"Float64", Symbol("cost_price")=>"Float64", Symbol("special_price")=>"Float64", Symbol("sprice_create")=>"String", Symbol("sprice_expire")=>"String", Symbol("avail_from")=>"String", Symbol("advanced_prices")=>"Vector{ProductAddBatchPayloadInnerAdvancedPricesInner}", Symbol("fixed_cost_shipping_price")=>"Float64", Symbol("buyitnow_price")=>"Float64", Symbol("reserve_price")=>"Float64", Symbol("best_offer")=>"Float64", Symbol("quantity")=>"Float64", Symbol("manage_stock")=>"Bool", Symbol("product_type")=>"String", Symbol("marketplace_item_properties")=>"Any", Symbol("specifics")=>"Any", Symbol("is_free_shipping")=>"Bool", Symbol("taxable")=>"Bool", Symbol("status")=>"String", Symbol("condition")=>"String", Symbol("condition_description")=>"String", Symbol("visible")=>"String", Symbol("available_for_view")=>"Bool", Symbol("available_for_sale")=>"Bool", Symbol("is_virtual")=>"Bool", Symbol("in_stock")=>"Bool", Symbol("type")=>"String", Symbol("listing_type")=>"String", Symbol("listing_duration")=>"String", Symbol("downloadable")=>"Bool", Symbol("weight")=>"Float64", Symbol("length")=>"Float64", Symbol("width")=>"Float64", Symbol("height")=>"Float64", Symbol("weight_unit")=>"String", Symbol("dimensions_unit")=>"String", Symbol("store_id")=>"String", Symbol("lang_id")=>"String", Symbol("category_id")=>"String", Symbol("warehouse_id")=>"String", Symbol("categories_ids")=>"Vector{String}", Symbol("related_products_ids")=>"Vector{String}", Symbol("up_sell_products_ids")=>"Vector{String}", Symbol("cross_sell_products_ids")=>"Vector{String}", Symbol("stores_ids")=>"Vector{String}", Symbol("tax_class_id")=>"String", Symbol("sales_tax")=>"ProductAddBatchPayloadInnerSalesTax", Symbol("meta_title")=>"String", Symbol("meta_description")=>"String", Symbol("meta_keywords")=>"Vector{String}", Symbol("search_keywords")=>"Vector{String}", Symbol("harmonized_system_code")=>"String", Symbol("url")=>"String", Symbol("seo_url")=>"String", Symbol("external_product_link")=>"String", Symbol("manufacturer")=>"String", Symbol("manufacturer_id")=>"String", Symbol("backorder_status")=>"String", Symbol("images")=>"Vector{ProductAddBatchPayloadInnerImagesInner}", Symbol("tags")=>"Vector{String}", Symbol("files")=>"Vector{ProductAddFilesInner}", )
 OpenAPI.property_type(::Type{ ProductAddBatchPayloadInner }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_ProductAddBatchPayloadInner[name]))}
 
 function check_required(o::ProductAddBatchPayloadInner)
@@ -283,6 +319,14 @@ function check_required(o::ProductAddBatchPayloadInner)
 end
 
 function OpenAPI.validate_property(::Type{ ProductAddBatchPayloadInner }, name::Symbol, val)
+
+
+
+
+
+
+
+
 
 
 
@@ -348,6 +392,7 @@ function OpenAPI.validate_property(::Type{ ProductAddBatchPayloadInner }, name::
     if name === Symbol("stores_ids")
         OpenAPI.validate_param(name, "ProductAddBatchPayloadInner", :minItems, val, 1)
     end
+
 
 
 

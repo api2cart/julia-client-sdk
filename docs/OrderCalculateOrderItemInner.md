@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **order_item_id** | **String** | Defines orders specified by order item id | [default to nothing]
 **order_item_quantity** | **Int64** | Defines orders specified by order item quantity | [default to nothing]
 **order_item_variant_id** | **String** | Ordered product variant. Where x is order item ID | [optional] [default to nothing]
+**order_item_parent** | **Int64** | Index of the parent grouped/bundle product | [optional] [default to nothing]
+**order_item_parent_option_name** | **String** | Option name of the parent grouped/bundle product | [optional] [default to nothing]
 **order_item_option** | [**Vector{OrderCalculateOrderItemInnerOrderItemOptionInner}**](OrderCalculateOrderItemInnerOrderItemOptionInner.md) |  | [optional] [default to nothing]
 
 

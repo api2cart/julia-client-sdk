@@ -201,6 +201,7 @@ docs/OrderAddOrderItemInnerOrderItemPropertyInner.md
 docs/OrderApi.md
 docs/OrderCalculate.md
 docs/OrderCalculate200Response.md
+docs/OrderCalculateBundle.md
 docs/OrderCalculateDiscount.md
 docs/OrderCalculateItem.md
 docs/OrderCalculateOrderItemInner.md
@@ -269,6 +270,7 @@ docs/ProductAddBatch.md
 docs/ProductAddBatchPayloadInner.md
 docs/ProductAddBatchPayloadInnerAdvancedPricesInner.md
 docs/ProductAddBatchPayloadInnerImagesInner.md
+docs/ProductAddBatchPayloadInnerSalesTax.md
 docs/ProductAddBestOffer.md
 docs/ProductAddCertificationsInner.md
 docs/ProductAddCertificationsInnerFilesInner.md
@@ -651,6 +653,7 @@ src/models/model_OrderAddOrderItemInnerOrderItemOptionInner.jl
 src/models/model_OrderAddOrderItemInnerOrderItemPropertyInner.jl
 src/models/model_OrderCalculate.jl
 src/models/model_OrderCalculate200Response.jl
+src/models/model_OrderCalculateBundle.jl
 src/models/model_OrderCalculateDiscount.jl
 src/models/model_OrderCalculateItem.jl
 src/models/model_OrderCalculateOrderItemInner.jl
@@ -719,6 +722,7 @@ src/models/model_ProductAddBatch.jl
 src/models/model_ProductAddBatchPayloadInner.jl
 src/models/model_ProductAddBatchPayloadInnerAdvancedPricesInner.jl
 src/models/model_ProductAddBatchPayloadInnerImagesInner.jl
+src/models/model_ProductAddBatchPayloadInnerSalesTax.jl
 src/models/model_ProductAddBestOffer.jl
 src/models/model_ProductAddCertificationsInner.jl
 src/models/model_ProductAddCertificationsInnerFilesInner.jl

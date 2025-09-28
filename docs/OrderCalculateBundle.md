@@ -1,4 +1,4 @@
-# OrderCalculateItem
+# OrderCalculateBundle
 
 
 ## Properties
@@ -16,7 +16,6 @@ Name | Type | Description | Notes
 **weight_unit** | **String** |  | [optional] [default to nothing]
 **barcode** | **String** |  | [optional] [default to nothing]
 **variant_id** | **String** |  | [optional] [default to nothing]
-**bundle_product_id** | **String** |  | [optional] [default to nothing]
 **options** | [**Vector{OrderItemOption}**](OrderItemOption.md) |  | [optional] [default to nothing]
 **additional_fields** | **Any** |  | [optional] [default to nothing]
 **custom_fields** | **Any** |  | [optional] [default to nothing]

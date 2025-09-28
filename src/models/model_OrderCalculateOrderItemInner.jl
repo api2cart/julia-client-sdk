@@ -8,30 +8,38 @@
         order_item_id=nothing,
         order_item_quantity=nothing,
         order_item_variant_id=nothing,
+        order_item_parent=nothing,
+        order_item_parent_option_name=nothing,
         order_item_option=nothing,
     )
 
     - order_item_id::String : Defines orders specified by order item id
     - order_item_quantity::Int64 : Defines orders specified by order item quantity
     - order_item_variant_id::String : Ordered product variant. Where x is order item ID
+    - order_item_parent::Int64 : Index of the parent grouped/bundle product
+    - order_item_parent_option_name::String : Option name of the parent grouped/bundle product
     - order_item_option::Vector{OrderCalculateOrderItemInnerOrderItemOptionInner}
 """
 Base.@kwdef mutable struct OrderCalculateOrderItemInner <: OpenAPI.APIModel
     order_item_id::Union{Nothing, String} = nothing
     order_item_quantity::Union{Nothing, Int64} = nothing
     order_item_variant_id::Union{Nothing, String} = nothing
+    order_item_parent::Union{Nothing, Int64} = nothing
+    order_item_parent_option_name::Union{Nothing, String} = nothing
     order_item_option::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{OrderCalculateOrderItemInnerOrderItemOptionInner} }
 
-    function OrderCalculateOrderItemInner(order_item_id, order_item_quantity, order_item_variant_id, order_item_option, )
+    function OrderCalculateOrderItemInner(order_item_id, order_item_quantity, order_item_variant_id, order_item_parent, order_item_parent_option_name, order_item_option, )
         OpenAPI.validate_property(OrderCalculateOrderItemInner, Symbol("order_item_id"), order_item_id)
         OpenAPI.validate_property(OrderCalculateOrderItemInner, Symbol("order_item_quantity"), order_item_quantity)
         OpenAPI.validate_property(OrderCalculateOrderItemInner, Symbol("order_item_variant_id"), order_item_variant_id)
+        OpenAPI.validate_property(OrderCalculateOrderItemInner, Symbol("order_item_parent"), order_item_parent)
+        OpenAPI.validate_property(OrderCalculateOrderItemInner, Symbol("order_item_parent_option_name"), order_item_parent_option_name)
         OpenAPI.validate_property(OrderCalculateOrderItemInner, Symbol("order_item_option"), order_item_option)
-        return new(order_item_id, order_item_quantity, order_item_variant_id, order_item_option, )
+        return new(order_item_id, order_item_quantity, order_item_variant_id, order_item_parent, order_item_parent_option_name, order_item_option, )
     end
 end # type OrderCalculateOrderItemInner
 
-const _property_types_OrderCalculateOrderItemInner = Dict{Symbol,String}(Symbol("order_item_id")=>"String", Symbol("order_item_quantity")=>"Int64", Symbol("order_item_variant_id")=>"String", Symbol("order_item_option")=>"Vector{OrderCalculateOrderItemInnerOrderItemOptionInner}", )
+const _property_types_OrderCalculateOrderItemInner = Dict{Symbol,String}(Symbol("order_item_id")=>"String", Symbol("order_item_quantity")=>"Int64", Symbol("order_item_variant_id")=>"String", Symbol("order_item_parent")=>"Int64", Symbol("order_item_parent_option_name")=>"String", Symbol("order_item_option")=>"Vector{OrderCalculateOrderItemInnerOrderItemOptionInner}", )
 OpenAPI.property_type(::Type{ OrderCalculateOrderItemInner }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_OrderCalculateOrderItemInner[name]))}
 
 function check_required(o::OrderCalculateOrderItemInner)
@@ -41,6 +49,8 @@ function check_required(o::OrderCalculateOrderItemInner)
 end
 
 function OpenAPI.validate_property(::Type{ OrderCalculateOrderItemInner }, name::Symbol, val)
+
+
 
 
 
