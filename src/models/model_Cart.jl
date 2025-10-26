@@ -9,6 +9,7 @@
         url=nothing,
         version=nothing,
         bridge_version=nothing,
+        default_rounding_precision=nothing,
         db_prefix=nothing,
         stores_info=nothing,
         warehouses=nothing,
@@ -21,6 +22,7 @@
     - url::String
     - version::String
     - bridge_version::String
+    - default_rounding_precision::Int64
     - db_prefix::String
     - stores_info::Vector{CartStoreInfo}
     - warehouses::Vector{CartWarehouse}
@@ -33,6 +35,7 @@ Base.@kwdef mutable struct Cart <: OpenAPI.APIModel
     url::Union{Nothing, String} = nothing
     version::Union{Nothing, String} = nothing
     bridge_version::Union{Nothing, String} = nothing
+    default_rounding_precision::Union{Nothing, Int64} = nothing
     db_prefix::Union{Nothing, String} = nothing
     stores_info::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{CartStoreInfo} }
     warehouses::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{CartWarehouse} }
@@ -40,22 +43,23 @@ Base.@kwdef mutable struct Cart <: OpenAPI.APIModel
     additional_fields::Union{Nothing, Any} = nothing
     custom_fields::Union{Nothing, Any} = nothing
 
-    function Cart(name, url, version, bridge_version, db_prefix, stores_info, warehouses, shipping_zones, additional_fields, custom_fields, )
+    function Cart(name, url, version, bridge_version, default_rounding_precision, db_prefix, stores_info, warehouses, shipping_zones, additional_fields, custom_fields, )
         OpenAPI.validate_property(Cart, Symbol("name"), name)
         OpenAPI.validate_property(Cart, Symbol("url"), url)
         OpenAPI.validate_property(Cart, Symbol("version"), version)
         OpenAPI.validate_property(Cart, Symbol("bridge_version"), bridge_version)
+        OpenAPI.validate_property(Cart, Symbol("default_rounding_precision"), default_rounding_precision)
         OpenAPI.validate_property(Cart, Symbol("db_prefix"), db_prefix)
         OpenAPI.validate_property(Cart, Symbol("stores_info"), stores_info)
         OpenAPI.validate_property(Cart, Symbol("warehouses"), warehouses)
         OpenAPI.validate_property(Cart, Symbol("shipping_zones"), shipping_zones)
         OpenAPI.validate_property(Cart, Symbol("additional_fields"), additional_fields)
         OpenAPI.validate_property(Cart, Symbol("custom_fields"), custom_fields)
-        return new(name, url, version, bridge_version, db_prefix, stores_info, warehouses, shipping_zones, additional_fields, custom_fields, )
+        return new(name, url, version, bridge_version, default_rounding_precision, db_prefix, stores_info, warehouses, shipping_zones, additional_fields, custom_fields, )
     end
 end # type Cart
 
-const _property_types_Cart = Dict{Symbol,String}(Symbol("name")=>"String", Symbol("url")=>"String", Symbol("version")=>"String", Symbol("bridge_version")=>"String", Symbol("db_prefix")=>"String", Symbol("stores_info")=>"Vector{CartStoreInfo}", Symbol("warehouses")=>"Vector{CartWarehouse}", Symbol("shipping_zones")=>"Vector{CartShippingZone}", Symbol("additional_fields")=>"Any", Symbol("custom_fields")=>"Any", )
+const _property_types_Cart = Dict{Symbol,String}(Symbol("name")=>"String", Symbol("url")=>"String", Symbol("version")=>"String", Symbol("bridge_version")=>"String", Symbol("default_rounding_precision")=>"Int64", Symbol("db_prefix")=>"String", Symbol("stores_info")=>"Vector{CartStoreInfo}", Symbol("warehouses")=>"Vector{CartWarehouse}", Symbol("shipping_zones")=>"Vector{CartShippingZone}", Symbol("additional_fields")=>"Any", Symbol("custom_fields")=>"Any", )
 OpenAPI.property_type(::Type{ Cart }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_Cart[name]))}
 
 function check_required(o::Cart)
@@ -63,6 +67,7 @@ function check_required(o::Cart)
 end
 
 function OpenAPI.validate_property(::Type{ Cart }, name::Symbol, val)
+
 
 
 
