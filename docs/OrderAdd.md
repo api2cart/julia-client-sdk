@@ -73,6 +73,7 @@ Name | Type | Description | Notes
 **note_attributes** | [**Vector{OrderAddNoteAttributesInner}**](OrderAddNoteAttributesInner.md) | Defines note attributes | [optional] [default to nothing]
 **clear_cache** | **Bool** | Is cache clear required | [optional] [default to true]
 **origin** | **String** | The source of the order | [optional] [default to nothing]
+**fee_price** | **Float64** | Specifies refund&#39;s fee price | [optional] [default to nothing]
 **order_item** | [**Vector{OrderAddOrderItemInner}**](OrderAddOrderItemInner.md) |  | [default to nothing]
 
 
