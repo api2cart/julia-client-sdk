@@ -9,6 +9,7 @@
         currency_id=nothing,
         store_id=nothing,
         coupons=nothing,
+        rounding_precision=nothing,
         shipp_first_name=nothing,
         shipp_last_name=nothing,
         shipp_address_1=nothing,
@@ -37,6 +38,7 @@
     - currency_id::String : Currency Id
     - store_id::String : Store Id
     - coupons::Vector{String} : Coupons that will be applied to order. If the order isn&#39;t eligible for any given discount code or there is no discount with such a code it will be skipped during calculation
+    - rounding_precision::Int64 : &lt;p&gt;Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).&lt;/p&gt; &lt;p&gt;Supported values range from &lt;b&gt;1&lt;/b&gt; to &lt;b&gt;6&lt;/b&gt;.&lt;/p&gt; &lt;p&gt;The default rounding precision may vary depending on the platform. You can retrieve the default value using the &lt;strong&gt;cart.info&lt;/strong&gt; method in the &lt;code&gt;default_rounding_precision&lt;/code&gt; field. &lt;/p&gt;&lt;p&gt;Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.&lt;/p&gt;
     - shipp_first_name::String : Specifies shipping first name
     - shipp_last_name::String : Specifies shipping last name
     - shipp_address_1::String : Specifies first shipping address
@@ -65,6 +67,7 @@ Base.@kwdef mutable struct OrderCalculate <: OpenAPI.APIModel
     currency_id::Union{Nothing, String} = nothing
     store_id::Union{Nothing, String} = nothing
     coupons::Union{Nothing, Vector{String}} = nothing
+    rounding_precision::Union{Nothing, Int64} = nothing
     shipp_first_name::Union{Nothing, String} = nothing
     shipp_last_name::Union{Nothing, String} = nothing
     shipp_address_1::Union{Nothing, String} = nothing
@@ -88,11 +91,12 @@ Base.@kwdef mutable struct OrderCalculate <: OpenAPI.APIModel
     response_fields::Union{Nothing, String} = nothing
     order_item::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{OrderCalculateOrderItemInner} }
 
-    function OrderCalculate(customer_email, currency_id, store_id, coupons, shipp_first_name, shipp_last_name, shipp_address_1, shipp_address_2, shipp_city, shipp_postcode, shipp_state, shipp_country, shipp_company, shipp_phone, bill_first_name, bill_last_name, bill_address_1, bill_address_2, bill_city, bill_postcode, bill_state, bill_country, bill_company, bill_phone, response_fields, order_item, )
+    function OrderCalculate(customer_email, currency_id, store_id, coupons, rounding_precision, shipp_first_name, shipp_last_name, shipp_address_1, shipp_address_2, shipp_city, shipp_postcode, shipp_state, shipp_country, shipp_company, shipp_phone, bill_first_name, bill_last_name, bill_address_1, bill_address_2, bill_city, bill_postcode, bill_state, bill_country, bill_company, bill_phone, response_fields, order_item, )
         OpenAPI.validate_property(OrderCalculate, Symbol("customer_email"), customer_email)
         OpenAPI.validate_property(OrderCalculate, Symbol("currency_id"), currency_id)
         OpenAPI.validate_property(OrderCalculate, Symbol("store_id"), store_id)
         OpenAPI.validate_property(OrderCalculate, Symbol("coupons"), coupons)
+        OpenAPI.validate_property(OrderCalculate, Symbol("rounding_precision"), rounding_precision)
         OpenAPI.validate_property(OrderCalculate, Symbol("shipp_first_name"), shipp_first_name)
         OpenAPI.validate_property(OrderCalculate, Symbol("shipp_last_name"), shipp_last_name)
         OpenAPI.validate_property(OrderCalculate, Symbol("shipp_address_1"), shipp_address_1)
@@ -115,11 +119,11 @@ Base.@kwdef mutable struct OrderCalculate <: OpenAPI.APIModel
         OpenAPI.validate_property(OrderCalculate, Symbol("bill_phone"), bill_phone)
         OpenAPI.validate_property(OrderCalculate, Symbol("response_fields"), response_fields)
         OpenAPI.validate_property(OrderCalculate, Symbol("order_item"), order_item)
-        return new(customer_email, currency_id, store_id, coupons, shipp_first_name, shipp_last_name, shipp_address_1, shipp_address_2, shipp_city, shipp_postcode, shipp_state, shipp_country, shipp_company, shipp_phone, bill_first_name, bill_last_name, bill_address_1, bill_address_2, bill_city, bill_postcode, bill_state, bill_country, bill_company, bill_phone, response_fields, order_item, )
+        return new(customer_email, currency_id, store_id, coupons, rounding_precision, shipp_first_name, shipp_last_name, shipp_address_1, shipp_address_2, shipp_city, shipp_postcode, shipp_state, shipp_country, shipp_company, shipp_phone, bill_first_name, bill_last_name, bill_address_1, bill_address_2, bill_city, bill_postcode, bill_state, bill_country, bill_company, bill_phone, response_fields, order_item, )
     end
 end # type OrderCalculate
 
-const _property_types_OrderCalculate = Dict{Symbol,String}(Symbol("customer_email")=>"String", Symbol("currency_id")=>"String", Symbol("store_id")=>"String", Symbol("coupons")=>"Vector{String}", Symbol("shipp_first_name")=>"String", Symbol("shipp_last_name")=>"String", Symbol("shipp_address_1")=>"String", Symbol("shipp_address_2")=>"String", Symbol("shipp_city")=>"String", Symbol("shipp_postcode")=>"String", Symbol("shipp_state")=>"String", Symbol("shipp_country")=>"String", Symbol("shipp_company")=>"String", Symbol("shipp_phone")=>"String", Symbol("bill_first_name")=>"String", Symbol("bill_last_name")=>"String", Symbol("bill_address_1")=>"String", Symbol("bill_address_2")=>"String", Symbol("bill_city")=>"String", Symbol("bill_postcode")=>"String", Symbol("bill_state")=>"String", Symbol("bill_country")=>"String", Symbol("bill_company")=>"String", Symbol("bill_phone")=>"String", Symbol("response_fields")=>"String", Symbol("order_item")=>"Vector{OrderCalculateOrderItemInner}", )
+const _property_types_OrderCalculate = Dict{Symbol,String}(Symbol("customer_email")=>"String", Symbol("currency_id")=>"String", Symbol("store_id")=>"String", Symbol("coupons")=>"Vector{String}", Symbol("rounding_precision")=>"Int64", Symbol("shipp_first_name")=>"String", Symbol("shipp_last_name")=>"String", Symbol("shipp_address_1")=>"String", Symbol("shipp_address_2")=>"String", Symbol("shipp_city")=>"String", Symbol("shipp_postcode")=>"String", Symbol("shipp_state")=>"String", Symbol("shipp_country")=>"String", Symbol("shipp_company")=>"String", Symbol("shipp_phone")=>"String", Symbol("bill_first_name")=>"String", Symbol("bill_last_name")=>"String", Symbol("bill_address_1")=>"String", Symbol("bill_address_2")=>"String", Symbol("bill_city")=>"String", Symbol("bill_postcode")=>"String", Symbol("bill_state")=>"String", Symbol("bill_country")=>"String", Symbol("bill_company")=>"String", Symbol("bill_phone")=>"String", Symbol("response_fields")=>"String", Symbol("order_item")=>"Vector{OrderCalculateOrderItemInner}", )
 OpenAPI.property_type(::Type{ OrderCalculate }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_OrderCalculate[name]))}
 
 function check_required(o::OrderCalculate)
@@ -142,6 +146,7 @@ function OpenAPI.validate_property(::Type{ OrderCalculate }, name::Symbol, val)
     if name === Symbol("coupons")
         OpenAPI.validate_param(name, "OrderCalculate", :minItems, val, 1)
     end
+
 
 
 

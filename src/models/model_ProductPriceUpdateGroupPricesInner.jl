@@ -8,26 +8,30 @@
         id=nothing,
         group_id=nothing,
         price=nothing,
+        qty=nothing,
     )
 
     - id::Int64
     - group_id::String
     - price::Float64
+    - qty::Int64
 """
 Base.@kwdef mutable struct ProductPriceUpdateGroupPricesInner <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
     group_id::Union{Nothing, String} = nothing
     price::Union{Nothing, Float64} = nothing
+    qty::Union{Nothing, Int64} = nothing
 
-    function ProductPriceUpdateGroupPricesInner(id, group_id, price, )
+    function ProductPriceUpdateGroupPricesInner(id, group_id, price, qty, )
         OpenAPI.validate_property(ProductPriceUpdateGroupPricesInner, Symbol("id"), id)
         OpenAPI.validate_property(ProductPriceUpdateGroupPricesInner, Symbol("group_id"), group_id)
         OpenAPI.validate_property(ProductPriceUpdateGroupPricesInner, Symbol("price"), price)
-        return new(id, group_id, price, )
+        OpenAPI.validate_property(ProductPriceUpdateGroupPricesInner, Symbol("qty"), qty)
+        return new(id, group_id, price, qty, )
     end
 end # type ProductPriceUpdateGroupPricesInner
 
-const _property_types_ProductPriceUpdateGroupPricesInner = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("group_id")=>"String", Symbol("price")=>"Float64", )
+const _property_types_ProductPriceUpdateGroupPricesInner = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("group_id")=>"String", Symbol("price")=>"Float64", Symbol("qty")=>"Int64", )
 OpenAPI.property_type(::Type{ ProductPriceUpdateGroupPricesInner }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_ProductPriceUpdateGroupPricesInner[name]))}
 
 function check_required(o::ProductPriceUpdateGroupPricesInner)
@@ -35,6 +39,7 @@ function check_required(o::ProductPriceUpdateGroupPricesInner)
 end
 
 function OpenAPI.validate_property(::Type{ ProductPriceUpdateGroupPricesInner }, name::Symbol, val)
+
 
 
 
