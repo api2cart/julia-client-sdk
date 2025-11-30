@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **customer_country** | **String** | Specifies customer&#39;s address ISO code or name of country | [optional] [default to nothing]
 **customer_birthday** | **String** | Specifies customer’s birthday | [optional] [default to nothing]
 **customer_fax** | **String** | Specifies customer’s fax | [optional] [default to nothing]
+**is_guest** | **Bool** | Indicates whether the customer is a guest customer | [optional] [default to false]
 **order_payment_method** | **String** | Defines order payment method.&lt;br/&gt;Setting order_payment_method on Shopify will also change financial_status field value to &#39;paid&#39; | [optional] [default to nothing]
 **transaction_id** | **String** | Payment transaction id | [optional] [default to nothing]
 **currency** | **String** | Currency code of order | [optional] [default to nothing]

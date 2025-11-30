@@ -19,6 +19,7 @@
         customer_country=nothing,
         customer_birthday=nothing,
         customer_fax=nothing,
+        is_guest=false,
         order_payment_method=nothing,
         transaction_id=nothing,
         currency=nothing,
@@ -92,6 +93,7 @@
     - customer_country::String : Specifies customer&#39;s address ISO code or name of country
     - customer_birthday::String : Specifies customer’s birthday
     - customer_fax::String : Specifies customer’s fax
+    - is_guest::Bool : Indicates whether the customer is a guest customer
     - order_payment_method::String : Defines order payment method.&lt;br/&gt;Setting order_payment_method on Shopify will also change financial_status field value to &#39;paid&#39;
     - transaction_id::String : Payment transaction id
     - currency::String : Currency code of order
@@ -165,6 +167,7 @@ Base.@kwdef mutable struct OrderAdd <: OpenAPI.APIModel
     customer_country::Union{Nothing, String} = nothing
     customer_birthday::Union{Nothing, String} = nothing
     customer_fax::Union{Nothing, String} = nothing
+    is_guest::Union{Nothing, Bool} = false
     order_payment_method::Union{Nothing, String} = nothing
     transaction_id::Union{Nothing, String} = nothing
     currency::Union{Nothing, String} = nothing
@@ -223,7 +226,7 @@ Base.@kwdef mutable struct OrderAdd <: OpenAPI.APIModel
     fee_price::Union{Nothing, Float64} = nothing
     order_item::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{OrderAddOrderItemInner} }
 
-    function OrderAdd(id, order_id, store_id, channel_id, order_status, fulfillment_status, financial_status, customer_email, customer_first_name, customer_last_name, customer_phone, customer_country, customer_birthday, customer_fax, order_payment_method, transaction_id, currency, date, date_modified, date_finished, bill_first_name, bill_last_name, bill_address_1, bill_address_2, bill_city, bill_postcode, bill_state, bill_country, bill_company, bill_phone, bill_fax, shipp_first_name, shipp_last_name, shipp_address_1, shipp_address_2, shipp_city, shipp_postcode, shipp_state, shipp_country, shipp_company, shipp_phone, shipp_fax, subtotal_price, tax_price, total_price, total_paid, total_weight, prices_inc_tax, shipping_price, shipping_tax, discount, coupon_discount, gift_certificate_discount, order_shipping_method, carrier_id, warehouse_id, coupons, tags, comment, admin_comment, admin_private_comment, send_notifications, send_admin_notifications, external_source, inventory_behaviour, create_invoice, note_attributes, clear_cache, origin, fee_price, order_item, )
+    function OrderAdd(id, order_id, store_id, channel_id, order_status, fulfillment_status, financial_status, customer_email, customer_first_name, customer_last_name, customer_phone, customer_country, customer_birthday, customer_fax, is_guest, order_payment_method, transaction_id, currency, date, date_modified, date_finished, bill_first_name, bill_last_name, bill_address_1, bill_address_2, bill_city, bill_postcode, bill_state, bill_country, bill_company, bill_phone, bill_fax, shipp_first_name, shipp_last_name, shipp_address_1, shipp_address_2, shipp_city, shipp_postcode, shipp_state, shipp_country, shipp_company, shipp_phone, shipp_fax, subtotal_price, tax_price, total_price, total_paid, total_weight, prices_inc_tax, shipping_price, shipping_tax, discount, coupon_discount, gift_certificate_discount, order_shipping_method, carrier_id, warehouse_id, coupons, tags, comment, admin_comment, admin_private_comment, send_notifications, send_admin_notifications, external_source, inventory_behaviour, create_invoice, note_attributes, clear_cache, origin, fee_price, order_item, )
         OpenAPI.validate_property(OrderAdd, Symbol("id"), id)
         OpenAPI.validate_property(OrderAdd, Symbol("order_id"), order_id)
         OpenAPI.validate_property(OrderAdd, Symbol("store_id"), store_id)
@@ -238,6 +241,7 @@ Base.@kwdef mutable struct OrderAdd <: OpenAPI.APIModel
         OpenAPI.validate_property(OrderAdd, Symbol("customer_country"), customer_country)
         OpenAPI.validate_property(OrderAdd, Symbol("customer_birthday"), customer_birthday)
         OpenAPI.validate_property(OrderAdd, Symbol("customer_fax"), customer_fax)
+        OpenAPI.validate_property(OrderAdd, Symbol("is_guest"), is_guest)
         OpenAPI.validate_property(OrderAdd, Symbol("order_payment_method"), order_payment_method)
         OpenAPI.validate_property(OrderAdd, Symbol("transaction_id"), transaction_id)
         OpenAPI.validate_property(OrderAdd, Symbol("currency"), currency)
@@ -295,11 +299,11 @@ Base.@kwdef mutable struct OrderAdd <: OpenAPI.APIModel
         OpenAPI.validate_property(OrderAdd, Symbol("origin"), origin)
         OpenAPI.validate_property(OrderAdd, Symbol("fee_price"), fee_price)
         OpenAPI.validate_property(OrderAdd, Symbol("order_item"), order_item)
-        return new(id, order_id, store_id, channel_id, order_status, fulfillment_status, financial_status, customer_email, customer_first_name, customer_last_name, customer_phone, customer_country, customer_birthday, customer_fax, order_payment_method, transaction_id, currency, date, date_modified, date_finished, bill_first_name, bill_last_name, bill_address_1, bill_address_2, bill_city, bill_postcode, bill_state, bill_country, bill_company, bill_phone, bill_fax, shipp_first_name, shipp_last_name, shipp_address_1, shipp_address_2, shipp_city, shipp_postcode, shipp_state, shipp_country, shipp_company, shipp_phone, shipp_fax, subtotal_price, tax_price, total_price, total_paid, total_weight, prices_inc_tax, shipping_price, shipping_tax, discount, coupon_discount, gift_certificate_discount, order_shipping_method, carrier_id, warehouse_id, coupons, tags, comment, admin_comment, admin_private_comment, send_notifications, send_admin_notifications, external_source, inventory_behaviour, create_invoice, note_attributes, clear_cache, origin, fee_price, order_item, )
+        return new(id, order_id, store_id, channel_id, order_status, fulfillment_status, financial_status, customer_email, customer_first_name, customer_last_name, customer_phone, customer_country, customer_birthday, customer_fax, is_guest, order_payment_method, transaction_id, currency, date, date_modified, date_finished, bill_first_name, bill_last_name, bill_address_1, bill_address_2, bill_city, bill_postcode, bill_state, bill_country, bill_company, bill_phone, bill_fax, shipp_first_name, shipp_last_name, shipp_address_1, shipp_address_2, shipp_city, shipp_postcode, shipp_state, shipp_country, shipp_company, shipp_phone, shipp_fax, subtotal_price, tax_price, total_price, total_paid, total_weight, prices_inc_tax, shipping_price, shipping_tax, discount, coupon_discount, gift_certificate_discount, order_shipping_method, carrier_id, warehouse_id, coupons, tags, comment, admin_comment, admin_private_comment, send_notifications, send_admin_notifications, external_source, inventory_behaviour, create_invoice, note_attributes, clear_cache, origin, fee_price, order_item, )
     end
 end # type OrderAdd
 
-const _property_types_OrderAdd = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("order_id")=>"String", Symbol("store_id")=>"String", Symbol("channel_id")=>"String", Symbol("order_status")=>"String", Symbol("fulfillment_status")=>"String", Symbol("financial_status")=>"String", Symbol("customer_email")=>"String", Symbol("customer_first_name")=>"String", Symbol("customer_last_name")=>"String", Symbol("customer_phone")=>"String", Symbol("customer_country")=>"String", Symbol("customer_birthday")=>"String", Symbol("customer_fax")=>"String", Symbol("order_payment_method")=>"String", Symbol("transaction_id")=>"String", Symbol("currency")=>"String", Symbol("date")=>"String", Symbol("date_modified")=>"String", Symbol("date_finished")=>"String", Symbol("bill_first_name")=>"String", Symbol("bill_last_name")=>"String", Symbol("bill_address_1")=>"String", Symbol("bill_address_2")=>"String", Symbol("bill_city")=>"String", Symbol("bill_postcode")=>"String", Symbol("bill_state")=>"String", Symbol("bill_country")=>"String", Symbol("bill_company")=>"String", Symbol("bill_phone")=>"String", Symbol("bill_fax")=>"String", Symbol("shipp_first_name")=>"String", Symbol("shipp_last_name")=>"String", Symbol("shipp_address_1")=>"String", Symbol("shipp_address_2")=>"String", Symbol("shipp_city")=>"String", Symbol("shipp_postcode")=>"String", Symbol("shipp_state")=>"String", Symbol("shipp_country")=>"String", Symbol("shipp_company")=>"String", Symbol("shipp_phone")=>"String", Symbol("shipp_fax")=>"String", Symbol("subtotal_price")=>"Float64", Symbol("tax_price")=>"Float64", Symbol("total_price")=>"Float64", Symbol("total_paid")=>"Float64", Symbol("total_weight")=>"Int64", Symbol("prices_inc_tax")=>"Bool", Symbol("shipping_price")=>"Float64", Symbol("shipping_tax")=>"Float64", Symbol("discount")=>"Float64", Symbol("coupon_discount")=>"Float64", Symbol("gift_certificate_discount")=>"Float64", Symbol("order_shipping_method")=>"String", Symbol("carrier_id")=>"String", Symbol("warehouse_id")=>"String", Symbol("coupons")=>"Vector{String}", Symbol("tags")=>"String", Symbol("comment")=>"String", Symbol("admin_comment")=>"String", Symbol("admin_private_comment")=>"String", Symbol("send_notifications")=>"Bool", Symbol("send_admin_notifications")=>"Bool", Symbol("external_source")=>"String", Symbol("inventory_behaviour")=>"String", Symbol("create_invoice")=>"Bool", Symbol("note_attributes")=>"Vector{OrderAddNoteAttributesInner}", Symbol("clear_cache")=>"Bool", Symbol("origin")=>"String", Symbol("fee_price")=>"Float64", Symbol("order_item")=>"Vector{OrderAddOrderItemInner}", )
+const _property_types_OrderAdd = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("order_id")=>"String", Symbol("store_id")=>"String", Symbol("channel_id")=>"String", Symbol("order_status")=>"String", Symbol("fulfillment_status")=>"String", Symbol("financial_status")=>"String", Symbol("customer_email")=>"String", Symbol("customer_first_name")=>"String", Symbol("customer_last_name")=>"String", Symbol("customer_phone")=>"String", Symbol("customer_country")=>"String", Symbol("customer_birthday")=>"String", Symbol("customer_fax")=>"String", Symbol("is_guest")=>"Bool", Symbol("order_payment_method")=>"String", Symbol("transaction_id")=>"String", Symbol("currency")=>"String", Symbol("date")=>"String", Symbol("date_modified")=>"String", Symbol("date_finished")=>"String", Symbol("bill_first_name")=>"String", Symbol("bill_last_name")=>"String", Symbol("bill_address_1")=>"String", Symbol("bill_address_2")=>"String", Symbol("bill_city")=>"String", Symbol("bill_postcode")=>"String", Symbol("bill_state")=>"String", Symbol("bill_country")=>"String", Symbol("bill_company")=>"String", Symbol("bill_phone")=>"String", Symbol("bill_fax")=>"String", Symbol("shipp_first_name")=>"String", Symbol("shipp_last_name")=>"String", Symbol("shipp_address_1")=>"String", Symbol("shipp_address_2")=>"String", Symbol("shipp_city")=>"String", Symbol("shipp_postcode")=>"String", Symbol("shipp_state")=>"String", Symbol("shipp_country")=>"String", Symbol("shipp_company")=>"String", Symbol("shipp_phone")=>"String", Symbol("shipp_fax")=>"String", Symbol("subtotal_price")=>"Float64", Symbol("tax_price")=>"Float64", Symbol("total_price")=>"Float64", Symbol("total_paid")=>"Float64", Symbol("total_weight")=>"Int64", Symbol("prices_inc_tax")=>"Bool", Symbol("shipping_price")=>"Float64", Symbol("shipping_tax")=>"Float64", Symbol("discount")=>"Float64", Symbol("coupon_discount")=>"Float64", Symbol("gift_certificate_discount")=>"Float64", Symbol("order_shipping_method")=>"String", Symbol("carrier_id")=>"String", Symbol("warehouse_id")=>"String", Symbol("coupons")=>"Vector{String}", Symbol("tags")=>"String", Symbol("comment")=>"String", Symbol("admin_comment")=>"String", Symbol("admin_private_comment")=>"String", Symbol("send_notifications")=>"Bool", Symbol("send_admin_notifications")=>"Bool", Symbol("external_source")=>"String", Symbol("inventory_behaviour")=>"String", Symbol("create_invoice")=>"Bool", Symbol("note_attributes")=>"Vector{OrderAddNoteAttributesInner}", Symbol("clear_cache")=>"Bool", Symbol("origin")=>"String", Symbol("fee_price")=>"Float64", Symbol("order_item")=>"Vector{OrderAddOrderItemInner}", )
 OpenAPI.property_type(::Type{ OrderAdd }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_OrderAdd[name]))}
 
 function check_required(o::OrderAdd)
@@ -317,6 +321,7 @@ function check_required(o::OrderAdd)
 end
 
 function OpenAPI.validate_property(::Type{ OrderAdd }, name::Symbol, val)
+
 
 
 
