@@ -60,6 +60,7 @@
         manufacturer=nothing,
         reindex=true,
         clear_cache=true,
+        processing_profile_id=nothing,
     )
 
     - id::String : Defines variant update specified by variant id
@@ -117,6 +118,7 @@
     - manufacturer::String : Specifies the product variant&#39;s manufacturer
     - reindex::Bool : Is reindex required
     - clear_cache::Bool : Is cache clear required
+    - processing_profile_id::Int64 : The numeric ID of the processing profile (readiness state) for physical products in Etsy. You can find possible values in the \&quot;cart.info\&quot; API method response, in the field processing_profiles[]-&gt;readiness_state_id.
 """
 Base.@kwdef mutable struct ProductVariantUpdate <: OpenAPI.APIModel
     id::Union{Nothing, String} = nothing
@@ -174,8 +176,9 @@ Base.@kwdef mutable struct ProductVariantUpdate <: OpenAPI.APIModel
     manufacturer::Union{Nothing, String} = nothing
     reindex::Union{Nothing, Bool} = true
     clear_cache::Union{Nothing, Bool} = true
+    processing_profile_id::Union{Nothing, Int64} = nothing
 
-    function ProductVariantUpdate(id, product_id, store_id, lang_id, options, name, description, short_description, model, sku, visible, status, backorder_status, low_stock_threshold, available_for_sale, avail, is_default, is_free_shipping, taxable, tax_class_id, is_virtual, manage_stock, in_stock, warehouse_id, reserve_quantity, quantity, increase_quantity, reduce_quantity, price, special_price, retail_price, old_price, cost_price, fixed_cost_shipping_price, sprice_create, sprice_expire, weight, barcode, width, weight_unit, height, length, gtin, upc, mpn, ean, isbn, harmonized_system_code, country_of_origin, meta_title, meta_description, meta_keywords, manufacturer, reindex, clear_cache, )
+    function ProductVariantUpdate(id, product_id, store_id, lang_id, options, name, description, short_description, model, sku, visible, status, backorder_status, low_stock_threshold, available_for_sale, avail, is_default, is_free_shipping, taxable, tax_class_id, is_virtual, manage_stock, in_stock, warehouse_id, reserve_quantity, quantity, increase_quantity, reduce_quantity, price, special_price, retail_price, old_price, cost_price, fixed_cost_shipping_price, sprice_create, sprice_expire, weight, barcode, width, weight_unit, height, length, gtin, upc, mpn, ean, isbn, harmonized_system_code, country_of_origin, meta_title, meta_description, meta_keywords, manufacturer, reindex, clear_cache, processing_profile_id, )
         OpenAPI.validate_property(ProductVariantUpdate, Symbol("id"), id)
         OpenAPI.validate_property(ProductVariantUpdate, Symbol("product_id"), product_id)
         OpenAPI.validate_property(ProductVariantUpdate, Symbol("store_id"), store_id)
@@ -231,11 +234,12 @@ Base.@kwdef mutable struct ProductVariantUpdate <: OpenAPI.APIModel
         OpenAPI.validate_property(ProductVariantUpdate, Symbol("manufacturer"), manufacturer)
         OpenAPI.validate_property(ProductVariantUpdate, Symbol("reindex"), reindex)
         OpenAPI.validate_property(ProductVariantUpdate, Symbol("clear_cache"), clear_cache)
-        return new(id, product_id, store_id, lang_id, options, name, description, short_description, model, sku, visible, status, backorder_status, low_stock_threshold, available_for_sale, avail, is_default, is_free_shipping, taxable, tax_class_id, is_virtual, manage_stock, in_stock, warehouse_id, reserve_quantity, quantity, increase_quantity, reduce_quantity, price, special_price, retail_price, old_price, cost_price, fixed_cost_shipping_price, sprice_create, sprice_expire, weight, barcode, width, weight_unit, height, length, gtin, upc, mpn, ean, isbn, harmonized_system_code, country_of_origin, meta_title, meta_description, meta_keywords, manufacturer, reindex, clear_cache, )
+        OpenAPI.validate_property(ProductVariantUpdate, Symbol("processing_profile_id"), processing_profile_id)
+        return new(id, product_id, store_id, lang_id, options, name, description, short_description, model, sku, visible, status, backorder_status, low_stock_threshold, available_for_sale, avail, is_default, is_free_shipping, taxable, tax_class_id, is_virtual, manage_stock, in_stock, warehouse_id, reserve_quantity, quantity, increase_quantity, reduce_quantity, price, special_price, retail_price, old_price, cost_price, fixed_cost_shipping_price, sprice_create, sprice_expire, weight, barcode, width, weight_unit, height, length, gtin, upc, mpn, ean, isbn, harmonized_system_code, country_of_origin, meta_title, meta_description, meta_keywords, manufacturer, reindex, clear_cache, processing_profile_id, )
     end
 end # type ProductVariantUpdate
 
-const _property_types_ProductVariantUpdate = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("product_id")=>"String", Symbol("store_id")=>"String", Symbol("lang_id")=>"String", Symbol("options")=>"Vector{ProductVariantUpdateOptionsInner}", Symbol("name")=>"String", Symbol("description")=>"String", Symbol("short_description")=>"String", Symbol("model")=>"String", Symbol("sku")=>"String", Symbol("visible")=>"String", Symbol("status")=>"String", Symbol("backorder_status")=>"String", Symbol("low_stock_threshold")=>"Float64", Symbol("available_for_sale")=>"Bool", Symbol("avail")=>"Bool", Symbol("is_default")=>"Bool", Symbol("is_free_shipping")=>"Bool", Symbol("taxable")=>"Bool", Symbol("tax_class_id")=>"String", Symbol("is_virtual")=>"Bool", Symbol("manage_stock")=>"Bool", Symbol("in_stock")=>"Bool", Symbol("warehouse_id")=>"String", Symbol("reserve_quantity")=>"Float64", Symbol("quantity")=>"Float64", Symbol("increase_quantity")=>"Float64", Symbol("reduce_quantity")=>"Float64", Symbol("price")=>"Float64", Symbol("special_price")=>"Float64", Symbol("retail_price")=>"Float64", Symbol("old_price")=>"Float64", Symbol("cost_price")=>"Float64", Symbol("fixed_cost_shipping_price")=>"Float64", Symbol("sprice_create")=>"String", Symbol("sprice_expire")=>"String", Symbol("weight")=>"Float64", Symbol("barcode")=>"String", Symbol("width")=>"Float64", Symbol("weight_unit")=>"String", Symbol("height")=>"Float64", Symbol("length")=>"Float64", Symbol("gtin")=>"String", Symbol("upc")=>"String", Symbol("mpn")=>"String", Symbol("ean")=>"String", Symbol("isbn")=>"String", Symbol("harmonized_system_code")=>"String", Symbol("country_of_origin")=>"String", Symbol("meta_title")=>"String", Symbol("meta_description")=>"String", Symbol("meta_keywords")=>"String", Symbol("manufacturer")=>"String", Symbol("reindex")=>"Bool", Symbol("clear_cache")=>"Bool", )
+const _property_types_ProductVariantUpdate = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("product_id")=>"String", Symbol("store_id")=>"String", Symbol("lang_id")=>"String", Symbol("options")=>"Vector{ProductVariantUpdateOptionsInner}", Symbol("name")=>"String", Symbol("description")=>"String", Symbol("short_description")=>"String", Symbol("model")=>"String", Symbol("sku")=>"String", Symbol("visible")=>"String", Symbol("status")=>"String", Symbol("backorder_status")=>"String", Symbol("low_stock_threshold")=>"Float64", Symbol("available_for_sale")=>"Bool", Symbol("avail")=>"Bool", Symbol("is_default")=>"Bool", Symbol("is_free_shipping")=>"Bool", Symbol("taxable")=>"Bool", Symbol("tax_class_id")=>"String", Symbol("is_virtual")=>"Bool", Symbol("manage_stock")=>"Bool", Symbol("in_stock")=>"Bool", Symbol("warehouse_id")=>"String", Symbol("reserve_quantity")=>"Float64", Symbol("quantity")=>"Float64", Symbol("increase_quantity")=>"Float64", Symbol("reduce_quantity")=>"Float64", Symbol("price")=>"Float64", Symbol("special_price")=>"Float64", Symbol("retail_price")=>"Float64", Symbol("old_price")=>"Float64", Symbol("cost_price")=>"Float64", Symbol("fixed_cost_shipping_price")=>"Float64", Symbol("sprice_create")=>"String", Symbol("sprice_expire")=>"String", Symbol("weight")=>"Float64", Symbol("barcode")=>"String", Symbol("width")=>"Float64", Symbol("weight_unit")=>"String", Symbol("height")=>"Float64", Symbol("length")=>"Float64", Symbol("gtin")=>"String", Symbol("upc")=>"String", Symbol("mpn")=>"String", Symbol("ean")=>"String", Symbol("isbn")=>"String", Symbol("harmonized_system_code")=>"String", Symbol("country_of_origin")=>"String", Symbol("meta_title")=>"String", Symbol("meta_description")=>"String", Symbol("meta_keywords")=>"String", Symbol("manufacturer")=>"String", Symbol("reindex")=>"Bool", Symbol("clear_cache")=>"Bool", Symbol("processing_profile_id")=>"Int64", )
 OpenAPI.property_type(::Type{ ProductVariantUpdate }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_ProductVariantUpdate[name]))}
 
 function check_required(o::ProductVariantUpdate)
@@ -243,6 +247,7 @@ function check_required(o::ProductVariantUpdate)
 end
 
 function OpenAPI.validate_property(::Type{ ProductVariantUpdate }, name::Symbol, val)
+
 
 
 
