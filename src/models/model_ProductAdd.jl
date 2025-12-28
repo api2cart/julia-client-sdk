@@ -149,7 +149,7 @@
     - lang_id::String : Language id
     - old_price::Float64 : Defines product&#39;s old price
     - special_price::Float64 : Defines product&#39;s model that has to be added
-    - wholesale_price::Float64 : Defines product&#39;s sale price
+    - wholesale_price::Float64 : This parameter is deprecated. Please use the &lt;strong&gt;old_price&lt;/strong&gt; parameter instead.
     - cost_price::Float64 : Defines new product&#39;s cost price
     - fixed_cost_shipping_price::Float64 : Specifies product&#39;s fixed cost shipping price
     - tier_prices::Vector{ProductAddTierPricesInner} : Defines product&#39;s tier prices

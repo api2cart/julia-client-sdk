@@ -261,7 +261,7 @@ const _returntypes_order_info_OrderApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => OrderInfo200Response,
 )
 
-function _oacinternal_order_info(_api::OrderApi; id=nothing, order_id=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, enable_cache=nothing, use_latest_api_version=nothing, rounding_precision=nothing, _mediaType=nothing)
+function _oacinternal_order_info(_api::OrderApi; id=nothing, order_id=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, enable_cache=nothing, use_latest_api_version=nothing, rounding_precision=nothing, allow_user_defined_order_statuses=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_order_info_OrderApi, "/order.info.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "id", id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "order_id", order_id; style="form", is_explode=true)  # type String
@@ -272,6 +272,7 @@ function _oacinternal_order_info(_api::OrderApi; id=nothing, order_id=nothing, s
     OpenAPI.Clients.set_param(_ctx.query, "enable_cache", enable_cache; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_param(_ctx.query, "use_latest_api_version", use_latest_api_version; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_param(_ctx.query, "rounding_precision", rounding_precision; style="form", is_explode=true)  # type Int64
+    OpenAPI.Clients.set_param(_ctx.query, "allow_user_defined_order_statuses", allow_user_defined_order_statuses; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -291,16 +292,17 @@ Params:
 - enable_cache::Bool
 - use_latest_api_version::Bool
 - rounding_precision::Int64
+- allow_user_defined_order_statuses::Bool
 
 Return: OrderInfo200Response, OpenAPI.Clients.ApiResponse
 """
-function order_info(_api::OrderApi; id=nothing, order_id=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, enable_cache=nothing, use_latest_api_version=nothing, rounding_precision=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_info(_api; id=id, order_id=order_id, store_id=store_id, params=params, response_fields=response_fields, exclude=exclude, enable_cache=enable_cache, use_latest_api_version=use_latest_api_version, rounding_precision=rounding_precision, _mediaType=_mediaType)
+function order_info(_api::OrderApi; id=nothing, order_id=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, enable_cache=nothing, use_latest_api_version=nothing, rounding_precision=nothing, allow_user_defined_order_statuses=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_info(_api; id=id, order_id=order_id, store_id=store_id, params=params, response_fields=response_fields, exclude=exclude, enable_cache=enable_cache, use_latest_api_version=use_latest_api_version, rounding_precision=rounding_precision, allow_user_defined_order_statuses=allow_user_defined_order_statuses, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function order_info(_api::OrderApi, response_stream::Channel; id=nothing, order_id=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, enable_cache=nothing, use_latest_api_version=nothing, rounding_precision=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_info(_api; id=id, order_id=order_id, store_id=store_id, params=params, response_fields=response_fields, exclude=exclude, enable_cache=enable_cache, use_latest_api_version=use_latest_api_version, rounding_precision=rounding_precision, _mediaType=_mediaType)
+function order_info(_api::OrderApi, response_stream::Channel; id=nothing, order_id=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, enable_cache=nothing, use_latest_api_version=nothing, rounding_precision=nothing, allow_user_defined_order_statuses=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_info(_api; id=id, order_id=order_id, store_id=store_id, params=params, response_fields=response_fields, exclude=exclude, enable_cache=enable_cache, use_latest_api_version=use_latest_api_version, rounding_precision=rounding_precision, allow_user_defined_order_statuses=allow_user_defined_order_statuses, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -308,7 +310,7 @@ const _returntypes_order_list_OrderApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseOrderList,
 )
 
-function _oacinternal_order_list(_api::OrderApi; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, order_ids=nothing, since_id=nothing, store_id=nothing, customer_id=nothing, customer_email=nothing, basket_id=nothing, currency_id=nothing, phone=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_status=nothing, return_status=nothing, fulfillment_channel=nothing, shipping_method=nothing, skip_order_ids=nothing, is_deleted=nothing, shipping_country_iso3=nothing, delivery_method=nothing, ship_node_type=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, tags=nothing, sort_by=nothing, sort_direction=nothing, params=nothing, response_fields=nothing, exclude=nothing, enable_cache=nothing, use_latest_api_version=nothing, rounding_precision=nothing, _mediaType=nothing)
+function _oacinternal_order_list(_api::OrderApi; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, order_ids=nothing, since_id=nothing, store_id=nothing, customer_id=nothing, customer_email=nothing, basket_id=nothing, currency_id=nothing, phone=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_status=nothing, return_status=nothing, fulfillment_channel=nothing, shipping_method=nothing, skip_order_ids=nothing, is_deleted=nothing, shipping_country_iso3=nothing, delivery_method=nothing, ship_node_type=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, tags=nothing, sort_by=nothing, sort_direction=nothing, params=nothing, response_fields=nothing, exclude=nothing, enable_cache=nothing, use_latest_api_version=nothing, rounding_precision=nothing, allow_user_defined_order_statuses=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_order_list_OrderApi, "/order.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
@@ -349,6 +351,7 @@ function _oacinternal_order_list(_api::OrderApi; start=nothing, count=nothing, p
     OpenAPI.Clients.set_param(_ctx.query, "enable_cache", enable_cache; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_param(_ctx.query, "use_latest_api_version", use_latest_api_version; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_param(_ctx.query, "rounding_precision", rounding_precision; style="form", is_explode=true)  # type Int64
+    OpenAPI.Clients.set_param(_ctx.query, "allow_user_defined_order_statuses", allow_user_defined_order_statuses; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -398,16 +401,17 @@ Params:
 - enable_cache::Bool
 - use_latest_api_version::Bool
 - rounding_precision::Int64
+- allow_user_defined_order_statuses::Bool
 
 Return: ModelResponseOrderList, OpenAPI.Clients.ApiResponse
 """
-function order_list(_api::OrderApi; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, order_ids=nothing, since_id=nothing, store_id=nothing, customer_id=nothing, customer_email=nothing, basket_id=nothing, currency_id=nothing, phone=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_status=nothing, return_status=nothing, fulfillment_channel=nothing, shipping_method=nothing, skip_order_ids=nothing, is_deleted=nothing, shipping_country_iso3=nothing, delivery_method=nothing, ship_node_type=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, tags=nothing, sort_by=nothing, sort_direction=nothing, params=nothing, response_fields=nothing, exclude=nothing, enable_cache=nothing, use_latest_api_version=nothing, rounding_precision=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_list(_api; start=start, count=count, page_cursor=page_cursor, ids=ids, order_ids=order_ids, since_id=since_id, store_id=store_id, customer_id=customer_id, customer_email=customer_email, basket_id=basket_id, currency_id=currency_id, phone=phone, order_status=order_status, order_status_ids=order_status_ids, ebay_order_status=ebay_order_status, financial_status=financial_status, financial_status_ids=financial_status_ids, fulfillment_status=fulfillment_status, return_status=return_status, fulfillment_channel=fulfillment_channel, shipping_method=shipping_method, skip_order_ids=skip_order_ids, is_deleted=is_deleted, shipping_country_iso3=shipping_country_iso3, delivery_method=delivery_method, ship_node_type=ship_node_type, created_to=created_to, created_from=created_from, modified_to=modified_to, modified_from=modified_from, tags=tags, sort_by=sort_by, sort_direction=sort_direction, params=params, response_fields=response_fields, exclude=exclude, enable_cache=enable_cache, use_latest_api_version=use_latest_api_version, rounding_precision=rounding_precision, _mediaType=_mediaType)
+function order_list(_api::OrderApi; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, order_ids=nothing, since_id=nothing, store_id=nothing, customer_id=nothing, customer_email=nothing, basket_id=nothing, currency_id=nothing, phone=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_status=nothing, return_status=nothing, fulfillment_channel=nothing, shipping_method=nothing, skip_order_ids=nothing, is_deleted=nothing, shipping_country_iso3=nothing, delivery_method=nothing, ship_node_type=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, tags=nothing, sort_by=nothing, sort_direction=nothing, params=nothing, response_fields=nothing, exclude=nothing, enable_cache=nothing, use_latest_api_version=nothing, rounding_precision=nothing, allow_user_defined_order_statuses=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_list(_api; start=start, count=count, page_cursor=page_cursor, ids=ids, order_ids=order_ids, since_id=since_id, store_id=store_id, customer_id=customer_id, customer_email=customer_email, basket_id=basket_id, currency_id=currency_id, phone=phone, order_status=order_status, order_status_ids=order_status_ids, ebay_order_status=ebay_order_status, financial_status=financial_status, financial_status_ids=financial_status_ids, fulfillment_status=fulfillment_status, return_status=return_status, fulfillment_channel=fulfillment_channel, shipping_method=shipping_method, skip_order_ids=skip_order_ids, is_deleted=is_deleted, shipping_country_iso3=shipping_country_iso3, delivery_method=delivery_method, ship_node_type=ship_node_type, created_to=created_to, created_from=created_from, modified_to=modified_to, modified_from=modified_from, tags=tags, sort_by=sort_by, sort_direction=sort_direction, params=params, response_fields=response_fields, exclude=exclude, enable_cache=enable_cache, use_latest_api_version=use_latest_api_version, rounding_precision=rounding_precision, allow_user_defined_order_statuses=allow_user_defined_order_statuses, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function order_list(_api::OrderApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, order_ids=nothing, since_id=nothing, store_id=nothing, customer_id=nothing, customer_email=nothing, basket_id=nothing, currency_id=nothing, phone=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_status=nothing, return_status=nothing, fulfillment_channel=nothing, shipping_method=nothing, skip_order_ids=nothing, is_deleted=nothing, shipping_country_iso3=nothing, delivery_method=nothing, ship_node_type=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, tags=nothing, sort_by=nothing, sort_direction=nothing, params=nothing, response_fields=nothing, exclude=nothing, enable_cache=nothing, use_latest_api_version=nothing, rounding_precision=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_list(_api; start=start, count=count, page_cursor=page_cursor, ids=ids, order_ids=order_ids, since_id=since_id, store_id=store_id, customer_id=customer_id, customer_email=customer_email, basket_id=basket_id, currency_id=currency_id, phone=phone, order_status=order_status, order_status_ids=order_status_ids, ebay_order_status=ebay_order_status, financial_status=financial_status, financial_status_ids=financial_status_ids, fulfillment_status=fulfillment_status, return_status=return_status, fulfillment_channel=fulfillment_channel, shipping_method=shipping_method, skip_order_ids=skip_order_ids, is_deleted=is_deleted, shipping_country_iso3=shipping_country_iso3, delivery_method=delivery_method, ship_node_type=ship_node_type, created_to=created_to, created_from=created_from, modified_to=modified_to, modified_from=modified_from, tags=tags, sort_by=sort_by, sort_direction=sort_direction, params=params, response_fields=response_fields, exclude=exclude, enable_cache=enable_cache, use_latest_api_version=use_latest_api_version, rounding_precision=rounding_precision, _mediaType=_mediaType)
+function order_list(_api::OrderApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, order_ids=nothing, since_id=nothing, store_id=nothing, customer_id=nothing, customer_email=nothing, basket_id=nothing, currency_id=nothing, phone=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_status=nothing, return_status=nothing, fulfillment_channel=nothing, shipping_method=nothing, skip_order_ids=nothing, is_deleted=nothing, shipping_country_iso3=nothing, delivery_method=nothing, ship_node_type=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, tags=nothing, sort_by=nothing, sort_direction=nothing, params=nothing, response_fields=nothing, exclude=nothing, enable_cache=nothing, use_latest_api_version=nothing, rounding_precision=nothing, allow_user_defined_order_statuses=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_list(_api; start=start, count=count, page_cursor=page_cursor, ids=ids, order_ids=order_ids, since_id=since_id, store_id=store_id, customer_id=customer_id, customer_email=customer_email, basket_id=basket_id, currency_id=currency_id, phone=phone, order_status=order_status, order_status_ids=order_status_ids, ebay_order_status=ebay_order_status, financial_status=financial_status, financial_status_ids=financial_status_ids, fulfillment_status=fulfillment_status, return_status=return_status, fulfillment_channel=fulfillment_channel, shipping_method=shipping_method, skip_order_ids=skip_order_ids, is_deleted=is_deleted, shipping_country_iso3=shipping_country_iso3, delivery_method=delivery_method, ship_node_type=ship_node_type, created_to=created_to, created_from=created_from, modified_to=modified_to, modified_from=modified_from, tags=tags, sort_by=sort_by, sort_direction=sort_direction, params=params, response_fields=response_fields, exclude=exclude, enable_cache=enable_cache, use_latest_api_version=use_latest_api_version, rounding_precision=rounding_precision, allow_user_defined_order_statuses=allow_user_defined_order_statuses, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -821,10 +825,11 @@ const _returntypes_order_status_list_OrderApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseOrderStatusList,
 )
 
-function _oacinternal_order_status_list(_api::OrderApi; store_id=nothing, action=nothing, response_fields=nothing, _mediaType=nothing)
+function _oacinternal_order_status_list(_api::OrderApi; store_id=nothing, action=nothing, allow_user_defined_order_statuses=nothing, response_fields=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_order_status_list_OrderApi, "/order.status.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "action", action; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "allow_user_defined_order_statuses", allow_user_defined_order_statuses; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -838,17 +843,18 @@ Retrieve list of statuses
 Params:
 - store_id::String
 - action::String
+- allow_user_defined_order_statuses::Bool
 - response_fields::String
 
 Return: ModelResponseOrderStatusList, OpenAPI.Clients.ApiResponse
 """
-function order_status_list(_api::OrderApi; store_id=nothing, action=nothing, response_fields=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_status_list(_api; store_id=store_id, action=action, response_fields=response_fields, _mediaType=_mediaType)
+function order_status_list(_api::OrderApi; store_id=nothing, action=nothing, allow_user_defined_order_statuses=nothing, response_fields=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_status_list(_api; store_id=store_id, action=action, allow_user_defined_order_statuses=allow_user_defined_order_statuses, response_fields=response_fields, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function order_status_list(_api::OrderApi, response_stream::Channel; store_id=nothing, action=nothing, response_fields=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_status_list(_api; store_id=store_id, action=action, response_fields=response_fields, _mediaType=_mediaType)
+function order_status_list(_api::OrderApi, response_stream::Channel; store_id=nothing, action=nothing, allow_user_defined_order_statuses=nothing, response_fields=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_status_list(_api; store_id=store_id, action=action, allow_user_defined_order_statuses=allow_user_defined_order_statuses, response_fields=response_fields, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 

@@ -253,8 +253,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **order_info**
-> order_info(_api::OrderApi; id=nothing, order_id=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, enable_cache=nothing, use_latest_api_version=nothing, rounding_precision=nothing, _mediaType=nothing) -> OrderInfo200Response, OpenAPI.Clients.ApiResponse <br/>
-> order_info(_api::OrderApi, response_stream::Channel; id=nothing, order_id=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, enable_cache=nothing, use_latest_api_version=nothing, rounding_precision=nothing, _mediaType=nothing) -> Channel{ OrderInfo200Response }, OpenAPI.Clients.ApiResponse
+> order_info(_api::OrderApi; id=nothing, order_id=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, enable_cache=nothing, use_latest_api_version=nothing, rounding_precision=nothing, allow_user_defined_order_statuses=nothing, _mediaType=nothing) -> OrderInfo200Response, OpenAPI.Clients.ApiResponse <br/>
+> order_info(_api::OrderApi, response_stream::Channel; id=nothing, order_id=nothing, store_id=nothing, params=nothing, response_fields=nothing, exclude=nothing, enable_cache=nothing, use_latest_api_version=nothing, rounding_precision=nothing, allow_user_defined_order_statuses=nothing, _mediaType=nothing) -> Channel{ OrderInfo200Response }, OpenAPI.Clients.ApiResponse
 
 order.info
 
@@ -279,6 +279,7 @@ Name | Type | Description  | Notes
  **enable_cache** | **Bool** | If the value is &#39;true&#39; and order exist in our cache, we will return order.info response from cache | [default to false]
  **use_latest_api_version** | **Bool** | Use the latest platform API version | [default to false]
  **rounding_precision** | **Int64** | &lt;p&gt;Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).&lt;/p&gt; &lt;p&gt;Supported values range from &lt;b&gt;1&lt;/b&gt; to &lt;b&gt;6&lt;/b&gt;.&lt;/p&gt; &lt;p&gt;The default rounding precision may vary depending on the platform. You can retrieve the default value using the &lt;strong&gt;cart.info&lt;/strong&gt; method in the &lt;code&gt;default_rounding_precision&lt;/code&gt; field. &lt;/p&gt;&lt;p&gt;Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.&lt;/p&gt; | [default to nothing]
+ **allow_user_defined_order_statuses** | **Bool** | Indicates whether custom (user-defined) order statuses should be included in the response. | [default to false]
 
 ### Return type
 
@@ -296,8 +297,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **order_list**
-> order_list(_api::OrderApi; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, order_ids=nothing, since_id=nothing, store_id=nothing, customer_id=nothing, customer_email=nothing, basket_id=nothing, currency_id=nothing, phone=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_status=nothing, return_status=nothing, fulfillment_channel=nothing, shipping_method=nothing, skip_order_ids=nothing, is_deleted=nothing, shipping_country_iso3=nothing, delivery_method=nothing, ship_node_type=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, tags=nothing, sort_by=nothing, sort_direction=nothing, params=nothing, response_fields=nothing, exclude=nothing, enable_cache=nothing, use_latest_api_version=nothing, rounding_precision=nothing, _mediaType=nothing) -> ModelResponseOrderList, OpenAPI.Clients.ApiResponse <br/>
-> order_list(_api::OrderApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, order_ids=nothing, since_id=nothing, store_id=nothing, customer_id=nothing, customer_email=nothing, basket_id=nothing, currency_id=nothing, phone=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_status=nothing, return_status=nothing, fulfillment_channel=nothing, shipping_method=nothing, skip_order_ids=nothing, is_deleted=nothing, shipping_country_iso3=nothing, delivery_method=nothing, ship_node_type=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, tags=nothing, sort_by=nothing, sort_direction=nothing, params=nothing, response_fields=nothing, exclude=nothing, enable_cache=nothing, use_latest_api_version=nothing, rounding_precision=nothing, _mediaType=nothing) -> Channel{ ModelResponseOrderList }, OpenAPI.Clients.ApiResponse
+> order_list(_api::OrderApi; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, order_ids=nothing, since_id=nothing, store_id=nothing, customer_id=nothing, customer_email=nothing, basket_id=nothing, currency_id=nothing, phone=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_status=nothing, return_status=nothing, fulfillment_channel=nothing, shipping_method=nothing, skip_order_ids=nothing, is_deleted=nothing, shipping_country_iso3=nothing, delivery_method=nothing, ship_node_type=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, tags=nothing, sort_by=nothing, sort_direction=nothing, params=nothing, response_fields=nothing, exclude=nothing, enable_cache=nothing, use_latest_api_version=nothing, rounding_precision=nothing, allow_user_defined_order_statuses=nothing, _mediaType=nothing) -> ModelResponseOrderList, OpenAPI.Clients.ApiResponse <br/>
+> order_list(_api::OrderApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, ids=nothing, order_ids=nothing, since_id=nothing, store_id=nothing, customer_id=nothing, customer_email=nothing, basket_id=nothing, currency_id=nothing, phone=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_status=nothing, return_status=nothing, fulfillment_channel=nothing, shipping_method=nothing, skip_order_ids=nothing, is_deleted=nothing, shipping_country_iso3=nothing, delivery_method=nothing, ship_node_type=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, tags=nothing, sort_by=nothing, sort_direction=nothing, params=nothing, response_fields=nothing, exclude=nothing, enable_cache=nothing, use_latest_api_version=nothing, rounding_precision=nothing, allow_user_defined_order_statuses=nothing, _mediaType=nothing) -> Channel{ ModelResponseOrderList }, OpenAPI.Clients.ApiResponse
 
 order.list
 
@@ -352,6 +353,7 @@ Name | Type | Description  | Notes
  **enable_cache** | **Bool** | If the value is &#39;true&#39;, we will cache orders for a 15 minutes in order to increase speed and reduce requests throttling for some methods and shoping platforms (for example order.shipment.add) | [default to false]
  **use_latest_api_version** | **Bool** | Use the latest platform API version | [default to false]
  **rounding_precision** | **Int64** | &lt;p&gt;Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).&lt;/p&gt; &lt;p&gt;Supported values range from &lt;b&gt;1&lt;/b&gt; to &lt;b&gt;6&lt;/b&gt;.&lt;/p&gt; &lt;p&gt;The default rounding precision may vary depending on the platform. You can retrieve the default value using the &lt;strong&gt;cart.info&lt;/strong&gt; method in the &lt;code&gt;default_rounding_precision&lt;/code&gt; field. &lt;/p&gt;&lt;p&gt;Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.&lt;/p&gt; | [default to nothing]
+ **allow_user_defined_order_statuses** | **Bool** | Indicates whether custom (user-defined) order statuses should be included in the response. | [default to false]
 
 ### Return type
 
@@ -770,8 +772,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **order_status_list**
-> order_status_list(_api::OrderApi; store_id=nothing, action=nothing, response_fields=nothing, _mediaType=nothing) -> ModelResponseOrderStatusList, OpenAPI.Clients.ApiResponse <br/>
-> order_status_list(_api::OrderApi, response_stream::Channel; store_id=nothing, action=nothing, response_fields=nothing, _mediaType=nothing) -> Channel{ ModelResponseOrderStatusList }, OpenAPI.Clients.ApiResponse
+> order_status_list(_api::OrderApi; store_id=nothing, action=nothing, allow_user_defined_order_statuses=nothing, response_fields=nothing, _mediaType=nothing) -> ModelResponseOrderStatusList, OpenAPI.Clients.ApiResponse <br/>
+> order_status_list(_api::OrderApi, response_stream::Channel; store_id=nothing, action=nothing, allow_user_defined_order_statuses=nothing, response_fields=nothing, _mediaType=nothing) -> Channel{ ModelResponseOrderStatusList }, OpenAPI.Clients.ApiResponse
 
 order.status.list
 
@@ -789,6 +791,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **store_id** | **String** | Store Id | [default to nothing]
  **action** | **String** | Available statuses for the specified action. | [default to nothing]
+ **allow_user_defined_order_statuses** | **Bool** | Indicates whether custom (user-defined) order statuses should be included in the response. | [default to false]
  **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
 
 ### Return type

@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **lang_id** | **String** | Language id | [optional] [default to nothing]
 **old_price** | **Float64** | Defines product&#39;s old price | [optional] [default to nothing]
 **special_price** | **Float64** | Defines product&#39;s model that has to be added | [optional] [default to nothing]
-**wholesale_price** | **Float64** | Defines product&#39;s sale price | [optional] [default to nothing]
+**wholesale_price** | **Float64** | This parameter is deprecated. Please use the &lt;strong&gt;old_price&lt;/strong&gt; parameter instead. | [optional] [default to nothing]
 **cost_price** | **Float64** | Defines new product&#39;s cost price | [optional] [default to nothing]
 **fixed_cost_shipping_price** | **Float64** | Specifies product&#39;s fixed cost shipping price | [optional] [default to nothing]
 **tier_prices** | [**Vector{ProductAddTierPricesInner}**](ProductAddTierPricesInner.md) | Defines product&#39;s tier prices | [optional] [default to nothing]
