@@ -34,6 +34,8 @@ Name | Type | Description | Notes
 **group_prices** | [**Vector{ProductAddGroupPricesInner}**](ProductAddGroupPricesInner.md) | Defines product&#39;s group prices | [optional] [default to nothing]
 **buyitnow_price** | **Float64** | Defines buy it now value | [optional] [default to nothing]
 **reserve_price** | **Float64** | Defines reserve price value | [optional] [default to nothing]
+**measure_unit** | **String** | Unit for the price per unit. Must be in allowed list | [optional] [default to nothing]
+**unit_price** | **Float64** | Defines new product&#39;s unit price | [optional] [default to nothing]
 **quantity** | **Float64** | Defines product&#39;s quantity that has to be added | [optional] [default to 0]
 **in_stock** | **Bool** | Set stock status | [optional] [default to nothing]
 **manage_stock** | **Bool** | Defines inventory tracking for product | [optional] [default to nothing]

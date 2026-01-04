@@ -15,6 +15,8 @@
         price=nothing,
         advanced_price=nothing,
         cost_price=nothing,
+        unit_price=nothing,
+        measure_unit=nothing,
         quantity=nothing,
         inventory=nothing,
         group_items=nothing,
@@ -74,6 +76,8 @@
     - price::Float64
     - advanced_price::Vector{ProductAdvancedPrice}
     - cost_price::Float64
+    - unit_price::Float64
+    - measure_unit::String
     - quantity::Float64
     - inventory::Vector{ProductInventory}
     - group_items::Vector{ProductGroupItem}
@@ -133,6 +137,8 @@ Base.@kwdef mutable struct Product <: OpenAPI.APIModel
     price::Union{Nothing, Float64} = nothing
     advanced_price::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ProductAdvancedPrice} }
     cost_price::Union{Nothing, Float64} = nothing
+    unit_price::Union{Nothing, Float64} = nothing
+    measure_unit::Union{Nothing, String} = nothing
     quantity::Union{Nothing, Float64} = nothing
     inventory::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ProductInventory} }
     group_items::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ProductGroupItem} }
@@ -181,7 +187,7 @@ Base.@kwdef mutable struct Product <: OpenAPI.APIModel
     additional_fields::Union{Nothing, Any} = nothing
     custom_fields::Union{Nothing, Any} = nothing
 
-    function Product(id, type, u_model, u_sku, name, description, short_description, price, advanced_price, cost_price, quantity, inventory, group_items, u_brand_id, u_brand, categories_ids, stores_ids, url, seo_url, meta_title, meta_keywords, meta_description, avail_sale, avail_view, is_virtual, is_downloadable, weight, weight_unit, sort_order, in_stock, backorders, manage_stock, is_stock_managed, on_sale, create_at, modified_at, tax_class_id, special_price, tier_price, group_price, images, product_options, u_upc, u_mpn, u_gtin, u_isbn, u_ean, related_products_ids, up_sell_products_ids, cross_sell_products_ids, dimensions_unit, width, height, length, discounts, additional_fields, custom_fields, )
+    function Product(id, type, u_model, u_sku, name, description, short_description, price, advanced_price, cost_price, unit_price, measure_unit, quantity, inventory, group_items, u_brand_id, u_brand, categories_ids, stores_ids, url, seo_url, meta_title, meta_keywords, meta_description, avail_sale, avail_view, is_virtual, is_downloadable, weight, weight_unit, sort_order, in_stock, backorders, manage_stock, is_stock_managed, on_sale, create_at, modified_at, tax_class_id, special_price, tier_price, group_price, images, product_options, u_upc, u_mpn, u_gtin, u_isbn, u_ean, related_products_ids, up_sell_products_ids, cross_sell_products_ids, dimensions_unit, width, height, length, discounts, additional_fields, custom_fields, )
         OpenAPI.validate_property(Product, Symbol("id"), id)
         OpenAPI.validate_property(Product, Symbol("type"), type)
         OpenAPI.validate_property(Product, Symbol("u_model"), u_model)
@@ -192,6 +198,8 @@ Base.@kwdef mutable struct Product <: OpenAPI.APIModel
         OpenAPI.validate_property(Product, Symbol("price"), price)
         OpenAPI.validate_property(Product, Symbol("advanced_price"), advanced_price)
         OpenAPI.validate_property(Product, Symbol("cost_price"), cost_price)
+        OpenAPI.validate_property(Product, Symbol("unit_price"), unit_price)
+        OpenAPI.validate_property(Product, Symbol("measure_unit"), measure_unit)
         OpenAPI.validate_property(Product, Symbol("quantity"), quantity)
         OpenAPI.validate_property(Product, Symbol("inventory"), inventory)
         OpenAPI.validate_property(Product, Symbol("group_items"), group_items)
@@ -239,11 +247,11 @@ Base.@kwdef mutable struct Product <: OpenAPI.APIModel
         OpenAPI.validate_property(Product, Symbol("discounts"), discounts)
         OpenAPI.validate_property(Product, Symbol("additional_fields"), additional_fields)
         OpenAPI.validate_property(Product, Symbol("custom_fields"), custom_fields)
-        return new(id, type, u_model, u_sku, name, description, short_description, price, advanced_price, cost_price, quantity, inventory, group_items, u_brand_id, u_brand, categories_ids, stores_ids, url, seo_url, meta_title, meta_keywords, meta_description, avail_sale, avail_view, is_virtual, is_downloadable, weight, weight_unit, sort_order, in_stock, backorders, manage_stock, is_stock_managed, on_sale, create_at, modified_at, tax_class_id, special_price, tier_price, group_price, images, product_options, u_upc, u_mpn, u_gtin, u_isbn, u_ean, related_products_ids, up_sell_products_ids, cross_sell_products_ids, dimensions_unit, width, height, length, discounts, additional_fields, custom_fields, )
+        return new(id, type, u_model, u_sku, name, description, short_description, price, advanced_price, cost_price, unit_price, measure_unit, quantity, inventory, group_items, u_brand_id, u_brand, categories_ids, stores_ids, url, seo_url, meta_title, meta_keywords, meta_description, avail_sale, avail_view, is_virtual, is_downloadable, weight, weight_unit, sort_order, in_stock, backorders, manage_stock, is_stock_managed, on_sale, create_at, modified_at, tax_class_id, special_price, tier_price, group_price, images, product_options, u_upc, u_mpn, u_gtin, u_isbn, u_ean, related_products_ids, up_sell_products_ids, cross_sell_products_ids, dimensions_unit, width, height, length, discounts, additional_fields, custom_fields, )
     end
 end # type Product
 
-const _property_types_Product = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("type")=>"String", Symbol("u_model")=>"String", Symbol("u_sku")=>"String", Symbol("name")=>"String", Symbol("description")=>"String", Symbol("short_description")=>"String", Symbol("price")=>"Float64", Symbol("advanced_price")=>"Vector{ProductAdvancedPrice}", Symbol("cost_price")=>"Float64", Symbol("quantity")=>"Float64", Symbol("inventory")=>"Vector{ProductInventory}", Symbol("group_items")=>"Vector{ProductGroupItem}", Symbol("u_brand_id")=>"String", Symbol("u_brand")=>"String", Symbol("categories_ids")=>"Vector{String}", Symbol("stores_ids")=>"Vector{String}", Symbol("url")=>"String", Symbol("seo_url")=>"String", Symbol("meta_title")=>"String", Symbol("meta_keywords")=>"String", Symbol("meta_description")=>"String", Symbol("avail_sale")=>"Bool", Symbol("avail_view")=>"Bool", Symbol("is_virtual")=>"Bool", Symbol("is_downloadable")=>"Bool", Symbol("weight")=>"Float64", Symbol("weight_unit")=>"String", Symbol("sort_order")=>"Int64", Symbol("in_stock")=>"Bool", Symbol("backorders")=>"String", Symbol("manage_stock")=>"String", Symbol("is_stock_managed")=>"Bool", Symbol("on_sale")=>"Bool", Symbol("create_at")=>"A2CDateTime", Symbol("modified_at")=>"A2CDateTime", Symbol("tax_class_id")=>"String", Symbol("special_price")=>"SpecialPrice", Symbol("tier_price")=>"Vector{ProductTierPrice}", Symbol("group_price")=>"Vector{ProductGroupPrice}", Symbol("images")=>"Vector{Image}", Symbol("product_options")=>"Vector{ProductOption}", Symbol("u_upc")=>"String", Symbol("u_mpn")=>"String", Symbol("u_gtin")=>"String", Symbol("u_isbn")=>"String", Symbol("u_ean")=>"String", Symbol("related_products_ids")=>"Vector{String}", Symbol("up_sell_products_ids")=>"Vector{String}", Symbol("cross_sell_products_ids")=>"Vector{String}", Symbol("dimensions_unit")=>"String", Symbol("width")=>"Float64", Symbol("height")=>"Float64", Symbol("length")=>"Float64", Symbol("discounts")=>"Vector{Discount}", Symbol("additional_fields")=>"Any", Symbol("custom_fields")=>"Any", )
+const _property_types_Product = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("type")=>"String", Symbol("u_model")=>"String", Symbol("u_sku")=>"String", Symbol("name")=>"String", Symbol("description")=>"String", Symbol("short_description")=>"String", Symbol("price")=>"Float64", Symbol("advanced_price")=>"Vector{ProductAdvancedPrice}", Symbol("cost_price")=>"Float64", Symbol("unit_price")=>"Float64", Symbol("measure_unit")=>"String", Symbol("quantity")=>"Float64", Symbol("inventory")=>"Vector{ProductInventory}", Symbol("group_items")=>"Vector{ProductGroupItem}", Symbol("u_brand_id")=>"String", Symbol("u_brand")=>"String", Symbol("categories_ids")=>"Vector{String}", Symbol("stores_ids")=>"Vector{String}", Symbol("url")=>"String", Symbol("seo_url")=>"String", Symbol("meta_title")=>"String", Symbol("meta_keywords")=>"String", Symbol("meta_description")=>"String", Symbol("avail_sale")=>"Bool", Symbol("avail_view")=>"Bool", Symbol("is_virtual")=>"Bool", Symbol("is_downloadable")=>"Bool", Symbol("weight")=>"Float64", Symbol("weight_unit")=>"String", Symbol("sort_order")=>"Int64", Symbol("in_stock")=>"Bool", Symbol("backorders")=>"String", Symbol("manage_stock")=>"String", Symbol("is_stock_managed")=>"Bool", Symbol("on_sale")=>"Bool", Symbol("create_at")=>"A2CDateTime", Symbol("modified_at")=>"A2CDateTime", Symbol("tax_class_id")=>"String", Symbol("special_price")=>"SpecialPrice", Symbol("tier_price")=>"Vector{ProductTierPrice}", Symbol("group_price")=>"Vector{ProductGroupPrice}", Symbol("images")=>"Vector{Image}", Symbol("product_options")=>"Vector{ProductOption}", Symbol("u_upc")=>"String", Symbol("u_mpn")=>"String", Symbol("u_gtin")=>"String", Symbol("u_isbn")=>"String", Symbol("u_ean")=>"String", Symbol("related_products_ids")=>"Vector{String}", Symbol("up_sell_products_ids")=>"Vector{String}", Symbol("cross_sell_products_ids")=>"Vector{String}", Symbol("dimensions_unit")=>"String", Symbol("width")=>"Float64", Symbol("height")=>"Float64", Symbol("length")=>"Float64", Symbol("discounts")=>"Vector{Discount}", Symbol("additional_fields")=>"Any", Symbol("custom_fields")=>"Any", )
 OpenAPI.property_type(::Type{ Product }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_Product[name]))}
 
 function check_required(o::Product)
@@ -251,6 +259,8 @@ function check_required(o::Product)
 end
 
 function OpenAPI.validate_property(::Type{ Product }, name::Symbol, val)
+
+
 
 
 

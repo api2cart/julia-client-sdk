@@ -40,6 +40,8 @@ Name | Type | Description | Notes
 **fixed_cost_shipping_price** | **Float64** | Specifies fixed cost shipping price | [optional] [default to nothing]
 **sprice_create** | **String** | Defines the date of special price creation | [optional] [default to nothing]
 **sprice_expire** | **String** | Defines the term of special price offer duration | [optional] [default to nothing]
+**measure_unit** | **String** | Unit for the price per unit. Must be in allowed list | [optional] [default to nothing]
+**unit_price** | **Float64** | Defines new product&#39;s unit price | [optional] [default to nothing]
 **weight** | **Float64** | Weight | [optional] [default to 0]
 **barcode** | **String** | A barcode is a unique code composed of numbers used as a product identifier. | [optional] [default to nothing]
 **width** | **Float64** | Defines product&#39;s width | [optional] [default to nothing]

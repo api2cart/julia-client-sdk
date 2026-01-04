@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **price** | **Float64** |  | [optional] [default to nothing]
 **advanced_price** | [**Vector{ProductAdvancedPrice}**](ProductAdvancedPrice.md) |  | [optional] [default to nothing]
 **cost_price** | **Float64** |  | [optional] [default to nothing]
+**unit_price** | **Float64** |  | [optional] [default to nothing]
+**measure_unit** | **String** |  | [optional] [default to nothing]
 **quantity** | **Float64** |  | [optional] [default to nothing]
 **inventory** | [**Vector{ProductInventory}**](ProductInventory.md) |  | [optional] [default to nothing]
 **group_items** | [**Vector{ProductGroupItem}**](ProductGroupItem.md) |  | [optional] [default to nothing]

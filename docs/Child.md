@@ -24,6 +24,8 @@ Name | Type | Description | Notes
 **combination** | [**Vector{ProductChildItemCombination}**](ProductChildItemCombination.md) |  | [optional] [default to nothing]
 **default_price** | **Float64** |  | [optional] [default to nothing]
 **cost_price** | **Float64** |  | [optional] [default to nothing]
+**unit_price** | **Float64** |  | [optional] [default to nothing]
+**measure_unit** | **String** |  | [optional] [default to nothing]
 **list_price** | **Float64** |  | [optional] [default to nothing]
 **wholesale_price** | **Float64** |  | [optional] [default to nothing]
 **advanced_price** | [**Vector{ProductAdvancedPrice}**](ProductAdvancedPrice.md) |  | [optional] [default to nothing]
