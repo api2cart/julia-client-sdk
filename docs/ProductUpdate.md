@@ -97,6 +97,7 @@ Name | Type | Description | Notes
 **external_product_link** | **String** | External product link | [optional] [default to nothing]
 **marketplace_item_properties** | **String** | String containing the JSON representation of the supplied data | [optional] [default to nothing]
 **min_order_quantity** | **Float64** | The minimum quantity an order must contain, to be eligible to purchase this product. | [optional] [default to nothing]
+**idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] [default to nothing]
 
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)

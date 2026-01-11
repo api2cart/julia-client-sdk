@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **tracking_number** | **String** | Defines tracking number | [default to nothing]
 **tracking_link** | **String** | Defines custom tracking link | [optional] [default to nothing]
 **send_notifications** | **Bool** | Send notifications to customer after tracking was created | [optional] [default to false]
+**idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] [default to nothing]
 
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)

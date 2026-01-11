@@ -31,6 +31,7 @@
         bill_company=nothing,
         bill_phone=nothing,
         response_fields=nothing,
+        idempotency_key=nothing,
         order_item=nothing,
     )
 
@@ -60,6 +61,7 @@
     - bill_company::String : Specifies billing company
     - bill_phone::String : Specifies billing phone
     - response_fields::String : Set this parameter in order to choose which entity fields you want to retrieve
+    - idempotency_key::String : A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
     - order_item::Vector{OrderCalculateOrderItemInner}
 """
 Base.@kwdef mutable struct OrderCalculate <: OpenAPI.APIModel
@@ -89,9 +91,10 @@ Base.@kwdef mutable struct OrderCalculate <: OpenAPI.APIModel
     bill_company::Union{Nothing, String} = nothing
     bill_phone::Union{Nothing, String} = nothing
     response_fields::Union{Nothing, String} = nothing
+    idempotency_key::Union{Nothing, String} = nothing
     order_item::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{OrderCalculateOrderItemInner} }
 
-    function OrderCalculate(customer_email, currency_id, store_id, coupons, rounding_precision, shipp_first_name, shipp_last_name, shipp_address_1, shipp_address_2, shipp_city, shipp_postcode, shipp_state, shipp_country, shipp_company, shipp_phone, bill_first_name, bill_last_name, bill_address_1, bill_address_2, bill_city, bill_postcode, bill_state, bill_country, bill_company, bill_phone, response_fields, order_item, )
+    function OrderCalculate(customer_email, currency_id, store_id, coupons, rounding_precision, shipp_first_name, shipp_last_name, shipp_address_1, shipp_address_2, shipp_city, shipp_postcode, shipp_state, shipp_country, shipp_company, shipp_phone, bill_first_name, bill_last_name, bill_address_1, bill_address_2, bill_city, bill_postcode, bill_state, bill_country, bill_company, bill_phone, response_fields, idempotency_key, order_item, )
         OpenAPI.validate_property(OrderCalculate, Symbol("customer_email"), customer_email)
         OpenAPI.validate_property(OrderCalculate, Symbol("currency_id"), currency_id)
         OpenAPI.validate_property(OrderCalculate, Symbol("store_id"), store_id)
@@ -118,12 +121,13 @@ Base.@kwdef mutable struct OrderCalculate <: OpenAPI.APIModel
         OpenAPI.validate_property(OrderCalculate, Symbol("bill_company"), bill_company)
         OpenAPI.validate_property(OrderCalculate, Symbol("bill_phone"), bill_phone)
         OpenAPI.validate_property(OrderCalculate, Symbol("response_fields"), response_fields)
+        OpenAPI.validate_property(OrderCalculate, Symbol("idempotency_key"), idempotency_key)
         OpenAPI.validate_property(OrderCalculate, Symbol("order_item"), order_item)
-        return new(customer_email, currency_id, store_id, coupons, rounding_precision, shipp_first_name, shipp_last_name, shipp_address_1, shipp_address_2, shipp_city, shipp_postcode, shipp_state, shipp_country, shipp_company, shipp_phone, bill_first_name, bill_last_name, bill_address_1, bill_address_2, bill_city, bill_postcode, bill_state, bill_country, bill_company, bill_phone, response_fields, order_item, )
+        return new(customer_email, currency_id, store_id, coupons, rounding_precision, shipp_first_name, shipp_last_name, shipp_address_1, shipp_address_2, shipp_city, shipp_postcode, shipp_state, shipp_country, shipp_company, shipp_phone, bill_first_name, bill_last_name, bill_address_1, bill_address_2, bill_city, bill_postcode, bill_state, bill_country, bill_company, bill_phone, response_fields, idempotency_key, order_item, )
     end
 end # type OrderCalculate
 
-const _property_types_OrderCalculate = Dict{Symbol,String}(Symbol("customer_email")=>"String", Symbol("currency_id")=>"String", Symbol("store_id")=>"String", Symbol("coupons")=>"Vector{String}", Symbol("rounding_precision")=>"Int64", Symbol("shipp_first_name")=>"String", Symbol("shipp_last_name")=>"String", Symbol("shipp_address_1")=>"String", Symbol("shipp_address_2")=>"String", Symbol("shipp_city")=>"String", Symbol("shipp_postcode")=>"String", Symbol("shipp_state")=>"String", Symbol("shipp_country")=>"String", Symbol("shipp_company")=>"String", Symbol("shipp_phone")=>"String", Symbol("bill_first_name")=>"String", Symbol("bill_last_name")=>"String", Symbol("bill_address_1")=>"String", Symbol("bill_address_2")=>"String", Symbol("bill_city")=>"String", Symbol("bill_postcode")=>"String", Symbol("bill_state")=>"String", Symbol("bill_country")=>"String", Symbol("bill_company")=>"String", Symbol("bill_phone")=>"String", Symbol("response_fields")=>"String", Symbol("order_item")=>"Vector{OrderCalculateOrderItemInner}", )
+const _property_types_OrderCalculate = Dict{Symbol,String}(Symbol("customer_email")=>"String", Symbol("currency_id")=>"String", Symbol("store_id")=>"String", Symbol("coupons")=>"Vector{String}", Symbol("rounding_precision")=>"Int64", Symbol("shipp_first_name")=>"String", Symbol("shipp_last_name")=>"String", Symbol("shipp_address_1")=>"String", Symbol("shipp_address_2")=>"String", Symbol("shipp_city")=>"String", Symbol("shipp_postcode")=>"String", Symbol("shipp_state")=>"String", Symbol("shipp_country")=>"String", Symbol("shipp_company")=>"String", Symbol("shipp_phone")=>"String", Symbol("bill_first_name")=>"String", Symbol("bill_last_name")=>"String", Symbol("bill_address_1")=>"String", Symbol("bill_address_2")=>"String", Symbol("bill_city")=>"String", Symbol("bill_postcode")=>"String", Symbol("bill_state")=>"String", Symbol("bill_country")=>"String", Symbol("bill_company")=>"String", Symbol("bill_phone")=>"String", Symbol("response_fields")=>"String", Symbol("idempotency_key")=>"String", Symbol("order_item")=>"Vector{OrderCalculateOrderItemInner}", )
 OpenAPI.property_type(::Type{ OrderCalculate }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_OrderCalculate[name]))}
 
 function check_required(o::OrderCalculate)
@@ -146,6 +150,7 @@ function OpenAPI.validate_property(::Type{ OrderCalculate }, name::Symbol, val)
     if name === Symbol("coupons")
         OpenAPI.validate_param(name, "OrderCalculate", :minItems, val, 1)
     end
+
 
 
 

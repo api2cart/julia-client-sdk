@@ -8,26 +8,30 @@
         product_id=nothing,
         group_prices=nothing,
         store_id=nothing,
+        idempotency_key=nothing,
     )
 
     - product_id::String : Defines the product to which the price has to be added
     - group_prices::Vector{ProductAddGroupPricesInner} : Defines product&#39;s group prices
     - store_id::String : Store Id
+    - idempotency_key::String : A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
 """
 Base.@kwdef mutable struct ProductPriceAdd <: OpenAPI.APIModel
     product_id::Union{Nothing, String} = nothing
     group_prices::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ProductAddGroupPricesInner} }
     store_id::Union{Nothing, String} = nothing
+    idempotency_key::Union{Nothing, String} = nothing
 
-    function ProductPriceAdd(product_id, group_prices, store_id, )
+    function ProductPriceAdd(product_id, group_prices, store_id, idempotency_key, )
         OpenAPI.validate_property(ProductPriceAdd, Symbol("product_id"), product_id)
         OpenAPI.validate_property(ProductPriceAdd, Symbol("group_prices"), group_prices)
         OpenAPI.validate_property(ProductPriceAdd, Symbol("store_id"), store_id)
-        return new(product_id, group_prices, store_id, )
+        OpenAPI.validate_property(ProductPriceAdd, Symbol("idempotency_key"), idempotency_key)
+        return new(product_id, group_prices, store_id, idempotency_key, )
     end
 end # type ProductPriceAdd
 
-const _property_types_ProductPriceAdd = Dict{Symbol,String}(Symbol("product_id")=>"String", Symbol("group_prices")=>"Vector{ProductAddGroupPricesInner}", Symbol("store_id")=>"String", )
+const _property_types_ProductPriceAdd = Dict{Symbol,String}(Symbol("product_id")=>"String", Symbol("group_prices")=>"Vector{ProductAddGroupPricesInner}", Symbol("store_id")=>"String", Symbol("idempotency_key")=>"String", )
 OpenAPI.property_type(::Type{ ProductPriceAdd }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_ProductPriceAdd[name]))}
 
 function check_required(o::ProductPriceAdd)
@@ -35,6 +39,7 @@ function check_required(o::ProductPriceAdd)
 end
 
 function OpenAPI.validate_property(::Type{ ProductPriceAdd }, name::Symbol, val)
+
 
 
 

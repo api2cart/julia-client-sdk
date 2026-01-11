@@ -117,7 +117,7 @@ const _returntypes_cart_coupon_condition_add_CartApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => BasketLiveShippingServiceDelete200Response,
 )
 
-function _oacinternal_cart_coupon_condition_add(_api::CartApi, coupon_id::String, entity::String, key::String, operator::String, value::String; target=nothing, include_tax=nothing, include_shipping=nothing, store_id=nothing, _mediaType=nothing)
+function _oacinternal_cart_coupon_condition_add(_api::CartApi, coupon_id::String, entity::String, key::String, operator::String, value::String; target=nothing, include_tax=nothing, include_shipping=nothing, store_id=nothing, idempotency_key=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_cart_coupon_condition_add_CartApi, "/cart.coupon.condition.add.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "coupon_id", coupon_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "entity", entity; style="form", is_explode=true)  # type String
@@ -128,6 +128,7 @@ function _oacinternal_cart_coupon_condition_add(_api::CartApi, coupon_id::String
     OpenAPI.Clients.set_param(_ctx.query, "include_tax", include_tax; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_param(_ctx.query, "include_shipping", include_shipping; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -147,16 +148,17 @@ Params:
 - include_tax::Bool
 - include_shipping::Bool
 - store_id::String
+- idempotency_key::String
 
 Return: BasketLiveShippingServiceDelete200Response, OpenAPI.Clients.ApiResponse
 """
-function cart_coupon_condition_add(_api::CartApi, coupon_id::String, entity::String, key::String, operator::String, value::String; target=nothing, include_tax=nothing, include_shipping=nothing, store_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_coupon_condition_add(_api, coupon_id, entity, key, operator, value; target=target, include_tax=include_tax, include_shipping=include_shipping, store_id=store_id, _mediaType=_mediaType)
+function cart_coupon_condition_add(_api::CartApi, coupon_id::String, entity::String, key::String, operator::String, value::String; target=nothing, include_tax=nothing, include_shipping=nothing, store_id=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_coupon_condition_add(_api, coupon_id, entity, key, operator, value; target=target, include_tax=include_tax, include_shipping=include_shipping, store_id=store_id, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function cart_coupon_condition_add(_api::CartApi, response_stream::Channel, coupon_id::String, entity::String, key::String, operator::String, value::String; target=nothing, include_tax=nothing, include_shipping=nothing, store_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_coupon_condition_add(_api, coupon_id, entity, key, operator, value; target=target, include_tax=include_tax, include_shipping=include_shipping, store_id=store_id, _mediaType=_mediaType)
+function cart_coupon_condition_add(_api::CartApi, response_stream::Channel, coupon_id::String, entity::String, key::String, operator::String, value::String; target=nothing, include_tax=nothing, include_shipping=nothing, store_id=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_coupon_condition_add(_api, coupon_id, entity, key, operator, value; target=target, include_tax=include_tax, include_shipping=include_shipping, store_id=store_id, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -328,7 +330,7 @@ const _returntypes_cart_giftcard_add_CartApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => CartGiftcardAdd200Response,
 )
 
-function _oacinternal_cart_giftcard_add(_api::CartApi, amount::Float64; code=nothing, owner_email=nothing, recipient_email=nothing, recipient_name=nothing, owner_name=nothing, _mediaType=nothing)
+function _oacinternal_cart_giftcard_add(_api::CartApi, amount::Float64; code=nothing, owner_email=nothing, recipient_email=nothing, recipient_name=nothing, owner_name=nothing, idempotency_key=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_cart_giftcard_add_CartApi, "/cart.giftcard.add.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "amount", amount; style="form", is_explode=true)  # type Float64
     OpenAPI.Clients.set_param(_ctx.query, "code", code; style="form", is_explode=true)  # type String
@@ -336,6 +338,7 @@ function _oacinternal_cart_giftcard_add(_api::CartApi, amount::Float64; code=not
     OpenAPI.Clients.set_param(_ctx.query, "recipient_email", recipient_email; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "recipient_name", recipient_name; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "owner_name", owner_name; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -352,16 +355,17 @@ Params:
 - recipient_email::String
 - recipient_name::String
 - owner_name::String
+- idempotency_key::String
 
 Return: CartGiftcardAdd200Response, OpenAPI.Clients.ApiResponse
 """
-function cart_giftcard_add(_api::CartApi, amount::Float64; code=nothing, owner_email=nothing, recipient_email=nothing, recipient_name=nothing, owner_name=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_giftcard_add(_api, amount; code=code, owner_email=owner_email, recipient_email=recipient_email, recipient_name=recipient_name, owner_name=owner_name, _mediaType=_mediaType)
+function cart_giftcard_add(_api::CartApi, amount::Float64; code=nothing, owner_email=nothing, recipient_email=nothing, recipient_name=nothing, owner_name=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_giftcard_add(_api, amount; code=code, owner_email=owner_email, recipient_email=recipient_email, recipient_name=recipient_name, owner_name=owner_name, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function cart_giftcard_add(_api::CartApi, response_stream::Channel, amount::Float64; code=nothing, owner_email=nothing, recipient_email=nothing, recipient_name=nothing, owner_name=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_giftcard_add(_api, amount; code=code, owner_email=owner_email, recipient_email=recipient_email, recipient_name=recipient_name, owner_name=owner_name, _mediaType=_mediaType)
+function cart_giftcard_add(_api::CartApi, response_stream::Channel, amount::Float64; code=nothing, owner_email=nothing, recipient_email=nothing, recipient_name=nothing, owner_name=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_giftcard_add(_api, amount; code=code, owner_email=owner_email, recipient_email=recipient_email, recipient_name=recipient_name, owner_name=owner_name, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -560,7 +564,7 @@ const _returntypes_cart_meta_data_set_CartApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => AttributeAdd200Response,
 )
 
-function _oacinternal_cart_meta_data_set(_api::CartApi, entity_id::String, key::String, value::String, namespace::String; entity=nothing, store_id=nothing, lang_id=nothing, _mediaType=nothing)
+function _oacinternal_cart_meta_data_set(_api::CartApi, entity_id::String, key::String, value::String, namespace::String; entity=nothing, store_id=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_cart_meta_data_set_CartApi, "/cart.meta_data.set.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "entity_id", entity_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "key", key; style="form", is_explode=true)  # type String
@@ -569,6 +573,7 @@ function _oacinternal_cart_meta_data_set(_api::CartApi, entity_id::String, key::
     OpenAPI.Clients.set_param(_ctx.query, "entity", entity; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "lang_id", lang_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -586,16 +591,17 @@ Params:
 - entity::String
 - store_id::String
 - lang_id::String
+- idempotency_key::String
 
 Return: AttributeAdd200Response, OpenAPI.Clients.ApiResponse
 """
-function cart_meta_data_set(_api::CartApi, entity_id::String, key::String, value::String, namespace::String; entity=nothing, store_id=nothing, lang_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_meta_data_set(_api, entity_id, key, value, namespace; entity=entity, store_id=store_id, lang_id=lang_id, _mediaType=_mediaType)
+function cart_meta_data_set(_api::CartApi, entity_id::String, key::String, value::String, namespace::String; entity=nothing, store_id=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_meta_data_set(_api, entity_id, key, value, namespace; entity=entity, store_id=store_id, lang_id=lang_id, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function cart_meta_data_set(_api::CartApi, response_stream::Channel, entity_id::String, key::String, value::String, namespace::String; entity=nothing, store_id=nothing, lang_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_meta_data_set(_api, entity_id, key, value, namespace; entity=entity, store_id=store_id, lang_id=lang_id, _mediaType=_mediaType)
+function cart_meta_data_set(_api::CartApi, response_stream::Channel, entity_id::String, key::String, value::String, namespace::String; entity=nothing, store_id=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_meta_data_set(_api, entity_id, key, value, namespace; entity=entity, store_id=store_id, lang_id=lang_id, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -706,7 +712,7 @@ const _returntypes_cart_script_add_CartApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => CartScriptAdd200Response,
 )
 
-function _oacinternal_cart_script_add(_api::CartApi; name=nothing, description=nothing, html=nothing, src=nothing, load_method=nothing, scope=nothing, events=nothing, store_id=nothing, _mediaType=nothing)
+function _oacinternal_cart_script_add(_api::CartApi; name=nothing, description=nothing, html=nothing, src=nothing, load_method=nothing, scope=nothing, events=nothing, store_id=nothing, idempotency_key=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_cart_script_add_CartApi, "/cart.script.add.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "name", name; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "description", description; style="form", is_explode=true)  # type String
@@ -716,6 +722,7 @@ function _oacinternal_cart_script_add(_api::CartApi; name=nothing, description=n
     OpenAPI.Clients.set_param(_ctx.query, "scope", scope; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "events", events; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -734,16 +741,17 @@ Params:
 - scope::String
 - events::String
 - store_id::String
+- idempotency_key::String
 
 Return: CartScriptAdd200Response, OpenAPI.Clients.ApiResponse
 """
-function cart_script_add(_api::CartApi; name=nothing, description=nothing, html=nothing, src=nothing, load_method=nothing, scope=nothing, events=nothing, store_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_script_add(_api; name=name, description=description, html=html, src=src, load_method=load_method, scope=scope, events=events, store_id=store_id, _mediaType=_mediaType)
+function cart_script_add(_api::CartApi; name=nothing, description=nothing, html=nothing, src=nothing, load_method=nothing, scope=nothing, events=nothing, store_id=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_script_add(_api; name=name, description=description, html=html, src=src, load_method=load_method, scope=scope, events=events, store_id=store_id, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function cart_script_add(_api::CartApi, response_stream::Channel; name=nothing, description=nothing, html=nothing, src=nothing, load_method=nothing, scope=nothing, events=nothing, store_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_script_add(_api; name=name, description=description, html=html, src=src, load_method=load_method, scope=scope, events=events, store_id=store_id, _mediaType=_mediaType)
+function cart_script_add(_api::CartApi, response_stream::Channel; name=nothing, description=nothing, html=nothing, src=nothing, load_method=nothing, scope=nothing, events=nothing, store_id=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_script_add(_api; name=name, description=description, html=html, src=src, load_method=load_method, scope=scope, events=events, store_id=store_id, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 

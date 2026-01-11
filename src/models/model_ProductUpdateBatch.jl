@@ -9,29 +9,33 @@
         clear_cache=false,
         reindex=false,
         payload=nothing,
+        idempotency_key=nothing,
     )
 
     - nested_items_update_behaviour::String :  Determines how updates to nested items should be handled.&lt;hr&gt;&lt;div style&#x3D;\&quot;font-style:normal\&quot;&gt;  Values description:  &lt;div style&#x3D;\&quot;margin-left: 2%; padding-top: 2%\&quot;&gt;    &lt;div style&#x3D;\&quot;font-size:85%\&quot;&gt;      &lt;b&gt;  replace&lt;/b&gt;: This option indicates that the nested items should be completely replaced with the new data provided. &lt;/br&gt;      &lt;b&gt;  merge&lt;/b&gt;: With this option, updates to nested items are merged with the existing data. &lt;/br&gt;    &lt;/div&gt;  &lt;/div&gt;&lt;/div&gt;
     - clear_cache::Bool
     - reindex::Bool
     - payload::Vector{ProductUpdateBatchPayloadInner} : Contains an array of product objects. The list of properties may vary depending on the specific platform.
+    - idempotency_key::String : A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
 """
 Base.@kwdef mutable struct ProductUpdateBatch <: OpenAPI.APIModel
     nested_items_update_behaviour::Union{Nothing, String} = "replace"
     clear_cache::Union{Nothing, Bool} = false
     reindex::Union{Nothing, Bool} = false
     payload::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ProductUpdateBatchPayloadInner} }
+    idempotency_key::Union{Nothing, String} = nothing
 
-    function ProductUpdateBatch(nested_items_update_behaviour, clear_cache, reindex, payload, )
+    function ProductUpdateBatch(nested_items_update_behaviour, clear_cache, reindex, payload, idempotency_key, )
         OpenAPI.validate_property(ProductUpdateBatch, Symbol("nested_items_update_behaviour"), nested_items_update_behaviour)
         OpenAPI.validate_property(ProductUpdateBatch, Symbol("clear_cache"), clear_cache)
         OpenAPI.validate_property(ProductUpdateBatch, Symbol("reindex"), reindex)
         OpenAPI.validate_property(ProductUpdateBatch, Symbol("payload"), payload)
-        return new(nested_items_update_behaviour, clear_cache, reindex, payload, )
+        OpenAPI.validate_property(ProductUpdateBatch, Symbol("idempotency_key"), idempotency_key)
+        return new(nested_items_update_behaviour, clear_cache, reindex, payload, idempotency_key, )
     end
 end # type ProductUpdateBatch
 
-const _property_types_ProductUpdateBatch = Dict{Symbol,String}(Symbol("nested_items_update_behaviour")=>"String", Symbol("clear_cache")=>"Bool", Symbol("reindex")=>"Bool", Symbol("payload")=>"Vector{ProductUpdateBatchPayloadInner}", )
+const _property_types_ProductUpdateBatch = Dict{Symbol,String}(Symbol("nested_items_update_behaviour")=>"String", Symbol("clear_cache")=>"Bool", Symbol("reindex")=>"Bool", Symbol("payload")=>"Vector{ProductUpdateBatchPayloadInner}", Symbol("idempotency_key")=>"String", )
 OpenAPI.property_type(::Type{ ProductUpdateBatch }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_ProductUpdateBatch[name]))}
 
 function check_required(o::ProductUpdateBatch)
@@ -52,4 +56,5 @@ function OpenAPI.validate_property(::Type{ ProductUpdateBatch }, name::Symbol, v
         OpenAPI.validate_param(name, "ProductUpdateBatch", :maxItems, val, 250)
         OpenAPI.validate_param(name, "ProductUpdateBatch", :minItems, val, 1)
     end
+
 end

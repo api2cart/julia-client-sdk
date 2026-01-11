@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **gender** | **String** | Defines customer&#39;s address gender | [optional] [default to nothing]
 **tax_id** | **String** | Add Tax Id | [optional] [default to nothing]
 **alias** | **String** | Specifies customer&#39;s alias in the address book | [optional] [default to nothing]
+**idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] [default to nothing]
 
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)

@@ -13,6 +13,7 @@
         tracking_number=nothing,
         tracking_link=nothing,
         send_notifications=false,
+        idempotency_key=nothing,
     )
 
     - order_id::String : Defines the order id
@@ -23,6 +24,7 @@
     - tracking_number::String : Defines tracking number
     - tracking_link::String : Defines custom tracking link
     - send_notifications::Bool : Send notifications to customer after tracking was created
+    - idempotency_key::String : A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
 """
 Base.@kwdef mutable struct OrderShipmentTrackingAdd <: OpenAPI.APIModel
     order_id::Union{Nothing, String} = nothing
@@ -33,8 +35,9 @@ Base.@kwdef mutable struct OrderShipmentTrackingAdd <: OpenAPI.APIModel
     tracking_number::Union{Nothing, String} = nothing
     tracking_link::Union{Nothing, String} = nothing
     send_notifications::Union{Nothing, Bool} = false
+    idempotency_key::Union{Nothing, String} = nothing
 
-    function OrderShipmentTrackingAdd(order_id, shipment_id, carrier_id, store_id, tracking_provider, tracking_number, tracking_link, send_notifications, )
+    function OrderShipmentTrackingAdd(order_id, shipment_id, carrier_id, store_id, tracking_provider, tracking_number, tracking_link, send_notifications, idempotency_key, )
         OpenAPI.validate_property(OrderShipmentTrackingAdd, Symbol("order_id"), order_id)
         OpenAPI.validate_property(OrderShipmentTrackingAdd, Symbol("shipment_id"), shipment_id)
         OpenAPI.validate_property(OrderShipmentTrackingAdd, Symbol("carrier_id"), carrier_id)
@@ -43,11 +46,12 @@ Base.@kwdef mutable struct OrderShipmentTrackingAdd <: OpenAPI.APIModel
         OpenAPI.validate_property(OrderShipmentTrackingAdd, Symbol("tracking_number"), tracking_number)
         OpenAPI.validate_property(OrderShipmentTrackingAdd, Symbol("tracking_link"), tracking_link)
         OpenAPI.validate_property(OrderShipmentTrackingAdd, Symbol("send_notifications"), send_notifications)
-        return new(order_id, shipment_id, carrier_id, store_id, tracking_provider, tracking_number, tracking_link, send_notifications, )
+        OpenAPI.validate_property(OrderShipmentTrackingAdd, Symbol("idempotency_key"), idempotency_key)
+        return new(order_id, shipment_id, carrier_id, store_id, tracking_provider, tracking_number, tracking_link, send_notifications, idempotency_key, )
     end
 end # type OrderShipmentTrackingAdd
 
-const _property_types_OrderShipmentTrackingAdd = Dict{Symbol,String}(Symbol("order_id")=>"String", Symbol("shipment_id")=>"String", Symbol("carrier_id")=>"String", Symbol("store_id")=>"String", Symbol("tracking_provider")=>"String", Symbol("tracking_number")=>"String", Symbol("tracking_link")=>"String", Symbol("send_notifications")=>"Bool", )
+const _property_types_OrderShipmentTrackingAdd = Dict{Symbol,String}(Symbol("order_id")=>"String", Symbol("shipment_id")=>"String", Symbol("carrier_id")=>"String", Symbol("store_id")=>"String", Symbol("tracking_provider")=>"String", Symbol("tracking_number")=>"String", Symbol("tracking_link")=>"String", Symbol("send_notifications")=>"Bool", Symbol("idempotency_key")=>"String", )
 OpenAPI.property_type(::Type{ OrderShipmentTrackingAdd }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_OrderShipmentTrackingAdd[name]))}
 
 function check_required(o::OrderShipmentTrackingAdd)
@@ -57,6 +61,7 @@ function check_required(o::OrderShipmentTrackingAdd)
 end
 
 function OpenAPI.validate_property(::Type{ OrderShipmentTrackingAdd }, name::Symbol, val)
+
 
 
 

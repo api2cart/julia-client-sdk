@@ -8,26 +8,30 @@
         product_id=nothing,
         name=nothing,
         tax_rates=nothing,
+        idempotency_key=nothing,
     )
 
     - product_id::String : Defines products specified by product id
     - name::String : Defines tax class name where tax has to be added
     - tax_rates::Vector{ProductTaxAddTaxRatesInner} : Defines tax rates of specified tax classes
+    - idempotency_key::String : A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
 """
 Base.@kwdef mutable struct ProductTaxAdd <: OpenAPI.APIModel
     product_id::Union{Nothing, String} = nothing
     name::Union{Nothing, String} = nothing
     tax_rates::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ProductTaxAddTaxRatesInner} }
+    idempotency_key::Union{Nothing, String} = nothing
 
-    function ProductTaxAdd(product_id, name, tax_rates, )
+    function ProductTaxAdd(product_id, name, tax_rates, idempotency_key, )
         OpenAPI.validate_property(ProductTaxAdd, Symbol("product_id"), product_id)
         OpenAPI.validate_property(ProductTaxAdd, Symbol("name"), name)
         OpenAPI.validate_property(ProductTaxAdd, Symbol("tax_rates"), tax_rates)
-        return new(product_id, name, tax_rates, )
+        OpenAPI.validate_property(ProductTaxAdd, Symbol("idempotency_key"), idempotency_key)
+        return new(product_id, name, tax_rates, idempotency_key, )
     end
 end # type ProductTaxAdd
 
-const _property_types_ProductTaxAdd = Dict{Symbol,String}(Symbol("product_id")=>"String", Symbol("name")=>"String", Symbol("tax_rates")=>"Vector{ProductTaxAddTaxRatesInner}", )
+const _property_types_ProductTaxAdd = Dict{Symbol,String}(Symbol("product_id")=>"String", Symbol("name")=>"String", Symbol("tax_rates")=>"Vector{ProductTaxAddTaxRatesInner}", Symbol("idempotency_key")=>"String", )
 OpenAPI.property_type(::Type{ ProductTaxAdd }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_ProductTaxAdd[name]))}
 
 function check_required(o::ProductTaxAdd)
@@ -37,6 +41,7 @@ function check_required(o::ProductTaxAdd)
 end
 
 function OpenAPI.validate_property(::Type{ ProductTaxAdd }, name::Symbol, val)
+
 
 
 

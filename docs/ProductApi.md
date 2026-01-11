@@ -164,8 +164,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_attribute_value_set**
-> product_attribute_value_set(_api::ProductApi, product_id::String; attribute_id=nothing, attribute_group_id=nothing, attribute_name=nothing, value=nothing, value_id=nothing, lang_id=nothing, store_id=nothing, _mediaType=nothing) -> ProductAttributeValueSet200Response, OpenAPI.Clients.ApiResponse <br/>
-> product_attribute_value_set(_api::ProductApi, response_stream::Channel, product_id::String; attribute_id=nothing, attribute_group_id=nothing, attribute_name=nothing, value=nothing, value_id=nothing, lang_id=nothing, store_id=nothing, _mediaType=nothing) -> Channel{ ProductAttributeValueSet200Response }, OpenAPI.Clients.ApiResponse
+> product_attribute_value_set(_api::ProductApi, product_id::String; attribute_id=nothing, attribute_group_id=nothing, attribute_name=nothing, value=nothing, value_id=nothing, lang_id=nothing, store_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> ProductAttributeValueSet200Response, OpenAPI.Clients.ApiResponse <br/>
+> product_attribute_value_set(_api::ProductApi, response_stream::Channel, product_id::String; attribute_id=nothing, attribute_group_id=nothing, attribute_name=nothing, value=nothing, value_id=nothing, lang_id=nothing, store_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ ProductAttributeValueSet200Response }, OpenAPI.Clients.ApiResponse
 
 product.attribute.value.set
 
@@ -189,6 +189,7 @@ Name | Type | Description  | Notes
  **value_id** | **Int64** | Define attribute value id | [default to nothing]
  **lang_id** | **String** | Language id | [default to nothing]
  **store_id** | **String** | Store Id | [default to nothing]
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 
@@ -206,8 +207,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_attribute_value_unset**
-> product_attribute_value_unset(_api::ProductApi, product_id::String, attribute_id::String; store_id=nothing, include_default=nothing, reindex=nothing, clear_cache=nothing, _mediaType=nothing) -> ProductAttributeValueUnset200Response, OpenAPI.Clients.ApiResponse <br/>
-> product_attribute_value_unset(_api::ProductApi, response_stream::Channel, product_id::String, attribute_id::String; store_id=nothing, include_default=nothing, reindex=nothing, clear_cache=nothing, _mediaType=nothing) -> Channel{ ProductAttributeValueUnset200Response }, OpenAPI.Clients.ApiResponse
+> product_attribute_value_unset(_api::ProductApi, product_id::String, attribute_id::String; store_id=nothing, include_default=nothing, reindex=nothing, clear_cache=nothing, idempotency_key=nothing, _mediaType=nothing) -> ProductAttributeValueUnset200Response, OpenAPI.Clients.ApiResponse <br/>
+> product_attribute_value_unset(_api::ProductApi, response_stream::Channel, product_id::String, attribute_id::String; store_id=nothing, include_default=nothing, reindex=nothing, clear_cache=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ ProductAttributeValueUnset200Response }, OpenAPI.Clients.ApiResponse
 
 product.attribute.value.unset
 
@@ -229,6 +230,7 @@ Name | Type | Description  | Notes
  **include_default** | **Bool** | Boolean, whether or not to unset default value of the attribute, if applicable | [default to false]
  **reindex** | **Bool** | Is reindex required | [default to true]
  **clear_cache** | **Bool** | Is cache clear required | [default to true]
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 
@@ -494,8 +496,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_currency_add**
-> product_currency_add(_api::ProductApi, iso3::String, rate::Float64; name=nothing, avail=nothing, symbol_left=nothing, symbol_right=nothing, default=nothing, _mediaType=nothing) -> ProductCurrencyAdd200Response, OpenAPI.Clients.ApiResponse <br/>
-> product_currency_add(_api::ProductApi, response_stream::Channel, iso3::String, rate::Float64; name=nothing, avail=nothing, symbol_left=nothing, symbol_right=nothing, default=nothing, _mediaType=nothing) -> Channel{ ProductCurrencyAdd200Response }, OpenAPI.Clients.ApiResponse
+> product_currency_add(_api::ProductApi, iso3::String, rate::Float64; name=nothing, avail=nothing, symbol_left=nothing, symbol_right=nothing, default=nothing, idempotency_key=nothing, _mediaType=nothing) -> ProductCurrencyAdd200Response, OpenAPI.Clients.ApiResponse <br/>
+> product_currency_add(_api::ProductApi, response_stream::Channel, iso3::String, rate::Float64; name=nothing, avail=nothing, symbol_left=nothing, symbol_right=nothing, default=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ ProductCurrencyAdd200Response }, OpenAPI.Clients.ApiResponse
 
 product.currency.add
 
@@ -518,6 +520,7 @@ Name | Type | Description  | Notes
  **symbol_left** | **String** | Defines the symbol that is located before the currency | [default to nothing]
  **symbol_right** | **String** | Defines the symbol that is located after the currency | [default to nothing]
  **default** | **Bool** | Specifies currency&#39;s default meaning | [default to false]
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 
@@ -750,8 +753,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_image_update**
-> product_image_update(_api::ProductApi, product_id::String, id::String; variant_ids=nothing, store_id=nothing, lang_id=nothing, image_name=nothing, type=nothing, label=nothing, position=nothing, hidden=nothing, _mediaType=nothing) -> ProductImageUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
-> product_image_update(_api::ProductApi, response_stream::Channel, product_id::String, id::String; variant_ids=nothing, store_id=nothing, lang_id=nothing, image_name=nothing, type=nothing, label=nothing, position=nothing, hidden=nothing, _mediaType=nothing) -> Channel{ ProductImageUpdate200Response }, OpenAPI.Clients.ApiResponse
+> product_image_update(_api::ProductApi, product_id::String, id::String; variant_ids=nothing, store_id=nothing, lang_id=nothing, image_name=nothing, type=nothing, label=nothing, position=nothing, hidden=nothing, idempotency_key=nothing, _mediaType=nothing) -> ProductImageUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
+> product_image_update(_api::ProductApi, response_stream::Channel, product_id::String, id::String; variant_ids=nothing, store_id=nothing, lang_id=nothing, image_name=nothing, type=nothing, label=nothing, position=nothing, hidden=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ ProductImageUpdate200Response }, OpenAPI.Clients.ApiResponse
 
 product.image.update
 
@@ -777,6 +780,7 @@ Name | Type | Description  | Notes
  **label** | **String** | Defines alternative text that has to be attached to the picture | [default to nothing]
  **position** | **Int64** | Defines image’s position in the list | [default to nothing]
  **hidden** | **Bool** | Define is hide image | [default to nothing]
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 
@@ -908,8 +912,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_manufacturer_add**
-> product_manufacturer_add(_api::ProductApi, product_id::String, manufacturer::String; store_id=nothing, meta_title=nothing, meta_keywords=nothing, meta_description=nothing, search_keywords=nothing, image_url=nothing, seo_url=nothing, _mediaType=nothing) -> ProductManufacturerAdd200Response, OpenAPI.Clients.ApiResponse <br/>
-> product_manufacturer_add(_api::ProductApi, response_stream::Channel, product_id::String, manufacturer::String; store_id=nothing, meta_title=nothing, meta_keywords=nothing, meta_description=nothing, search_keywords=nothing, image_url=nothing, seo_url=nothing, _mediaType=nothing) -> Channel{ ProductManufacturerAdd200Response }, OpenAPI.Clients.ApiResponse
+> product_manufacturer_add(_api::ProductApi, product_id::String, manufacturer::String; store_id=nothing, meta_title=nothing, meta_keywords=nothing, meta_description=nothing, search_keywords=nothing, image_url=nothing, seo_url=nothing, idempotency_key=nothing, _mediaType=nothing) -> ProductManufacturerAdd200Response, OpenAPI.Clients.ApiResponse <br/>
+> product_manufacturer_add(_api::ProductApi, response_stream::Channel, product_id::String, manufacturer::String; store_id=nothing, meta_title=nothing, meta_keywords=nothing, meta_description=nothing, search_keywords=nothing, image_url=nothing, seo_url=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ ProductManufacturerAdd200Response }, OpenAPI.Clients.ApiResponse
 
 product.manufacturer.add
 
@@ -934,6 +938,7 @@ Name | Type | Description  | Notes
  **search_keywords** | **String** | Defines unique search keywords | [default to nothing]
  **image_url** | **String** | Image Url | [default to nothing]
  **seo_url** | **String** | Defines unique URL for SEO | [default to nothing]
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 
@@ -981,8 +986,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_option_assign**
-> product_option_assign(_api::ProductApi, product_id::String, option_id::String; required=nothing, sort_order=nothing, option_values=nothing, clear_cache=nothing, _mediaType=nothing) -> ProductOptionAssign200Response, OpenAPI.Clients.ApiResponse <br/>
-> product_option_assign(_api::ProductApi, response_stream::Channel, product_id::String, option_id::String; required=nothing, sort_order=nothing, option_values=nothing, clear_cache=nothing, _mediaType=nothing) -> Channel{ ProductOptionAssign200Response }, OpenAPI.Clients.ApiResponse
+> product_option_assign(_api::ProductApi, product_id::String, option_id::String; required=nothing, sort_order=nothing, option_values=nothing, clear_cache=nothing, idempotency_key=nothing, _mediaType=nothing) -> ProductOptionAssign200Response, OpenAPI.Clients.ApiResponse <br/>
+> product_option_assign(_api::ProductApi, response_stream::Channel, product_id::String, option_id::String; required=nothing, sort_order=nothing, option_values=nothing, clear_cache=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ ProductOptionAssign200Response }, OpenAPI.Clients.ApiResponse
 
 product.option.assign
 
@@ -1004,6 +1009,7 @@ Name | Type | Description  | Notes
  **sort_order** | **Int64** | Sort number in the list | [default to 0]
  **option_values** | **String** | Defines option values that has to be assigned | [default to nothing]
  **clear_cache** | **Bool** | Is cache clear required | [default to true]
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 
@@ -1100,8 +1106,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_option_value_add**
-> product_option_value_add(_api::ProductApi, product_id::String, option_id::String; option_value=nothing, sort_order=nothing, display_value=nothing, is_default=nothing, clear_cache=nothing, _mediaType=nothing) -> ProductOptionValueAdd200Response, OpenAPI.Clients.ApiResponse <br/>
-> product_option_value_add(_api::ProductApi, response_stream::Channel, product_id::String, option_id::String; option_value=nothing, sort_order=nothing, display_value=nothing, is_default=nothing, clear_cache=nothing, _mediaType=nothing) -> Channel{ ProductOptionValueAdd200Response }, OpenAPI.Clients.ApiResponse
+> product_option_value_add(_api::ProductApi, product_id::String, option_id::String; option_value=nothing, sort_order=nothing, display_value=nothing, is_default=nothing, clear_cache=nothing, idempotency_key=nothing, _mediaType=nothing) -> ProductOptionValueAdd200Response, OpenAPI.Clients.ApiResponse <br/>
+> product_option_value_add(_api::ProductApi, response_stream::Channel, product_id::String, option_id::String; option_value=nothing, sort_order=nothing, display_value=nothing, is_default=nothing, clear_cache=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ ProductOptionValueAdd200Response }, OpenAPI.Clients.ApiResponse
 
 product.option.value.add
 
@@ -1124,6 +1130,7 @@ Name | Type | Description  | Notes
  **display_value** | **String** | Defines the value that will be displayed for the option value | [default to nothing]
  **is_default** | **Bool** | Defines as a default | [default to nothing]
  **clear_cache** | **Bool** | Is cache clear required | [default to true]
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 
@@ -1141,8 +1148,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_option_value_assign**
-> product_option_value_assign(_api::ProductApi, product_option_id::Int64, option_value_id::String; clear_cache=nothing, _mediaType=nothing) -> ProductOptionValueAssign200Response, OpenAPI.Clients.ApiResponse <br/>
-> product_option_value_assign(_api::ProductApi, response_stream::Channel, product_option_id::Int64, option_value_id::String; clear_cache=nothing, _mediaType=nothing) -> Channel{ ProductOptionValueAssign200Response }, OpenAPI.Clients.ApiResponse
+> product_option_value_assign(_api::ProductApi, product_option_id::Int64, option_value_id::String; clear_cache=nothing, idempotency_key=nothing, _mediaType=nothing) -> ProductOptionValueAssign200Response, OpenAPI.Clients.ApiResponse <br/>
+> product_option_value_assign(_api::ProductApi, response_stream::Channel, product_option_id::Int64, option_value_id::String; clear_cache=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ ProductOptionValueAssign200Response }, OpenAPI.Clients.ApiResponse
 
 product.option.value.assign
 
@@ -1161,6 +1168,7 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **clear_cache** | **Bool** | Is cache clear required | [default to true]
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 
@@ -1216,8 +1224,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_option_value_update**
-> product_option_value_update(_api::ProductApi, product_id::String, option_id::String, option_value_id::String; option_value=nothing, price=nothing, quantity=nothing, display_value=nothing, clear_cache=nothing, _mediaType=nothing) -> AccountConfigUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
-> product_option_value_update(_api::ProductApi, response_stream::Channel, product_id::String, option_id::String, option_value_id::String; option_value=nothing, price=nothing, quantity=nothing, display_value=nothing, clear_cache=nothing, _mediaType=nothing) -> Channel{ AccountConfigUpdate200Response }, OpenAPI.Clients.ApiResponse
+> product_option_value_update(_api::ProductApi, product_id::String, option_id::String, option_value_id::String; option_value=nothing, price=nothing, quantity=nothing, display_value=nothing, clear_cache=nothing, idempotency_key=nothing, _mediaType=nothing) -> AccountConfigUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
+> product_option_value_update(_api::ProductApi, response_stream::Channel, product_id::String, option_id::String, option_value_id::String; option_value=nothing, price=nothing, quantity=nothing, display_value=nothing, clear_cache=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ AccountConfigUpdate200Response }, OpenAPI.Clients.ApiResponse
 
 product.option.value.update
 
@@ -1241,6 +1249,7 @@ Name | Type | Description  | Notes
  **quantity** | **Float64** | Defines new products&#39; options quantity | [default to nothing]
  **display_value** | **String** | Defines the value that will be displayed for the option value | [default to nothing]
  **clear_cache** | **Bool** | Is cache clear required | [default to true]
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 
@@ -1405,8 +1414,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_store_assign**
-> product_store_assign(_api::ProductApi, product_id::String, store_id::String; _mediaType=nothing) -> AccountConfigUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
-> product_store_assign(_api::ProductApi, response_stream::Channel, product_id::String, store_id::String; _mediaType=nothing) -> Channel{ AccountConfigUpdate200Response }, OpenAPI.Clients.ApiResponse
+> product_store_assign(_api::ProductApi, product_id::String, store_id::String; idempotency_key=nothing, _mediaType=nothing) -> AccountConfigUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
+> product_store_assign(_api::ProductApi, response_stream::Channel, product_id::String, store_id::String; idempotency_key=nothing, _mediaType=nothing) -> Channel{ AccountConfigUpdate200Response }, OpenAPI.Clients.ApiResponse
 
 product.store.assign
 
@@ -1419,6 +1428,12 @@ Name | Type | Description  | Notes
  **_api** | **ProductApi** | API context | 
 **product_id** | **String** | Defines id of the product which should be assigned to a store |
 **store_id** | **String** | Defines id of the store product should be assigned to |
+
+### Optional Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 

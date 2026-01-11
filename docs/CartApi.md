@@ -127,8 +127,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **cart_coupon_condition_add**
-> cart_coupon_condition_add(_api::CartApi, coupon_id::String, entity::String, key::String, operator::String, value::String; target=nothing, include_tax=nothing, include_shipping=nothing, store_id=nothing, _mediaType=nothing) -> BasketLiveShippingServiceDelete200Response, OpenAPI.Clients.ApiResponse <br/>
-> cart_coupon_condition_add(_api::CartApi, response_stream::Channel, coupon_id::String, entity::String, key::String, operator::String, value::String; target=nothing, include_tax=nothing, include_shipping=nothing, store_id=nothing, _mediaType=nothing) -> Channel{ BasketLiveShippingServiceDelete200Response }, OpenAPI.Clients.ApiResponse
+> cart_coupon_condition_add(_api::CartApi, coupon_id::String, entity::String, key::String, operator::String, value::String; target=nothing, include_tax=nothing, include_shipping=nothing, store_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> BasketLiveShippingServiceDelete200Response, OpenAPI.Clients.ApiResponse <br/>
+> cart_coupon_condition_add(_api::CartApi, response_stream::Channel, coupon_id::String, entity::String, key::String, operator::String, value::String; target=nothing, include_tax=nothing, include_shipping=nothing, store_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ BasketLiveShippingServiceDelete200Response }, OpenAPI.Clients.ApiResponse
 
 cart.coupon.condition.add
 
@@ -153,6 +153,7 @@ Name | Type | Description  | Notes
  **include_tax** | **Bool** | Indicates whether to apply a discount for taxes. | [default to false]
  **include_shipping** | **Bool** | Indicates whether to apply a discount for shipping. | [default to false]
  **store_id** | **String** | Store Id | [default to nothing]
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 
@@ -330,8 +331,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **cart_giftcard_add**
-> cart_giftcard_add(_api::CartApi, amount::Float64; code=nothing, owner_email=nothing, recipient_email=nothing, recipient_name=nothing, owner_name=nothing, _mediaType=nothing) -> CartGiftcardAdd200Response, OpenAPI.Clients.ApiResponse <br/>
-> cart_giftcard_add(_api::CartApi, response_stream::Channel, amount::Float64; code=nothing, owner_email=nothing, recipient_email=nothing, recipient_name=nothing, owner_name=nothing, _mediaType=nothing) -> Channel{ CartGiftcardAdd200Response }, OpenAPI.Clients.ApiResponse
+> cart_giftcard_add(_api::CartApi, amount::Float64; code=nothing, owner_email=nothing, recipient_email=nothing, recipient_name=nothing, owner_name=nothing, idempotency_key=nothing, _mediaType=nothing) -> CartGiftcardAdd200Response, OpenAPI.Clients.ApiResponse <br/>
+> cart_giftcard_add(_api::CartApi, response_stream::Channel, amount::Float64; code=nothing, owner_email=nothing, recipient_email=nothing, recipient_name=nothing, owner_name=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ CartGiftcardAdd200Response }, OpenAPI.Clients.ApiResponse
 
 cart.giftcard.add
 
@@ -353,6 +354,7 @@ Name | Type | Description  | Notes
  **recipient_email** | **String** | Gift card recipient email | [default to nothing]
  **recipient_name** | **String** | Gift card recipient name | [default to nothing]
  **owner_name** | **String** | Gift card owner name | [default to nothing]
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 
@@ -558,8 +560,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **cart_meta_data_set**
-> cart_meta_data_set(_api::CartApi, entity_id::String, key::String, value::String, namespace::String; entity=nothing, store_id=nothing, lang_id=nothing, _mediaType=nothing) -> AttributeAdd200Response, OpenAPI.Clients.ApiResponse <br/>
-> cart_meta_data_set(_api::CartApi, response_stream::Channel, entity_id::String, key::String, value::String, namespace::String; entity=nothing, store_id=nothing, lang_id=nothing, _mediaType=nothing) -> Channel{ AttributeAdd200Response }, OpenAPI.Clients.ApiResponse
+> cart_meta_data_set(_api::CartApi, entity_id::String, key::String, value::String, namespace::String; entity=nothing, store_id=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> AttributeAdd200Response, OpenAPI.Clients.ApiResponse <br/>
+> cart_meta_data_set(_api::CartApi, response_stream::Channel, entity_id::String, key::String, value::String, namespace::String; entity=nothing, store_id=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ AttributeAdd200Response }, OpenAPI.Clients.ApiResponse
 
 cart.meta_data.set
 
@@ -582,6 +584,7 @@ Name | Type | Description  | Notes
  **entity** | **String** | Entity | [default to &quot;product&quot;]
  **store_id** | **String** | Store Id | [default to nothing]
  **lang_id** | **String** | Language id | [default to nothing]
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 
@@ -701,8 +704,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **cart_script_add**
-> cart_script_add(_api::CartApi; name=nothing, description=nothing, html=nothing, src=nothing, load_method=nothing, scope=nothing, events=nothing, store_id=nothing, _mediaType=nothing) -> CartScriptAdd200Response, OpenAPI.Clients.ApiResponse <br/>
-> cart_script_add(_api::CartApi, response_stream::Channel; name=nothing, description=nothing, html=nothing, src=nothing, load_method=nothing, scope=nothing, events=nothing, store_id=nothing, _mediaType=nothing) -> Channel{ CartScriptAdd200Response }, OpenAPI.Clients.ApiResponse
+> cart_script_add(_api::CartApi; name=nothing, description=nothing, html=nothing, src=nothing, load_method=nothing, scope=nothing, events=nothing, store_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> CartScriptAdd200Response, OpenAPI.Clients.ApiResponse <br/>
+> cart_script_add(_api::CartApi, response_stream::Channel; name=nothing, description=nothing, html=nothing, src=nothing, load_method=nothing, scope=nothing, events=nothing, store_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ CartScriptAdd200Response }, OpenAPI.Clients.ApiResponse
 
 cart.script.add
 
@@ -726,6 +729,7 @@ Name | Type | Description  | Notes
  **scope** | **String** | The page or pages on the online store where the script should be included | [default to &quot;storefront&quot;]
  **events** | **String** | Event for run scripts | [default to nothing]
  **store_id** | **String** | Store Id | [default to nothing]
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 

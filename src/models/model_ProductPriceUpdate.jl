@@ -7,23 +7,27 @@
     ProductPriceUpdate(;
         product_id=nothing,
         group_prices=nothing,
+        idempotency_key=nothing,
     )
 
     - product_id::String : Defines the product where the price has to be updated
     - group_prices::Vector{ProductPriceUpdateGroupPricesInner} : Defines product&#39;s group prices
+    - idempotency_key::String : A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
 """
 Base.@kwdef mutable struct ProductPriceUpdate <: OpenAPI.APIModel
     product_id::Union{Nothing, String} = nothing
     group_prices::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ProductPriceUpdateGroupPricesInner} }
+    idempotency_key::Union{Nothing, String} = nothing
 
-    function ProductPriceUpdate(product_id, group_prices, )
+    function ProductPriceUpdate(product_id, group_prices, idempotency_key, )
         OpenAPI.validate_property(ProductPriceUpdate, Symbol("product_id"), product_id)
         OpenAPI.validate_property(ProductPriceUpdate, Symbol("group_prices"), group_prices)
-        return new(product_id, group_prices, )
+        OpenAPI.validate_property(ProductPriceUpdate, Symbol("idempotency_key"), idempotency_key)
+        return new(product_id, group_prices, idempotency_key, )
     end
 end # type ProductPriceUpdate
 
-const _property_types_ProductPriceUpdate = Dict{Symbol,String}(Symbol("product_id")=>"String", Symbol("group_prices")=>"Vector{ProductPriceUpdateGroupPricesInner}", )
+const _property_types_ProductPriceUpdate = Dict{Symbol,String}(Symbol("product_id")=>"String", Symbol("group_prices")=>"Vector{ProductPriceUpdateGroupPricesInner}", Symbol("idempotency_key")=>"String", )
 OpenAPI.property_type(::Type{ ProductPriceUpdate }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_ProductPriceUpdate[name]))}
 
 function check_required(o::ProductPriceUpdate)
@@ -31,6 +35,7 @@ function check_required(o::ProductPriceUpdate)
 end
 
 function OpenAPI.validate_property(::Type{ ProductPriceUpdate }, name::Symbol, val)
+
 
 
 end

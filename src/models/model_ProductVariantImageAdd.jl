@@ -16,6 +16,7 @@
         mime=nothing,
         position=0,
         option_id=nothing,
+        idempotency_key=nothing,
     )
 
     - product_id::String : Defines product id where the variant image has to be added
@@ -29,6 +30,7 @@
     - mime::String : Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.
     - position::Int64 : Defines image’s position in the list
     - option_id::String : Defines option id of the product variant for which the image will be added
+    - idempotency_key::String : A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
 """
 Base.@kwdef mutable struct ProductVariantImageAdd <: OpenAPI.APIModel
     product_id::Union{Nothing, String} = nothing
@@ -42,8 +44,9 @@ Base.@kwdef mutable struct ProductVariantImageAdd <: OpenAPI.APIModel
     mime::Union{Nothing, String} = nothing
     position::Union{Nothing, Int64} = 0
     option_id::Union{Nothing, String} = nothing
+    idempotency_key::Union{Nothing, String} = nothing
 
-    function ProductVariantImageAdd(product_id, product_variant_id, store_id, image_name, type, url, content, label, mime, position, option_id, )
+    function ProductVariantImageAdd(product_id, product_variant_id, store_id, image_name, type, url, content, label, mime, position, option_id, idempotency_key, )
         OpenAPI.validate_property(ProductVariantImageAdd, Symbol("product_id"), product_id)
         OpenAPI.validate_property(ProductVariantImageAdd, Symbol("product_variant_id"), product_variant_id)
         OpenAPI.validate_property(ProductVariantImageAdd, Symbol("store_id"), store_id)
@@ -55,11 +58,12 @@ Base.@kwdef mutable struct ProductVariantImageAdd <: OpenAPI.APIModel
         OpenAPI.validate_property(ProductVariantImageAdd, Symbol("mime"), mime)
         OpenAPI.validate_property(ProductVariantImageAdd, Symbol("position"), position)
         OpenAPI.validate_property(ProductVariantImageAdd, Symbol("option_id"), option_id)
-        return new(product_id, product_variant_id, store_id, image_name, type, url, content, label, mime, position, option_id, )
+        OpenAPI.validate_property(ProductVariantImageAdd, Symbol("idempotency_key"), idempotency_key)
+        return new(product_id, product_variant_id, store_id, image_name, type, url, content, label, mime, position, option_id, idempotency_key, )
     end
 end # type ProductVariantImageAdd
 
-const _property_types_ProductVariantImageAdd = Dict{Symbol,String}(Symbol("product_id")=>"String", Symbol("product_variant_id")=>"String", Symbol("store_id")=>"String", Symbol("image_name")=>"String", Symbol("type")=>"String", Symbol("url")=>"String", Symbol("content")=>"String", Symbol("label")=>"String", Symbol("mime")=>"String", Symbol("position")=>"Int64", Symbol("option_id")=>"String", )
+const _property_types_ProductVariantImageAdd = Dict{Symbol,String}(Symbol("product_id")=>"String", Symbol("product_variant_id")=>"String", Symbol("store_id")=>"String", Symbol("image_name")=>"String", Symbol("type")=>"String", Symbol("url")=>"String", Symbol("content")=>"String", Symbol("label")=>"String", Symbol("mime")=>"String", Symbol("position")=>"Int64", Symbol("option_id")=>"String", Symbol("idempotency_key")=>"String", )
 OpenAPI.property_type(::Type{ ProductVariantImageAdd }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_ProductVariantImageAdd[name]))}
 
 function check_required(o::ProductVariantImageAdd)
@@ -78,6 +82,7 @@ function OpenAPI.validate_property(::Type{ ProductVariantImageAdd }, name::Symbo
     if name === Symbol("type")
         OpenAPI.validate_param(name, "ProductVariantImageAdd", :enum, val, ["small", "base", "additional", "thumbnail"])
     end
+
 
 
 

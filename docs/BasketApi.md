@@ -51,8 +51,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **basket_item_add**
-> basket_item_add(_api::BasketApi, customer_id::String, product_id::String; variant_id=nothing, quantity=nothing, store_id=nothing, _mediaType=nothing) -> BasketItemAdd200Response, OpenAPI.Clients.ApiResponse <br/>
-> basket_item_add(_api::BasketApi, response_stream::Channel, customer_id::String, product_id::String; variant_id=nothing, quantity=nothing, store_id=nothing, _mediaType=nothing) -> Channel{ BasketItemAdd200Response }, OpenAPI.Clients.ApiResponse
+> basket_item_add(_api::BasketApi, customer_id::String, product_id::String; variant_id=nothing, quantity=nothing, store_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> BasketItemAdd200Response, OpenAPI.Clients.ApiResponse <br/>
+> basket_item_add(_api::BasketApi, response_stream::Channel, customer_id::String, product_id::String; variant_id=nothing, quantity=nothing, store_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ BasketItemAdd200Response }, OpenAPI.Clients.ApiResponse
 
 basket.item.add
 
@@ -73,6 +73,7 @@ Name | Type | Description  | Notes
  **variant_id** | **String** | Defines product&#39;s variants specified by variant id | [default to nothing]
  **quantity** | **Float64** | Defines new items quantity | [default to 0]
  **store_id** | **String** | Store Id | [default to nothing]
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 
@@ -90,8 +91,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **basket_live_shipping_service_create**
-> basket_live_shipping_service_create(_api::BasketApi, name::String, callback::String; store_id=nothing, _mediaType=nothing) -> BasketLiveShippingServiceCreate200Response, OpenAPI.Clients.ApiResponse <br/>
-> basket_live_shipping_service_create(_api::BasketApi, response_stream::Channel, name::String, callback::String; store_id=nothing, _mediaType=nothing) -> Channel{ BasketLiveShippingServiceCreate200Response }, OpenAPI.Clients.ApiResponse
+> basket_live_shipping_service_create(_api::BasketApi, name::String, callback::String; store_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> BasketLiveShippingServiceCreate200Response, OpenAPI.Clients.ApiResponse <br/>
+> basket_live_shipping_service_create(_api::BasketApi, response_stream::Channel, name::String, callback::String; store_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ BasketLiveShippingServiceCreate200Response }, OpenAPI.Clients.ApiResponse
 
 basket.live_shipping_service.create
 
@@ -110,6 +111,7 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **store_id** | **String** | Store Id | [default to nothing]
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 

@@ -28,6 +28,7 @@
         note=nothing,
         country=nothing,
         store_id=nothing,
+        idempotency_key=nothing,
         address=nothing,
     )
 
@@ -54,6 +55,7 @@
     - note::String : The customer note.
     - country::String : Specifies ISO code or name of country
     - store_id::String : Store Id
+    - idempotency_key::String : A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
     - address::Vector{CustomerAddAddressInner}
 """
 Base.@kwdef mutable struct CustomerAdd <: OpenAPI.APIModel
@@ -80,9 +82,10 @@ Base.@kwdef mutable struct CustomerAdd <: OpenAPI.APIModel
     note::Union{Nothing, String} = nothing
     country::Union{Nothing, String} = nothing
     store_id::Union{Nothing, String} = nothing
+    idempotency_key::Union{Nothing, String} = nothing
     address::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{CustomerAddAddressInner} }
 
-    function CustomerAdd(email, first_name, last_name, password, group, group_id, group_ids, status, created_time, modified_time, login, last_login, birth_day, news_letter_subscription, consents, gender, website, fax, company, phone, note, country, store_id, address, )
+    function CustomerAdd(email, first_name, last_name, password, group, group_id, group_ids, status, created_time, modified_time, login, last_login, birth_day, news_letter_subscription, consents, gender, website, fax, company, phone, note, country, store_id, idempotency_key, address, )
         OpenAPI.validate_property(CustomerAdd, Symbol("email"), email)
         OpenAPI.validate_property(CustomerAdd, Symbol("first_name"), first_name)
         OpenAPI.validate_property(CustomerAdd, Symbol("last_name"), last_name)
@@ -106,12 +109,13 @@ Base.@kwdef mutable struct CustomerAdd <: OpenAPI.APIModel
         OpenAPI.validate_property(CustomerAdd, Symbol("note"), note)
         OpenAPI.validate_property(CustomerAdd, Symbol("country"), country)
         OpenAPI.validate_property(CustomerAdd, Symbol("store_id"), store_id)
+        OpenAPI.validate_property(CustomerAdd, Symbol("idempotency_key"), idempotency_key)
         OpenAPI.validate_property(CustomerAdd, Symbol("address"), address)
-        return new(email, first_name, last_name, password, group, group_id, group_ids, status, created_time, modified_time, login, last_login, birth_day, news_letter_subscription, consents, gender, website, fax, company, phone, note, country, store_id, address, )
+        return new(email, first_name, last_name, password, group, group_id, group_ids, status, created_time, modified_time, login, last_login, birth_day, news_letter_subscription, consents, gender, website, fax, company, phone, note, country, store_id, idempotency_key, address, )
     end
 end # type CustomerAdd
 
-const _property_types_CustomerAdd = Dict{Symbol,String}(Symbol("email")=>"String", Symbol("first_name")=>"String", Symbol("last_name")=>"String", Symbol("password")=>"String", Symbol("group")=>"String", Symbol("group_id")=>"String", Symbol("group_ids")=>"String", Symbol("status")=>"String", Symbol("created_time")=>"String", Symbol("modified_time")=>"String", Symbol("login")=>"String", Symbol("last_login")=>"String", Symbol("birth_day")=>"String", Symbol("news_letter_subscription")=>"Bool", Symbol("consents")=>"Vector{CustomerAddConsentsInner}", Symbol("gender")=>"String", Symbol("website")=>"String", Symbol("fax")=>"String", Symbol("company")=>"String", Symbol("phone")=>"String", Symbol("note")=>"String", Symbol("country")=>"String", Symbol("store_id")=>"String", Symbol("address")=>"Vector{CustomerAddAddressInner}", )
+const _property_types_CustomerAdd = Dict{Symbol,String}(Symbol("email")=>"String", Symbol("first_name")=>"String", Symbol("last_name")=>"String", Symbol("password")=>"String", Symbol("group")=>"String", Symbol("group_id")=>"String", Symbol("group_ids")=>"String", Symbol("status")=>"String", Symbol("created_time")=>"String", Symbol("modified_time")=>"String", Symbol("login")=>"String", Symbol("last_login")=>"String", Symbol("birth_day")=>"String", Symbol("news_letter_subscription")=>"Bool", Symbol("consents")=>"Vector{CustomerAddConsentsInner}", Symbol("gender")=>"String", Symbol("website")=>"String", Symbol("fax")=>"String", Symbol("company")=>"String", Symbol("phone")=>"String", Symbol("note")=>"String", Symbol("country")=>"String", Symbol("store_id")=>"String", Symbol("idempotency_key")=>"String", Symbol("address")=>"Vector{CustomerAddAddressInner}", )
 OpenAPI.property_type(::Type{ CustomerAdd }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_CustomerAdd[name]))}
 
 function check_required(o::CustomerAdd)
@@ -138,6 +142,7 @@ function OpenAPI.validate_property(::Type{ CustomerAdd }, name::Symbol, val)
     if name === Symbol("consents")
         OpenAPI.validate_param(name, "CustomerAdd", :minItems, val, 1)
     end
+
 
 
 

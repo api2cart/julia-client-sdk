@@ -905,7 +905,7 @@ const _returntypes_order_update_OrderApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => AccountConfigUpdate200Response,
 )
 
-function _oacinternal_order_update(_api::OrderApi, order_id::String; store_id=nothing, order_status=nothing, financial_status=nothing, fulfillment_status=nothing, cancellation_reason=nothing, order_payment_method=nothing, comment=nothing, admin_comment=nothing, admin_private_comment=nothing, invoice_admin_comment=nothing, date_modified=nothing, date_finished=nothing, send_notifications=nothing, create_invoice=nothing, origin=nothing, tags=nothing, _mediaType=nothing)
+function _oacinternal_order_update(_api::OrderApi, order_id::String; store_id=nothing, order_status=nothing, financial_status=nothing, fulfillment_status=nothing, cancellation_reason=nothing, order_payment_method=nothing, comment=nothing, admin_comment=nothing, admin_private_comment=nothing, invoice_admin_comment=nothing, date_modified=nothing, date_finished=nothing, send_notifications=nothing, create_invoice=nothing, origin=nothing, tags=nothing, idempotency_key=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "PUT", _returntypes_order_update_OrderApi, "/order.update.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "order_id", order_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
@@ -924,6 +924,7 @@ function _oacinternal_order_update(_api::OrderApi, order_id::String; store_id=no
     OpenAPI.Clients.set_param(_ctx.query, "create_invoice", create_invoice; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_param(_ctx.query, "origin", origin; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "tags", tags; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -951,16 +952,17 @@ Params:
 - create_invoice::Bool
 - origin::String
 - tags::String
+- idempotency_key::String
 
 Return: AccountConfigUpdate200Response, OpenAPI.Clients.ApiResponse
 """
-function order_update(_api::OrderApi, order_id::String; store_id=nothing, order_status=nothing, financial_status=nothing, fulfillment_status=nothing, cancellation_reason=nothing, order_payment_method=nothing, comment=nothing, admin_comment=nothing, admin_private_comment=nothing, invoice_admin_comment=nothing, date_modified=nothing, date_finished=nothing, send_notifications=nothing, create_invoice=nothing, origin=nothing, tags=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_update(_api, order_id; store_id=store_id, order_status=order_status, financial_status=financial_status, fulfillment_status=fulfillment_status, cancellation_reason=cancellation_reason, order_payment_method=order_payment_method, comment=comment, admin_comment=admin_comment, admin_private_comment=admin_private_comment, invoice_admin_comment=invoice_admin_comment, date_modified=date_modified, date_finished=date_finished, send_notifications=send_notifications, create_invoice=create_invoice, origin=origin, tags=tags, _mediaType=_mediaType)
+function order_update(_api::OrderApi, order_id::String; store_id=nothing, order_status=nothing, financial_status=nothing, fulfillment_status=nothing, cancellation_reason=nothing, order_payment_method=nothing, comment=nothing, admin_comment=nothing, admin_private_comment=nothing, invoice_admin_comment=nothing, date_modified=nothing, date_finished=nothing, send_notifications=nothing, create_invoice=nothing, origin=nothing, tags=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_update(_api, order_id; store_id=store_id, order_status=order_status, financial_status=financial_status, fulfillment_status=fulfillment_status, cancellation_reason=cancellation_reason, order_payment_method=order_payment_method, comment=comment, admin_comment=admin_comment, admin_private_comment=admin_private_comment, invoice_admin_comment=invoice_admin_comment, date_modified=date_modified, date_finished=date_finished, send_notifications=send_notifications, create_invoice=create_invoice, origin=origin, tags=tags, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function order_update(_api::OrderApi, response_stream::Channel, order_id::String; store_id=nothing, order_status=nothing, financial_status=nothing, fulfillment_status=nothing, cancellation_reason=nothing, order_payment_method=nothing, comment=nothing, admin_comment=nothing, admin_private_comment=nothing, invoice_admin_comment=nothing, date_modified=nothing, date_finished=nothing, send_notifications=nothing, create_invoice=nothing, origin=nothing, tags=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_update(_api, order_id; store_id=store_id, order_status=order_status, financial_status=financial_status, fulfillment_status=fulfillment_status, cancellation_reason=cancellation_reason, order_payment_method=order_payment_method, comment=comment, admin_comment=admin_comment, admin_private_comment=admin_private_comment, invoice_admin_comment=invoice_admin_comment, date_modified=date_modified, date_finished=date_finished, send_notifications=send_notifications, create_invoice=create_invoice, origin=origin, tags=tags, _mediaType=_mediaType)
+function order_update(_api::OrderApi, response_stream::Channel, order_id::String; store_id=nothing, order_status=nothing, financial_status=nothing, fulfillment_status=nothing, cancellation_reason=nothing, order_payment_method=nothing, comment=nothing, admin_comment=nothing, admin_private_comment=nothing, invoice_admin_comment=nothing, date_modified=nothing, date_finished=nothing, send_notifications=nothing, create_invoice=nothing, origin=nothing, tags=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_update(_api, order_id; store_id=store_id, order_status=order_status, financial_status=financial_status, fulfillment_status=fulfillment_status, cancellation_reason=cancellation_reason, order_payment_method=order_payment_method, comment=comment, admin_comment=admin_comment, admin_private_comment=admin_private_comment, invoice_admin_comment=invoice_admin_comment, date_modified=date_modified, date_finished=date_finished, send_notifications=send_notifications, create_invoice=create_invoice, origin=origin, tags=tags, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 

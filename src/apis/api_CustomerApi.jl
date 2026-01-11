@@ -175,9 +175,10 @@ const _returntypes_customer_delete_CustomerApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => CustomerDelete200Response,
 )
 
-function _oacinternal_customer_delete(_api::CustomerApi, id::String; _mediaType=nothing)
+function _oacinternal_customer_delete(_api::CustomerApi, id::String; store_id=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "DELETE", _returntypes_customer_delete_CustomerApi, "/customer.delete.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "id", id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -189,16 +190,17 @@ Delete customer from store.
 
 Params:
 - id::String (required)
+- store_id::String
 
 Return: CustomerDelete200Response, OpenAPI.Clients.ApiResponse
 """
-function customer_delete(_api::CustomerApi, id::String; _mediaType=nothing)
-    _ctx = _oacinternal_customer_delete(_api, id; _mediaType=_mediaType)
+function customer_delete(_api::CustomerApi, id::String; store_id=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_customer_delete(_api, id; store_id=store_id, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function customer_delete(_api::CustomerApi, response_stream::Channel, id::String; _mediaType=nothing)
-    _ctx = _oacinternal_customer_delete(_api, id; _mediaType=_mediaType)
+function customer_delete(_api::CustomerApi, response_stream::Channel, id::String; store_id=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_customer_delete(_api, id; store_id=store_id, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -245,11 +247,12 @@ const _returntypes_customer_group_add_CustomerApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => CustomerGroupAdd200Response,
 )
 
-function _oacinternal_customer_group_add(_api::CustomerApi, name::String; store_id=nothing, stores_ids=nothing, _mediaType=nothing)
+function _oacinternal_customer_group_add(_api::CustomerApi, name::String; store_id=nothing, stores_ids=nothing, idempotency_key=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_customer_group_add_CustomerApi, "/customer.group.add.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "name", name; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "stores_ids", stores_ids; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -263,16 +266,17 @@ Params:
 - name::String (required)
 - store_id::String
 - stores_ids::String
+- idempotency_key::String
 
 Return: CustomerGroupAdd200Response, OpenAPI.Clients.ApiResponse
 """
-function customer_group_add(_api::CustomerApi, name::String; store_id=nothing, stores_ids=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_customer_group_add(_api, name; store_id=store_id, stores_ids=stores_ids, _mediaType=_mediaType)
+function customer_group_add(_api::CustomerApi, name::String; store_id=nothing, stores_ids=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_customer_group_add(_api, name; store_id=store_id, stores_ids=stores_ids, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function customer_group_add(_api::CustomerApi, response_stream::Channel, name::String; store_id=nothing, stores_ids=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_customer_group_add(_api, name; store_id=store_id, stores_ids=stores_ids, _mediaType=_mediaType)
+function customer_group_add(_api::CustomerApi, response_stream::Channel, name::String; store_id=nothing, stores_ids=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_customer_group_add(_api, name; store_id=store_id, stores_ids=stores_ids, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 

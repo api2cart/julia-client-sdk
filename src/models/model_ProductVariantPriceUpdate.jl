@@ -8,26 +8,30 @@
         id=nothing,
         product_id=nothing,
         group_prices=nothing,
+        idempotency_key=nothing,
     )
 
     - id::String : Defines the variant where the price has to be updated
     - product_id::String : Product id
     - group_prices::Vector{ProductPriceUpdateGroupPricesInner} : Defines variants&#39;s group prices
+    - idempotency_key::String : A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
 """
 Base.@kwdef mutable struct ProductVariantPriceUpdate <: OpenAPI.APIModel
     id::Union{Nothing, String} = nothing
     product_id::Union{Nothing, String} = nothing
     group_prices::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ProductPriceUpdateGroupPricesInner} }
+    idempotency_key::Union{Nothing, String} = nothing
 
-    function ProductVariantPriceUpdate(id, product_id, group_prices, )
+    function ProductVariantPriceUpdate(id, product_id, group_prices, idempotency_key, )
         OpenAPI.validate_property(ProductVariantPriceUpdate, Symbol("id"), id)
         OpenAPI.validate_property(ProductVariantPriceUpdate, Symbol("product_id"), product_id)
         OpenAPI.validate_property(ProductVariantPriceUpdate, Symbol("group_prices"), group_prices)
-        return new(id, product_id, group_prices, )
+        OpenAPI.validate_property(ProductVariantPriceUpdate, Symbol("idempotency_key"), idempotency_key)
+        return new(id, product_id, group_prices, idempotency_key, )
     end
 end # type ProductVariantPriceUpdate
 
-const _property_types_ProductVariantPriceUpdate = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("product_id")=>"String", Symbol("group_prices")=>"Vector{ProductPriceUpdateGroupPricesInner}", )
+const _property_types_ProductVariantPriceUpdate = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("product_id")=>"String", Symbol("group_prices")=>"Vector{ProductPriceUpdateGroupPricesInner}", Symbol("idempotency_key")=>"String", )
 OpenAPI.property_type(::Type{ ProductVariantPriceUpdate }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_ProductVariantPriceUpdate[name]))}
 
 function check_required(o::ProductVariantPriceUpdate)
@@ -36,6 +40,7 @@ function check_required(o::ProductVariantPriceUpdate)
 end
 
 function OpenAPI.validate_property(::Type{ ProductVariantPriceUpdate }, name::Symbol, val)
+
 
 
 

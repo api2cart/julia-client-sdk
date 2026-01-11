@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **shipp_country** | **String** | Specifies shipping country code | [default to nothing]
 **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to "force_all"]
 **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to nothing]
+**idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] [default to nothing]
 **order_item** | [**Vector{OrderPreestimateShippingListOrderItemInner}**](OrderPreestimateShippingListOrderItemInner.md) |  | [default to nothing]
 
 

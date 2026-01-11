@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **send_notifications** | **Bool** | Send notifications to customer after order was created | [optional] [default to false]
 **tracking_provider** | **String** | Defines name of the company which provides shipment tracking | [optional] [default to nothing]
 **items** | [**Vector{OrderShipmentAddItemsInner}**](OrderShipmentAddItemsInner.md) | Defines items in the order that will be shipped | [optional] [default to nothing]
+**idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] [default to nothing]
 
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)

@@ -16,6 +16,7 @@
         shipp_country=nothing,
         params="force_all",
         exclude=nothing,
+        idempotency_key=nothing,
         order_item=nothing,
     )
 
@@ -30,6 +31,7 @@
     - shipp_country::String : Specifies shipping country code
     - params::String : Set this parameter in order to choose which entity fields you want to retrieve
     - exclude::String : Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+    - idempotency_key::String : A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
     - order_item::Vector{OrderPreestimateShippingListOrderItemInner}
 """
 Base.@kwdef mutable struct OrderPreestimateShippingList <: OpenAPI.APIModel
@@ -44,9 +46,10 @@ Base.@kwdef mutable struct OrderPreestimateShippingList <: OpenAPI.APIModel
     shipp_country::Union{Nothing, String} = nothing
     params::Union{Nothing, String} = "force_all"
     exclude::Union{Nothing, String} = nothing
+    idempotency_key::Union{Nothing, String} = nothing
     order_item::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{OrderPreestimateShippingListOrderItemInner} }
 
-    function OrderPreestimateShippingList(warehouse_id, customer_id, customer_email, store_id, shipp_address_1, shipp_city, shipp_postcode, shipp_state, shipp_country, params, exclude, order_item, )
+    function OrderPreestimateShippingList(warehouse_id, customer_id, customer_email, store_id, shipp_address_1, shipp_city, shipp_postcode, shipp_state, shipp_country, params, exclude, idempotency_key, order_item, )
         OpenAPI.validate_property(OrderPreestimateShippingList, Symbol("warehouse_id"), warehouse_id)
         OpenAPI.validate_property(OrderPreestimateShippingList, Symbol("customer_id"), customer_id)
         OpenAPI.validate_property(OrderPreestimateShippingList, Symbol("customer_email"), customer_email)
@@ -58,12 +61,13 @@ Base.@kwdef mutable struct OrderPreestimateShippingList <: OpenAPI.APIModel
         OpenAPI.validate_property(OrderPreestimateShippingList, Symbol("shipp_country"), shipp_country)
         OpenAPI.validate_property(OrderPreestimateShippingList, Symbol("params"), params)
         OpenAPI.validate_property(OrderPreestimateShippingList, Symbol("exclude"), exclude)
+        OpenAPI.validate_property(OrderPreestimateShippingList, Symbol("idempotency_key"), idempotency_key)
         OpenAPI.validate_property(OrderPreestimateShippingList, Symbol("order_item"), order_item)
-        return new(warehouse_id, customer_id, customer_email, store_id, shipp_address_1, shipp_city, shipp_postcode, shipp_state, shipp_country, params, exclude, order_item, )
+        return new(warehouse_id, customer_id, customer_email, store_id, shipp_address_1, shipp_city, shipp_postcode, shipp_state, shipp_country, params, exclude, idempotency_key, order_item, )
     end
 end # type OrderPreestimateShippingList
 
-const _property_types_OrderPreestimateShippingList = Dict{Symbol,String}(Symbol("warehouse_id")=>"String", Symbol("customer_id")=>"String", Symbol("customer_email")=>"String", Symbol("store_id")=>"String", Symbol("shipp_address_1")=>"String", Symbol("shipp_city")=>"String", Symbol("shipp_postcode")=>"String", Symbol("shipp_state")=>"String", Symbol("shipp_country")=>"String", Symbol("params")=>"String", Symbol("exclude")=>"String", Symbol("order_item")=>"Vector{OrderPreestimateShippingListOrderItemInner}", )
+const _property_types_OrderPreestimateShippingList = Dict{Symbol,String}(Symbol("warehouse_id")=>"String", Symbol("customer_id")=>"String", Symbol("customer_email")=>"String", Symbol("store_id")=>"String", Symbol("shipp_address_1")=>"String", Symbol("shipp_city")=>"String", Symbol("shipp_postcode")=>"String", Symbol("shipp_state")=>"String", Symbol("shipp_country")=>"String", Symbol("params")=>"String", Symbol("exclude")=>"String", Symbol("idempotency_key")=>"String", Symbol("order_item")=>"Vector{OrderPreestimateShippingListOrderItemInner}", )
 OpenAPI.property_type(::Type{ OrderPreestimateShippingList }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_OrderPreestimateShippingList[name]))}
 
 function check_required(o::OrderPreestimateShippingList)
@@ -73,6 +77,7 @@ function check_required(o::OrderPreestimateShippingList)
 end
 
 function OpenAPI.validate_property(::Type{ OrderPreestimateShippingList }, name::Symbol, val)
+
 
 
 

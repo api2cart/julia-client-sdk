@@ -14,6 +14,7 @@
         comment=nothing,
         send_notifications=false,
         reject_reason=nothing,
+        idempotency_key=nothing,
         order_products=nothing,
     )
 
@@ -26,6 +27,7 @@
     - comment::String : Specifies return comment
     - send_notifications::Bool : Send notifications to customer after order was created
     - reject_reason::String : Defines return reject reason
+    - idempotency_key::String : A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
     - order_products::Vector{OrderReturnUpdateOrderProductsInner}
 """
 Base.@kwdef mutable struct OrderReturnUpdate <: OpenAPI.APIModel
@@ -38,9 +40,10 @@ Base.@kwdef mutable struct OrderReturnUpdate <: OpenAPI.APIModel
     comment::Union{Nothing, String} = nothing
     send_notifications::Union{Nothing, Bool} = false
     reject_reason::Union{Nothing, String} = nothing
+    idempotency_key::Union{Nothing, String} = nothing
     order_products::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{OrderReturnUpdateOrderProductsInner} }
 
-    function OrderReturnUpdate(return_id, order_id, store_id, item_restock, return_status_id, staff_note, comment, send_notifications, reject_reason, order_products, )
+    function OrderReturnUpdate(return_id, order_id, store_id, item_restock, return_status_id, staff_note, comment, send_notifications, reject_reason, idempotency_key, order_products, )
         OpenAPI.validate_property(OrderReturnUpdate, Symbol("return_id"), return_id)
         OpenAPI.validate_property(OrderReturnUpdate, Symbol("order_id"), order_id)
         OpenAPI.validate_property(OrderReturnUpdate, Symbol("store_id"), store_id)
@@ -50,12 +53,13 @@ Base.@kwdef mutable struct OrderReturnUpdate <: OpenAPI.APIModel
         OpenAPI.validate_property(OrderReturnUpdate, Symbol("comment"), comment)
         OpenAPI.validate_property(OrderReturnUpdate, Symbol("send_notifications"), send_notifications)
         OpenAPI.validate_property(OrderReturnUpdate, Symbol("reject_reason"), reject_reason)
+        OpenAPI.validate_property(OrderReturnUpdate, Symbol("idempotency_key"), idempotency_key)
         OpenAPI.validate_property(OrderReturnUpdate, Symbol("order_products"), order_products)
-        return new(return_id, order_id, store_id, item_restock, return_status_id, staff_note, comment, send_notifications, reject_reason, order_products, )
+        return new(return_id, order_id, store_id, item_restock, return_status_id, staff_note, comment, send_notifications, reject_reason, idempotency_key, order_products, )
     end
 end # type OrderReturnUpdate
 
-const _property_types_OrderReturnUpdate = Dict{Symbol,String}(Symbol("return_id")=>"String", Symbol("order_id")=>"String", Symbol("store_id")=>"String", Symbol("item_restock")=>"Bool", Symbol("return_status_id")=>"String", Symbol("staff_note")=>"String", Symbol("comment")=>"String", Symbol("send_notifications")=>"Bool", Symbol("reject_reason")=>"String", Symbol("order_products")=>"Vector{OrderReturnUpdateOrderProductsInner}", )
+const _property_types_OrderReturnUpdate = Dict{Symbol,String}(Symbol("return_id")=>"String", Symbol("order_id")=>"String", Symbol("store_id")=>"String", Symbol("item_restock")=>"Bool", Symbol("return_status_id")=>"String", Symbol("staff_note")=>"String", Symbol("comment")=>"String", Symbol("send_notifications")=>"Bool", Symbol("reject_reason")=>"String", Symbol("idempotency_key")=>"String", Symbol("order_products")=>"Vector{OrderReturnUpdateOrderProductsInner}", )
 OpenAPI.property_type(::Type{ OrderReturnUpdate }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_OrderReturnUpdate[name]))}
 
 function check_required(o::OrderReturnUpdate)
@@ -65,6 +69,7 @@ function check_required(o::OrderReturnUpdate)
 end
 
 function OpenAPI.validate_property(::Type{ OrderReturnUpdate }, name::Symbol, val)
+
 
 
 

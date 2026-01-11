@@ -26,6 +26,7 @@
         gender=nothing,
         tax_id=nothing,
         alias=nothing,
+        idempotency_key=nothing,
     )
 
     - customer_id::String : Defines customer id
@@ -49,6 +50,7 @@
     - gender::String : Defines customer&#39;s address gender
     - tax_id::String : Add Tax Id
     - alias::String : Specifies customer&#39;s alias in the address book
+    - idempotency_key::String : A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
 """
 Base.@kwdef mutable struct CustomerAddressAdd <: OpenAPI.APIModel
     customer_id::Union{Nothing, String} = nothing
@@ -72,8 +74,9 @@ Base.@kwdef mutable struct CustomerAddressAdd <: OpenAPI.APIModel
     gender::Union{Nothing, String} = nothing
     tax_id::Union{Nothing, String} = nothing
     alias::Union{Nothing, String} = nothing
+    idempotency_key::Union{Nothing, String} = nothing
 
-    function CustomerAddressAdd(customer_id, store_id, first_name, last_name, company, address1, address2, city, country, state, postcode, identification_number, types, default, phone, phone_mobile, fax, website, gender, tax_id, alias, )
+    function CustomerAddressAdd(customer_id, store_id, first_name, last_name, company, address1, address2, city, country, state, postcode, identification_number, types, default, phone, phone_mobile, fax, website, gender, tax_id, alias, idempotency_key, )
         OpenAPI.validate_property(CustomerAddressAdd, Symbol("customer_id"), customer_id)
         OpenAPI.validate_property(CustomerAddressAdd, Symbol("store_id"), store_id)
         OpenAPI.validate_property(CustomerAddressAdd, Symbol("first_name"), first_name)
@@ -95,11 +98,12 @@ Base.@kwdef mutable struct CustomerAddressAdd <: OpenAPI.APIModel
         OpenAPI.validate_property(CustomerAddressAdd, Symbol("gender"), gender)
         OpenAPI.validate_property(CustomerAddressAdd, Symbol("tax_id"), tax_id)
         OpenAPI.validate_property(CustomerAddressAdd, Symbol("alias"), alias)
-        return new(customer_id, store_id, first_name, last_name, company, address1, address2, city, country, state, postcode, identification_number, types, default, phone, phone_mobile, fax, website, gender, tax_id, alias, )
+        OpenAPI.validate_property(CustomerAddressAdd, Symbol("idempotency_key"), idempotency_key)
+        return new(customer_id, store_id, first_name, last_name, company, address1, address2, city, country, state, postcode, identification_number, types, default, phone, phone_mobile, fax, website, gender, tax_id, alias, idempotency_key, )
     end
 end # type CustomerAddressAdd
 
-const _property_types_CustomerAddressAdd = Dict{Symbol,String}(Symbol("customer_id")=>"String", Symbol("store_id")=>"String", Symbol("first_name")=>"String", Symbol("last_name")=>"String", Symbol("company")=>"String", Symbol("address1")=>"String", Symbol("address2")=>"String", Symbol("city")=>"String", Symbol("country")=>"String", Symbol("state")=>"String", Symbol("postcode")=>"String", Symbol("identification_number")=>"String", Symbol("types")=>"Vector{String}", Symbol("default")=>"Bool", Symbol("phone")=>"String", Symbol("phone_mobile")=>"String", Symbol("fax")=>"String", Symbol("website")=>"String", Symbol("gender")=>"String", Symbol("tax_id")=>"String", Symbol("alias")=>"String", )
+const _property_types_CustomerAddressAdd = Dict{Symbol,String}(Symbol("customer_id")=>"String", Symbol("store_id")=>"String", Symbol("first_name")=>"String", Symbol("last_name")=>"String", Symbol("company")=>"String", Symbol("address1")=>"String", Symbol("address2")=>"String", Symbol("city")=>"String", Symbol("country")=>"String", Symbol("state")=>"String", Symbol("postcode")=>"String", Symbol("identification_number")=>"String", Symbol("types")=>"Vector{String}", Symbol("default")=>"Bool", Symbol("phone")=>"String", Symbol("phone_mobile")=>"String", Symbol("fax")=>"String", Symbol("website")=>"String", Symbol("gender")=>"String", Symbol("tax_id")=>"String", Symbol("alias")=>"String", Symbol("idempotency_key")=>"String", )
 OpenAPI.property_type(::Type{ CustomerAddressAdd }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_CustomerAddressAdd[name]))}
 
 function check_required(o::CustomerAddressAdd)
@@ -112,6 +116,7 @@ function check_required(o::CustomerAddressAdd)
 end
 
 function OpenAPI.validate_property(::Type{ CustomerAddressAdd }, name::Symbol, val)
+
 
 
 

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**category_assign**](CategoryApi.md#category_assign) | **POST** /category.assign.json | category.assign
 [**category_count**](CategoryApi.md#category_count) | **GET** /category.count.json | category.count
 [**category_delete**](CategoryApi.md#category_delete) | **DELETE** /category.delete.json | category.delete
+[**category_delete_batch**](CategoryApi.md#category_delete_batch) | **POST** /category.delete.batch.json | category.delete.batch
 [**category_find**](CategoryApi.md#category_find) | **GET** /category.find.json | category.find
 [**category_image_add**](CategoryApi.md#category_image_add) | **POST** /category.image.add.json | category.image.add
 [**category_image_delete**](CategoryApi.md#category_image_delete) | **DELETE** /category.image.delete.json | category.image.delete
@@ -19,8 +20,8 @@ Method | HTTP request | Description
 
 
 # **category_add**
-> category_add(_api::CategoryApi, name::String; description=nothing, short_description=nothing, parent_id=nothing, avail=nothing, created_time=nothing, modified_time=nothing, sort_order=nothing, meta_title=nothing, meta_description=nothing, meta_keywords=nothing, seo_url=nothing, store_id=nothing, stores_ids=nothing, lang_id=nothing, _mediaType=nothing) -> CategoryAdd200Response, OpenAPI.Clients.ApiResponse <br/>
-> category_add(_api::CategoryApi, response_stream::Channel, name::String; description=nothing, short_description=nothing, parent_id=nothing, avail=nothing, created_time=nothing, modified_time=nothing, sort_order=nothing, meta_title=nothing, meta_description=nothing, meta_keywords=nothing, seo_url=nothing, store_id=nothing, stores_ids=nothing, lang_id=nothing, _mediaType=nothing) -> Channel{ CategoryAdd200Response }, OpenAPI.Clients.ApiResponse
+> category_add(_api::CategoryApi, name::String; description=nothing, short_description=nothing, parent_id=nothing, avail=nothing, created_time=nothing, modified_time=nothing, sort_order=nothing, meta_title=nothing, meta_description=nothing, meta_keywords=nothing, seo_url=nothing, store_id=nothing, stores_ids=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> CategoryAdd200Response, OpenAPI.Clients.ApiResponse <br/>
+> category_add(_api::CategoryApi, response_stream::Channel, name::String; description=nothing, short_description=nothing, parent_id=nothing, avail=nothing, created_time=nothing, modified_time=nothing, sort_order=nothing, meta_title=nothing, meta_description=nothing, meta_keywords=nothing, seo_url=nothing, store_id=nothing, stores_ids=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ CategoryAdd200Response }, OpenAPI.Clients.ApiResponse
 
 category.add
 
@@ -51,6 +52,7 @@ Name | Type | Description  | Notes
  **store_id** | **String** | Store Id | [default to nothing]
  **stores_ids** | **String** | Create category in the stores that is specified by comma-separated stores&#39; id | [default to nothing]
  **lang_id** | **String** | Language id | [default to nothing]
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 
@@ -98,8 +100,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **category_assign**
-> category_assign(_api::CategoryApi, category_id::String, product_id::String; store_id=nothing, _mediaType=nothing) -> CategoryAssign200Response, OpenAPI.Clients.ApiResponse <br/>
-> category_assign(_api::CategoryApi, response_stream::Channel, category_id::String, product_id::String; store_id=nothing, _mediaType=nothing) -> Channel{ CategoryAssign200Response }, OpenAPI.Clients.ApiResponse
+> category_assign(_api::CategoryApi, category_id::String, product_id::String; store_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> CategoryAssign200Response, OpenAPI.Clients.ApiResponse <br/>
+> category_assign(_api::CategoryApi, response_stream::Channel, category_id::String, product_id::String; store_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ CategoryAssign200Response }, OpenAPI.Clients.ApiResponse
 
 category.assign
 
@@ -118,6 +120,7 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **store_id** | **String** | Store Id | [default to nothing]
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 
@@ -217,6 +220,36 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
+# **category_delete_batch**
+> category_delete_batch(_api::CategoryApi, category_delete_batch_param::CategoryDeleteBatch; _mediaType=nothing) -> CategoryAddBatch200Response, OpenAPI.Clients.ApiResponse <br/>
+> category_delete_batch(_api::CategoryApi, response_stream::Channel, category_delete_batch_param::CategoryDeleteBatch; _mediaType=nothing) -> Channel{ CategoryAddBatch200Response }, OpenAPI.Clients.ApiResponse
+
+category.delete.batch
+
+Delete categories from the store.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **_api** | **CategoryApi** | API context | 
+**category_delete_batch_param** | [**CategoryDeleteBatch**](CategoryDeleteBatch.md) |  |
+
+### Return type
+
+[**CategoryAddBatch200Response**](CategoryAddBatch200Response.md)
+
+### Authorization
+
+[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
 # **category_find**
 > category_find(_api::CategoryApi, find_value::String; find_where=nothing, find_params=nothing, store_id=nothing, lang_id=nothing, _mediaType=nothing) -> CategoryFind200Response, OpenAPI.Clients.ApiResponse <br/>
 > category_find(_api::CategoryApi, response_stream::Channel, find_value::String; find_where=nothing, find_params=nothing, store_id=nothing, lang_id=nothing, _mediaType=nothing) -> Channel{ CategoryFind200Response }, OpenAPI.Clients.ApiResponse
@@ -257,8 +290,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **category_image_add**
-> category_image_add(_api::CategoryApi, category_id::String, image_name::String, url::String, type::String; store_id=nothing, label=nothing, mime=nothing, position=nothing, _mediaType=nothing) -> CategoryImageAdd200Response, OpenAPI.Clients.ApiResponse <br/>
-> category_image_add(_api::CategoryApi, response_stream::Channel, category_id::String, image_name::String, url::String, type::String; store_id=nothing, label=nothing, mime=nothing, position=nothing, _mediaType=nothing) -> Channel{ CategoryImageAdd200Response }, OpenAPI.Clients.ApiResponse
+> category_image_add(_api::CategoryApi, category_id::String, image_name::String, url::String, type::String; store_id=nothing, label=nothing, mime=nothing, position=nothing, idempotency_key=nothing, _mediaType=nothing) -> CategoryImageAdd200Response, OpenAPI.Clients.ApiResponse <br/>
+> category_image_add(_api::CategoryApi, response_stream::Channel, category_id::String, image_name::String, url::String, type::String; store_id=nothing, label=nothing, mime=nothing, position=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ CategoryImageAdd200Response }, OpenAPI.Clients.ApiResponse
 
 category.image.add
 
@@ -282,6 +315,7 @@ Name | Type | Description  | Notes
  **label** | **String** | Defines alternative text that has to be attached to the picture | [default to nothing]
  **mime** | **String** | Mime type of image http://en.wikipedia.org/wiki/Internet_media_type. | [default to nothing]
  **position** | **Int64** | Defines image’s position in the list | [default to 0]
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 
@@ -433,8 +467,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **category_unassign**
-> category_unassign(_api::CategoryApi, category_id::String, product_id::String; store_id=nothing, _mediaType=nothing) -> CategoryAssign200Response, OpenAPI.Clients.ApiResponse <br/>
-> category_unassign(_api::CategoryApi, response_stream::Channel, category_id::String, product_id::String; store_id=nothing, _mediaType=nothing) -> Channel{ CategoryAssign200Response }, OpenAPI.Clients.ApiResponse
+> category_unassign(_api::CategoryApi, category_id::String, product_id::String; store_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> CategoryAssign200Response, OpenAPI.Clients.ApiResponse <br/>
+> category_unassign(_api::CategoryApi, response_stream::Channel, category_id::String, product_id::String; store_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ CategoryAssign200Response }, OpenAPI.Clients.ApiResponse
 
 category.unassign
 
@@ -453,6 +487,7 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **store_id** | **String** | Store Id | [default to nothing]
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 
@@ -470,8 +505,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **category_update**
-> category_update(_api::CategoryApi, id::String; name=nothing, description=nothing, short_description=nothing, parent_id=nothing, avail=nothing, sort_order=nothing, modified_time=nothing, meta_title=nothing, meta_description=nothing, meta_keywords=nothing, seo_url=nothing, store_id=nothing, stores_ids=nothing, lang_id=nothing, _mediaType=nothing) -> AccountConfigUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
-> category_update(_api::CategoryApi, response_stream::Channel, id::String; name=nothing, description=nothing, short_description=nothing, parent_id=nothing, avail=nothing, sort_order=nothing, modified_time=nothing, meta_title=nothing, meta_description=nothing, meta_keywords=nothing, seo_url=nothing, store_id=nothing, stores_ids=nothing, lang_id=nothing, _mediaType=nothing) -> Channel{ AccountConfigUpdate200Response }, OpenAPI.Clients.ApiResponse
+> category_update(_api::CategoryApi, id::String; name=nothing, description=nothing, short_description=nothing, parent_id=nothing, avail=nothing, sort_order=nothing, modified_time=nothing, meta_title=nothing, meta_description=nothing, meta_keywords=nothing, seo_url=nothing, store_id=nothing, stores_ids=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> AccountConfigUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
+> category_update(_api::CategoryApi, response_stream::Channel, id::String; name=nothing, description=nothing, short_description=nothing, parent_id=nothing, avail=nothing, sort_order=nothing, modified_time=nothing, meta_title=nothing, meta_description=nothing, meta_keywords=nothing, seo_url=nothing, store_id=nothing, stores_ids=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ AccountConfigUpdate200Response }, OpenAPI.Clients.ApiResponse
 
 category.update
 
@@ -502,6 +537,7 @@ Name | Type | Description  | Notes
  **store_id** | **String** | Store Id | [default to nothing]
  **stores_ids** | **String** | Update category in the stores that is specified by comma-separated stores&#39; id | [default to nothing]
  **lang_id** | **String** | Language id | [default to nothing]
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 

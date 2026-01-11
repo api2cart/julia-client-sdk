@@ -6,20 +6,24 @@
 
     OrderShipmentAddBatch(;
         payload=nothing,
+        idempotency_key=nothing,
     )
 
     - payload::Vector{OrderShipmentAddBatchPayloadInner} : Contains an array of order shipment objects. The list of properties may vary depending on the specific platform.
+    - idempotency_key::String : A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
 """
 Base.@kwdef mutable struct OrderShipmentAddBatch <: OpenAPI.APIModel
     payload::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{OrderShipmentAddBatchPayloadInner} }
+    idempotency_key::Union{Nothing, String} = nothing
 
-    function OrderShipmentAddBatch(payload, )
+    function OrderShipmentAddBatch(payload, idempotency_key, )
         OpenAPI.validate_property(OrderShipmentAddBatch, Symbol("payload"), payload)
-        return new(payload, )
+        OpenAPI.validate_property(OrderShipmentAddBatch, Symbol("idempotency_key"), idempotency_key)
+        return new(payload, idempotency_key, )
     end
 end # type OrderShipmentAddBatch
 
-const _property_types_OrderShipmentAddBatch = Dict{Symbol,String}(Symbol("payload")=>"Vector{OrderShipmentAddBatchPayloadInner}", )
+const _property_types_OrderShipmentAddBatch = Dict{Symbol,String}(Symbol("payload")=>"Vector{OrderShipmentAddBatchPayloadInner}", Symbol("idempotency_key")=>"String", )
 OpenAPI.property_type(::Type{ OrderShipmentAddBatch }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_OrderShipmentAddBatch[name]))}
 
 function check_required(o::OrderShipmentAddBatch)
@@ -33,4 +37,5 @@ function OpenAPI.validate_property(::Type{ OrderShipmentAddBatch }, name::Symbol
         OpenAPI.validate_param(name, "OrderShipmentAddBatch", :maxItems, val, 250)
         OpenAPI.validate_param(name, "OrderShipmentAddBatch", :minItems, val, 1)
     end
+
 end

@@ -19,6 +19,7 @@
         mime=nothing,
         position=0,
         use_latest_api_version=false,
+        idempotency_key=nothing,
     )
 
     - type::String : Defines image&#39;s types that are specified by comma-separated list
@@ -35,6 +36,7 @@
     - mime::String : Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.
     - position::Int64 : Defines image’s position in the list
     - use_latest_api_version::Bool : Use the latest platform API version
+    - idempotency_key::String : A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
 """
 Base.@kwdef mutable struct ProductImageAdd <: OpenAPI.APIModel
     type::Union{Nothing, String} = nothing
@@ -51,8 +53,9 @@ Base.@kwdef mutable struct ProductImageAdd <: OpenAPI.APIModel
     mime::Union{Nothing, String} = nothing
     position::Union{Nothing, Int64} = 0
     use_latest_api_version::Union{Nothing, Bool} = false
+    idempotency_key::Union{Nothing, String} = nothing
 
-    function ProductImageAdd(type, image_name, product_id, product_variant_id, variant_ids, option_value_ids, store_id, lang_id, url, content, label, mime, position, use_latest_api_version, )
+    function ProductImageAdd(type, image_name, product_id, product_variant_id, variant_ids, option_value_ids, store_id, lang_id, url, content, label, mime, position, use_latest_api_version, idempotency_key, )
         OpenAPI.validate_property(ProductImageAdd, Symbol("type"), type)
         OpenAPI.validate_property(ProductImageAdd, Symbol("image_name"), image_name)
         OpenAPI.validate_property(ProductImageAdd, Symbol("product_id"), product_id)
@@ -67,11 +70,12 @@ Base.@kwdef mutable struct ProductImageAdd <: OpenAPI.APIModel
         OpenAPI.validate_property(ProductImageAdd, Symbol("mime"), mime)
         OpenAPI.validate_property(ProductImageAdd, Symbol("position"), position)
         OpenAPI.validate_property(ProductImageAdd, Symbol("use_latest_api_version"), use_latest_api_version)
-        return new(type, image_name, product_id, product_variant_id, variant_ids, option_value_ids, store_id, lang_id, url, content, label, mime, position, use_latest_api_version, )
+        OpenAPI.validate_property(ProductImageAdd, Symbol("idempotency_key"), idempotency_key)
+        return new(type, image_name, product_id, product_variant_id, variant_ids, option_value_ids, store_id, lang_id, url, content, label, mime, position, use_latest_api_version, idempotency_key, )
     end
 end # type ProductImageAdd
 
-const _property_types_ProductImageAdd = Dict{Symbol,String}(Symbol("type")=>"String", Symbol("image_name")=>"String", Symbol("product_id")=>"String", Symbol("product_variant_id")=>"String", Symbol("variant_ids")=>"String", Symbol("option_value_ids")=>"String", Symbol("store_id")=>"String", Symbol("lang_id")=>"String", Symbol("url")=>"String", Symbol("content")=>"String", Symbol("label")=>"String", Symbol("mime")=>"String", Symbol("position")=>"Int64", Symbol("use_latest_api_version")=>"Bool", )
+const _property_types_ProductImageAdd = Dict{Symbol,String}(Symbol("type")=>"String", Symbol("image_name")=>"String", Symbol("product_id")=>"String", Symbol("product_variant_id")=>"String", Symbol("variant_ids")=>"String", Symbol("option_value_ids")=>"String", Symbol("store_id")=>"String", Symbol("lang_id")=>"String", Symbol("url")=>"String", Symbol("content")=>"String", Symbol("label")=>"String", Symbol("mime")=>"String", Symbol("position")=>"Int64", Symbol("use_latest_api_version")=>"Bool", Symbol("idempotency_key")=>"String", )
 OpenAPI.property_type(::Type{ ProductImageAdd }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_ProductImageAdd[name]))}
 
 function check_required(o::ProductImageAdd)
@@ -85,6 +89,7 @@ function OpenAPI.validate_property(::Type{ ProductImageAdd }, name::Symbol, val)
     if name === Symbol("type")
         OpenAPI.validate_param(name, "ProductImageAdd", :enum, val, ["small", "base", "additional", "thumbnail"])
     end
+
 
 
 

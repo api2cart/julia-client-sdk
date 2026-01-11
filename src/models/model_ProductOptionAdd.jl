@@ -16,6 +16,7 @@
         required=false,
         values=nothing,
         clear_cache=true,
+        idempotency_key=nothing,
     )
 
     - name::String : Defines option&#39;s name
@@ -29,6 +30,7 @@
     - required::Bool : Defines if the option is required
     - values::Vector{ProductOptionAddValuesInner} : An array of option values.&lt;/b&gt;
     - clear_cache::Bool : Is cache clear required
+    - idempotency_key::String : A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
 """
 Base.@kwdef mutable struct ProductOptionAdd <: OpenAPI.APIModel
     name::Union{Nothing, String} = nothing
@@ -42,8 +44,9 @@ Base.@kwdef mutable struct ProductOptionAdd <: OpenAPI.APIModel
     required::Union{Nothing, Bool} = false
     values::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ProductOptionAddValuesInner} }
     clear_cache::Union{Nothing, Bool} = true
+    idempotency_key::Union{Nothing, String} = nothing
 
-    function ProductOptionAdd(name, type, product_id, default_option_value, option_values, description, avail, sort_order, required, values, clear_cache, )
+    function ProductOptionAdd(name, type, product_id, default_option_value, option_values, description, avail, sort_order, required, values, clear_cache, idempotency_key, )
         OpenAPI.validate_property(ProductOptionAdd, Symbol("name"), name)
         OpenAPI.validate_property(ProductOptionAdd, Symbol("type"), type)
         OpenAPI.validate_property(ProductOptionAdd, Symbol("product_id"), product_id)
@@ -55,11 +58,12 @@ Base.@kwdef mutable struct ProductOptionAdd <: OpenAPI.APIModel
         OpenAPI.validate_property(ProductOptionAdd, Symbol("required"), required)
         OpenAPI.validate_property(ProductOptionAdd, Symbol("values"), values)
         OpenAPI.validate_property(ProductOptionAdd, Symbol("clear_cache"), clear_cache)
-        return new(name, type, product_id, default_option_value, option_values, description, avail, sort_order, required, values, clear_cache, )
+        OpenAPI.validate_property(ProductOptionAdd, Symbol("idempotency_key"), idempotency_key)
+        return new(name, type, product_id, default_option_value, option_values, description, avail, sort_order, required, values, clear_cache, idempotency_key, )
     end
 end # type ProductOptionAdd
 
-const _property_types_ProductOptionAdd = Dict{Symbol,String}(Symbol("name")=>"String", Symbol("type")=>"String", Symbol("product_id")=>"String", Symbol("default_option_value")=>"String", Symbol("option_values")=>"String", Symbol("description")=>"String", Symbol("avail")=>"Bool", Symbol("sort_order")=>"Int64", Symbol("required")=>"Bool", Symbol("values")=>"Vector{ProductOptionAddValuesInner}", Symbol("clear_cache")=>"Bool", )
+const _property_types_ProductOptionAdd = Dict{Symbol,String}(Symbol("name")=>"String", Symbol("type")=>"String", Symbol("product_id")=>"String", Symbol("default_option_value")=>"String", Symbol("option_values")=>"String", Symbol("description")=>"String", Symbol("avail")=>"Bool", Symbol("sort_order")=>"Int64", Symbol("required")=>"Bool", Symbol("values")=>"Vector{ProductOptionAddValuesInner}", Symbol("clear_cache")=>"Bool", Symbol("idempotency_key")=>"String", )
 OpenAPI.property_type(::Type{ ProductOptionAdd }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_ProductOptionAdd[name]))}
 
 function check_required(o::ProductOptionAdd)
@@ -74,6 +78,7 @@ function OpenAPI.validate_property(::Type{ ProductOptionAdd }, name::Symbol, val
     if name === Symbol("type")
         OpenAPI.validate_param(name, "ProductOptionAdd", :enum, val, ["option_type_select", "option_type_text", "option_type_radio", "option_type_checkbox", "option_type_textarea", "option_type_readonly", "option_type_multiselect", "option_type_multicheckbox", "option_type_file", "option_type_date", "option_type_datetime", "option_type_time"])
     end
+
 
 
 

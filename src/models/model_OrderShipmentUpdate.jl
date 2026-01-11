@@ -17,6 +17,7 @@
         send_notifications=false,
         tracking_provider=nothing,
         items=nothing,
+        idempotency_key=nothing,
     )
 
     - shipment_id::String : Shipment id indicates the number of delivery
@@ -31,6 +32,7 @@
     - send_notifications::Bool : Send notifications to customer after order was created
     - tracking_provider::String : Defines name of the company which provides shipment tracking
     - items::Vector{OrderShipmentAddItemsInner} : Defines items in the order that will be shipped
+    - idempotency_key::String : A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
 """
 Base.@kwdef mutable struct OrderShipmentUpdate <: OpenAPI.APIModel
     shipment_id::Union{Nothing, String} = nothing
@@ -45,8 +47,9 @@ Base.@kwdef mutable struct OrderShipmentUpdate <: OpenAPI.APIModel
     send_notifications::Union{Nothing, Bool} = false
     tracking_provider::Union{Nothing, String} = nothing
     items::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{OrderShipmentAddItemsInner} }
+    idempotency_key::Union{Nothing, String} = nothing
 
-    function OrderShipmentUpdate(shipment_id, order_id, store_id, shipment_provider, tracking_numbers, tracking_link, is_shipped, delivered_at, replace, send_notifications, tracking_provider, items, )
+    function OrderShipmentUpdate(shipment_id, order_id, store_id, shipment_provider, tracking_numbers, tracking_link, is_shipped, delivered_at, replace, send_notifications, tracking_provider, items, idempotency_key, )
         OpenAPI.validate_property(OrderShipmentUpdate, Symbol("shipment_id"), shipment_id)
         OpenAPI.validate_property(OrderShipmentUpdate, Symbol("order_id"), order_id)
         OpenAPI.validate_property(OrderShipmentUpdate, Symbol("store_id"), store_id)
@@ -59,11 +62,12 @@ Base.@kwdef mutable struct OrderShipmentUpdate <: OpenAPI.APIModel
         OpenAPI.validate_property(OrderShipmentUpdate, Symbol("send_notifications"), send_notifications)
         OpenAPI.validate_property(OrderShipmentUpdate, Symbol("tracking_provider"), tracking_provider)
         OpenAPI.validate_property(OrderShipmentUpdate, Symbol("items"), items)
-        return new(shipment_id, order_id, store_id, shipment_provider, tracking_numbers, tracking_link, is_shipped, delivered_at, replace, send_notifications, tracking_provider, items, )
+        OpenAPI.validate_property(OrderShipmentUpdate, Symbol("idempotency_key"), idempotency_key)
+        return new(shipment_id, order_id, store_id, shipment_provider, tracking_numbers, tracking_link, is_shipped, delivered_at, replace, send_notifications, tracking_provider, items, idempotency_key, )
     end
 end # type OrderShipmentUpdate
 
-const _property_types_OrderShipmentUpdate = Dict{Symbol,String}(Symbol("shipment_id")=>"String", Symbol("order_id")=>"String", Symbol("store_id")=>"String", Symbol("shipment_provider")=>"String", Symbol("tracking_numbers")=>"Vector{OrderShipmentAddTrackingNumbersInner}", Symbol("tracking_link")=>"String", Symbol("is_shipped")=>"Bool", Symbol("delivered_at")=>"String", Symbol("replace")=>"Bool", Symbol("send_notifications")=>"Bool", Symbol("tracking_provider")=>"String", Symbol("items")=>"Vector{OrderShipmentAddItemsInner}", )
+const _property_types_OrderShipmentUpdate = Dict{Symbol,String}(Symbol("shipment_id")=>"String", Symbol("order_id")=>"String", Symbol("store_id")=>"String", Symbol("shipment_provider")=>"String", Symbol("tracking_numbers")=>"Vector{OrderShipmentAddTrackingNumbersInner}", Symbol("tracking_link")=>"String", Symbol("is_shipped")=>"Bool", Symbol("delivered_at")=>"String", Symbol("replace")=>"Bool", Symbol("send_notifications")=>"Bool", Symbol("tracking_provider")=>"String", Symbol("items")=>"Vector{OrderShipmentAddItemsInner}", Symbol("idempotency_key")=>"String", )
 OpenAPI.property_type(::Type{ OrderShipmentUpdate }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_OrderShipmentUpdate[name]))}
 
 function check_required(o::OrderShipmentUpdate)
@@ -72,6 +76,7 @@ function check_required(o::OrderShipmentUpdate)
 end
 
 function OpenAPI.validate_property(::Type{ OrderShipmentUpdate }, name::Symbol, val)
+
 
 
 

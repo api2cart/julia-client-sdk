@@ -134,7 +134,7 @@ const _returntypes_product_attribute_value_set_ProductApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ProductAttributeValueSet200Response,
 )
 
-function _oacinternal_product_attribute_value_set(_api::ProductApi, product_id::String; attribute_id=nothing, attribute_group_id=nothing, attribute_name=nothing, value=nothing, value_id=nothing, lang_id=nothing, store_id=nothing, _mediaType=nothing)
+function _oacinternal_product_attribute_value_set(_api::ProductApi, product_id::String; attribute_id=nothing, attribute_group_id=nothing, attribute_name=nothing, value=nothing, value_id=nothing, lang_id=nothing, store_id=nothing, idempotency_key=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_product_attribute_value_set_ProductApi, "/product.attribute.value.set.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "product_id", product_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "attribute_id", attribute_id; style="form", is_explode=true)  # type String
@@ -144,6 +144,7 @@ function _oacinternal_product_attribute_value_set(_api::ProductApi, product_id::
     OpenAPI.Clients.set_param(_ctx.query, "value_id", value_id; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "lang_id", lang_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -162,16 +163,17 @@ Params:
 - value_id::Int64
 - lang_id::String
 - store_id::String
+- idempotency_key::String
 
 Return: ProductAttributeValueSet200Response, OpenAPI.Clients.ApiResponse
 """
-function product_attribute_value_set(_api::ProductApi, product_id::String; attribute_id=nothing, attribute_group_id=nothing, attribute_name=nothing, value=nothing, value_id=nothing, lang_id=nothing, store_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_attribute_value_set(_api, product_id; attribute_id=attribute_id, attribute_group_id=attribute_group_id, attribute_name=attribute_name, value=value, value_id=value_id, lang_id=lang_id, store_id=store_id, _mediaType=_mediaType)
+function product_attribute_value_set(_api::ProductApi, product_id::String; attribute_id=nothing, attribute_group_id=nothing, attribute_name=nothing, value=nothing, value_id=nothing, lang_id=nothing, store_id=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_product_attribute_value_set(_api, product_id; attribute_id=attribute_id, attribute_group_id=attribute_group_id, attribute_name=attribute_name, value=value, value_id=value_id, lang_id=lang_id, store_id=store_id, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function product_attribute_value_set(_api::ProductApi, response_stream::Channel, product_id::String; attribute_id=nothing, attribute_group_id=nothing, attribute_name=nothing, value=nothing, value_id=nothing, lang_id=nothing, store_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_attribute_value_set(_api, product_id; attribute_id=attribute_id, attribute_group_id=attribute_group_id, attribute_name=attribute_name, value=value, value_id=value_id, lang_id=lang_id, store_id=store_id, _mediaType=_mediaType)
+function product_attribute_value_set(_api::ProductApi, response_stream::Channel, product_id::String; attribute_id=nothing, attribute_group_id=nothing, attribute_name=nothing, value=nothing, value_id=nothing, lang_id=nothing, store_id=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_product_attribute_value_set(_api, product_id; attribute_id=attribute_id, attribute_group_id=attribute_group_id, attribute_name=attribute_name, value=value, value_id=value_id, lang_id=lang_id, store_id=store_id, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -179,7 +181,7 @@ const _returntypes_product_attribute_value_unset_ProductApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ProductAttributeValueUnset200Response,
 )
 
-function _oacinternal_product_attribute_value_unset(_api::ProductApi, product_id::String, attribute_id::String; store_id=nothing, include_default=nothing, reindex=nothing, clear_cache=nothing, _mediaType=nothing)
+function _oacinternal_product_attribute_value_unset(_api::ProductApi, product_id::String, attribute_id::String; store_id=nothing, include_default=nothing, reindex=nothing, clear_cache=nothing, idempotency_key=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_product_attribute_value_unset_ProductApi, "/product.attribute.value.unset.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "product_id", product_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "attribute_id", attribute_id; style="form", is_explode=true)  # type String
@@ -187,6 +189,7 @@ function _oacinternal_product_attribute_value_unset(_api::ProductApi, product_id
     OpenAPI.Clients.set_param(_ctx.query, "include_default", include_default; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_param(_ctx.query, "reindex", reindex; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_param(_ctx.query, "clear_cache", clear_cache; style="form", is_explode=true)  # type Bool
+    OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -203,16 +206,17 @@ Params:
 - include_default::Bool
 - reindex::Bool
 - clear_cache::Bool
+- idempotency_key::String
 
 Return: ProductAttributeValueUnset200Response, OpenAPI.Clients.ApiResponse
 """
-function product_attribute_value_unset(_api::ProductApi, product_id::String, attribute_id::String; store_id=nothing, include_default=nothing, reindex=nothing, clear_cache=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_attribute_value_unset(_api, product_id, attribute_id; store_id=store_id, include_default=include_default, reindex=reindex, clear_cache=clear_cache, _mediaType=_mediaType)
+function product_attribute_value_unset(_api::ProductApi, product_id::String, attribute_id::String; store_id=nothing, include_default=nothing, reindex=nothing, clear_cache=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_product_attribute_value_unset(_api, product_id, attribute_id; store_id=store_id, include_default=include_default, reindex=reindex, clear_cache=clear_cache, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function product_attribute_value_unset(_api::ProductApi, response_stream::Channel, product_id::String, attribute_id::String; store_id=nothing, include_default=nothing, reindex=nothing, clear_cache=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_attribute_value_unset(_api, product_id, attribute_id; store_id=store_id, include_default=include_default, reindex=reindex, clear_cache=clear_cache, _mediaType=_mediaType)
+function product_attribute_value_unset(_api::ProductApi, response_stream::Channel, product_id::String, attribute_id::String; store_id=nothing, include_default=nothing, reindex=nothing, clear_cache=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_product_attribute_value_unset(_api, product_id, attribute_id; store_id=store_id, include_default=include_default, reindex=reindex, clear_cache=clear_cache, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -521,7 +525,7 @@ const _returntypes_product_currency_add_ProductApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ProductCurrencyAdd200Response,
 )
 
-function _oacinternal_product_currency_add(_api::ProductApi, iso3::String, rate::Float64; name=nothing, avail=nothing, symbol_left=nothing, symbol_right=nothing, default=nothing, _mediaType=nothing)
+function _oacinternal_product_currency_add(_api::ProductApi, iso3::String, rate::Float64; name=nothing, avail=nothing, symbol_left=nothing, symbol_right=nothing, default=nothing, idempotency_key=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_product_currency_add_ProductApi, "/product.currency.add.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "iso3", iso3; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "rate", rate; style="form", is_explode=true)  # type Float64
@@ -530,6 +534,7 @@ function _oacinternal_product_currency_add(_api::ProductApi, iso3::String, rate:
     OpenAPI.Clients.set_param(_ctx.query, "symbol_left", symbol_left; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "symbol_right", symbol_right; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "default", default; style="form", is_explode=true)  # type Bool
+    OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -547,16 +552,17 @@ Params:
 - symbol_left::String
 - symbol_right::String
 - default::Bool
+- idempotency_key::String
 
 Return: ProductCurrencyAdd200Response, OpenAPI.Clients.ApiResponse
 """
-function product_currency_add(_api::ProductApi, iso3::String, rate::Float64; name=nothing, avail=nothing, symbol_left=nothing, symbol_right=nothing, default=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_currency_add(_api, iso3, rate; name=name, avail=avail, symbol_left=symbol_left, symbol_right=symbol_right, default=default, _mediaType=_mediaType)
+function product_currency_add(_api::ProductApi, iso3::String, rate::Float64; name=nothing, avail=nothing, symbol_left=nothing, symbol_right=nothing, default=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_product_currency_add(_api, iso3, rate; name=name, avail=avail, symbol_left=symbol_left, symbol_right=symbol_right, default=default, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function product_currency_add(_api::ProductApi, response_stream::Channel, iso3::String, rate::Float64; name=nothing, avail=nothing, symbol_left=nothing, symbol_right=nothing, default=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_currency_add(_api, iso3, rate; name=name, avail=avail, symbol_left=symbol_left, symbol_right=symbol_right, default=default, _mediaType=_mediaType)
+function product_currency_add(_api::ProductApi, response_stream::Channel, iso3::String, rate::Float64; name=nothing, avail=nothing, symbol_left=nothing, symbol_right=nothing, default=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_product_currency_add(_api, iso3, rate; name=name, avail=avail, symbol_left=symbol_left, symbol_right=symbol_right, default=default, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -778,7 +784,7 @@ const _returntypes_product_image_update_ProductApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ProductImageUpdate200Response,
 )
 
-function _oacinternal_product_image_update(_api::ProductApi, product_id::String, id::String; variant_ids=nothing, store_id=nothing, lang_id=nothing, image_name=nothing, type=nothing, label=nothing, position=nothing, hidden=nothing, _mediaType=nothing)
+function _oacinternal_product_image_update(_api::ProductApi, product_id::String, id::String; variant_ids=nothing, store_id=nothing, lang_id=nothing, image_name=nothing, type=nothing, label=nothing, position=nothing, hidden=nothing, idempotency_key=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "PUT", _returntypes_product_image_update_ProductApi, "/product.image.update.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "product_id", product_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "id", id; style="form", is_explode=true)  # type String
@@ -790,6 +796,7 @@ function _oacinternal_product_image_update(_api::ProductApi, product_id::String,
     OpenAPI.Clients.set_param(_ctx.query, "label", label; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "position", position; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "hidden", hidden; style="form", is_explode=true)  # type Bool
+    OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -810,16 +817,17 @@ Params:
 - label::String
 - position::Int64
 - hidden::Bool
+- idempotency_key::String
 
 Return: ProductImageUpdate200Response, OpenAPI.Clients.ApiResponse
 """
-function product_image_update(_api::ProductApi, product_id::String, id::String; variant_ids=nothing, store_id=nothing, lang_id=nothing, image_name=nothing, type=nothing, label=nothing, position=nothing, hidden=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_image_update(_api, product_id, id; variant_ids=variant_ids, store_id=store_id, lang_id=lang_id, image_name=image_name, type=type, label=label, position=position, hidden=hidden, _mediaType=_mediaType)
+function product_image_update(_api::ProductApi, product_id::String, id::String; variant_ids=nothing, store_id=nothing, lang_id=nothing, image_name=nothing, type=nothing, label=nothing, position=nothing, hidden=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_product_image_update(_api, product_id, id; variant_ids=variant_ids, store_id=store_id, lang_id=lang_id, image_name=image_name, type=type, label=label, position=position, hidden=hidden, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function product_image_update(_api::ProductApi, response_stream::Channel, product_id::String, id::String; variant_ids=nothing, store_id=nothing, lang_id=nothing, image_name=nothing, type=nothing, label=nothing, position=nothing, hidden=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_image_update(_api, product_id, id; variant_ids=variant_ids, store_id=store_id, lang_id=lang_id, image_name=image_name, type=type, label=label, position=position, hidden=hidden, _mediaType=_mediaType)
+function product_image_update(_api::ProductApi, response_stream::Channel, product_id::String, id::String; variant_ids=nothing, store_id=nothing, lang_id=nothing, image_name=nothing, type=nothing, label=nothing, position=nothing, hidden=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_product_image_update(_api, product_id, id; variant_ids=variant_ids, store_id=store_id, lang_id=lang_id, image_name=image_name, type=type, label=label, position=position, hidden=hidden, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -977,7 +985,7 @@ const _returntypes_product_manufacturer_add_ProductApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ProductManufacturerAdd200Response,
 )
 
-function _oacinternal_product_manufacturer_add(_api::ProductApi, product_id::String, manufacturer::String; store_id=nothing, meta_title=nothing, meta_keywords=nothing, meta_description=nothing, search_keywords=nothing, image_url=nothing, seo_url=nothing, _mediaType=nothing)
+function _oacinternal_product_manufacturer_add(_api::ProductApi, product_id::String, manufacturer::String; store_id=nothing, meta_title=nothing, meta_keywords=nothing, meta_description=nothing, search_keywords=nothing, image_url=nothing, seo_url=nothing, idempotency_key=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_product_manufacturer_add_ProductApi, "/product.manufacturer.add.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "product_id", product_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "manufacturer", manufacturer; style="form", is_explode=true)  # type String
@@ -988,6 +996,7 @@ function _oacinternal_product_manufacturer_add(_api::ProductApi, product_id::Str
     OpenAPI.Clients.set_param(_ctx.query, "search_keywords", search_keywords; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "image_url", image_url; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "seo_url", seo_url; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -1007,16 +1016,17 @@ Params:
 - search_keywords::String
 - image_url::String
 - seo_url::String
+- idempotency_key::String
 
 Return: ProductManufacturerAdd200Response, OpenAPI.Clients.ApiResponse
 """
-function product_manufacturer_add(_api::ProductApi, product_id::String, manufacturer::String; store_id=nothing, meta_title=nothing, meta_keywords=nothing, meta_description=nothing, search_keywords=nothing, image_url=nothing, seo_url=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_manufacturer_add(_api, product_id, manufacturer; store_id=store_id, meta_title=meta_title, meta_keywords=meta_keywords, meta_description=meta_description, search_keywords=search_keywords, image_url=image_url, seo_url=seo_url, _mediaType=_mediaType)
+function product_manufacturer_add(_api::ProductApi, product_id::String, manufacturer::String; store_id=nothing, meta_title=nothing, meta_keywords=nothing, meta_description=nothing, search_keywords=nothing, image_url=nothing, seo_url=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_product_manufacturer_add(_api, product_id, manufacturer; store_id=store_id, meta_title=meta_title, meta_keywords=meta_keywords, meta_description=meta_description, search_keywords=search_keywords, image_url=image_url, seo_url=seo_url, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function product_manufacturer_add(_api::ProductApi, response_stream::Channel, product_id::String, manufacturer::String; store_id=nothing, meta_title=nothing, meta_keywords=nothing, meta_description=nothing, search_keywords=nothing, image_url=nothing, seo_url=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_manufacturer_add(_api, product_id, manufacturer; store_id=store_id, meta_title=meta_title, meta_keywords=meta_keywords, meta_description=meta_description, search_keywords=search_keywords, image_url=image_url, seo_url=seo_url, _mediaType=_mediaType)
+function product_manufacturer_add(_api::ProductApi, response_stream::Channel, product_id::String, manufacturer::String; store_id=nothing, meta_title=nothing, meta_keywords=nothing, meta_description=nothing, search_keywords=nothing, image_url=nothing, seo_url=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_product_manufacturer_add(_api, product_id, manufacturer; store_id=store_id, meta_title=meta_title, meta_keywords=meta_keywords, meta_description=meta_description, search_keywords=search_keywords, image_url=image_url, seo_url=seo_url, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -1054,7 +1064,7 @@ const _returntypes_product_option_assign_ProductApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ProductOptionAssign200Response,
 )
 
-function _oacinternal_product_option_assign(_api::ProductApi, product_id::String, option_id::String; required=nothing, sort_order=nothing, option_values=nothing, clear_cache=nothing, _mediaType=nothing)
+function _oacinternal_product_option_assign(_api::ProductApi, product_id::String, option_id::String; required=nothing, sort_order=nothing, option_values=nothing, clear_cache=nothing, idempotency_key=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_product_option_assign_ProductApi, "/product.option.assign.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "product_id", product_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "option_id", option_id; style="form", is_explode=true)  # type String
@@ -1062,6 +1072,7 @@ function _oacinternal_product_option_assign(_api::ProductApi, product_id::String
     OpenAPI.Clients.set_param(_ctx.query, "sort_order", sort_order; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "option_values", option_values; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "clear_cache", clear_cache; style="form", is_explode=true)  # type Bool
+    OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -1078,16 +1089,17 @@ Params:
 - sort_order::Int64
 - option_values::String
 - clear_cache::Bool
+- idempotency_key::String
 
 Return: ProductOptionAssign200Response, OpenAPI.Clients.ApiResponse
 """
-function product_option_assign(_api::ProductApi, product_id::String, option_id::String; required=nothing, sort_order=nothing, option_values=nothing, clear_cache=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_option_assign(_api, product_id, option_id; required=required, sort_order=sort_order, option_values=option_values, clear_cache=clear_cache, _mediaType=_mediaType)
+function product_option_assign(_api::ProductApi, product_id::String, option_id::String; required=nothing, sort_order=nothing, option_values=nothing, clear_cache=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_product_option_assign(_api, product_id, option_id; required=required, sort_order=sort_order, option_values=option_values, clear_cache=clear_cache, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function product_option_assign(_api::ProductApi, response_stream::Channel, product_id::String, option_id::String; required=nothing, sort_order=nothing, option_values=nothing, clear_cache=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_option_assign(_api, product_id, option_id; required=required, sort_order=sort_order, option_values=option_values, clear_cache=clear_cache, _mediaType=_mediaType)
+function product_option_assign(_api::ProductApi, response_stream::Channel, product_id::String, option_id::String; required=nothing, sort_order=nothing, option_values=nothing, clear_cache=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_product_option_assign(_api, product_id, option_id; required=required, sort_order=sort_order, option_values=option_values, clear_cache=clear_cache, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -1175,7 +1187,7 @@ const _returntypes_product_option_value_add_ProductApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ProductOptionValueAdd200Response,
 )
 
-function _oacinternal_product_option_value_add(_api::ProductApi, product_id::String, option_id::String; option_value=nothing, sort_order=nothing, display_value=nothing, is_default=nothing, clear_cache=nothing, _mediaType=nothing)
+function _oacinternal_product_option_value_add(_api::ProductApi, product_id::String, option_id::String; option_value=nothing, sort_order=nothing, display_value=nothing, is_default=nothing, clear_cache=nothing, idempotency_key=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_product_option_value_add_ProductApi, "/product.option.value.add.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "product_id", product_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "option_id", option_id; style="form", is_explode=true)  # type String
@@ -1184,6 +1196,7 @@ function _oacinternal_product_option_value_add(_api::ProductApi, product_id::Str
     OpenAPI.Clients.set_param(_ctx.query, "display_value", display_value; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "is_default", is_default; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_param(_ctx.query, "clear_cache", clear_cache; style="form", is_explode=true)  # type Bool
+    OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -1201,16 +1214,17 @@ Params:
 - display_value::String
 - is_default::Bool
 - clear_cache::Bool
+- idempotency_key::String
 
 Return: ProductOptionValueAdd200Response, OpenAPI.Clients.ApiResponse
 """
-function product_option_value_add(_api::ProductApi, product_id::String, option_id::String; option_value=nothing, sort_order=nothing, display_value=nothing, is_default=nothing, clear_cache=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_option_value_add(_api, product_id, option_id; option_value=option_value, sort_order=sort_order, display_value=display_value, is_default=is_default, clear_cache=clear_cache, _mediaType=_mediaType)
+function product_option_value_add(_api::ProductApi, product_id::String, option_id::String; option_value=nothing, sort_order=nothing, display_value=nothing, is_default=nothing, clear_cache=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_product_option_value_add(_api, product_id, option_id; option_value=option_value, sort_order=sort_order, display_value=display_value, is_default=is_default, clear_cache=clear_cache, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function product_option_value_add(_api::ProductApi, response_stream::Channel, product_id::String, option_id::String; option_value=nothing, sort_order=nothing, display_value=nothing, is_default=nothing, clear_cache=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_option_value_add(_api, product_id, option_id; option_value=option_value, sort_order=sort_order, display_value=display_value, is_default=is_default, clear_cache=clear_cache, _mediaType=_mediaType)
+function product_option_value_add(_api::ProductApi, response_stream::Channel, product_id::String, option_id::String; option_value=nothing, sort_order=nothing, display_value=nothing, is_default=nothing, clear_cache=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_product_option_value_add(_api, product_id, option_id; option_value=option_value, sort_order=sort_order, display_value=display_value, is_default=is_default, clear_cache=clear_cache, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -1218,11 +1232,12 @@ const _returntypes_product_option_value_assign_ProductApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ProductOptionValueAssign200Response,
 )
 
-function _oacinternal_product_option_value_assign(_api::ProductApi, product_option_id::Int64, option_value_id::String; clear_cache=nothing, _mediaType=nothing)
+function _oacinternal_product_option_value_assign(_api::ProductApi, product_option_id::Int64, option_value_id::String; clear_cache=nothing, idempotency_key=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_product_option_value_assign_ProductApi, "/product.option.value.assign.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "product_option_id", product_option_id; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "option_value_id", option_value_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "clear_cache", clear_cache; style="form", is_explode=true)  # type Bool
+    OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -1236,16 +1251,17 @@ Params:
 - product_option_id::Int64 (required)
 - option_value_id::String (required)
 - clear_cache::Bool
+- idempotency_key::String
 
 Return: ProductOptionValueAssign200Response, OpenAPI.Clients.ApiResponse
 """
-function product_option_value_assign(_api::ProductApi, product_option_id::Int64, option_value_id::String; clear_cache=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_option_value_assign(_api, product_option_id, option_value_id; clear_cache=clear_cache, _mediaType=_mediaType)
+function product_option_value_assign(_api::ProductApi, product_option_id::Int64, option_value_id::String; clear_cache=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_product_option_value_assign(_api, product_option_id, option_value_id; clear_cache=clear_cache, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function product_option_value_assign(_api::ProductApi, response_stream::Channel, product_option_id::Int64, option_value_id::String; clear_cache=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_option_value_assign(_api, product_option_id, option_value_id; clear_cache=clear_cache, _mediaType=_mediaType)
+function product_option_value_assign(_api::ProductApi, response_stream::Channel, product_option_id::Int64, option_value_id::String; clear_cache=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_product_option_value_assign(_api, product_option_id, option_value_id; clear_cache=clear_cache, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -1290,7 +1306,7 @@ const _returntypes_product_option_value_update_ProductApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => AccountConfigUpdate200Response,
 )
 
-function _oacinternal_product_option_value_update(_api::ProductApi, product_id::String, option_id::String, option_value_id::String; option_value=nothing, price=nothing, quantity=nothing, display_value=nothing, clear_cache=nothing, _mediaType=nothing)
+function _oacinternal_product_option_value_update(_api::ProductApi, product_id::String, option_id::String, option_value_id::String; option_value=nothing, price=nothing, quantity=nothing, display_value=nothing, clear_cache=nothing, idempotency_key=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "PUT", _returntypes_product_option_value_update_ProductApi, "/product.option.value.update.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "product_id", product_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "option_id", option_id; style="form", is_explode=true)  # type String
@@ -1300,6 +1316,7 @@ function _oacinternal_product_option_value_update(_api::ProductApi, product_id::
     OpenAPI.Clients.set_param(_ctx.query, "quantity", quantity; style="form", is_explode=true)  # type Float64
     OpenAPI.Clients.set_param(_ctx.query, "display_value", display_value; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "clear_cache", clear_cache; style="form", is_explode=true)  # type Bool
+    OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -1318,16 +1335,17 @@ Params:
 - quantity::Float64
 - display_value::String
 - clear_cache::Bool
+- idempotency_key::String
 
 Return: AccountConfigUpdate200Response, OpenAPI.Clients.ApiResponse
 """
-function product_option_value_update(_api::ProductApi, product_id::String, option_id::String, option_value_id::String; option_value=nothing, price=nothing, quantity=nothing, display_value=nothing, clear_cache=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_option_value_update(_api, product_id, option_id, option_value_id; option_value=option_value, price=price, quantity=quantity, display_value=display_value, clear_cache=clear_cache, _mediaType=_mediaType)
+function product_option_value_update(_api::ProductApi, product_id::String, option_id::String, option_value_id::String; option_value=nothing, price=nothing, quantity=nothing, display_value=nothing, clear_cache=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_product_option_value_update(_api, product_id, option_id, option_value_id; option_value=option_value, price=price, quantity=quantity, display_value=display_value, clear_cache=clear_cache, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function product_option_value_update(_api::ProductApi, response_stream::Channel, product_id::String, option_id::String, option_value_id::String; option_value=nothing, price=nothing, quantity=nothing, display_value=nothing, clear_cache=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_option_value_update(_api, product_id, option_id, option_value_id; option_value=option_value, price=price, quantity=quantity, display_value=display_value, clear_cache=clear_cache, _mediaType=_mediaType)
+function product_option_value_update(_api::ProductApi, response_stream::Channel, product_id::String, option_id::String, option_value_id::String; option_value=nothing, price=nothing, quantity=nothing, display_value=nothing, clear_cache=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_product_option_value_update(_api, product_id, option_id, option_value_id; option_value=option_value, price=price, quantity=quantity, display_value=display_value, clear_cache=clear_cache, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -1491,10 +1509,11 @@ const _returntypes_product_store_assign_ProductApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => AccountConfigUpdate200Response,
 )
 
-function _oacinternal_product_store_assign(_api::ProductApi, product_id::String, store_id::String; _mediaType=nothing)
+function _oacinternal_product_store_assign(_api::ProductApi, product_id::String, store_id::String; idempotency_key=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_product_store_assign_ProductApi, "/product.store.assign.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "product_id", product_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -1507,16 +1526,17 @@ Assign product to store
 Params:
 - product_id::String (required)
 - store_id::String (required)
+- idempotency_key::String
 
 Return: AccountConfigUpdate200Response, OpenAPI.Clients.ApiResponse
 """
-function product_store_assign(_api::ProductApi, product_id::String, store_id::String; _mediaType=nothing)
-    _ctx = _oacinternal_product_store_assign(_api, product_id, store_id; _mediaType=_mediaType)
+function product_store_assign(_api::ProductApi, product_id::String, store_id::String; idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_product_store_assign(_api, product_id, store_id; idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function product_store_assign(_api::ProductApi, response_stream::Channel, product_id::String, store_id::String; _mediaType=nothing)
-    _ctx = _oacinternal_product_store_assign(_api, product_id, store_id; _mediaType=_mediaType)
+function product_store_assign(_api::ProductApi, response_stream::Channel, product_id::String, store_id::String; idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_product_store_assign(_api, product_id, store_id; idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 

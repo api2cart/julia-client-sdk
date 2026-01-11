@@ -168,8 +168,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **customer_delete**
-> customer_delete(_api::CustomerApi, id::String; _mediaType=nothing) -> CustomerDelete200Response, OpenAPI.Clients.ApiResponse <br/>
-> customer_delete(_api::CustomerApi, response_stream::Channel, id::String; _mediaType=nothing) -> Channel{ CustomerDelete200Response }, OpenAPI.Clients.ApiResponse
+> customer_delete(_api::CustomerApi, id::String; store_id=nothing, _mediaType=nothing) -> CustomerDelete200Response, OpenAPI.Clients.ApiResponse <br/>
+> customer_delete(_api::CustomerApi, response_stream::Channel, id::String; store_id=nothing, _mediaType=nothing) -> Channel{ CustomerDelete200Response }, OpenAPI.Clients.ApiResponse
 
 customer.delete
 
@@ -181,6 +181,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_api** | **CustomerApi** | API context | 
 **id** | **String** | Identifies customer specified by the id |
+
+### Optional Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **store_id** | **String** | Store Id | [default to nothing]
 
 ### Return type
 
@@ -237,8 +243,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **customer_group_add**
-> customer_group_add(_api::CustomerApi, name::String; store_id=nothing, stores_ids=nothing, _mediaType=nothing) -> CustomerGroupAdd200Response, OpenAPI.Clients.ApiResponse <br/>
-> customer_group_add(_api::CustomerApi, response_stream::Channel, name::String; store_id=nothing, stores_ids=nothing, _mediaType=nothing) -> Channel{ CustomerGroupAdd200Response }, OpenAPI.Clients.ApiResponse
+> customer_group_add(_api::CustomerApi, name::String; store_id=nothing, stores_ids=nothing, idempotency_key=nothing, _mediaType=nothing) -> CustomerGroupAdd200Response, OpenAPI.Clients.ApiResponse <br/>
+> customer_group_add(_api::CustomerApi, response_stream::Channel, name::String; store_id=nothing, stores_ids=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ CustomerGroupAdd200Response }, OpenAPI.Clients.ApiResponse
 
 customer.group.add
 
@@ -257,6 +263,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **store_id** | **String** | Store Id | [default to nothing]
  **stores_ids** | **String** | Assign customer group to the stores that is specified by comma-separated stores&#39; id | [default to nothing]
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 

@@ -15,7 +15,7 @@ const _returntypes_attribute_add_AttributeApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => AttributeAdd200Response,
 )
 
-function _oacinternal_attribute_add(_api::AttributeApi, type::String, name::String; code=nothing, store_id=nothing, lang_id=nothing, visible=nothing, required=nothing, position=nothing, attribute_group_id=nothing, is_global=nothing, is_searchable=nothing, is_filterable=nothing, is_comparable=nothing, is_html_allowed_on_front=nothing, is_filterable_in_search=nothing, is_configurable=nothing, is_visible_in_advanced_search=nothing, is_used_for_promo_rules=nothing, used_in_product_listing=nothing, used_for_sort_by=nothing, apply_to=nothing, _mediaType=nothing)
+function _oacinternal_attribute_add(_api::AttributeApi, type::String, name::String; code=nothing, store_id=nothing, lang_id=nothing, visible=nothing, required=nothing, position=nothing, attribute_group_id=nothing, is_global=nothing, is_searchable=nothing, is_filterable=nothing, is_comparable=nothing, is_html_allowed_on_front=nothing, is_filterable_in_search=nothing, is_configurable=nothing, is_visible_in_advanced_search=nothing, is_used_for_promo_rules=nothing, used_in_product_listing=nothing, used_for_sort_by=nothing, apply_to=nothing, idempotency_key=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_attribute_add_AttributeApi, "/attribute.add.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "type", type; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "name", name; style="form", is_explode=true)  # type String
@@ -38,6 +38,7 @@ function _oacinternal_attribute_add(_api::AttributeApi, type::String, name::Stri
     OpenAPI.Clients.set_param(_ctx.query, "used_in_product_listing", used_in_product_listing; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_param(_ctx.query, "used_for_sort_by", used_for_sort_by; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_param(_ctx.query, "apply_to", apply_to; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -69,16 +70,17 @@ Params:
 - used_in_product_listing::Bool
 - used_for_sort_by::Bool
 - apply_to::String
+- idempotency_key::String
 
 Return: AttributeAdd200Response, OpenAPI.Clients.ApiResponse
 """
-function attribute_add(_api::AttributeApi, type::String, name::String; code=nothing, store_id=nothing, lang_id=nothing, visible=nothing, required=nothing, position=nothing, attribute_group_id=nothing, is_global=nothing, is_searchable=nothing, is_filterable=nothing, is_comparable=nothing, is_html_allowed_on_front=nothing, is_filterable_in_search=nothing, is_configurable=nothing, is_visible_in_advanced_search=nothing, is_used_for_promo_rules=nothing, used_in_product_listing=nothing, used_for_sort_by=nothing, apply_to=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_attribute_add(_api, type, name; code=code, store_id=store_id, lang_id=lang_id, visible=visible, required=required, position=position, attribute_group_id=attribute_group_id, is_global=is_global, is_searchable=is_searchable, is_filterable=is_filterable, is_comparable=is_comparable, is_html_allowed_on_front=is_html_allowed_on_front, is_filterable_in_search=is_filterable_in_search, is_configurable=is_configurable, is_visible_in_advanced_search=is_visible_in_advanced_search, is_used_for_promo_rules=is_used_for_promo_rules, used_in_product_listing=used_in_product_listing, used_for_sort_by=used_for_sort_by, apply_to=apply_to, _mediaType=_mediaType)
+function attribute_add(_api::AttributeApi, type::String, name::String; code=nothing, store_id=nothing, lang_id=nothing, visible=nothing, required=nothing, position=nothing, attribute_group_id=nothing, is_global=nothing, is_searchable=nothing, is_filterable=nothing, is_comparable=nothing, is_html_allowed_on_front=nothing, is_filterable_in_search=nothing, is_configurable=nothing, is_visible_in_advanced_search=nothing, is_used_for_promo_rules=nothing, used_in_product_listing=nothing, used_for_sort_by=nothing, apply_to=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_attribute_add(_api, type, name; code=code, store_id=store_id, lang_id=lang_id, visible=visible, required=required, position=position, attribute_group_id=attribute_group_id, is_global=is_global, is_searchable=is_searchable, is_filterable=is_filterable, is_comparable=is_comparable, is_html_allowed_on_front=is_html_allowed_on_front, is_filterable_in_search=is_filterable_in_search, is_configurable=is_configurable, is_visible_in_advanced_search=is_visible_in_advanced_search, is_used_for_promo_rules=is_used_for_promo_rules, used_in_product_listing=used_in_product_listing, used_for_sort_by=used_for_sort_by, apply_to=apply_to, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function attribute_add(_api::AttributeApi, response_stream::Channel, type::String, name::String; code=nothing, store_id=nothing, lang_id=nothing, visible=nothing, required=nothing, position=nothing, attribute_group_id=nothing, is_global=nothing, is_searchable=nothing, is_filterable=nothing, is_comparable=nothing, is_html_allowed_on_front=nothing, is_filterable_in_search=nothing, is_configurable=nothing, is_visible_in_advanced_search=nothing, is_used_for_promo_rules=nothing, used_in_product_listing=nothing, used_for_sort_by=nothing, apply_to=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_attribute_add(_api, type, name; code=code, store_id=store_id, lang_id=lang_id, visible=visible, required=required, position=position, attribute_group_id=attribute_group_id, is_global=is_global, is_searchable=is_searchable, is_filterable=is_filterable, is_comparable=is_comparable, is_html_allowed_on_front=is_html_allowed_on_front, is_filterable_in_search=is_filterable_in_search, is_configurable=is_configurable, is_visible_in_advanced_search=is_visible_in_advanced_search, is_used_for_promo_rules=is_used_for_promo_rules, used_in_product_listing=used_in_product_listing, used_for_sort_by=used_for_sort_by, apply_to=apply_to, _mediaType=_mediaType)
+function attribute_add(_api::AttributeApi, response_stream::Channel, type::String, name::String; code=nothing, store_id=nothing, lang_id=nothing, visible=nothing, required=nothing, position=nothing, attribute_group_id=nothing, is_global=nothing, is_searchable=nothing, is_filterable=nothing, is_comparable=nothing, is_html_allowed_on_front=nothing, is_filterable_in_search=nothing, is_configurable=nothing, is_visible_in_advanced_search=nothing, is_used_for_promo_rules=nothing, used_in_product_listing=nothing, used_for_sort_by=nothing, apply_to=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_attribute_add(_api, type, name; code=code, store_id=store_id, lang_id=lang_id, visible=visible, required=required, position=position, attribute_group_id=attribute_group_id, is_global=is_global, is_searchable=is_searchable, is_filterable=is_filterable, is_comparable=is_comparable, is_html_allowed_on_front=is_html_allowed_on_front, is_filterable_in_search=is_filterable_in_search, is_configurable=is_configurable, is_visible_in_advanced_search=is_visible_in_advanced_search, is_used_for_promo_rules=is_used_for_promo_rules, used_in_product_listing=used_in_product_listing, used_for_sort_by=used_for_sort_by, apply_to=apply_to, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -86,11 +88,12 @@ const _returntypes_attribute_assign_group_AttributeApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => AttributeAssignGroup200Response,
 )
 
-function _oacinternal_attribute_assign_group(_api::AttributeApi, id::String, group_id::String; attribute_set_id=nothing, _mediaType=nothing)
+function _oacinternal_attribute_assign_group(_api::AttributeApi, id::String, group_id::String; attribute_set_id=nothing, idempotency_key=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_attribute_assign_group_AttributeApi, "/attribute.assign.group.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "id", id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "group_id", group_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "attribute_set_id", attribute_set_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -104,16 +107,17 @@ Params:
 - id::String (required)
 - group_id::String (required)
 - attribute_set_id::String
+- idempotency_key::String
 
 Return: AttributeAssignGroup200Response, OpenAPI.Clients.ApiResponse
 """
-function attribute_assign_group(_api::AttributeApi, id::String, group_id::String; attribute_set_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_attribute_assign_group(_api, id, group_id; attribute_set_id=attribute_set_id, _mediaType=_mediaType)
+function attribute_assign_group(_api::AttributeApi, id::String, group_id::String; attribute_set_id=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_attribute_assign_group(_api, id, group_id; attribute_set_id=attribute_set_id, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function attribute_assign_group(_api::AttributeApi, response_stream::Channel, id::String, group_id::String; attribute_set_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_attribute_assign_group(_api, id, group_id; attribute_set_id=attribute_set_id, _mediaType=_mediaType)
+function attribute_assign_group(_api::AttributeApi, response_stream::Channel, id::String, group_id::String; attribute_set_id=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_attribute_assign_group(_api, id, group_id; attribute_set_id=attribute_set_id, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -121,11 +125,12 @@ const _returntypes_attribute_assign_set_AttributeApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => AttributeAssignGroup200Response,
 )
 
-function _oacinternal_attribute_assign_set(_api::AttributeApi, id::String, attribute_set_id::String; group_id=nothing, _mediaType=nothing)
+function _oacinternal_attribute_assign_set(_api::AttributeApi, id::String, attribute_set_id::String; group_id=nothing, idempotency_key=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_attribute_assign_set_AttributeApi, "/attribute.assign.set.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "id", id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "group_id", group_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "attribute_set_id", attribute_set_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -139,16 +144,17 @@ Params:
 - id::String (required)
 - attribute_set_id::String (required)
 - group_id::String
+- idempotency_key::String
 
 Return: AttributeAssignGroup200Response, OpenAPI.Clients.ApiResponse
 """
-function attribute_assign_set(_api::AttributeApi, id::String, attribute_set_id::String; group_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_attribute_assign_set(_api, id, attribute_set_id; group_id=group_id, _mediaType=_mediaType)
+function attribute_assign_set(_api::AttributeApi, id::String, attribute_set_id::String; group_id=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_attribute_assign_set(_api, id, attribute_set_id; group_id=group_id, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function attribute_assign_set(_api::AttributeApi, response_stream::Channel, id::String, attribute_set_id::String; group_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_attribute_assign_set(_api, id, attribute_set_id; group_id=group_id, _mediaType=_mediaType)
+function attribute_assign_set(_api::AttributeApi, response_stream::Channel, id::String, attribute_set_id::String; group_id=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_attribute_assign_set(_api, id, attribute_set_id; group_id=group_id, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -441,10 +447,11 @@ const _returntypes_attribute_unassign_group_AttributeApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => AttributeUnassignGroup200Response,
 )
 
-function _oacinternal_attribute_unassign_group(_api::AttributeApi, id::String, group_id::String; _mediaType=nothing)
+function _oacinternal_attribute_unassign_group(_api::AttributeApi, id::String, group_id::String; idempotency_key=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_attribute_unassign_group_AttributeApi, "/attribute.unassign.group.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "id", id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "group_id", group_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -457,16 +464,17 @@ Unassign attribute from group
 Params:
 - id::String (required)
 - group_id::String (required)
+- idempotency_key::String
 
 Return: AttributeUnassignGroup200Response, OpenAPI.Clients.ApiResponse
 """
-function attribute_unassign_group(_api::AttributeApi, id::String, group_id::String; _mediaType=nothing)
-    _ctx = _oacinternal_attribute_unassign_group(_api, id, group_id; _mediaType=_mediaType)
+function attribute_unassign_group(_api::AttributeApi, id::String, group_id::String; idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_attribute_unassign_group(_api, id, group_id; idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function attribute_unassign_group(_api::AttributeApi, response_stream::Channel, id::String, group_id::String; _mediaType=nothing)
-    _ctx = _oacinternal_attribute_unassign_group(_api, id, group_id; _mediaType=_mediaType)
+function attribute_unassign_group(_api::AttributeApi, response_stream::Channel, id::String, group_id::String; idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_attribute_unassign_group(_api, id, group_id; idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -474,10 +482,11 @@ const _returntypes_attribute_unassign_set_AttributeApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => AttributeUnassignGroup200Response,
 )
 
-function _oacinternal_attribute_unassign_set(_api::AttributeApi, id::String, attribute_set_id::String; _mediaType=nothing)
+function _oacinternal_attribute_unassign_set(_api::AttributeApi, id::String, attribute_set_id::String; idempotency_key=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_attribute_unassign_set_AttributeApi, "/attribute.unassign.set.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "id", id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "attribute_set_id", attribute_set_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -490,16 +499,17 @@ Unassign attribute from attribute set
 Params:
 - id::String (required)
 - attribute_set_id::String (required)
+- idempotency_key::String
 
 Return: AttributeUnassignGroup200Response, OpenAPI.Clients.ApiResponse
 """
-function attribute_unassign_set(_api::AttributeApi, id::String, attribute_set_id::String; _mediaType=nothing)
-    _ctx = _oacinternal_attribute_unassign_set(_api, id, attribute_set_id; _mediaType=_mediaType)
+function attribute_unassign_set(_api::AttributeApi, id::String, attribute_set_id::String; idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_attribute_unassign_set(_api, id, attribute_set_id; idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function attribute_unassign_set(_api::AttributeApi, response_stream::Channel, id::String, attribute_set_id::String; _mediaType=nothing)
-    _ctx = _oacinternal_attribute_unassign_set(_api, id, attribute_set_id; _mediaType=_mediaType)
+function attribute_unassign_set(_api::AttributeApi, response_stream::Channel, id::String, attribute_set_id::String; idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_attribute_unassign_set(_api, id, attribute_set_id; idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -507,12 +517,13 @@ const _returntypes_attribute_update_AttributeApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => AttributeUpdate200Response,
 )
 
-function _oacinternal_attribute_update(_api::AttributeApi, id::String, name::String; store_id=nothing, lang_id=nothing, _mediaType=nothing)
+function _oacinternal_attribute_update(_api::AttributeApi, id::String, name::String; store_id=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "PUT", _returntypes_attribute_update_AttributeApi, "/attribute.update.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "id", id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "name", name; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "lang_id", lang_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -527,16 +538,17 @@ Params:
 - name::String (required)
 - store_id::String
 - lang_id::String
+- idempotency_key::String
 
 Return: AttributeUpdate200Response, OpenAPI.Clients.ApiResponse
 """
-function attribute_update(_api::AttributeApi, id::String, name::String; store_id=nothing, lang_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_attribute_update(_api, id, name; store_id=store_id, lang_id=lang_id, _mediaType=_mediaType)
+function attribute_update(_api::AttributeApi, id::String, name::String; store_id=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_attribute_update(_api, id, name; store_id=store_id, lang_id=lang_id, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function attribute_update(_api::AttributeApi, response_stream::Channel, id::String, name::String; store_id=nothing, lang_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_attribute_update(_api, id, name; store_id=store_id, lang_id=lang_id, _mediaType=_mediaType)
+function attribute_update(_api::AttributeApi, response_stream::Channel, id::String, name::String; store_id=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_attribute_update(_api, id, name; store_id=store_id, lang_id=lang_id, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -544,7 +556,7 @@ const _returntypes_attribute_value_add_AttributeApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => AttributeAdd200Response,
 )
 
-function _oacinternal_attribute_value_add(_api::AttributeApi, attribute_id::String, name::String; code=nothing, description=nothing, store_id=nothing, lang_id=nothing, _mediaType=nothing)
+function _oacinternal_attribute_value_add(_api::AttributeApi, attribute_id::String, name::String; code=nothing, description=nothing, store_id=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_attribute_value_add_AttributeApi, "/attribute.value.add.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "attribute_id", attribute_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "name", name; style="form", is_explode=true)  # type String
@@ -552,6 +564,7 @@ function _oacinternal_attribute_value_add(_api::AttributeApi, attribute_id::Stri
     OpenAPI.Clients.set_param(_ctx.query, "description", description; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "lang_id", lang_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -568,16 +581,17 @@ Params:
 - description::String
 - store_id::String
 - lang_id::String
+- idempotency_key::String
 
 Return: AttributeAdd200Response, OpenAPI.Clients.ApiResponse
 """
-function attribute_value_add(_api::AttributeApi, attribute_id::String, name::String; code=nothing, description=nothing, store_id=nothing, lang_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_attribute_value_add(_api, attribute_id, name; code=code, description=description, store_id=store_id, lang_id=lang_id, _mediaType=_mediaType)
+function attribute_value_add(_api::AttributeApi, attribute_id::String, name::String; code=nothing, description=nothing, store_id=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_attribute_value_add(_api, attribute_id, name; code=code, description=description, store_id=store_id, lang_id=lang_id, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function attribute_value_add(_api::AttributeApi, response_stream::Channel, attribute_id::String, name::String; code=nothing, description=nothing, store_id=nothing, lang_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_attribute_value_add(_api, attribute_id, name; code=code, description=description, store_id=store_id, lang_id=lang_id, _mediaType=_mediaType)
+function attribute_value_add(_api::AttributeApi, response_stream::Channel, attribute_id::String, name::String; code=nothing, description=nothing, store_id=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_attribute_value_add(_api, attribute_id, name; code=code, description=description, store_id=store_id, lang_id=lang_id, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -620,7 +634,7 @@ const _returntypes_attribute_value_update_AttributeApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => AttributeUpdate200Response,
 )
 
-function _oacinternal_attribute_value_update(_api::AttributeApi, id::String, attribute_id::String; name=nothing, description=nothing, code=nothing, store_id=nothing, lang_id=nothing, _mediaType=nothing)
+function _oacinternal_attribute_value_update(_api::AttributeApi, id::String, attribute_id::String; name=nothing, description=nothing, code=nothing, store_id=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "PUT", _returntypes_attribute_value_update_AttributeApi, "/attribute.value.update.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "id", id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "attribute_id", attribute_id; style="form", is_explode=true)  # type String
@@ -629,6 +643,7 @@ function _oacinternal_attribute_value_update(_api::AttributeApi, id::String, att
     OpenAPI.Clients.set_param(_ctx.query, "code", code; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "lang_id", lang_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -646,16 +661,17 @@ Params:
 - code::String
 - store_id::String
 - lang_id::String
+- idempotency_key::String
 
 Return: AttributeUpdate200Response, OpenAPI.Clients.ApiResponse
 """
-function attribute_value_update(_api::AttributeApi, id::String, attribute_id::String; name=nothing, description=nothing, code=nothing, store_id=nothing, lang_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_attribute_value_update(_api, id, attribute_id; name=name, description=description, code=code, store_id=store_id, lang_id=lang_id, _mediaType=_mediaType)
+function attribute_value_update(_api::AttributeApi, id::String, attribute_id::String; name=nothing, description=nothing, code=nothing, store_id=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_attribute_value_update(_api, id, attribute_id; name=name, description=description, code=code, store_id=store_id, lang_id=lang_id, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function attribute_value_update(_api::AttributeApi, response_stream::Channel, id::String, attribute_id::String; name=nothing, description=nothing, code=nothing, store_id=nothing, lang_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_attribute_value_update(_api, id, attribute_id; name=name, description=description, code=code, store_id=store_id, lang_id=lang_id, _mediaType=_mediaType)
+function attribute_value_update(_api::AttributeApi, response_stream::Channel, id::String, attribute_id::String; name=nothing, description=nothing, code=nothing, store_id=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_attribute_value_update(_api, id, attribute_id; name=name, description=description, code=code, store_id=store_id, lang_id=lang_id, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 

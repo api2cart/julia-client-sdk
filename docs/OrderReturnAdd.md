@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **comment** | **String** | Specifies return comment | [optional] [default to nothing]
 **send_notifications** | **Bool** | Send notifications to customer after order was created | [optional] [default to false]
 **reject_reason** | **String** | Defines return reject reason | [optional] [default to nothing]
+**idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] [default to nothing]
 **order_products** | [**Vector{OrderReturnAddOrderProductsInner}**](OrderReturnAddOrderProductsInner.md) |  | [default to nothing]
 
 

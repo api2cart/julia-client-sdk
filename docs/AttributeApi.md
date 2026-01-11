@@ -23,8 +23,8 @@ Method | HTTP request | Description
 
 
 # **attribute_add**
-> attribute_add(_api::AttributeApi, type::String, name::String; code=nothing, store_id=nothing, lang_id=nothing, visible=nothing, required=nothing, position=nothing, attribute_group_id=nothing, is_global=nothing, is_searchable=nothing, is_filterable=nothing, is_comparable=nothing, is_html_allowed_on_front=nothing, is_filterable_in_search=nothing, is_configurable=nothing, is_visible_in_advanced_search=nothing, is_used_for_promo_rules=nothing, used_in_product_listing=nothing, used_for_sort_by=nothing, apply_to=nothing, _mediaType=nothing) -> AttributeAdd200Response, OpenAPI.Clients.ApiResponse <br/>
-> attribute_add(_api::AttributeApi, response_stream::Channel, type::String, name::String; code=nothing, store_id=nothing, lang_id=nothing, visible=nothing, required=nothing, position=nothing, attribute_group_id=nothing, is_global=nothing, is_searchable=nothing, is_filterable=nothing, is_comparable=nothing, is_html_allowed_on_front=nothing, is_filterable_in_search=nothing, is_configurable=nothing, is_visible_in_advanced_search=nothing, is_used_for_promo_rules=nothing, used_in_product_listing=nothing, used_for_sort_by=nothing, apply_to=nothing, _mediaType=nothing) -> Channel{ AttributeAdd200Response }, OpenAPI.Clients.ApiResponse
+> attribute_add(_api::AttributeApi, type::String, name::String; code=nothing, store_id=nothing, lang_id=nothing, visible=nothing, required=nothing, position=nothing, attribute_group_id=nothing, is_global=nothing, is_searchable=nothing, is_filterable=nothing, is_comparable=nothing, is_html_allowed_on_front=nothing, is_filterable_in_search=nothing, is_configurable=nothing, is_visible_in_advanced_search=nothing, is_used_for_promo_rules=nothing, used_in_product_listing=nothing, used_for_sort_by=nothing, apply_to=nothing, idempotency_key=nothing, _mediaType=nothing) -> AttributeAdd200Response, OpenAPI.Clients.ApiResponse <br/>
+> attribute_add(_api::AttributeApi, response_stream::Channel, type::String, name::String; code=nothing, store_id=nothing, lang_id=nothing, visible=nothing, required=nothing, position=nothing, attribute_group_id=nothing, is_global=nothing, is_searchable=nothing, is_filterable=nothing, is_comparable=nothing, is_html_allowed_on_front=nothing, is_filterable_in_search=nothing, is_configurable=nothing, is_visible_in_advanced_search=nothing, is_used_for_promo_rules=nothing, used_in_product_listing=nothing, used_for_sort_by=nothing, apply_to=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ AttributeAdd200Response }, OpenAPI.Clients.ApiResponse
 
 attribute.add
 
@@ -61,6 +61,7 @@ Name | Type | Description  | Notes
  **used_in_product_listing** | **Bool** | Used in Product Listing | [default to false]
  **used_for_sort_by** | **Bool** | Used for Sorting in Product Listing | [default to false]
  **apply_to** | **String** | Types of products which can have this attribute | [default to &quot;all_types&quot;]
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 
@@ -78,8 +79,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **attribute_assign_group**
-> attribute_assign_group(_api::AttributeApi, id::String, group_id::String; attribute_set_id=nothing, _mediaType=nothing) -> AttributeAssignGroup200Response, OpenAPI.Clients.ApiResponse <br/>
-> attribute_assign_group(_api::AttributeApi, response_stream::Channel, id::String, group_id::String; attribute_set_id=nothing, _mediaType=nothing) -> Channel{ AttributeAssignGroup200Response }, OpenAPI.Clients.ApiResponse
+> attribute_assign_group(_api::AttributeApi, id::String, group_id::String; attribute_set_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> AttributeAssignGroup200Response, OpenAPI.Clients.ApiResponse <br/>
+> attribute_assign_group(_api::AttributeApi, response_stream::Channel, id::String, group_id::String; attribute_set_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ AttributeAssignGroup200Response }, OpenAPI.Clients.ApiResponse
 
 attribute.assign.group
 
@@ -98,6 +99,7 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attribute_set_id** | **String** | Attribute set id | [default to nothing]
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 
@@ -115,8 +117,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **attribute_assign_set**
-> attribute_assign_set(_api::AttributeApi, id::String, attribute_set_id::String; group_id=nothing, _mediaType=nothing) -> AttributeAssignGroup200Response, OpenAPI.Clients.ApiResponse <br/>
-> attribute_assign_set(_api::AttributeApi, response_stream::Channel, id::String, attribute_set_id::String; group_id=nothing, _mediaType=nothing) -> Channel{ AttributeAssignGroup200Response }, OpenAPI.Clients.ApiResponse
+> attribute_assign_set(_api::AttributeApi, id::String, attribute_set_id::String; group_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> AttributeAssignGroup200Response, OpenAPI.Clients.ApiResponse <br/>
+> attribute_assign_set(_api::AttributeApi, response_stream::Channel, id::String, attribute_set_id::String; group_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ AttributeAssignGroup200Response }, OpenAPI.Clients.ApiResponse
 
 attribute.assign.set
 
@@ -135,6 +137,7 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **group_id** | **String** | Attribute group_id | [default to nothing]
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 
@@ -423,8 +426,8 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **attribute_unassign_group**
-> attribute_unassign_group(_api::AttributeApi, id::String, group_id::String; _mediaType=nothing) -> AttributeUnassignGroup200Response, OpenAPI.Clients.ApiResponse <br/>
-> attribute_unassign_group(_api::AttributeApi, response_stream::Channel, id::String, group_id::String; _mediaType=nothing) -> Channel{ AttributeUnassignGroup200Response }, OpenAPI.Clients.ApiResponse
+> attribute_unassign_group(_api::AttributeApi, id::String, group_id::String; idempotency_key=nothing, _mediaType=nothing) -> AttributeUnassignGroup200Response, OpenAPI.Clients.ApiResponse <br/>
+> attribute_unassign_group(_api::AttributeApi, response_stream::Channel, id::String, group_id::String; idempotency_key=nothing, _mediaType=nothing) -> Channel{ AttributeUnassignGroup200Response }, OpenAPI.Clients.ApiResponse
 
 attribute.unassign.group
 
@@ -437,6 +440,12 @@ Name | Type | Description  | Notes
  **_api** | **AttributeApi** | API context | 
 **id** | **String** | Entity id |
 **group_id** | **String** | Customer group_id |
+
+### Optional Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 
@@ -454,8 +463,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **attribute_unassign_set**
-> attribute_unassign_set(_api::AttributeApi, id::String, attribute_set_id::String; _mediaType=nothing) -> AttributeUnassignGroup200Response, OpenAPI.Clients.ApiResponse <br/>
-> attribute_unassign_set(_api::AttributeApi, response_stream::Channel, id::String, attribute_set_id::String; _mediaType=nothing) -> Channel{ AttributeUnassignGroup200Response }, OpenAPI.Clients.ApiResponse
+> attribute_unassign_set(_api::AttributeApi, id::String, attribute_set_id::String; idempotency_key=nothing, _mediaType=nothing) -> AttributeUnassignGroup200Response, OpenAPI.Clients.ApiResponse <br/>
+> attribute_unassign_set(_api::AttributeApi, response_stream::Channel, id::String, attribute_set_id::String; idempotency_key=nothing, _mediaType=nothing) -> Channel{ AttributeUnassignGroup200Response }, OpenAPI.Clients.ApiResponse
 
 attribute.unassign.set
 
@@ -468,6 +477,12 @@ Name | Type | Description  | Notes
  **_api** | **AttributeApi** | API context | 
 **id** | **String** | Entity id |
 **attribute_set_id** | **String** | Attribute set id |
+
+### Optional Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 
@@ -485,8 +500,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **attribute_update**
-> attribute_update(_api::AttributeApi, id::String, name::String; store_id=nothing, lang_id=nothing, _mediaType=nothing) -> AttributeUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
-> attribute_update(_api::AttributeApi, response_stream::Channel, id::String, name::String; store_id=nothing, lang_id=nothing, _mediaType=nothing) -> Channel{ AttributeUpdate200Response }, OpenAPI.Clients.ApiResponse
+> attribute_update(_api::AttributeApi, id::String, name::String; store_id=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> AttributeUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
+> attribute_update(_api::AttributeApi, response_stream::Channel, id::String, name::String; store_id=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ AttributeUpdate200Response }, OpenAPI.Clients.ApiResponse
 
 attribute.update
 
@@ -506,6 +521,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **store_id** | **String** | Store Id | [default to nothing]
  **lang_id** | **String** | Language id | [default to nothing]
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 
@@ -523,8 +539,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **attribute_value_add**
-> attribute_value_add(_api::AttributeApi, attribute_id::String, name::String; code=nothing, description=nothing, store_id=nothing, lang_id=nothing, _mediaType=nothing) -> AttributeAdd200Response, OpenAPI.Clients.ApiResponse <br/>
-> attribute_value_add(_api::AttributeApi, response_stream::Channel, attribute_id::String, name::String; code=nothing, description=nothing, store_id=nothing, lang_id=nothing, _mediaType=nothing) -> Channel{ AttributeAdd200Response }, OpenAPI.Clients.ApiResponse
+> attribute_value_add(_api::AttributeApi, attribute_id::String, name::String; code=nothing, description=nothing, store_id=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> AttributeAdd200Response, OpenAPI.Clients.ApiResponse <br/>
+> attribute_value_add(_api::AttributeApi, response_stream::Channel, attribute_id::String, name::String; code=nothing, description=nothing, store_id=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ AttributeAdd200Response }, OpenAPI.Clients.ApiResponse
 
 attribute.value.add
 
@@ -546,6 +562,7 @@ Name | Type | Description  | Notes
  **description** | **String** | Defines attribute value&#39;s description | [default to nothing]
  **store_id** | **String** | Store Id | [default to nothing]
  **lang_id** | **String** | Language id | [default to nothing]
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 
@@ -600,8 +617,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **attribute_value_update**
-> attribute_value_update(_api::AttributeApi, id::String, attribute_id::String; name=nothing, description=nothing, code=nothing, store_id=nothing, lang_id=nothing, _mediaType=nothing) -> AttributeUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
-> attribute_value_update(_api::AttributeApi, response_stream::Channel, id::String, attribute_id::String; name=nothing, description=nothing, code=nothing, store_id=nothing, lang_id=nothing, _mediaType=nothing) -> Channel{ AttributeUpdate200Response }, OpenAPI.Clients.ApiResponse
+> attribute_value_update(_api::AttributeApi, id::String, attribute_id::String; name=nothing, description=nothing, code=nothing, store_id=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> AttributeUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
+> attribute_value_update(_api::AttributeApi, response_stream::Channel, id::String, attribute_id::String; name=nothing, description=nothing, code=nothing, store_id=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ AttributeUpdate200Response }, OpenAPI.Clients.ApiResponse
 
 attribute.value.update
 
@@ -624,6 +641,7 @@ Name | Type | Description  | Notes
  **code** | **String** | Entity code | [default to nothing]
  **store_id** | **String** | Store Id | [default to nothing]
  **lang_id** | **String** | Language id | [default to nothing]
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 

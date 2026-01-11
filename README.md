@@ -80,6 +80,7 @@ Class | Method
 *CategoryApi* | [**category_assign**](docs/CategoryApi.md#category_assign)<br/>**POST** /category.assign.json<br/>category.assign
 *CategoryApi* | [**category_count**](docs/CategoryApi.md#category_count)<br/>**GET** /category.count.json<br/>category.count
 *CategoryApi* | [**category_delete**](docs/CategoryApi.md#category_delete)<br/>**DELETE** /category.delete.json<br/>category.delete
+*CategoryApi* | [**category_delete_batch**](docs/CategoryApi.md#category_delete_batch)<br/>**POST** /category.delete.batch.json<br/>category.delete.batch
 *CategoryApi* | [**category_find**](docs/CategoryApi.md#category_find)<br/>**GET** /category.find.json<br/>category.find
 *CategoryApi* | [**category_image_add**](docs/CategoryApi.md#category_image_add)<br/>**POST** /category.image.add.json<br/>category.image.add
 *CategoryApi* | [**category_image_delete**](docs/CategoryApi.md#category_image_delete)<br/>**DELETE** /category.image.delete.json<br/>category.image.delete
@@ -290,6 +291,8 @@ Class | Method
  - [CategoryCount200ResponseResult](docs/CategoryCount200ResponseResult.md)
  - [CategoryDelete200Response](docs/CategoryDelete200Response.md)
  - [CategoryDelete200ResponseResult](docs/CategoryDelete200ResponseResult.md)
+ - [CategoryDeleteBatch](docs/CategoryDeleteBatch.md)
+ - [CategoryDeleteBatchPayloadInner](docs/CategoryDeleteBatchPayloadInner.md)
  - [CategoryFind200Response](docs/CategoryFind200Response.md)
  - [CategoryFind200ResponseResult](docs/CategoryFind200ResponseResult.md)
  - [CategoryFind200ResponseResultCategoryInner](docs/CategoryFind200ResponseResultCategoryInner.md)

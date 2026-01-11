@@ -6,20 +6,24 @@
 
     ProductDeleteBatch(;
         payload=nothing,
+        idempotency_key=nothing,
     )
 
     - payload::Vector{ProductDeleteBatchPayloadInner} : Contains an array of product deletion requests, each including the product ID.
+    - idempotency_key::String : A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
 """
 Base.@kwdef mutable struct ProductDeleteBatch <: OpenAPI.APIModel
     payload::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ProductDeleteBatchPayloadInner} }
+    idempotency_key::Union{Nothing, String} = nothing
 
-    function ProductDeleteBatch(payload, )
+    function ProductDeleteBatch(payload, idempotency_key, )
         OpenAPI.validate_property(ProductDeleteBatch, Symbol("payload"), payload)
-        return new(payload, )
+        OpenAPI.validate_property(ProductDeleteBatch, Symbol("idempotency_key"), idempotency_key)
+        return new(payload, idempotency_key, )
     end
 end # type ProductDeleteBatch
 
-const _property_types_ProductDeleteBatch = Dict{Symbol,String}(Symbol("payload")=>"Vector{ProductDeleteBatchPayloadInner}", )
+const _property_types_ProductDeleteBatch = Dict{Symbol,String}(Symbol("payload")=>"Vector{ProductDeleteBatchPayloadInner}", Symbol("idempotency_key")=>"String", )
 OpenAPI.property_type(::Type{ ProductDeleteBatch }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_ProductDeleteBatch[name]))}
 
 function check_required(o::ProductDeleteBatch)
@@ -33,4 +37,5 @@ function OpenAPI.validate_property(::Type{ ProductDeleteBatch }, name::Symbol, v
         OpenAPI.validate_param(name, "ProductDeleteBatch", :maxItems, val, 250)
         OpenAPI.validate_param(name, "ProductDeleteBatch", :minItems, val, 1)
     end
+
 end
