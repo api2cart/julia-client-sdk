@@ -370,8 +370,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **category_info**
-> category_info(_api::CategoryApi, id::String; store_id=nothing, lang_id=nothing, schema_type=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing) -> CategoryInfo200Response, OpenAPI.Clients.ApiResponse <br/>
-> category_info(_api::CategoryApi, response_stream::Channel, id::String; store_id=nothing, lang_id=nothing, schema_type=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing) -> Channel{ CategoryInfo200Response }, OpenAPI.Clients.ApiResponse
+> category_info(_api::CategoryApi, id::String; store_id=nothing, lang_id=nothing, schema_type=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> CategoryInfo200Response, OpenAPI.Clients.ApiResponse <br/>
+> category_info(_api::CategoryApi, response_stream::Channel, id::String; store_id=nothing, lang_id=nothing, schema_type=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> Channel{ CategoryInfo200Response }, OpenAPI.Clients.ApiResponse
 
 category.info
 
@@ -396,6 +396,7 @@ Name | Type | Description  | Notes
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
  **report_request_id** | **String** | Report request id | [default to nothing]
  **disable_report_cache** | **Bool** | Disable report cache for current request | [default to false]
+ **use_latest_api_version** | **Bool** | Use the latest platform API version | [default to false]
 
 ### Return type
 
@@ -413,8 +414,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **category_list**
-> category_list(_api::CategoryApi; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, parent_id=nothing, avail=nothing, product_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, find_value=nothing, find_where=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, disable_cache=nothing, _mediaType=nothing) -> ModelResponseCategoryList, OpenAPI.Clients.ApiResponse <br/>
-> category_list(_api::CategoryApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, parent_id=nothing, avail=nothing, product_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, find_value=nothing, find_where=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, disable_cache=nothing, _mediaType=nothing) -> Channel{ ModelResponseCategoryList }, OpenAPI.Clients.ApiResponse
+> category_list(_api::CategoryApi; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, parent_id=nothing, avail=nothing, product_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, find_value=nothing, find_where=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, disable_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> ModelResponseCategoryList, OpenAPI.Clients.ApiResponse <br/>
+> category_list(_api::CategoryApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, parent_id=nothing, avail=nothing, product_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, find_value=nothing, find_where=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, disable_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> Channel{ ModelResponseCategoryList }, OpenAPI.Clients.ApiResponse
 
 category.list
 
@@ -450,6 +451,7 @@ Name | Type | Description  | Notes
  **report_request_id** | **String** | Report request id | [default to nothing]
  **disable_report_cache** | **Bool** | Disable report cache for current request | [default to false]
  **disable_cache** | **Bool** | Disable cache for current request | [default to false]
+ **use_latest_api_version** | **Bool** | Use the latest platform API version | [default to false]
 
 ### Return type
 

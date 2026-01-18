@@ -79,6 +79,7 @@ docs/CartInfo200Response.md
 docs/CartMetaData.md
 docs/CartMethods200Response.md
 docs/CartMethods200ResponseResult.md
+docs/CartPickupLocation.md
 docs/CartPluginList200Response.md
 docs/CartPluginList200ResponseResult.md
 docs/CartScriptAdd200Response.md
@@ -537,6 +538,7 @@ src/models/model_CartInfo200Response.jl
 src/models/model_CartMetaData.jl
 src/models/model_CartMethods200Response.jl
 src/models/model_CartMethods200ResponseResult.jl
+src/models/model_CartPickupLocation.jl
 src/models/model_CartPluginList200Response.jl
 src/models/model_CartPluginList200ResponseResult.jl
 src/models/model_CartScriptAdd200Response.jl

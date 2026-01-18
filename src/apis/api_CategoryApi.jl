@@ -382,7 +382,7 @@ const _returntypes_category_info_CategoryApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => CategoryInfo200Response,
 )
 
-function _oacinternal_category_info(_api::CategoryApi, id::String; store_id=nothing, lang_id=nothing, schema_type=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing)
+function _oacinternal_category_info(_api::CategoryApi, id::String; store_id=nothing, lang_id=nothing, schema_type=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_category_info_CategoryApi, "/category.info.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "id", id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
@@ -393,6 +393,7 @@ function _oacinternal_category_info(_api::CategoryApi, id::String; store_id=noth
     OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "report_request_id", report_request_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "disable_report_cache", disable_report_cache; style="form", is_explode=true)  # type Bool
+    OpenAPI.Clients.set_param(_ctx.query, "use_latest_api_version", use_latest_api_version; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -412,16 +413,17 @@ Params:
 - exclude::String
 - report_request_id::String
 - disable_report_cache::Bool
+- use_latest_api_version::Bool
 
 Return: CategoryInfo200Response, OpenAPI.Clients.ApiResponse
 """
-function category_info(_api::CategoryApi, id::String; store_id=nothing, lang_id=nothing, schema_type=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_category_info(_api, id; store_id=store_id, lang_id=lang_id, schema_type=schema_type, response_fields=response_fields, params=params, exclude=exclude, report_request_id=report_request_id, disable_report_cache=disable_report_cache, _mediaType=_mediaType)
+function category_info(_api::CategoryApi, id::String; store_id=nothing, lang_id=nothing, schema_type=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_category_info(_api, id; store_id=store_id, lang_id=lang_id, schema_type=schema_type, response_fields=response_fields, params=params, exclude=exclude, report_request_id=report_request_id, disable_report_cache=disable_report_cache, use_latest_api_version=use_latest_api_version, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function category_info(_api::CategoryApi, response_stream::Channel, id::String; store_id=nothing, lang_id=nothing, schema_type=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_category_info(_api, id; store_id=store_id, lang_id=lang_id, schema_type=schema_type, response_fields=response_fields, params=params, exclude=exclude, report_request_id=report_request_id, disable_report_cache=disable_report_cache, _mediaType=_mediaType)
+function category_info(_api::CategoryApi, response_stream::Channel, id::String; store_id=nothing, lang_id=nothing, schema_type=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_category_info(_api, id; store_id=store_id, lang_id=lang_id, schema_type=schema_type, response_fields=response_fields, params=params, exclude=exclude, report_request_id=report_request_id, disable_report_cache=disable_report_cache, use_latest_api_version=use_latest_api_version, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -429,7 +431,7 @@ const _returntypes_category_list_CategoryApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseCategoryList,
 )
 
-function _oacinternal_category_list(_api::CategoryApi; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, parent_id=nothing, avail=nothing, product_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, find_value=nothing, find_where=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, disable_cache=nothing, _mediaType=nothing)
+function _oacinternal_category_list(_api::CategoryApi; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, parent_id=nothing, avail=nothing, product_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, find_value=nothing, find_where=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, disable_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_category_list_CategoryApi, "/category.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
@@ -451,6 +453,7 @@ function _oacinternal_category_list(_api::CategoryApi; start=nothing, count=noth
     OpenAPI.Clients.set_param(_ctx.query, "report_request_id", report_request_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "disable_report_cache", disable_report_cache; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_param(_ctx.query, "disable_cache", disable_cache; style="form", is_explode=true)  # type Bool
+    OpenAPI.Clients.set_param(_ctx.query, "use_latest_api_version", use_latest_api_version; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -481,16 +484,17 @@ Params:
 - report_request_id::String
 - disable_report_cache::Bool
 - disable_cache::Bool
+- use_latest_api_version::Bool
 
 Return: ModelResponseCategoryList, OpenAPI.Clients.ApiResponse
 """
-function category_list(_api::CategoryApi; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, parent_id=nothing, avail=nothing, product_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, find_value=nothing, find_where=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, disable_cache=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_category_list(_api; start=start, count=count, page_cursor=page_cursor, store_id=store_id, lang_id=lang_id, parent_id=parent_id, avail=avail, product_type=product_type, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, find_value=find_value, find_where=find_where, response_fields=response_fields, params=params, exclude=exclude, report_request_id=report_request_id, disable_report_cache=disable_report_cache, disable_cache=disable_cache, _mediaType=_mediaType)
+function category_list(_api::CategoryApi; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, parent_id=nothing, avail=nothing, product_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, find_value=nothing, find_where=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, disable_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_category_list(_api; start=start, count=count, page_cursor=page_cursor, store_id=store_id, lang_id=lang_id, parent_id=parent_id, avail=avail, product_type=product_type, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, find_value=find_value, find_where=find_where, response_fields=response_fields, params=params, exclude=exclude, report_request_id=report_request_id, disable_report_cache=disable_report_cache, disable_cache=disable_cache, use_latest_api_version=use_latest_api_version, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function category_list(_api::CategoryApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, parent_id=nothing, avail=nothing, product_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, find_value=nothing, find_where=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, disable_cache=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_category_list(_api; start=start, count=count, page_cursor=page_cursor, store_id=store_id, lang_id=lang_id, parent_id=parent_id, avail=avail, product_type=product_type, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, find_value=find_value, find_where=find_where, response_fields=response_fields, params=params, exclude=exclude, report_request_id=report_request_id, disable_report_cache=disable_report_cache, disable_cache=disable_cache, _mediaType=_mediaType)
+function category_list(_api::CategoryApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, parent_id=nothing, avail=nothing, product_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, find_value=nothing, find_where=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, disable_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_category_list(_api; start=start, count=count, page_cursor=page_cursor, store_id=store_id, lang_id=lang_id, parent_id=parent_id, avail=avail, product_type=product_type, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, find_value=find_value, find_where=find_where, response_fields=response_fields, params=params, exclude=exclude, report_request_id=report_request_id, disable_report_cache=disable_report_cache, disable_cache=disable_cache, use_latest_api_version=use_latest_api_version, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 

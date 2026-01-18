@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **store_owner_info** | [***Info**](Info.md) |  | [optional] [default to nothing]
 **default_warehouse_id** | **String** |  | [optional] [default to nothing]
 **channels** | [**Vector{CartChannel}**](CartChannel.md) |  | [optional] [default to nothing]
+**pickup_locations** | [**Vector{CartPickupLocation}**](CartPickupLocation.md) |  | [optional] [default to nothing]
 **additional_fields** | **Any** |  | [optional] [default to nothing]
 **custom_fields** | **Any** |  | [optional] [default to nothing]
 

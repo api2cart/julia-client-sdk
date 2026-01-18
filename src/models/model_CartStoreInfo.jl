@@ -23,6 +23,7 @@
         store_owner_info=nothing,
         default_warehouse_id=nothing,
         channels=nothing,
+        pickup_locations=nothing,
         additional_fields=nothing,
         custom_fields=nothing,
     )
@@ -45,6 +46,7 @@
     - store_owner_info::Info
     - default_warehouse_id::String
     - channels::Vector{CartChannel}
+    - pickup_locations::Vector{CartPickupLocation}
     - additional_fields::Any
     - custom_fields::Any
 """
@@ -67,10 +69,11 @@ Base.@kwdef mutable struct CartStoreInfo <: OpenAPI.APIModel
     store_owner_info = nothing # spec type: Union{ Nothing, Info }
     default_warehouse_id::Union{Nothing, String} = nothing
     channels::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{CartChannel} }
+    pickup_locations::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{CartPickupLocation} }
     additional_fields::Union{Nothing, Any} = nothing
     custom_fields::Union{Nothing, Any} = nothing
 
-    function CartStoreInfo(store_id, name, language, store_languages, currency, store_currencies, timezone, country, root_category_id, multi_store_url, active, weight_unit, dimension_unit, prices_include_tax, carrier_info, store_owner_info, default_warehouse_id, channels, additional_fields, custom_fields, )
+    function CartStoreInfo(store_id, name, language, store_languages, currency, store_currencies, timezone, country, root_category_id, multi_store_url, active, weight_unit, dimension_unit, prices_include_tax, carrier_info, store_owner_info, default_warehouse_id, channels, pickup_locations, additional_fields, custom_fields, )
         OpenAPI.validate_property(CartStoreInfo, Symbol("store_id"), store_id)
         OpenAPI.validate_property(CartStoreInfo, Symbol("name"), name)
         OpenAPI.validate_property(CartStoreInfo, Symbol("language"), language)
@@ -89,13 +92,14 @@ Base.@kwdef mutable struct CartStoreInfo <: OpenAPI.APIModel
         OpenAPI.validate_property(CartStoreInfo, Symbol("store_owner_info"), store_owner_info)
         OpenAPI.validate_property(CartStoreInfo, Symbol("default_warehouse_id"), default_warehouse_id)
         OpenAPI.validate_property(CartStoreInfo, Symbol("channels"), channels)
+        OpenAPI.validate_property(CartStoreInfo, Symbol("pickup_locations"), pickup_locations)
         OpenAPI.validate_property(CartStoreInfo, Symbol("additional_fields"), additional_fields)
         OpenAPI.validate_property(CartStoreInfo, Symbol("custom_fields"), custom_fields)
-        return new(store_id, name, language, store_languages, currency, store_currencies, timezone, country, root_category_id, multi_store_url, active, weight_unit, dimension_unit, prices_include_tax, carrier_info, store_owner_info, default_warehouse_id, channels, additional_fields, custom_fields, )
+        return new(store_id, name, language, store_languages, currency, store_currencies, timezone, country, root_category_id, multi_store_url, active, weight_unit, dimension_unit, prices_include_tax, carrier_info, store_owner_info, default_warehouse_id, channels, pickup_locations, additional_fields, custom_fields, )
     end
 end # type CartStoreInfo
 
-const _property_types_CartStoreInfo = Dict{Symbol,String}(Symbol("store_id")=>"String", Symbol("name")=>"String", Symbol("language")=>"String", Symbol("store_languages")=>"Vector{Language}", Symbol("currency")=>"Currency", Symbol("store_currencies")=>"Vector{Currency}", Symbol("timezone")=>"String", Symbol("country")=>"String", Symbol("root_category_id")=>"String", Symbol("multi_store_url")=>"String", Symbol("active")=>"Bool", Symbol("weight_unit")=>"String", Symbol("dimension_unit")=>"String", Symbol("prices_include_tax")=>"Bool", Symbol("carrier_info")=>"Vector{Carrier}", Symbol("store_owner_info")=>"Info", Symbol("default_warehouse_id")=>"String", Symbol("channels")=>"Vector{CartChannel}", Symbol("additional_fields")=>"Any", Symbol("custom_fields")=>"Any", )
+const _property_types_CartStoreInfo = Dict{Symbol,String}(Symbol("store_id")=>"String", Symbol("name")=>"String", Symbol("language")=>"String", Symbol("store_languages")=>"Vector{Language}", Symbol("currency")=>"Currency", Symbol("store_currencies")=>"Vector{Currency}", Symbol("timezone")=>"String", Symbol("country")=>"String", Symbol("root_category_id")=>"String", Symbol("multi_store_url")=>"String", Symbol("active")=>"Bool", Symbol("weight_unit")=>"String", Symbol("dimension_unit")=>"String", Symbol("prices_include_tax")=>"Bool", Symbol("carrier_info")=>"Vector{Carrier}", Symbol("store_owner_info")=>"Info", Symbol("default_warehouse_id")=>"String", Symbol("channels")=>"Vector{CartChannel}", Symbol("pickup_locations")=>"Vector{CartPickupLocation}", Symbol("additional_fields")=>"Any", Symbol("custom_fields")=>"Any", )
 OpenAPI.property_type(::Type{ CartStoreInfo }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_CartStoreInfo[name]))}
 
 function check_required(o::CartStoreInfo)
@@ -103,6 +107,7 @@ function check_required(o::CartStoreInfo)
 end
 
 function OpenAPI.validate_property(::Type{ CartStoreInfo }, name::Symbol, val)
+
 
 
 
