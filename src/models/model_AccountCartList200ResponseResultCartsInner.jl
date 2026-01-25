@@ -9,6 +9,8 @@
         url=nothing,
         store_key=nothing,
         cart_id=nothing,
+        custom_label=nothing,
+        bridge_version=nothing,
         total_calls=nothing,
     )
 
@@ -16,6 +18,8 @@
     - url::String
     - store_key::String
     - cart_id::String
+    - custom_label::String
+    - bridge_version::String
     - total_calls::String
 """
 Base.@kwdef mutable struct AccountCartList200ResponseResultCartsInner <: OpenAPI.APIModel
@@ -23,19 +27,23 @@ Base.@kwdef mutable struct AccountCartList200ResponseResultCartsInner <: OpenAPI
     url::Union{Nothing, String} = nothing
     store_key::Union{Nothing, String} = nothing
     cart_id::Union{Nothing, String} = nothing
+    custom_label::Union{Nothing, String} = nothing
+    bridge_version::Union{Nothing, String} = nothing
     total_calls::Union{Nothing, String} = nothing
 
-    function AccountCartList200ResponseResultCartsInner(id, url, store_key, cart_id, total_calls, )
+    function AccountCartList200ResponseResultCartsInner(id, url, store_key, cart_id, custom_label, bridge_version, total_calls, )
         OpenAPI.validate_property(AccountCartList200ResponseResultCartsInner, Symbol("id"), id)
         OpenAPI.validate_property(AccountCartList200ResponseResultCartsInner, Symbol("url"), url)
         OpenAPI.validate_property(AccountCartList200ResponseResultCartsInner, Symbol("store_key"), store_key)
         OpenAPI.validate_property(AccountCartList200ResponseResultCartsInner, Symbol("cart_id"), cart_id)
+        OpenAPI.validate_property(AccountCartList200ResponseResultCartsInner, Symbol("custom_label"), custom_label)
+        OpenAPI.validate_property(AccountCartList200ResponseResultCartsInner, Symbol("bridge_version"), bridge_version)
         OpenAPI.validate_property(AccountCartList200ResponseResultCartsInner, Symbol("total_calls"), total_calls)
-        return new(id, url, store_key, cart_id, total_calls, )
+        return new(id, url, store_key, cart_id, custom_label, bridge_version, total_calls, )
     end
 end # type AccountCartList200ResponseResultCartsInner
 
-const _property_types_AccountCartList200ResponseResultCartsInner = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("url")=>"String", Symbol("store_key")=>"String", Symbol("cart_id")=>"String", Symbol("total_calls")=>"String", )
+const _property_types_AccountCartList200ResponseResultCartsInner = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("url")=>"String", Symbol("store_key")=>"String", Symbol("cart_id")=>"String", Symbol("custom_label")=>"String", Symbol("bridge_version")=>"String", Symbol("total_calls")=>"String", )
 OpenAPI.property_type(::Type{ AccountCartList200ResponseResultCartsInner }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_AccountCartList200ResponseResultCartsInner[name]))}
 
 function check_required(o::AccountCartList200ResponseResultCartsInner)
@@ -43,6 +51,8 @@ function check_required(o::AccountCartList200ResponseResultCartsInner)
 end
 
 function OpenAPI.validate_property(::Type{ AccountCartList200ResponseResultCartsInner }, name::Symbol, val)
+
+
 
 
 

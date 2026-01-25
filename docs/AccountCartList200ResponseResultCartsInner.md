@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **url** | **String** |  | [optional] [default to nothing]
 **store_key** | **String** |  | [optional] [default to nothing]
 **cart_id** | **String** |  | [optional] [default to nothing]
+**custom_label** | **String** |  | [optional] [default to nothing]
+**bridge_version** | **String** |  | [optional] [default to nothing]
 **total_calls** | **String** |  | [optional] [default to nothing]
 
 
