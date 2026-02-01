@@ -8,10 +8,10 @@
         gift_cards_count=nothing,
     )
 
-    - gift_cards_count::String
+    - gift_cards_count::Int64
 """
 Base.@kwdef mutable struct CartGiftcardCount200ResponseResult <: OpenAPI.APIModel
-    gift_cards_count::Union{Nothing, String} = nothing
+    gift_cards_count::Union{Nothing, Int64} = nothing
 
     function CartGiftcardCount200ResponseResult(gift_cards_count, )
         OpenAPI.validate_property(CartGiftcardCount200ResponseResult, Symbol("gift_cards_count"), gift_cards_count)
@@ -19,7 +19,7 @@ Base.@kwdef mutable struct CartGiftcardCount200ResponseResult <: OpenAPI.APIMode
     end
 end # type CartGiftcardCount200ResponseResult
 
-const _property_types_CartGiftcardCount200ResponseResult = Dict{Symbol,String}(Symbol("gift_cards_count")=>"String", )
+const _property_types_CartGiftcardCount200ResponseResult = Dict{Symbol,String}(Symbol("gift_cards_count")=>"Int64", )
 OpenAPI.property_type(::Type{ CartGiftcardCount200ResponseResult }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_CartGiftcardCount200ResponseResult[name]))}
 
 function check_required(o::CartGiftcardCount200ResponseResult)

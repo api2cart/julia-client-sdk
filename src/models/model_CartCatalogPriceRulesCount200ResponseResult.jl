@@ -8,10 +8,10 @@
         catalog_price_rules_count=nothing,
     )
 
-    - catalog_price_rules_count::String
+    - catalog_price_rules_count::Int64
 """
 Base.@kwdef mutable struct CartCatalogPriceRulesCount200ResponseResult <: OpenAPI.APIModel
-    catalog_price_rules_count::Union{Nothing, String} = nothing
+    catalog_price_rules_count::Union{Nothing, Int64} = nothing
 
     function CartCatalogPriceRulesCount200ResponseResult(catalog_price_rules_count, )
         OpenAPI.validate_property(CartCatalogPriceRulesCount200ResponseResult, Symbol("catalog_price_rules_count"), catalog_price_rules_count)
@@ -19,7 +19,7 @@ Base.@kwdef mutable struct CartCatalogPriceRulesCount200ResponseResult <: OpenAP
     end
 end # type CartCatalogPriceRulesCount200ResponseResult
 
-const _property_types_CartCatalogPriceRulesCount200ResponseResult = Dict{Symbol,String}(Symbol("catalog_price_rules_count")=>"String", )
+const _property_types_CartCatalogPriceRulesCount200ResponseResult = Dict{Symbol,String}(Symbol("catalog_price_rules_count")=>"Int64", )
 OpenAPI.property_type(::Type{ CartCatalogPriceRulesCount200ResponseResult }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_CartCatalogPriceRulesCount200ResponseResult[name]))}
 
 function check_required(o::CartCatalogPriceRulesCount200ResponseResult)
