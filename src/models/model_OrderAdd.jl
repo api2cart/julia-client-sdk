@@ -128,7 +128,7 @@
     - total_price::Float64 : Defines order&#39;s total price
     - total_paid::Float64 : Defines total paid amount for the order
     - total_weight::Int64 : Defines the sum of all line item weights in grams for the order
-    - prices_inc_tax::Bool : Indicates whether prices and subtotal includes tax.
+    - prices_inc_tax::Bool : Indicates whether prices and subtotal include tax.
     - shipping_price::Float64 : Specifies order&#39;s shipping price
     - shipping_tax::Float64 : Specifies order&#39;s shipping price tax
     - discount::Float64 : Specifies order&#39;s discount

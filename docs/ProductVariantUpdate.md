@@ -32,6 +32,7 @@ Name | Type | Description | Notes
 **quantity** | **Float64** | Defines new products&#39; variants quantity | [optional] [default to nothing]
 **increase_quantity** | **Float64** | Defines the incremental changes in product quantity | [optional] [default to 0]
 **reduce_quantity** | **Float64** | Defines the decrement changes in product quantity | [optional] [default to 0]
+**prices_inc_tax** | **Bool** | Indicates whether prices include tax. | [optional] [default to false]
 **price** | **Float64** | Defines new product&#39;s variant price | [optional] [default to nothing]
 **special_price** | **Float64** | Defines new product&#39;s variant special price | [optional] [default to nothing]
 **retail_price** | **Float64** | Defines new product&#39;s retail price | [optional] [default to nothing]

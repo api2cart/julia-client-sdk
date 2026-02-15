@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **tier_prices** | [**Vector{ProductAddTierPricesInner}**](ProductAddTierPricesInner.md) | Defines product&#39;s tier prices | [optional] [default to nothing]
 **measure_unit** | **String** | Unit for the price per unit. Must be in allowed list | [optional] [default to nothing]
 **unit_price** | **Float64** | Defines new product&#39;s unit price | [optional] [default to nothing]
+**prices_inc_tax** | **Bool** | Indicates whether prices include tax. | [optional] [default to false]
 **quantity** | **Float64** | Defines product variant&#39;s quantity that has to be added | [optional] [default to 0]
 **warehouse_id** | **String** | This parameter is used for selecting a warehouse where you need to set/modify a product quantity. | [optional] [default to nothing]
 **in_stock** | **Bool** | Set stock status | [optional] [default to nothing]

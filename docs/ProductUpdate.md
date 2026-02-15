@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **name** | **String** | Defines product&#39;s name that has to be updated | [optional] [default to nothing]
 **description** | **String** | Defines new product&#39;s description | [optional] [default to nothing]
 **short_description** | **String** | Defines short description | [optional] [default to nothing]
+**prices_inc_tax** | **Bool** | Indicates whether prices include tax. | [optional] [default to false]
 **price** | **Float64** | Defines new product&#39;s price | [optional] [default to nothing]
 **old_price** | **Float64** | Defines product&#39;s old price | [optional] [default to nothing]
 **special_price** | **Float64** | Defines new product&#39;s special price | [optional] [default to nothing]
