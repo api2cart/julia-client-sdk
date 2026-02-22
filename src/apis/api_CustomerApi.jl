@@ -75,8 +75,9 @@ const _returntypes_customer_attribute_list_CustomerApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseCustomerAttributeList,
 )
 
-function _oacinternal_customer_attribute_list(_api::CustomerApi, customer_id::String; count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+function _oacinternal_customer_attribute_list(_api::CustomerApi, customer_id::String; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_customer_attribute_list_CustomerApi, "/customer.attribute.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
+    OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "customer_id", customer_id; style="form", is_explode=true)  # type String
@@ -96,6 +97,7 @@ Get attributes for specific customer
 
 Params:
 - customer_id::String (required)
+- start::Int64
 - count::Int64
 - page_cursor::String
 - store_id::String
@@ -106,13 +108,13 @@ Params:
 
 Return: ModelResponseCustomerAttributeList, OpenAPI.Clients.ApiResponse
 """
-function customer_attribute_list(_api::CustomerApi, customer_id::String; count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_customer_attribute_list(_api, customer_id; count=count, page_cursor=page_cursor, store_id=store_id, lang_id=lang_id, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
+function customer_attribute_list(_api::CustomerApi, customer_id::String; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_customer_attribute_list(_api, customer_id; start=start, count=count, page_cursor=page_cursor, store_id=store_id, lang_id=lang_id, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function customer_attribute_list(_api::CustomerApi, response_stream::Channel, customer_id::String; count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_customer_attribute_list(_api, customer_id; count=count, page_cursor=page_cursor, store_id=store_id, lang_id=lang_id, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
+function customer_attribute_list(_api::CustomerApi, response_stream::Channel, customer_id::String; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_customer_attribute_list(_api, customer_id; start=start, count=count, page_cursor=page_cursor, store_id=store_id, lang_id=lang_id, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 

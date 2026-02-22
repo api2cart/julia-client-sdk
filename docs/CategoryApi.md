@@ -290,8 +290,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **category_image_add**
-> category_image_add(_api::CategoryApi, category_id::String, image_name::String, url::String, type::String; store_id=nothing, label=nothing, mime=nothing, position=nothing, idempotency_key=nothing, _mediaType=nothing) -> CategoryImageAdd200Response, OpenAPI.Clients.ApiResponse <br/>
-> category_image_add(_api::CategoryApi, response_stream::Channel, category_id::String, image_name::String, url::String, type::String; store_id=nothing, label=nothing, mime=nothing, position=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ CategoryImageAdd200Response }, OpenAPI.Clients.ApiResponse
+> category_image_add(_api::CategoryApi, category_id::String, image_name::String, url::String, type::String; store_id=nothing, label=nothing, mime=nothing, position=nothing, apply_to_translations=nothing, idempotency_key=nothing, _mediaType=nothing) -> CategoryImageAdd200Response, OpenAPI.Clients.ApiResponse <br/>
+> category_image_add(_api::CategoryApi, response_stream::Channel, category_id::String, image_name::String, url::String, type::String; store_id=nothing, label=nothing, mime=nothing, position=nothing, apply_to_translations=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ CategoryImageAdd200Response }, OpenAPI.Clients.ApiResponse
 
 category.image.add
 
@@ -315,6 +315,7 @@ Name | Type | Description  | Notes
  **label** | **String** | Defines alternative text that has to be attached to the picture | [default to nothing]
  **mime** | **String** | Mime type of image http://en.wikipedia.org/wiki/Internet_media_type. | [default to nothing]
  **position** | **Int64** | Defines image’s position in the list | [default to 0]
+ **apply_to_translations** | **Bool** | Defines whether to add image to all category translations | [default to true]
  **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
@@ -333,8 +334,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **category_image_delete**
-> category_image_delete(_api::CategoryApi, category_id::String, image_id::String; store_id=nothing, _mediaType=nothing) -> AttributeDelete200Response, OpenAPI.Clients.ApiResponse <br/>
-> category_image_delete(_api::CategoryApi, response_stream::Channel, category_id::String, image_id::String; store_id=nothing, _mediaType=nothing) -> Channel{ AttributeDelete200Response }, OpenAPI.Clients.ApiResponse
+> category_image_delete(_api::CategoryApi, category_id::String, image_id::String; store_id=nothing, apply_to_translations=nothing, _mediaType=nothing) -> AttributeDelete200Response, OpenAPI.Clients.ApiResponse <br/>
+> category_image_delete(_api::CategoryApi, response_stream::Channel, category_id::String, image_id::String; store_id=nothing, apply_to_translations=nothing, _mediaType=nothing) -> Channel{ AttributeDelete200Response }, OpenAPI.Clients.ApiResponse
 
 category.image.delete
 
@@ -353,6 +354,7 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **store_id** | **String** | Store Id | [default to nothing]
+ **apply_to_translations** | **Bool** | Defines whether to delete image from all category translations | [default to true]
 
 ### Return type
 

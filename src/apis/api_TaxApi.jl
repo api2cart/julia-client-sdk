@@ -56,9 +56,10 @@ const _returntypes_tax_class_list_TaxApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseTaxClassList,
 )
 
-function _oacinternal_tax_class_list(_api::TaxApi; count=nothing, page_cursor=nothing, store_id=nothing, find_value=nothing, find_where=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, response_fields=nothing, _mediaType=nothing)
+function _oacinternal_tax_class_list(_api::TaxApi; count=nothing, start=nothing, page_cursor=nothing, store_id=nothing, find_value=nothing, find_where=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, response_fields=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_tax_class_list_TaxApi, "/tax.class.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
+    OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "find_value", find_value; style="form", is_explode=true)  # type String
@@ -79,6 +80,7 @@ Get list of tax classes from your store.
 
 Params:
 - count::Int64
+- start::Int64
 - page_cursor::String
 - store_id::String
 - find_value::String
@@ -91,13 +93,13 @@ Params:
 
 Return: ModelResponseTaxClassList, OpenAPI.Clients.ApiResponse
 """
-function tax_class_list(_api::TaxApi; count=nothing, page_cursor=nothing, store_id=nothing, find_value=nothing, find_where=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, response_fields=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_tax_class_list(_api; count=count, page_cursor=page_cursor, store_id=store_id, find_value=find_value, find_where=find_where, created_to=created_to, created_from=created_from, modified_to=modified_to, modified_from=modified_from, response_fields=response_fields, _mediaType=_mediaType)
+function tax_class_list(_api::TaxApi; count=nothing, start=nothing, page_cursor=nothing, store_id=nothing, find_value=nothing, find_where=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, response_fields=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_tax_class_list(_api; count=count, start=start, page_cursor=page_cursor, store_id=store_id, find_value=find_value, find_where=find_where, created_to=created_to, created_from=created_from, modified_to=modified_to, modified_from=modified_from, response_fields=response_fields, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function tax_class_list(_api::TaxApi, response_stream::Channel; count=nothing, page_cursor=nothing, store_id=nothing, find_value=nothing, find_where=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, response_fields=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_tax_class_list(_api; count=count, page_cursor=page_cursor, store_id=store_id, find_value=find_value, find_where=find_where, created_to=created_to, created_from=created_from, modified_to=modified_to, modified_from=modified_from, response_fields=response_fields, _mediaType=_mediaType)
+function tax_class_list(_api::TaxApi, response_stream::Channel; count=nothing, start=nothing, page_cursor=nothing, store_id=nothing, find_value=nothing, find_where=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, response_fields=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_tax_class_list(_api; count=count, start=start, page_cursor=page_cursor, store_id=store_id, find_value=find_value, find_where=find_where, created_to=created_to, created_from=created_from, modified_to=modified_to, modified_from=modified_from, response_fields=response_fields, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 

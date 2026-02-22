@@ -300,7 +300,7 @@ const _returntypes_category_image_add_CategoryApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => CategoryImageAdd200Response,
 )
 
-function _oacinternal_category_image_add(_api::CategoryApi, category_id::String, image_name::String, url::String, type::String; store_id=nothing, label=nothing, mime=nothing, position=nothing, idempotency_key=nothing, _mediaType=nothing)
+function _oacinternal_category_image_add(_api::CategoryApi, category_id::String, image_name::String, url::String, type::String; store_id=nothing, label=nothing, mime=nothing, position=nothing, apply_to_translations=nothing, idempotency_key=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_category_image_add_CategoryApi, "/category.image.add.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "category_id", category_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "image_name", image_name; style="form", is_explode=true)  # type String
@@ -310,6 +310,7 @@ function _oacinternal_category_image_add(_api::CategoryApi, category_id::String,
     OpenAPI.Clients.set_param(_ctx.query, "label", label; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "mime", mime; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "position", position; style="form", is_explode=true)  # type Int64
+    OpenAPI.Clients.set_param(_ctx.query, "apply_to_translations", apply_to_translations; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -329,17 +330,18 @@ Params:
 - label::String
 - mime::String
 - position::Int64
+- apply_to_translations::Bool
 - idempotency_key::String
 
 Return: CategoryImageAdd200Response, OpenAPI.Clients.ApiResponse
 """
-function category_image_add(_api::CategoryApi, category_id::String, image_name::String, url::String, type::String; store_id=nothing, label=nothing, mime=nothing, position=nothing, idempotency_key=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_category_image_add(_api, category_id, image_name, url, type; store_id=store_id, label=label, mime=mime, position=position, idempotency_key=idempotency_key, _mediaType=_mediaType)
+function category_image_add(_api::CategoryApi, category_id::String, image_name::String, url::String, type::String; store_id=nothing, label=nothing, mime=nothing, position=nothing, apply_to_translations=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_category_image_add(_api, category_id, image_name, url, type; store_id=store_id, label=label, mime=mime, position=position, apply_to_translations=apply_to_translations, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function category_image_add(_api::CategoryApi, response_stream::Channel, category_id::String, image_name::String, url::String, type::String; store_id=nothing, label=nothing, mime=nothing, position=nothing, idempotency_key=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_category_image_add(_api, category_id, image_name, url, type; store_id=store_id, label=label, mime=mime, position=position, idempotency_key=idempotency_key, _mediaType=_mediaType)
+function category_image_add(_api::CategoryApi, response_stream::Channel, category_id::String, image_name::String, url::String, type::String; store_id=nothing, label=nothing, mime=nothing, position=nothing, apply_to_translations=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_category_image_add(_api, category_id, image_name, url, type; store_id=store_id, label=label, mime=mime, position=position, apply_to_translations=apply_to_translations, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -347,11 +349,12 @@ const _returntypes_category_image_delete_CategoryApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => AttributeDelete200Response,
 )
 
-function _oacinternal_category_image_delete(_api::CategoryApi, category_id::String, image_id::String; store_id=nothing, _mediaType=nothing)
+function _oacinternal_category_image_delete(_api::CategoryApi, category_id::String, image_id::String; store_id=nothing, apply_to_translations=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "DELETE", _returntypes_category_image_delete_CategoryApi, "/category.image.delete.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "category_id", category_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "image_id", image_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "apply_to_translations", apply_to_translations; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -365,16 +368,17 @@ Params:
 - category_id::String (required)
 - image_id::String (required)
 - store_id::String
+- apply_to_translations::Bool
 
 Return: AttributeDelete200Response, OpenAPI.Clients.ApiResponse
 """
-function category_image_delete(_api::CategoryApi, category_id::String, image_id::String; store_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_category_image_delete(_api, category_id, image_id; store_id=store_id, _mediaType=_mediaType)
+function category_image_delete(_api::CategoryApi, category_id::String, image_id::String; store_id=nothing, apply_to_translations=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_category_image_delete(_api, category_id, image_id; store_id=store_id, apply_to_translations=apply_to_translations, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function category_image_delete(_api::CategoryApi, response_stream::Channel, category_id::String, image_id::String; store_id=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_category_image_delete(_api, category_id, image_id; store_id=store_id, _mediaType=_mediaType)
+function category_image_delete(_api::CategoryApi, response_stream::Channel, category_id::String, image_id::String; store_id=nothing, apply_to_translations=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_category_image_delete(_api, category_id, image_id; store_id=store_id, apply_to_translations=apply_to_translations, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 

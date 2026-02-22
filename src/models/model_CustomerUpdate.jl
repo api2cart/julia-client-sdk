@@ -20,6 +20,7 @@
         gender=nothing,
         note=nothing,
         status=nothing,
+        password=nothing,
         store_id=nothing,
         idempotency_key=nothing,
         address=nothing,
@@ -40,6 +41,7 @@
     - gender::String : Defines customer&#39;s gender
     - note::String : The customer note.
     - status::String : Defines customer&#39;s status
+    - password::String : Defines customer&#39;s unique password
     - store_id::String : Store Id
     - idempotency_key::String : A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
     - address::Vector{CustomerUpdateAddressInner}
@@ -60,11 +62,12 @@ Base.@kwdef mutable struct CustomerUpdate <: OpenAPI.APIModel
     gender::Union{Nothing, String} = nothing
     note::Union{Nothing, String} = nothing
     status::Union{Nothing, String} = nothing
+    password::Union{Nothing, String} = nothing
     store_id::Union{Nothing, String} = nothing
     idempotency_key::Union{Nothing, String} = nothing
     address::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{CustomerUpdateAddressInner} }
 
-    function CustomerUpdate(id, group_id, group_ids, group, email, phone, first_name, last_name, birth_day, news_letter_subscription, consents, tags, gender, note, status, store_id, idempotency_key, address, )
+    function CustomerUpdate(id, group_id, group_ids, group, email, phone, first_name, last_name, birth_day, news_letter_subscription, consents, tags, gender, note, status, password, store_id, idempotency_key, address, )
         OpenAPI.validate_property(CustomerUpdate, Symbol("id"), id)
         OpenAPI.validate_property(CustomerUpdate, Symbol("group_id"), group_id)
         OpenAPI.validate_property(CustomerUpdate, Symbol("group_ids"), group_ids)
@@ -80,14 +83,15 @@ Base.@kwdef mutable struct CustomerUpdate <: OpenAPI.APIModel
         OpenAPI.validate_property(CustomerUpdate, Symbol("gender"), gender)
         OpenAPI.validate_property(CustomerUpdate, Symbol("note"), note)
         OpenAPI.validate_property(CustomerUpdate, Symbol("status"), status)
+        OpenAPI.validate_property(CustomerUpdate, Symbol("password"), password)
         OpenAPI.validate_property(CustomerUpdate, Symbol("store_id"), store_id)
         OpenAPI.validate_property(CustomerUpdate, Symbol("idempotency_key"), idempotency_key)
         OpenAPI.validate_property(CustomerUpdate, Symbol("address"), address)
-        return new(id, group_id, group_ids, group, email, phone, first_name, last_name, birth_day, news_letter_subscription, consents, tags, gender, note, status, store_id, idempotency_key, address, )
+        return new(id, group_id, group_ids, group, email, phone, first_name, last_name, birth_day, news_letter_subscription, consents, tags, gender, note, status, password, store_id, idempotency_key, address, )
     end
 end # type CustomerUpdate
 
-const _property_types_CustomerUpdate = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("group_id")=>"String", Symbol("group_ids")=>"String", Symbol("group")=>"String", Symbol("email")=>"String", Symbol("phone")=>"String", Symbol("first_name")=>"String", Symbol("last_name")=>"String", Symbol("birth_day")=>"String", Symbol("news_letter_subscription")=>"Bool", Symbol("consents")=>"Vector{CustomerAddConsentsInner}", Symbol("tags")=>"String", Symbol("gender")=>"String", Symbol("note")=>"String", Symbol("status")=>"String", Symbol("store_id")=>"String", Symbol("idempotency_key")=>"String", Symbol("address")=>"Vector{CustomerUpdateAddressInner}", )
+const _property_types_CustomerUpdate = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("group_id")=>"String", Symbol("group_ids")=>"String", Symbol("group")=>"String", Symbol("email")=>"String", Symbol("phone")=>"String", Symbol("first_name")=>"String", Symbol("last_name")=>"String", Symbol("birth_day")=>"String", Symbol("news_letter_subscription")=>"Bool", Symbol("consents")=>"Vector{CustomerAddConsentsInner}", Symbol("tags")=>"String", Symbol("gender")=>"String", Symbol("note")=>"String", Symbol("status")=>"String", Symbol("password")=>"String", Symbol("store_id")=>"String", Symbol("idempotency_key")=>"String", Symbol("address")=>"Vector{CustomerUpdateAddressInner}", )
 OpenAPI.property_type(::Type{ CustomerUpdate }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_CustomerUpdate[name]))}
 
 function check_required(o::CustomerUpdate)
@@ -109,6 +113,7 @@ function OpenAPI.validate_property(::Type{ CustomerUpdate }, name::Symbol, val)
     if name === Symbol("consents")
         OpenAPI.validate_param(name, "CustomerUpdate", :minItems, val, 1)
     end
+
 
 
 

@@ -49,8 +49,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **tax_class_list**
-> tax_class_list(_api::TaxApi; count=nothing, page_cursor=nothing, store_id=nothing, find_value=nothing, find_where=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, response_fields=nothing, _mediaType=nothing) -> ModelResponseTaxClassList, OpenAPI.Clients.ApiResponse <br/>
-> tax_class_list(_api::TaxApi, response_stream::Channel; count=nothing, page_cursor=nothing, store_id=nothing, find_value=nothing, find_where=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, response_fields=nothing, _mediaType=nothing) -> Channel{ ModelResponseTaxClassList }, OpenAPI.Clients.ApiResponse
+> tax_class_list(_api::TaxApi; count=nothing, start=nothing, page_cursor=nothing, store_id=nothing, find_value=nothing, find_where=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, response_fields=nothing, _mediaType=nothing) -> ModelResponseTaxClassList, OpenAPI.Clients.ApiResponse <br/>
+> tax_class_list(_api::TaxApi, response_stream::Channel; count=nothing, start=nothing, page_cursor=nothing, store_id=nothing, find_value=nothing, find_where=nothing, created_to=nothing, created_from=nothing, modified_to=nothing, modified_from=nothing, response_fields=nothing, _mediaType=nothing) -> Channel{ ModelResponseTaxClassList }, OpenAPI.Clients.ApiResponse
 
 tax.class.list
 
@@ -67,6 +67,7 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
+ **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
  **store_id** | **String** | Store Id | [default to nothing]
  **find_value** | **String** | Entity search that is specified by some value | [default to nothing]

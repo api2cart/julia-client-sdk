@@ -79,8 +79,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **customer_attribute_list**
-> customer_attribute_list(_api::CustomerApi, customer_id::String; count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseCustomerAttributeList, OpenAPI.Clients.ApiResponse <br/>
-> customer_attribute_list(_api::CustomerApi, response_stream::Channel, customer_id::String; count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseCustomerAttributeList }, OpenAPI.Clients.ApiResponse
+> customer_attribute_list(_api::CustomerApi, customer_id::String; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseCustomerAttributeList, OpenAPI.Clients.ApiResponse <br/>
+> customer_attribute_list(_api::CustomerApi, response_stream::Channel, customer_id::String; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, lang_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseCustomerAttributeList }, OpenAPI.Clients.ApiResponse
 
 customer.attribute.list
 
@@ -97,6 +97,7 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
  **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
  **store_id** | **String** | Store Id | [default to nothing]
