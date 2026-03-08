@@ -284,6 +284,7 @@ docs/ProductAddLogisticInfoInner.md
 docs/ProductAddManufacturerInfo.md
 docs/ProductAddPackageDetails.md
 docs/ProductAddPersonalizationDetails.md
+docs/ProductAddPersonalizationQuestionsInner.md
 docs/ProductAddSalesTax.md
 docs/ProductAddSellerProfiles.md
 docs/ProductAddShippingDetailsInner.md
@@ -739,6 +740,7 @@ src/models/model_ProductAddLogisticInfoInner.jl
 src/models/model_ProductAddManufacturerInfo.jl
 src/models/model_ProductAddPackageDetails.jl
 src/models/model_ProductAddPersonalizationDetails.jl
+src/models/model_ProductAddPersonalizationQuestionsInner.jl
 src/models/model_ProductAddSalesTax.jl
 src/models/model_ProductAddSellerProfiles.jl
 src/models/model_ProductAddShippingDetailsInner.jl
