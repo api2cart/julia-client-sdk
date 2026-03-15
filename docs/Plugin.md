@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | [optional] [default to nothing]
+**code** | **String** |  | [optional] [default to nothing]
 **active** | **Bool** |  | [optional] [default to nothing]
 **additional_fields** | **Any** |  | [optional] [default to nothing]
 **custom_fields** | **Any** |  | [optional] [default to nothing]

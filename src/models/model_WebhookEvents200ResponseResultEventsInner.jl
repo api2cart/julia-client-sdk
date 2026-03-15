@@ -8,26 +8,30 @@
         webhook_name=nothing,
         entity=nothing,
         action=nothing,
+        filterable_fields=nothing,
     )
 
     - webhook_name::String
     - entity::String
     - action::String
+    - filterable_fields::Any
 """
 Base.@kwdef mutable struct WebhookEvents200ResponseResultEventsInner <: OpenAPI.APIModel
     webhook_name::Union{Nothing, String} = nothing
     entity::Union{Nothing, String} = nothing
     action::Union{Nothing, String} = nothing
+    filterable_fields::Union{Nothing, Any} = nothing
 
-    function WebhookEvents200ResponseResultEventsInner(webhook_name, entity, action, )
+    function WebhookEvents200ResponseResultEventsInner(webhook_name, entity, action, filterable_fields, )
         OpenAPI.validate_property(WebhookEvents200ResponseResultEventsInner, Symbol("webhook_name"), webhook_name)
         OpenAPI.validate_property(WebhookEvents200ResponseResultEventsInner, Symbol("entity"), entity)
         OpenAPI.validate_property(WebhookEvents200ResponseResultEventsInner, Symbol("action"), action)
-        return new(webhook_name, entity, action, )
+        OpenAPI.validate_property(WebhookEvents200ResponseResultEventsInner, Symbol("filterable_fields"), filterable_fields)
+        return new(webhook_name, entity, action, filterable_fields, )
     end
 end # type WebhookEvents200ResponseResultEventsInner
 
-const _property_types_WebhookEvents200ResponseResultEventsInner = Dict{Symbol,String}(Symbol("webhook_name")=>"String", Symbol("entity")=>"String", Symbol("action")=>"String", )
+const _property_types_WebhookEvents200ResponseResultEventsInner = Dict{Symbol,String}(Symbol("webhook_name")=>"String", Symbol("entity")=>"String", Symbol("action")=>"String", Symbol("filterable_fields")=>"Any", )
 OpenAPI.property_type(::Type{ WebhookEvents200ResponseResultEventsInner }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_WebhookEvents200ResponseResultEventsInner[name]))}
 
 function check_required(o::WebhookEvents200ResponseResultEventsInner)
@@ -35,6 +39,7 @@ function check_required(o::WebhookEvents200ResponseResultEventsInner)
 end
 
 function OpenAPI.validate_property(::Type{ WebhookEvents200ResponseResultEventsInner }, name::Symbol, val)
+
 
 
 

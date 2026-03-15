@@ -50,20 +50,10 @@ const _returntypes_webhook_create_WebhookApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => BasketLiveShippingServiceCreate200Response,
 )
 
-function _oacinternal_webhook_create(_api::WebhookApi, entity::String, action::String; callback=nothing, label=nothing, fields=nothing, response_fields=nothing, active=nothing, lang_id=nothing, store_id=nothing, idempotency_key=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_webhook_create_WebhookApi, "/webhook.create.json", ["StoreKeyAuth", "ApiKeyAuth", ])
-    OpenAPI.Clients.set_param(_ctx.query, "entity", entity; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "action", action; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "callback", callback; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "label", label; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "fields", fields; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "active", active; style="form", is_explode=true)  # type Bool
-    OpenAPI.Clients.set_param(_ctx.query, "lang_id", lang_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
+function _oacinternal_webhook_create(_api::WebhookApi, webhook_create_param::WebhookCreate; _mediaType=nothing)
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_webhook_create_WebhookApi, "/webhook.create.json", ["StoreKeyAuth", "ApiKeyAuth", ], webhook_create_param)
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
-    OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
+    OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? ["application/json", ] : [_mediaType])
     return _ctx
 end
 
@@ -72,26 +62,17 @@ end
 Create webhook on the store and subscribe to it.
 
 Params:
-- entity::String (required)
-- action::String (required)
-- callback::String
-- label::String
-- fields::String
-- response_fields::String
-- active::Bool
-- lang_id::String
-- store_id::String
-- idempotency_key::String
+- webhook_create_param::WebhookCreate (required)
 
 Return: BasketLiveShippingServiceCreate200Response, OpenAPI.Clients.ApiResponse
 """
-function webhook_create(_api::WebhookApi, entity::String, action::String; callback=nothing, label=nothing, fields=nothing, response_fields=nothing, active=nothing, lang_id=nothing, store_id=nothing, idempotency_key=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_webhook_create(_api, entity, action; callback=callback, label=label, fields=fields, response_fields=response_fields, active=active, lang_id=lang_id, store_id=store_id, idempotency_key=idempotency_key, _mediaType=_mediaType)
+function webhook_create(_api::WebhookApi, webhook_create_param::WebhookCreate; _mediaType=nothing)
+    _ctx = _oacinternal_webhook_create(_api, webhook_create_param; _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function webhook_create(_api::WebhookApi, response_stream::Channel, entity::String, action::String; callback=nothing, label=nothing, fields=nothing, response_fields=nothing, active=nothing, lang_id=nothing, store_id=nothing, idempotency_key=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_webhook_create(_api, entity, action; callback=callback, label=label, fields=fields, response_fields=response_fields, active=active, lang_id=lang_id, store_id=store_id, idempotency_key=idempotency_key, _mediaType=_mediaType)
+function webhook_create(_api::WebhookApi, response_stream::Channel, webhook_create_param::WebhookCreate; _mediaType=nothing)
+    _ctx = _oacinternal_webhook_create(_api, webhook_create_param; _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -202,18 +183,10 @@ const _returntypes_webhook_update_WebhookApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ProductImageUpdate200Response,
 )
 
-function _oacinternal_webhook_update(_api::WebhookApi, id::String; callback=nothing, label=nothing, fields=nothing, response_fields=nothing, active=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "PUT", _returntypes_webhook_update_WebhookApi, "/webhook.update.json", ["StoreKeyAuth", "ApiKeyAuth", ])
-    OpenAPI.Clients.set_param(_ctx.query, "id", id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "callback", callback; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "label", label; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "fields", fields; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "active", active; style="form", is_explode=true)  # type Bool
-    OpenAPI.Clients.set_param(_ctx.query, "lang_id", lang_id; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
+function _oacinternal_webhook_update(_api::WebhookApi, webhook_update_param::WebhookUpdate; _mediaType=nothing)
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "PUT", _returntypes_webhook_update_WebhookApi, "/webhook.update.json", ["StoreKeyAuth", "ApiKeyAuth", ], webhook_update_param)
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
-    OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
+    OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? ["application/json", ] : [_mediaType])
     return _ctx
 end
 
@@ -222,24 +195,17 @@ end
 Update Webhooks parameters.
 
 Params:
-- id::String (required)
-- callback::String
-- label::String
-- fields::String
-- response_fields::String
-- active::Bool
-- lang_id::String
-- idempotency_key::String
+- webhook_update_param::WebhookUpdate (required)
 
 Return: ProductImageUpdate200Response, OpenAPI.Clients.ApiResponse
 """
-function webhook_update(_api::WebhookApi, id::String; callback=nothing, label=nothing, fields=nothing, response_fields=nothing, active=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_webhook_update(_api, id; callback=callback, label=label, fields=fields, response_fields=response_fields, active=active, lang_id=lang_id, idempotency_key=idempotency_key, _mediaType=_mediaType)
+function webhook_update(_api::WebhookApi, webhook_update_param::WebhookUpdate; _mediaType=nothing)
+    _ctx = _oacinternal_webhook_update(_api, webhook_update_param; _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function webhook_update(_api::WebhookApi, response_stream::Channel, id::String; callback=nothing, label=nothing, fields=nothing, response_fields=nothing, active=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_webhook_update(_api, id; callback=callback, label=label, fields=fields, response_fields=response_fields, active=active, lang_id=lang_id, idempotency_key=idempotency_key, _mediaType=_mediaType)
+function webhook_update(_api::WebhookApi, response_stream::Channel, webhook_update_param::WebhookUpdate; _mediaType=nothing)
+    _ctx = _oacinternal_webhook_update(_api, webhook_update_param; _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 

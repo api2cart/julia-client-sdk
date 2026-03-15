@@ -132,7 +132,7 @@ const _returntypes_order_count_OrderApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => OrderCount200Response,
 )
 
-function _oacinternal_order_count(_api::OrderApi; order_ids=nothing, ids=nothing, customer_id=nothing, store_id=nothing, customer_email=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_channel=nothing, fulfillment_status=nothing, shipping_method=nothing, delivery_method=nothing, tags=nothing, ship_node_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, _mediaType=nothing)
+function _oacinternal_order_count(_api::OrderApi; order_ids=nothing, ids=nothing, customer_id=nothing, store_id=nothing, customer_email=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_channel=nothing, fulfillment_status=nothing, shipping_method=nothing, delivery_method=nothing, tags=nothing, ship_node_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, use_latest_api_version=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_order_count_OrderApi, "/order.count.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "order_ids", order_ids; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "ids", ids; style="form", is_explode=true)  # type String
@@ -154,6 +154,7 @@ function _oacinternal_order_count(_api::OrderApi; order_ids=nothing, ids=nothing
     OpenAPI.Clients.set_param(_ctx.query, "created_to", created_to; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "modified_from", modified_from; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "modified_to", modified_to; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "use_latest_api_version", use_latest_api_version; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -184,16 +185,17 @@ Params:
 - created_to::String
 - modified_from::String
 - modified_to::String
+- use_latest_api_version::Bool
 
 Return: OrderCount200Response, OpenAPI.Clients.ApiResponse
 """
-function order_count(_api::OrderApi; order_ids=nothing, ids=nothing, customer_id=nothing, store_id=nothing, customer_email=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_channel=nothing, fulfillment_status=nothing, shipping_method=nothing, delivery_method=nothing, tags=nothing, ship_node_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_count(_api; order_ids=order_ids, ids=ids, customer_id=customer_id, store_id=store_id, customer_email=customer_email, order_status=order_status, order_status_ids=order_status_ids, ebay_order_status=ebay_order_status, financial_status=financial_status, financial_status_ids=financial_status_ids, fulfillment_channel=fulfillment_channel, fulfillment_status=fulfillment_status, shipping_method=shipping_method, delivery_method=delivery_method, tags=tags, ship_node_type=ship_node_type, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, _mediaType=_mediaType)
+function order_count(_api::OrderApi; order_ids=nothing, ids=nothing, customer_id=nothing, store_id=nothing, customer_email=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_channel=nothing, fulfillment_status=nothing, shipping_method=nothing, delivery_method=nothing, tags=nothing, ship_node_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, use_latest_api_version=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_count(_api; order_ids=order_ids, ids=ids, customer_id=customer_id, store_id=store_id, customer_email=customer_email, order_status=order_status, order_status_ids=order_status_ids, ebay_order_status=ebay_order_status, financial_status=financial_status, financial_status_ids=financial_status_ids, fulfillment_channel=fulfillment_channel, fulfillment_status=fulfillment_status, shipping_method=shipping_method, delivery_method=delivery_method, tags=tags, ship_node_type=ship_node_type, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, use_latest_api_version=use_latest_api_version, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function order_count(_api::OrderApi, response_stream::Channel; order_ids=nothing, ids=nothing, customer_id=nothing, store_id=nothing, customer_email=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_channel=nothing, fulfillment_status=nothing, shipping_method=nothing, delivery_method=nothing, tags=nothing, ship_node_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_count(_api; order_ids=order_ids, ids=ids, customer_id=customer_id, store_id=store_id, customer_email=customer_email, order_status=order_status, order_status_ids=order_status_ids, ebay_order_status=ebay_order_status, financial_status=financial_status, financial_status_ids=financial_status_ids, fulfillment_channel=fulfillment_channel, fulfillment_status=fulfillment_status, shipping_method=shipping_method, delivery_method=delivery_method, tags=tags, ship_node_type=ship_node_type, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, _mediaType=_mediaType)
+function order_count(_api::OrderApi, response_stream::Channel; order_ids=nothing, ids=nothing, customer_id=nothing, store_id=nothing, customer_email=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_channel=nothing, fulfillment_status=nothing, shipping_method=nothing, delivery_method=nothing, tags=nothing, ship_node_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, use_latest_api_version=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_count(_api; order_ids=order_ids, ids=ids, customer_id=customer_id, store_id=store_id, customer_email=customer_email, order_status=order_status, order_status_ids=order_status_ids, ebay_order_status=ebay_order_status, financial_status=financial_status, financial_status_ids=financial_status_ids, fulfillment_channel=fulfillment_channel, fulfillment_status=fulfillment_status, shipping_method=shipping_method, delivery_method=delivery_method, tags=tags, ship_node_type=ship_node_type, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, use_latest_api_version=use_latest_api_version, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 

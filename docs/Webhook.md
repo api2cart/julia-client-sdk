@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **updated_at** | **String** |  | [optional] [default to nothing]
 **entity** | **String** |  | [optional] [default to nothing]
 **action** | **String** |  | [optional] [default to nothing]
+**filtering_conditions** | **Any** |  | [optional] [default to nothing]
 **additional_fields** | **Any** |  | [optional] [default to nothing]
 **custom_fields** | **Any** |  | [optional] [default to nothing]
 

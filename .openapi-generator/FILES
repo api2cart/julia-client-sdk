@@ -263,6 +263,10 @@ docs/OrderTotals.md
 docs/OrderTotalsNewDiscount.md
 docs/OrderTransaction.md
 docs/Pagination.md
+docs/ParamDefinitionFilteringConditionsFilterCondition.md
+docs/ParamDefinitionFilteringConditionsFilterGroup.md
+docs/ParamDefinitionFilteringConditionsFilterRule.md
+docs/ParamDefinitionFilteringConditionsFilterRuleValue.md
 docs/Plugin.md
 docs/PluginList.md
 docs/Product.md
@@ -444,11 +448,13 @@ docs/Webhook.md
 docs/WebhookApi.md
 docs/WebhookCount200Response.md
 docs/WebhookCount200ResponseResult.md
+docs/WebhookCreate.md
 docs/WebhookEvents200Response.md
 docs/WebhookEvents200ResponseResult.md
 docs/WebhookEvents200ResponseResultEventsInner.md
 docs/WebhookList200Response.md
 docs/WebhookList200ResponseResult.md
+docs/WebhookUpdate.md
 src/APIClient.jl
 src/apis/api_AccountApi.jl
 src/apis/api_AttributeApi.jl
@@ -719,6 +725,10 @@ src/models/model_OrderTotals.jl
 src/models/model_OrderTotalsNewDiscount.jl
 src/models/model_OrderTransaction.jl
 src/models/model_Pagination.jl
+src/models/model_ParamDefinitionFilteringConditionsFilterCondition.jl
+src/models/model_ParamDefinitionFilteringConditionsFilterGroup.jl
+src/models/model_ParamDefinitionFilteringConditionsFilterRule.jl
+src/models/model_ParamDefinitionFilteringConditionsFilterRuleValue.jl
 src/models/model_Plugin.jl
 src/models/model_PluginList.jl
 src/models/model_Product.jl
@@ -895,8 +905,10 @@ src/models/model_TaxClassZipCodesRange.jl
 src/models/model_Webhook.jl
 src/models/model_WebhookCount200Response.jl
 src/models/model_WebhookCount200ResponseResult.jl
+src/models/model_WebhookCreate.jl
 src/models/model_WebhookEvents200Response.jl
 src/models/model_WebhookEvents200ResponseResult.jl
 src/models/model_WebhookEvents200ResponseResultEventsInner.jl
 src/models/model_WebhookList200Response.jl
 src/models/model_WebhookList200ResponseResult.jl
+src/models/model_WebhookUpdate.jl
