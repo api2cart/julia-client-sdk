@@ -127,6 +127,8 @@ Name | Type | Description | Notes
 **return_policy_id** | **Int64** | Add Return Policy Id | [optional] [default to nothing]
 **personalization_details** | [***ProductAddPersonalizationDetails**](ProductAddPersonalizationDetails.md) |  | [optional] [default to nothing]
 **personalization_questions** | [**Vector{ProductAddPersonalizationQuestionsInner}**](ProductAddPersonalizationQuestionsInner.md) | Defines personalization questions for the listing as an array of question objects. Each question object supports the following fields: question_id (integer, nullable), question_text (string, 1-45 chars), instructions (string, nullable), question_type (string), required (boolean), max_allowed_characters (integer, nullable), max_allowed_files (integer, nullable), options (array, nullable). Cannot be used together with &lt;strong&gt;personalization_details&lt;/strong&gt;. | [optional] [default to nothing]
+**manufacturer_ids** | **String** | A comma-separated list of manufacturer IDs. Retrieve the IDs from the cart.info method. | [optional] [default to nothing]
+**responsible_person_ids** | **String** | A comma-separated list of responsible person IDs. Retrieve the IDs from the cart.info method. | [optional] [default to nothing]
 **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] [default to nothing]
 
 

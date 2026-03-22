@@ -50,6 +50,7 @@ Name | Type | Description | Notes
 **bricklink_consumer_secret** | **String** | Bricklink Consumer Secret | [optional] [default to nothing]
 **bricklink_token** | **String** | Bricklink Access Token | [optional] [default to nothing]
 **bricklink_token_secret** | **String** | Bricklink Access Token Secret | [optional] [default to nothing]
+**nopcommerce_token** | **String** | Access token authorizing the app to access resources on behalf of a user | [optional] [default to nothing]
 **demandware_client_id** | **String** | Demandware client id | [optional] [default to nothing]
 **demandware_api_password** | **String** | Demandware api password | [optional] [default to nothing]
 **demandware_user_name** | **String** | Demandware user name | [optional] [default to nothing]
