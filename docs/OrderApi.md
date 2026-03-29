@@ -30,8 +30,8 @@ Method | HTTP request | Description
 
 
 # **order_abandoned_list**
-> order_abandoned_list(_api::OrderApi; start=nothing, count=nothing, page_cursor=nothing, customer_id=nothing, customer_email=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, skip_empty_email=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseOrderAbandonedList, OpenAPI.Clients.ApiResponse <br/>
-> order_abandoned_list(_api::OrderApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, customer_id=nothing, customer_email=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, skip_empty_email=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseOrderAbandonedList }, OpenAPI.Clients.ApiResponse
+> order_abandoned_list(_api::OrderApi; start=nothing, count=nothing, page_cursor=nothing, customer_id=nothing, customer_email=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, skip_empty_email=nothing, rounding_precision=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseOrderAbandonedList, OpenAPI.Clients.ApiResponse <br/>
+> order_abandoned_list(_api::OrderApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, customer_id=nothing, customer_email=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, skip_empty_email=nothing, rounding_precision=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseOrderAbandonedList }, OpenAPI.Clients.ApiResponse
 
 order.abandoned.list
 
@@ -58,6 +58,7 @@ Name | Type | Description  | Notes
  **modified_from** | **String** | Retrieve entities from their modification date | [default to nothing]
  **modified_to** | **String** | Retrieve entities to their modification date | [default to nothing]
  **skip_empty_email** | **Bool** | Filter empty emails | [default to false]
+ **rounding_precision** | **Int64** | &lt;p&gt;Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).&lt;/p&gt; &lt;p&gt;Supported values range from &lt;b&gt;1&lt;/b&gt; to &lt;b&gt;6&lt;/b&gt;.&lt;/p&gt; &lt;p&gt;The default rounding precision may vary depending on the platform. You can retrieve the default value using the &lt;strong&gt;cart.info&lt;/strong&gt; method in the &lt;code&gt;default_rounding_precision&lt;/code&gt; field. &lt;/p&gt;&lt;p&gt;Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.&lt;/p&gt; | [default to nothing]
  **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
  **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;customer,totals,items&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]

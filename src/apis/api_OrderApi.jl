@@ -15,7 +15,7 @@ const _returntypes_order_abandoned_list_OrderApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseOrderAbandonedList,
 )
 
-function _oacinternal_order_abandoned_list(_api::OrderApi; start=nothing, count=nothing, page_cursor=nothing, customer_id=nothing, customer_email=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, skip_empty_email=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+function _oacinternal_order_abandoned_list(_api::OrderApi; start=nothing, count=nothing, page_cursor=nothing, customer_id=nothing, customer_email=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, skip_empty_email=nothing, rounding_precision=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_order_abandoned_list_OrderApi, "/order.abandoned.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
@@ -28,6 +28,7 @@ function _oacinternal_order_abandoned_list(_api::OrderApi; start=nothing, count=
     OpenAPI.Clients.set_param(_ctx.query, "modified_from", modified_from; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "modified_to", modified_to; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "skip_empty_email", skip_empty_email; style="form", is_explode=true)  # type Bool
+    OpenAPI.Clients.set_param(_ctx.query, "rounding_precision", rounding_precision; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
@@ -52,19 +53,20 @@ Params:
 - modified_from::String
 - modified_to::String
 - skip_empty_email::Bool
+- rounding_precision::Int64
 - response_fields::String
 - params::String
 - exclude::String
 
 Return: ModelResponseOrderAbandonedList, OpenAPI.Clients.ApiResponse
 """
-function order_abandoned_list(_api::OrderApi; start=nothing, count=nothing, page_cursor=nothing, customer_id=nothing, customer_email=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, skip_empty_email=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_abandoned_list(_api; start=start, count=count, page_cursor=page_cursor, customer_id=customer_id, customer_email=customer_email, store_id=store_id, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, skip_empty_email=skip_empty_email, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
+function order_abandoned_list(_api::OrderApi; start=nothing, count=nothing, page_cursor=nothing, customer_id=nothing, customer_email=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, skip_empty_email=nothing, rounding_precision=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_abandoned_list(_api; start=start, count=count, page_cursor=page_cursor, customer_id=customer_id, customer_email=customer_email, store_id=store_id, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, skip_empty_email=skip_empty_email, rounding_precision=rounding_precision, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function order_abandoned_list(_api::OrderApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, customer_id=nothing, customer_email=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, skip_empty_email=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_order_abandoned_list(_api; start=start, count=count, page_cursor=page_cursor, customer_id=customer_id, customer_email=customer_email, store_id=store_id, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, skip_empty_email=skip_empty_email, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
+function order_abandoned_list(_api::OrderApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, customer_id=nothing, customer_email=nothing, store_id=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, skip_empty_email=nothing, rounding_precision=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_abandoned_list(_api; start=start, count=count, page_cursor=page_cursor, customer_id=customer_id, customer_email=customer_email, store_id=store_id, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, skip_empty_email=skip_empty_email, rounding_precision=rounding_precision, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 

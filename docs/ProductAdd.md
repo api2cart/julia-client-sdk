@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **measure_unit** | **String** | Unit for the price per unit. Must be in allowed list | [optional] [default to nothing]
 **unit_price** | **Float64** | Defines new product&#39;s unit price | [optional] [default to nothing]
 **prices_inc_tax** | **Bool** | Indicates whether prices include tax. | [optional] [default to false]
+**retail_price** | **Float64** | Defines new product&#39;s retail price | [optional] [default to nothing]
 **quantity** | **Float64** | Defines product&#39;s quantity that has to be added | [optional] [default to 0]
 **in_stock** | **Bool** | Set stock status | [optional] [default to nothing]
 **manage_stock** | **Bool** | Defines inventory tracking for product | [optional] [default to nothing]
