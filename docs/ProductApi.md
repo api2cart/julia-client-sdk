@@ -248,8 +248,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_brand_list**
-> product_brand_list(_api::ProductApi; start=nothing, count=nothing, page_cursor=nothing, brand_ids=nothing, category_id=nothing, parent_id=nothing, store_id=nothing, lang_id=nothing, find_where=nothing, find_value=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseProductBrandList, OpenAPI.Clients.ApiResponse <br/>
-> product_brand_list(_api::ProductApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, brand_ids=nothing, category_id=nothing, parent_id=nothing, store_id=nothing, lang_id=nothing, find_where=nothing, find_value=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseProductBrandList }, OpenAPI.Clients.ApiResponse
+> product_brand_list(_api::ProductApi; start=nothing, count=nothing, page_cursor=nothing, brand_ids=nothing, category_id=nothing, parent_id=nothing, store_id=nothing, lang_id=nothing, find_where=nothing, find_value=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, avail=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseProductBrandList, OpenAPI.Clients.ApiResponse <br/>
+> product_brand_list(_api::ProductApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, brand_ids=nothing, category_id=nothing, parent_id=nothing, store_id=nothing, lang_id=nothing, find_where=nothing, find_value=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, avail=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseProductBrandList }, OpenAPI.Clients.ApiResponse
 
 product.brand.list
 
@@ -279,6 +279,7 @@ Name | Type | Description  | Notes
  **created_to** | **String** | Retrieve entities to their creation date | [default to nothing]
  **modified_from** | **String** | Retrieve entities from their modification date | [default to nothing]
  **modified_to** | **String** | Retrieve entities to their modification date | [default to nothing]
+ **avail** | **Bool** | Defines category&#39;s visibility status | [default to true]
  **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
  **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,name,short_description,active,url&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
@@ -437,8 +438,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_count**
-> product_count(_api::ProductApi; sku=nothing, product_ids=nothing, since_id=nothing, categories_ids=nothing, category_id=nothing, store_id=nothing, lang_id=nothing, avail_view=nothing, avail_sale=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, brand_name=nothing, manufacturer_id=nothing, product_attributes=nothing, status=nothing, type=nothing, visible=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, return_global=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> ProductCount200Response, OpenAPI.Clients.ApiResponse <br/>
-> product_count(_api::ProductApi, response_stream::Channel; sku=nothing, product_ids=nothing, since_id=nothing, categories_ids=nothing, category_id=nothing, store_id=nothing, lang_id=nothing, avail_view=nothing, avail_sale=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, brand_name=nothing, manufacturer_id=nothing, product_attributes=nothing, status=nothing, type=nothing, visible=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, return_global=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> Channel{ ProductCount200Response }, OpenAPI.Clients.ApiResponse
+> product_count(_api::ProductApi; sku=nothing, product_ids=nothing, since_id=nothing, categories_ids=nothing, category_id=nothing, store_id=nothing, vendor_id=nothing, lang_id=nothing, avail_view=nothing, avail_sale=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, brand_name=nothing, manufacturer_id=nothing, product_attributes=nothing, status=nothing, type=nothing, visible=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, return_global=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> ProductCount200Response, OpenAPI.Clients.ApiResponse <br/>
+> product_count(_api::ProductApi, response_stream::Channel; sku=nothing, product_ids=nothing, since_id=nothing, categories_ids=nothing, category_id=nothing, store_id=nothing, vendor_id=nothing, lang_id=nothing, avail_view=nothing, avail_sale=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, brand_name=nothing, manufacturer_id=nothing, product_attributes=nothing, status=nothing, type=nothing, visible=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, return_global=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> Channel{ ProductCount200Response }, OpenAPI.Clients.ApiResponse
 
 product.count
 
@@ -460,6 +461,7 @@ Name | Type | Description  | Notes
  **categories_ids** | **String** | Defines product add that is specified by comma-separated categories id | [default to nothing]
  **category_id** | **String** | Counts products specified by category id | [default to nothing]
  **store_id** | **String** | Counts products specified by store id | [default to nothing]
+ **vendor_id** | **String** | Counts products specified by vendor id | [default to nothing]
  **lang_id** | **String** | Counts products specified by language id | [default to nothing]
  **avail_view** | **Bool** | Specifies the set of visible/invisible products | [default to nothing]
  **avail_sale** | **Bool** | Specifies the set of available/not available products for sale | [default to nothing]
@@ -798,8 +800,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_info**
-> product_info(_api::ProductApi, id::String; store_id=nothing, lang_id=nothing, currency_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> ProductInfo200Response, OpenAPI.Clients.ApiResponse <br/>
-> product_info(_api::ProductApi, response_stream::Channel, id::String; store_id=nothing, lang_id=nothing, currency_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> Channel{ ProductInfo200Response }, OpenAPI.Clients.ApiResponse
+> product_info(_api::ProductApi, id::String; store_id=nothing, vendor_id=nothing, lang_id=nothing, currency_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> ProductInfo200Response, OpenAPI.Clients.ApiResponse <br/>
+> product_info(_api::ProductApi, response_stream::Channel, id::String; store_id=nothing, vendor_id=nothing, lang_id=nothing, currency_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, report_request_id=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> Channel{ ProductInfo200Response }, OpenAPI.Clients.ApiResponse
 
 product.info
 
@@ -817,6 +819,7 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **store_id** | **String** | Retrieves product info specified by store id | [default to nothing]
+ **vendor_id** | **String** | Vendor Id | [default to nothing]
  **lang_id** | **String** | Retrieves product info specified by language id | [default to nothing]
  **currency_id** | **String** | Currency Id | [default to nothing]
  **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
@@ -842,8 +845,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_list**
-> product_list(_api::ProductApi; start=nothing, count=nothing, page_cursor=nothing, product_ids=nothing, since_id=nothing, categories_ids=nothing, category_id=nothing, store_id=nothing, lang_id=nothing, currency_id=nothing, avail_view=nothing, avail_sale=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, sku=nothing, brand_name=nothing, product_attributes=nothing, manufacturer_id=nothing, status=nothing, type=nothing, visible=nothing, find_value=nothing, find_where=nothing, return_global=nothing, params=nothing, response_fields=nothing, exclude=nothing, sort_by=nothing, sort_direction=nothing, report_request_id=nothing, disable_cache=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, product_type=nothing, _mediaType=nothing) -> ModelResponseProductList, OpenAPI.Clients.ApiResponse <br/>
-> product_list(_api::ProductApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, product_ids=nothing, since_id=nothing, categories_ids=nothing, category_id=nothing, store_id=nothing, lang_id=nothing, currency_id=nothing, avail_view=nothing, avail_sale=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, sku=nothing, brand_name=nothing, product_attributes=nothing, manufacturer_id=nothing, status=nothing, type=nothing, visible=nothing, find_value=nothing, find_where=nothing, return_global=nothing, params=nothing, response_fields=nothing, exclude=nothing, sort_by=nothing, sort_direction=nothing, report_request_id=nothing, disable_cache=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, product_type=nothing, _mediaType=nothing) -> Channel{ ModelResponseProductList }, OpenAPI.Clients.ApiResponse
+> product_list(_api::ProductApi; start=nothing, count=nothing, page_cursor=nothing, product_ids=nothing, since_id=nothing, categories_ids=nothing, category_id=nothing, store_id=nothing, vendor_id=nothing, lang_id=nothing, currency_id=nothing, avail_view=nothing, avail_sale=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, sku=nothing, brand_name=nothing, product_attributes=nothing, manufacturer_id=nothing, status=nothing, type=nothing, visible=nothing, find_value=nothing, find_where=nothing, return_global=nothing, params=nothing, response_fields=nothing, exclude=nothing, sort_by=nothing, sort_direction=nothing, report_request_id=nothing, disable_cache=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, product_type=nothing, _mediaType=nothing) -> ModelResponseProductList, OpenAPI.Clients.ApiResponse <br/>
+> product_list(_api::ProductApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, product_ids=nothing, since_id=nothing, categories_ids=nothing, category_id=nothing, store_id=nothing, vendor_id=nothing, lang_id=nothing, currency_id=nothing, avail_view=nothing, avail_sale=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, sku=nothing, brand_name=nothing, product_attributes=nothing, manufacturer_id=nothing, status=nothing, type=nothing, visible=nothing, find_value=nothing, find_where=nothing, return_global=nothing, params=nothing, response_fields=nothing, exclude=nothing, sort_by=nothing, sort_direction=nothing, report_request_id=nothing, disable_cache=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, product_type=nothing, _mediaType=nothing) -> Channel{ ModelResponseProductList }, OpenAPI.Clients.ApiResponse
 
 product.list
 
@@ -867,6 +870,7 @@ Name | Type | Description  | Notes
  **categories_ids** | **String** | Retrieves products specified by categories ids | [default to nothing]
  **category_id** | **String** | Retrieves products specified by category id | [default to nothing]
  **store_id** | **String** | Retrieves products specified by store id | [default to nothing]
+ **vendor_id** | **String** | Retrieves products specified by vendor id | [default to nothing]
  **lang_id** | **String** | Retrieves products specified by language id | [default to nothing]
  **currency_id** | **String** | Currency Id | [default to nothing]
  **avail_view** | **Bool** | Specifies the set of visible/invisible products | [default to nothing]
