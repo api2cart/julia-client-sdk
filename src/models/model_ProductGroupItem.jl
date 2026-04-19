@@ -16,7 +16,7 @@
 
     - child_item_id::String
     - product_id::String
-    - default_qty_in_pack::String
+    - default_qty_in_pack::Float64
     - is_qty_in_pack_fixed::Bool
     - price::Float64
     - additional_fields::Any
@@ -25,7 +25,7 @@
 Base.@kwdef mutable struct ProductGroupItem <: OpenAPI.APIModel
     child_item_id::Union{Nothing, String} = nothing
     product_id::Union{Nothing, String} = nothing
-    default_qty_in_pack::Union{Nothing, String} = nothing
+    default_qty_in_pack::Union{Nothing, Float64} = nothing
     is_qty_in_pack_fixed::Union{Nothing, Bool} = nothing
     price::Union{Nothing, Float64} = nothing
     additional_fields::Union{Nothing, Any} = nothing
@@ -43,7 +43,7 @@ Base.@kwdef mutable struct ProductGroupItem <: OpenAPI.APIModel
     end
 end # type ProductGroupItem
 
-const _property_types_ProductGroupItem = Dict{Symbol,String}(Symbol("child_item_id")=>"String", Symbol("product_id")=>"String", Symbol("default_qty_in_pack")=>"String", Symbol("is_qty_in_pack_fixed")=>"Bool", Symbol("price")=>"Float64", Symbol("additional_fields")=>"Any", Symbol("custom_fields")=>"Any", )
+const _property_types_ProductGroupItem = Dict{Symbol,String}(Symbol("child_item_id")=>"String", Symbol("product_id")=>"String", Symbol("default_qty_in_pack")=>"Float64", Symbol("is_qty_in_pack_fixed")=>"Bool", Symbol("price")=>"Float64", Symbol("additional_fields")=>"Any", Symbol("custom_fields")=>"Any", )
 OpenAPI.property_type(::Type{ ProductGroupItem }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_ProductGroupItem[name]))}
 
 function check_required(o::ProductGroupItem)

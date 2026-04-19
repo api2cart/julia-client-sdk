@@ -23,8 +23,8 @@
     - product_option_item_id::String
     - name::String
     - sort_order::Int64
-    - price::String
-    - weight::String
+    - price::Float64
+    - weight::Float64
     - quantity::Int64
     - type_price::String
     - sku::String
@@ -37,8 +37,8 @@ Base.@kwdef mutable struct ProductOptionItem <: OpenAPI.APIModel
     product_option_item_id::Union{Nothing, String} = nothing
     name::Union{Nothing, String} = nothing
     sort_order::Union{Nothing, Int64} = nothing
-    price::Union{Nothing, String} = nothing
-    weight::Union{Nothing, String} = nothing
+    price::Union{Nothing, Float64} = nothing
+    weight::Union{Nothing, Float64} = nothing
     quantity::Union{Nothing, Int64} = nothing
     type_price::Union{Nothing, String} = nothing
     sku::Union{Nothing, String} = nothing
@@ -63,7 +63,7 @@ Base.@kwdef mutable struct ProductOptionItem <: OpenAPI.APIModel
     end
 end # type ProductOptionItem
 
-const _property_types_ProductOptionItem = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("product_option_item_id")=>"String", Symbol("name")=>"String", Symbol("sort_order")=>"Int64", Symbol("price")=>"String", Symbol("weight")=>"String", Symbol("quantity")=>"Int64", Symbol("type_price")=>"String", Symbol("sku")=>"String", Symbol("is_default")=>"Bool", Symbol("additional_fields")=>"Any", Symbol("custom_fields")=>"Any", )
+const _property_types_ProductOptionItem = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("product_option_item_id")=>"String", Symbol("name")=>"String", Symbol("sort_order")=>"Int64", Symbol("price")=>"Float64", Symbol("weight")=>"Float64", Symbol("quantity")=>"Int64", Symbol("type_price")=>"String", Symbol("sku")=>"String", Symbol("is_default")=>"Bool", Symbol("additional_fields")=>"Any", Symbol("custom_fields")=>"Any", )
 OpenAPI.property_type(::Type{ ProductOptionItem }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_ProductOptionItem[name]))}
 
 function check_required(o::ProductOptionItem)

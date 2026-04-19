@@ -110,6 +110,7 @@ Name | Type | Description | Notes
 **shopware_api_secret** | **String** | Shopware client secret access key | [optional] [default to nothing]
 **miva_access_token** | **String** | Miva access token | [optional] [default to nothing]
 **miva_signature** | **String** | Miva signature | [optional] [default to nothing]
+**mirakl_api_key** | **String** | Mirakl API Key | [optional] [default to nothing]
 **tiendanube_user_id** | **Int64** | Tiendanube User ID | [optional] [default to nothing]
 **tiendanube_access_token** | **String** | Tiendanube Access Token | [optional] [default to nothing]
 **tiendanube_client_secret** | **String** | Tiendanube Client Secret | [optional] [default to nothing]
