@@ -27,6 +27,9 @@
         phone=nothing,
         note=nothing,
         country=nothing,
+        currency_id=nothing,
+        is_tax_exempt=nothing,
+        vendor_id=nothing,
         store_id=nothing,
         idempotency_key=nothing,
         address=nothing,
@@ -54,6 +57,9 @@
     - phone::String : Defines customer&#39;s phone number
     - note::String : The customer note.
     - country::String : Specifies ISO code or name of country
+    - currency_id::String : Currency Id
+    - is_tax_exempt::Bool : Marks a customer as tax-exempt (B2B/wholesale).
+    - vendor_id::String : Vendor Id
     - store_id::String : Store Id
     - idempotency_key::String : A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
     - address::Vector{CustomerAddAddressInner}
@@ -81,11 +87,14 @@ Base.@kwdef mutable struct CustomerAdd <: OpenAPI.APIModel
     phone::Union{Nothing, String} = nothing
     note::Union{Nothing, String} = nothing
     country::Union{Nothing, String} = nothing
+    currency_id::Union{Nothing, String} = nothing
+    is_tax_exempt::Union{Nothing, Bool} = nothing
+    vendor_id::Union{Nothing, String} = nothing
     store_id::Union{Nothing, String} = nothing
     idempotency_key::Union{Nothing, String} = nothing
     address::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{CustomerAddAddressInner} }
 
-    function CustomerAdd(email, first_name, last_name, password, group, group_id, group_ids, status, created_time, modified_time, login, last_login, birth_day, news_letter_subscription, consents, gender, website, fax, company, phone, note, country, store_id, idempotency_key, address, )
+    function CustomerAdd(email, first_name, last_name, password, group, group_id, group_ids, status, created_time, modified_time, login, last_login, birth_day, news_letter_subscription, consents, gender, website, fax, company, phone, note, country, currency_id, is_tax_exempt, vendor_id, store_id, idempotency_key, address, )
         OpenAPI.validate_property(CustomerAdd, Symbol("email"), email)
         OpenAPI.validate_property(CustomerAdd, Symbol("first_name"), first_name)
         OpenAPI.validate_property(CustomerAdd, Symbol("last_name"), last_name)
@@ -108,14 +117,17 @@ Base.@kwdef mutable struct CustomerAdd <: OpenAPI.APIModel
         OpenAPI.validate_property(CustomerAdd, Symbol("phone"), phone)
         OpenAPI.validate_property(CustomerAdd, Symbol("note"), note)
         OpenAPI.validate_property(CustomerAdd, Symbol("country"), country)
+        OpenAPI.validate_property(CustomerAdd, Symbol("currency_id"), currency_id)
+        OpenAPI.validate_property(CustomerAdd, Symbol("is_tax_exempt"), is_tax_exempt)
+        OpenAPI.validate_property(CustomerAdd, Symbol("vendor_id"), vendor_id)
         OpenAPI.validate_property(CustomerAdd, Symbol("store_id"), store_id)
         OpenAPI.validate_property(CustomerAdd, Symbol("idempotency_key"), idempotency_key)
         OpenAPI.validate_property(CustomerAdd, Symbol("address"), address)
-        return new(email, first_name, last_name, password, group, group_id, group_ids, status, created_time, modified_time, login, last_login, birth_day, news_letter_subscription, consents, gender, website, fax, company, phone, note, country, store_id, idempotency_key, address, )
+        return new(email, first_name, last_name, password, group, group_id, group_ids, status, created_time, modified_time, login, last_login, birth_day, news_letter_subscription, consents, gender, website, fax, company, phone, note, country, currency_id, is_tax_exempt, vendor_id, store_id, idempotency_key, address, )
     end
 end # type CustomerAdd
 
-const _property_types_CustomerAdd = Dict{Symbol,String}(Symbol("email")=>"String", Symbol("first_name")=>"String", Symbol("last_name")=>"String", Symbol("password")=>"String", Symbol("group")=>"String", Symbol("group_id")=>"String", Symbol("group_ids")=>"String", Symbol("status")=>"String", Symbol("created_time")=>"String", Symbol("modified_time")=>"String", Symbol("login")=>"String", Symbol("last_login")=>"String", Symbol("birth_day")=>"String", Symbol("news_letter_subscription")=>"Bool", Symbol("consents")=>"Vector{CustomerAddConsentsInner}", Symbol("gender")=>"String", Symbol("website")=>"String", Symbol("fax")=>"String", Symbol("company")=>"String", Symbol("phone")=>"String", Symbol("note")=>"String", Symbol("country")=>"String", Symbol("store_id")=>"String", Symbol("idempotency_key")=>"String", Symbol("address")=>"Vector{CustomerAddAddressInner}", )
+const _property_types_CustomerAdd = Dict{Symbol,String}(Symbol("email")=>"String", Symbol("first_name")=>"String", Symbol("last_name")=>"String", Symbol("password")=>"String", Symbol("group")=>"String", Symbol("group_id")=>"String", Symbol("group_ids")=>"String", Symbol("status")=>"String", Symbol("created_time")=>"String", Symbol("modified_time")=>"String", Symbol("login")=>"String", Symbol("last_login")=>"String", Symbol("birth_day")=>"String", Symbol("news_letter_subscription")=>"Bool", Symbol("consents")=>"Vector{CustomerAddConsentsInner}", Symbol("gender")=>"String", Symbol("website")=>"String", Symbol("fax")=>"String", Symbol("company")=>"String", Symbol("phone")=>"String", Symbol("note")=>"String", Symbol("country")=>"String", Symbol("currency_id")=>"String", Symbol("is_tax_exempt")=>"Bool", Symbol("vendor_id")=>"String", Symbol("store_id")=>"String", Symbol("idempotency_key")=>"String", Symbol("address")=>"Vector{CustomerAddAddressInner}", )
 OpenAPI.property_type(::Type{ CustomerAdd }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_CustomerAdd[name]))}
 
 function check_required(o::CustomerAdd)
@@ -142,6 +154,9 @@ function OpenAPI.validate_property(::Type{ CustomerAdd }, name::Symbol, val)
     if name === Symbol("consents")
         OpenAPI.validate_param(name, "CustomerAdd", :minItems, val, 1)
     end
+
+
+
 
 
 
