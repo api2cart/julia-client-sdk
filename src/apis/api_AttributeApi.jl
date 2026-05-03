@@ -363,10 +363,11 @@ const _returntypes_attribute_list_AttributeApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseAttributeList,
 )
 
-function _oacinternal_attribute_list(_api::AttributeApi; start=nothing, count=nothing, attribute_ids=nothing, attribute_set_id=nothing, store_id=nothing, lang_id=nothing, type=nothing, visible=nothing, required=nothing, system=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+function _oacinternal_attribute_list(_api::AttributeApi; start=nothing, count=nothing, page_cursor=nothing, attribute_ids=nothing, attribute_set_id=nothing, store_id=nothing, lang_id=nothing, type=nothing, visible=nothing, required=nothing, system=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_attribute_list_AttributeApi, "/attribute.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
+    OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "attribute_ids", attribute_ids; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "attribute_set_id", attribute_set_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
@@ -390,6 +391,7 @@ Get a list of global attributes.
 Params:
 - start::Int64
 - count::Int64
+- page_cursor::String
 - attribute_ids::String
 - attribute_set_id::String
 - store_id::String
@@ -404,13 +406,13 @@ Params:
 
 Return: ModelResponseAttributeList, OpenAPI.Clients.ApiResponse
 """
-function attribute_list(_api::AttributeApi; start=nothing, count=nothing, attribute_ids=nothing, attribute_set_id=nothing, store_id=nothing, lang_id=nothing, type=nothing, visible=nothing, required=nothing, system=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_attribute_list(_api; start=start, count=count, attribute_ids=attribute_ids, attribute_set_id=attribute_set_id, store_id=store_id, lang_id=lang_id, type=type, visible=visible, required=required, system=system, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
+function attribute_list(_api::AttributeApi; start=nothing, count=nothing, page_cursor=nothing, attribute_ids=nothing, attribute_set_id=nothing, store_id=nothing, lang_id=nothing, type=nothing, visible=nothing, required=nothing, system=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_attribute_list(_api; start=start, count=count, page_cursor=page_cursor, attribute_ids=attribute_ids, attribute_set_id=attribute_set_id, store_id=store_id, lang_id=lang_id, type=type, visible=visible, required=required, system=system, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function attribute_list(_api::AttributeApi, response_stream::Channel; start=nothing, count=nothing, attribute_ids=nothing, attribute_set_id=nothing, store_id=nothing, lang_id=nothing, type=nothing, visible=nothing, required=nothing, system=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_attribute_list(_api; start=start, count=count, attribute_ids=attribute_ids, attribute_set_id=attribute_set_id, store_id=store_id, lang_id=lang_id, type=type, visible=visible, required=required, system=system, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
+function attribute_list(_api::AttributeApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, attribute_ids=nothing, attribute_set_id=nothing, store_id=nothing, lang_id=nothing, type=nothing, visible=nothing, required=nothing, system=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_attribute_list(_api; start=start, count=count, page_cursor=page_cursor, attribute_ids=attribute_ids, attribute_set_id=attribute_set_id, store_id=store_id, lang_id=lang_id, type=type, visible=visible, required=required, system=system, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -517,10 +519,12 @@ const _returntypes_attribute_update_AttributeApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => AttributeUpdate200Response,
 )
 
-function _oacinternal_attribute_update(_api::AttributeApi, id::String, name::String; store_id=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing)
+function _oacinternal_attribute_update(_api::AttributeApi, id::String; name=nothing, visible=nothing, position=nothing, store_id=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "PUT", _returntypes_attribute_update_AttributeApi, "/attribute.update.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "id", id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "name", name; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "visible", visible; style="form", is_explode=true)  # type Bool
+    OpenAPI.Clients.set_param(_ctx.query, "position", position; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "lang_id", lang_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
@@ -535,20 +539,22 @@ Update attribute data
 
 Params:
 - id::String (required)
-- name::String (required)
+- name::String
+- visible::Bool
+- position::Int64
 - store_id::String
 - lang_id::String
 - idempotency_key::String
 
 Return: AttributeUpdate200Response, OpenAPI.Clients.ApiResponse
 """
-function attribute_update(_api::AttributeApi, id::String, name::String; store_id=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_attribute_update(_api, id, name; store_id=store_id, lang_id=lang_id, idempotency_key=idempotency_key, _mediaType=_mediaType)
+function attribute_update(_api::AttributeApi, id::String; name=nothing, visible=nothing, position=nothing, store_id=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_attribute_update(_api, id; name=name, visible=visible, position=position, store_id=store_id, lang_id=lang_id, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function attribute_update(_api::AttributeApi, response_stream::Channel, id::String, name::String; store_id=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_attribute_update(_api, id, name; store_id=store_id, lang_id=lang_id, idempotency_key=idempotency_key, _mediaType=_mediaType)
+function attribute_update(_api::AttributeApi, response_stream::Channel, id::String; name=nothing, visible=nothing, position=nothing, store_id=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_attribute_update(_api, id; name=name, visible=visible, position=position, store_id=store_id, lang_id=lang_id, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 

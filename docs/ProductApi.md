@@ -916,8 +916,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_manufacturer_add**
-> product_manufacturer_add(_api::ProductApi, product_id::String, manufacturer::String; store_id=nothing, meta_title=nothing, meta_keywords=nothing, meta_description=nothing, search_keywords=nothing, image_url=nothing, seo_url=nothing, idempotency_key=nothing, _mediaType=nothing) -> ProductManufacturerAdd200Response, OpenAPI.Clients.ApiResponse <br/>
-> product_manufacturer_add(_api::ProductApi, response_stream::Channel, product_id::String, manufacturer::String; store_id=nothing, meta_title=nothing, meta_keywords=nothing, meta_description=nothing, search_keywords=nothing, image_url=nothing, seo_url=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ ProductManufacturerAdd200Response }, OpenAPI.Clients.ApiResponse
+> product_manufacturer_add(_api::ProductApi, product_id::String, manufacturer::String; store_id=nothing, description=nothing, meta_title=nothing, meta_keywords=nothing, meta_description=nothing, search_keywords=nothing, image_url=nothing, seo_url=nothing, idempotency_key=nothing, _mediaType=nothing) -> ProductManufacturerAdd200Response, OpenAPI.Clients.ApiResponse <br/>
+> product_manufacturer_add(_api::ProductApi, response_stream::Channel, product_id::String, manufacturer::String; store_id=nothing, description=nothing, meta_title=nothing, meta_keywords=nothing, meta_description=nothing, search_keywords=nothing, image_url=nothing, seo_url=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ ProductManufacturerAdd200Response }, OpenAPI.Clients.ApiResponse
 
 product.manufacturer.add
 
@@ -936,6 +936,7 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **store_id** | **String** | Store Id | [default to nothing]
+ **description** | **String** | Defines manufacturer&#39;s description | [default to nothing]
  **meta_title** | **String** | Defines unique meta title for each entity | [default to nothing]
  **meta_keywords** | **String** | Defines unique meta keywords for each entity | [default to nothing]
  **meta_description** | **String** | Defines unique meta description of a entity | [default to nothing]

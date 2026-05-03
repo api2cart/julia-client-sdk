@@ -353,8 +353,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **attribute_list**
-> attribute_list(_api::AttributeApi; start=nothing, count=nothing, attribute_ids=nothing, attribute_set_id=nothing, store_id=nothing, lang_id=nothing, type=nothing, visible=nothing, required=nothing, system=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseAttributeList, OpenAPI.Clients.ApiResponse <br/>
-> attribute_list(_api::AttributeApi, response_stream::Channel; start=nothing, count=nothing, attribute_ids=nothing, attribute_set_id=nothing, store_id=nothing, lang_id=nothing, type=nothing, visible=nothing, required=nothing, system=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseAttributeList }, OpenAPI.Clients.ApiResponse
+> attribute_list(_api::AttributeApi; start=nothing, count=nothing, page_cursor=nothing, attribute_ids=nothing, attribute_set_id=nothing, store_id=nothing, lang_id=nothing, type=nothing, visible=nothing, required=nothing, system=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseAttributeList, OpenAPI.Clients.ApiResponse <br/>
+> attribute_list(_api::AttributeApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, attribute_ids=nothing, attribute_set_id=nothing, store_id=nothing, lang_id=nothing, type=nothing, visible=nothing, required=nothing, system=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseAttributeList }, OpenAPI.Clients.ApiResponse
 
 attribute.list
 
@@ -372,6 +372,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
+ **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
  **attribute_ids** | **String** | Filter attributes by ids | [default to nothing]
  **attribute_set_id** | **String** | Filter items by attribute set id | [default to nothing]
  **store_id** | **String** | Store Id | [default to nothing]
@@ -500,8 +501,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **attribute_update**
-> attribute_update(_api::AttributeApi, id::String, name::String; store_id=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> AttributeUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
-> attribute_update(_api::AttributeApi, response_stream::Channel, id::String, name::String; store_id=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ AttributeUpdate200Response }, OpenAPI.Clients.ApiResponse
+> attribute_update(_api::AttributeApi, id::String; name=nothing, visible=nothing, position=nothing, store_id=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> AttributeUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
+> attribute_update(_api::AttributeApi, response_stream::Channel, id::String; name=nothing, visible=nothing, position=nothing, store_id=nothing, lang_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ AttributeUpdate200Response }, OpenAPI.Clients.ApiResponse
 
 attribute.update
 
@@ -513,12 +514,14 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_api** | **AttributeApi** | API context | 
 **id** | **String** | Entity id |
-**name** | **String** | Defines new attributes&#39;s name |
 
 ### Optional Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **name** | **String** | Defines new attributes&#39;s name | [default to nothing]
+ **visible** | **Bool** | Set visibility status | [default to nothing]
+ **position** | **Int64** | Attribute&#x60;s position | [default to 0]
  **store_id** | **String** | Store Id | [default to nothing]
  **lang_id** | **String** | Language id | [default to nothing]
  **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]

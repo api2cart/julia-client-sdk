@@ -993,11 +993,12 @@ const _returntypes_product_manufacturer_add_ProductApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ProductManufacturerAdd200Response,
 )
 
-function _oacinternal_product_manufacturer_add(_api::ProductApi, product_id::String, manufacturer::String; store_id=nothing, meta_title=nothing, meta_keywords=nothing, meta_description=nothing, search_keywords=nothing, image_url=nothing, seo_url=nothing, idempotency_key=nothing, _mediaType=nothing)
+function _oacinternal_product_manufacturer_add(_api::ProductApi, product_id::String, manufacturer::String; store_id=nothing, description=nothing, meta_title=nothing, meta_keywords=nothing, meta_description=nothing, search_keywords=nothing, image_url=nothing, seo_url=nothing, idempotency_key=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_product_manufacturer_add_ProductApi, "/product.manufacturer.add.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "product_id", product_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "manufacturer", manufacturer; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "description", description; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "meta_title", meta_title; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "meta_keywords", meta_keywords; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "meta_description", meta_description; style="form", is_explode=true)  # type String
@@ -1018,6 +1019,7 @@ Params:
 - product_id::String (required)
 - manufacturer::String (required)
 - store_id::String
+- description::String
 - meta_title::String
 - meta_keywords::String
 - meta_description::String
@@ -1028,13 +1030,13 @@ Params:
 
 Return: ProductManufacturerAdd200Response, OpenAPI.Clients.ApiResponse
 """
-function product_manufacturer_add(_api::ProductApi, product_id::String, manufacturer::String; store_id=nothing, meta_title=nothing, meta_keywords=nothing, meta_description=nothing, search_keywords=nothing, image_url=nothing, seo_url=nothing, idempotency_key=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_manufacturer_add(_api, product_id, manufacturer; store_id=store_id, meta_title=meta_title, meta_keywords=meta_keywords, meta_description=meta_description, search_keywords=search_keywords, image_url=image_url, seo_url=seo_url, idempotency_key=idempotency_key, _mediaType=_mediaType)
+function product_manufacturer_add(_api::ProductApi, product_id::String, manufacturer::String; store_id=nothing, description=nothing, meta_title=nothing, meta_keywords=nothing, meta_description=nothing, search_keywords=nothing, image_url=nothing, seo_url=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_product_manufacturer_add(_api, product_id, manufacturer; store_id=store_id, description=description, meta_title=meta_title, meta_keywords=meta_keywords, meta_description=meta_description, search_keywords=search_keywords, image_url=image_url, seo_url=seo_url, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function product_manufacturer_add(_api::ProductApi, response_stream::Channel, product_id::String, manufacturer::String; store_id=nothing, meta_title=nothing, meta_keywords=nothing, meta_description=nothing, search_keywords=nothing, image_url=nothing, seo_url=nothing, idempotency_key=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_product_manufacturer_add(_api, product_id, manufacturer; store_id=store_id, meta_title=meta_title, meta_keywords=meta_keywords, meta_description=meta_description, search_keywords=search_keywords, image_url=image_url, seo_url=seo_url, idempotency_key=idempotency_key, _mediaType=_mediaType)
+function product_manufacturer_add(_api::ProductApi, response_stream::Channel, product_id::String, manufacturer::String; store_id=nothing, description=nothing, meta_title=nothing, meta_keywords=nothing, meta_description=nothing, search_keywords=nothing, image_url=nothing, seo_url=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_product_manufacturer_add(_api, product_id, manufacturer; store_id=store_id, description=description, meta_title=meta_title, meta_keywords=meta_keywords, meta_description=meta_description, search_keywords=search_keywords, image_url=image_url, seo_url=seo_url, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 

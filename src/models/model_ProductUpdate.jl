@@ -47,6 +47,8 @@
         increase_quantity=nothing,
         reduce_quantity=nothing,
         low_stock_threshold=nothing,
+        min_order_quantity=nothing,
+        max_order_quantity=nothing,
         warehouse_id=nothing,
         weight=nothing,
         weight_unit=nothing,
@@ -64,6 +66,7 @@
         barcode=nothing,
         manufacturer=nothing,
         manufacturer_id=nothing,
+        vendor_id=nothing,
         categories_ids=nothing,
         related_products_ids=nothing,
         up_sell_products_ids=nothing,
@@ -99,7 +102,6 @@
         personalization_questions=nothing,
         external_product_link=nothing,
         marketplace_item_properties=nothing,
-        min_order_quantity=nothing,
         manufacturer_ids=nothing,
         responsible_person_ids=nothing,
         idempotency_key=nothing,
@@ -147,6 +149,8 @@
     - increase_quantity::Float64 : Defines the incremental changes in product quantity
     - reduce_quantity::Float64 : Defines the decrement changes in product quantity
     - low_stock_threshold::Float64 : Specify the quantity threshold below which the product is considered low in stock
+    - min_order_quantity::Float64 : The minimum quantity an order must contain, to be eligible to purchase this product.
+    - max_order_quantity::Float64 : The maximum quantity an order can contain when purchasing the product.
     - warehouse_id::String : This parameter is used for selecting a warehouse where you need to set/modify a product quantity.
     - weight::Float64 : Weight
     - weight_unit::String : Weight Unit
@@ -164,6 +168,7 @@
     - barcode::String : A barcode is a unique code composed of numbers used as a product identifier.
     - manufacturer::String : Defines product&#39;s manufacturer
     - manufacturer_id::String : Defines product&#39;s manufacturer by manufacturer_id
+    - vendor_id::String : Vendor Id
     - categories_ids::String : Defines product add that is specified by comma-separated categories id
     - related_products_ids::String : Defines product related products ids that has to be updated
     - up_sell_products_ids::String : Defines product up-sell products ids that has to be updated
@@ -199,7 +204,6 @@
     - personalization_questions::Vector{ProductAddPersonalizationQuestionsInner} : Defines personalization questions for the listing as an array of question objects. Each question object supports the following fields: question_id (integer, nullable), question_text (string, 1-45 chars), instructions (string, nullable), question_type (string), required (boolean), max_allowed_characters (integer, nullable), max_allowed_files (integer, nullable), options (array, nullable). Cannot be used together with &lt;strong&gt;personalization_details&lt;/strong&gt;.
     - external_product_link::String : External product link
     - marketplace_item_properties::String : String containing the JSON representation of the supplied data
-    - min_order_quantity::Float64 : The minimum quantity an order must contain, to be eligible to purchase this product.
     - manufacturer_ids::String : A comma-separated list of manufacturer IDs. Retrieve the IDs from the cart.info method.
     - responsible_person_ids::String : A comma-separated list of responsible person IDs. Retrieve the IDs from the cart.info method.
     - idempotency_key::String : A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
@@ -247,6 +251,8 @@ Base.@kwdef mutable struct ProductUpdate <: OpenAPI.APIModel
     increase_quantity::Union{Nothing, Float64} = nothing
     reduce_quantity::Union{Nothing, Float64} = nothing
     low_stock_threshold::Union{Nothing, Float64} = nothing
+    min_order_quantity::Union{Nothing, Float64} = nothing
+    max_order_quantity::Union{Nothing, Float64} = nothing
     warehouse_id::Union{Nothing, String} = nothing
     weight::Union{Nothing, Float64} = nothing
     weight_unit::Union{Nothing, String} = nothing
@@ -264,6 +270,7 @@ Base.@kwdef mutable struct ProductUpdate <: OpenAPI.APIModel
     barcode::Union{Nothing, String} = nothing
     manufacturer::Union{Nothing, String} = nothing
     manufacturer_id::Union{Nothing, String} = nothing
+    vendor_id::Union{Nothing, String} = nothing
     categories_ids::Union{Nothing, String} = nothing
     related_products_ids::Union{Nothing, String} = nothing
     up_sell_products_ids::Union{Nothing, String} = nothing
@@ -299,12 +306,11 @@ Base.@kwdef mutable struct ProductUpdate <: OpenAPI.APIModel
     personalization_questions::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ProductAddPersonalizationQuestionsInner} }
     external_product_link::Union{Nothing, String} = nothing
     marketplace_item_properties::Union{Nothing, String} = nothing
-    min_order_quantity::Union{Nothing, Float64} = nothing
     manufacturer_ids::Union{Nothing, String} = nothing
     responsible_person_ids::Union{Nothing, String} = nothing
     idempotency_key::Union{Nothing, String} = nothing
 
-    function ProductUpdate(id, model, sku, name, description, short_description, prices_inc_tax, price, old_price, special_price, sprice_create, sprice_expire, cost_price, fixed_cost_shipping_price, retail_price, tier_prices, reserve_price, buyitnow_price, taxable, tax_class_id, type, status, condition, visible, in_stock, avail, avail_from, product_class, brand_name, available_for_view, measure_unit, unit_price, stores_ids, store_id, lang_id, quantity, reserve_quantity, manage_stock, backorder_status, increase_quantity, reduce_quantity, low_stock_threshold, warehouse_id, weight, weight_unit, height, length, width, dimensions_unit, is_virtual, is_free_shipping, gtin, upc, mpn, ean, isbn, barcode, manufacturer, manufacturer_id, categories_ids, related_products_ids, up_sell_products_ids, cross_sell_products_ids, meta_title, meta_keywords, meta_description, seo_url, search_keywords, tags, delivery_code, package_details, country_of_origin, harmonized_system_code, shipping_template_id, processing_profile_id, when_made, is_supply, downloadable, materials, auto_renew, on_sale, production_partner_ids, manufacturer_info, report_request_id, disable_report_cache, reindex, clear_cache, check_process_status, specifics, shop_section_id, personalization_details, personalization_questions, external_product_link, marketplace_item_properties, min_order_quantity, manufacturer_ids, responsible_person_ids, idempotency_key, )
+    function ProductUpdate(id, model, sku, name, description, short_description, prices_inc_tax, price, old_price, special_price, sprice_create, sprice_expire, cost_price, fixed_cost_shipping_price, retail_price, tier_prices, reserve_price, buyitnow_price, taxable, tax_class_id, type, status, condition, visible, in_stock, avail, avail_from, product_class, brand_name, available_for_view, measure_unit, unit_price, stores_ids, store_id, lang_id, quantity, reserve_quantity, manage_stock, backorder_status, increase_quantity, reduce_quantity, low_stock_threshold, min_order_quantity, max_order_quantity, warehouse_id, weight, weight_unit, height, length, width, dimensions_unit, is_virtual, is_free_shipping, gtin, upc, mpn, ean, isbn, barcode, manufacturer, manufacturer_id, vendor_id, categories_ids, related_products_ids, up_sell_products_ids, cross_sell_products_ids, meta_title, meta_keywords, meta_description, seo_url, search_keywords, tags, delivery_code, package_details, country_of_origin, harmonized_system_code, shipping_template_id, processing_profile_id, when_made, is_supply, downloadable, materials, auto_renew, on_sale, production_partner_ids, manufacturer_info, report_request_id, disable_report_cache, reindex, clear_cache, check_process_status, specifics, shop_section_id, personalization_details, personalization_questions, external_product_link, marketplace_item_properties, manufacturer_ids, responsible_person_ids, idempotency_key, )
         OpenAPI.validate_property(ProductUpdate, Symbol("id"), id)
         OpenAPI.validate_property(ProductUpdate, Symbol("model"), model)
         OpenAPI.validate_property(ProductUpdate, Symbol("sku"), sku)
@@ -347,6 +353,8 @@ Base.@kwdef mutable struct ProductUpdate <: OpenAPI.APIModel
         OpenAPI.validate_property(ProductUpdate, Symbol("increase_quantity"), increase_quantity)
         OpenAPI.validate_property(ProductUpdate, Symbol("reduce_quantity"), reduce_quantity)
         OpenAPI.validate_property(ProductUpdate, Symbol("low_stock_threshold"), low_stock_threshold)
+        OpenAPI.validate_property(ProductUpdate, Symbol("min_order_quantity"), min_order_quantity)
+        OpenAPI.validate_property(ProductUpdate, Symbol("max_order_quantity"), max_order_quantity)
         OpenAPI.validate_property(ProductUpdate, Symbol("warehouse_id"), warehouse_id)
         OpenAPI.validate_property(ProductUpdate, Symbol("weight"), weight)
         OpenAPI.validate_property(ProductUpdate, Symbol("weight_unit"), weight_unit)
@@ -364,6 +372,7 @@ Base.@kwdef mutable struct ProductUpdate <: OpenAPI.APIModel
         OpenAPI.validate_property(ProductUpdate, Symbol("barcode"), barcode)
         OpenAPI.validate_property(ProductUpdate, Symbol("manufacturer"), manufacturer)
         OpenAPI.validate_property(ProductUpdate, Symbol("manufacturer_id"), manufacturer_id)
+        OpenAPI.validate_property(ProductUpdate, Symbol("vendor_id"), vendor_id)
         OpenAPI.validate_property(ProductUpdate, Symbol("categories_ids"), categories_ids)
         OpenAPI.validate_property(ProductUpdate, Symbol("related_products_ids"), related_products_ids)
         OpenAPI.validate_property(ProductUpdate, Symbol("up_sell_products_ids"), up_sell_products_ids)
@@ -399,15 +408,14 @@ Base.@kwdef mutable struct ProductUpdate <: OpenAPI.APIModel
         OpenAPI.validate_property(ProductUpdate, Symbol("personalization_questions"), personalization_questions)
         OpenAPI.validate_property(ProductUpdate, Symbol("external_product_link"), external_product_link)
         OpenAPI.validate_property(ProductUpdate, Symbol("marketplace_item_properties"), marketplace_item_properties)
-        OpenAPI.validate_property(ProductUpdate, Symbol("min_order_quantity"), min_order_quantity)
         OpenAPI.validate_property(ProductUpdate, Symbol("manufacturer_ids"), manufacturer_ids)
         OpenAPI.validate_property(ProductUpdate, Symbol("responsible_person_ids"), responsible_person_ids)
         OpenAPI.validate_property(ProductUpdate, Symbol("idempotency_key"), idempotency_key)
-        return new(id, model, sku, name, description, short_description, prices_inc_tax, price, old_price, special_price, sprice_create, sprice_expire, cost_price, fixed_cost_shipping_price, retail_price, tier_prices, reserve_price, buyitnow_price, taxable, tax_class_id, type, status, condition, visible, in_stock, avail, avail_from, product_class, brand_name, available_for_view, measure_unit, unit_price, stores_ids, store_id, lang_id, quantity, reserve_quantity, manage_stock, backorder_status, increase_quantity, reduce_quantity, low_stock_threshold, warehouse_id, weight, weight_unit, height, length, width, dimensions_unit, is_virtual, is_free_shipping, gtin, upc, mpn, ean, isbn, barcode, manufacturer, manufacturer_id, categories_ids, related_products_ids, up_sell_products_ids, cross_sell_products_ids, meta_title, meta_keywords, meta_description, seo_url, search_keywords, tags, delivery_code, package_details, country_of_origin, harmonized_system_code, shipping_template_id, processing_profile_id, when_made, is_supply, downloadable, materials, auto_renew, on_sale, production_partner_ids, manufacturer_info, report_request_id, disable_report_cache, reindex, clear_cache, check_process_status, specifics, shop_section_id, personalization_details, personalization_questions, external_product_link, marketplace_item_properties, min_order_quantity, manufacturer_ids, responsible_person_ids, idempotency_key, )
+        return new(id, model, sku, name, description, short_description, prices_inc_tax, price, old_price, special_price, sprice_create, sprice_expire, cost_price, fixed_cost_shipping_price, retail_price, tier_prices, reserve_price, buyitnow_price, taxable, tax_class_id, type, status, condition, visible, in_stock, avail, avail_from, product_class, brand_name, available_for_view, measure_unit, unit_price, stores_ids, store_id, lang_id, quantity, reserve_quantity, manage_stock, backorder_status, increase_quantity, reduce_quantity, low_stock_threshold, min_order_quantity, max_order_quantity, warehouse_id, weight, weight_unit, height, length, width, dimensions_unit, is_virtual, is_free_shipping, gtin, upc, mpn, ean, isbn, barcode, manufacturer, manufacturer_id, vendor_id, categories_ids, related_products_ids, up_sell_products_ids, cross_sell_products_ids, meta_title, meta_keywords, meta_description, seo_url, search_keywords, tags, delivery_code, package_details, country_of_origin, harmonized_system_code, shipping_template_id, processing_profile_id, when_made, is_supply, downloadable, materials, auto_renew, on_sale, production_partner_ids, manufacturer_info, report_request_id, disable_report_cache, reindex, clear_cache, check_process_status, specifics, shop_section_id, personalization_details, personalization_questions, external_product_link, marketplace_item_properties, manufacturer_ids, responsible_person_ids, idempotency_key, )
     end
 end # type ProductUpdate
 
-const _property_types_ProductUpdate = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("model")=>"String", Symbol("sku")=>"String", Symbol("name")=>"String", Symbol("description")=>"String", Symbol("short_description")=>"String", Symbol("prices_inc_tax")=>"Bool", Symbol("price")=>"Float64", Symbol("old_price")=>"Float64", Symbol("special_price")=>"Float64", Symbol("sprice_create")=>"String", Symbol("sprice_expire")=>"String", Symbol("cost_price")=>"Float64", Symbol("fixed_cost_shipping_price")=>"Float64", Symbol("retail_price")=>"Float64", Symbol("tier_prices")=>"Vector{ProductAddTierPricesInner}", Symbol("reserve_price")=>"Float64", Symbol("buyitnow_price")=>"Float64", Symbol("taxable")=>"Bool", Symbol("tax_class_id")=>"String", Symbol("type")=>"String", Symbol("status")=>"String", Symbol("condition")=>"String", Symbol("visible")=>"String", Symbol("in_stock")=>"Bool", Symbol("avail")=>"Bool", Symbol("avail_from")=>"String", Symbol("product_class")=>"String", Symbol("brand_name")=>"String", Symbol("available_for_view")=>"Bool", Symbol("measure_unit")=>"String", Symbol("unit_price")=>"Float64", Symbol("stores_ids")=>"String", Symbol("store_id")=>"String", Symbol("lang_id")=>"String", Symbol("quantity")=>"Float64", Symbol("reserve_quantity")=>"Float64", Symbol("manage_stock")=>"Bool", Symbol("backorder_status")=>"String", Symbol("increase_quantity")=>"Float64", Symbol("reduce_quantity")=>"Float64", Symbol("low_stock_threshold")=>"Float64", Symbol("warehouse_id")=>"String", Symbol("weight")=>"Float64", Symbol("weight_unit")=>"String", Symbol("height")=>"Float64", Symbol("length")=>"Float64", Symbol("width")=>"Float64", Symbol("dimensions_unit")=>"String", Symbol("is_virtual")=>"Bool", Symbol("is_free_shipping")=>"Bool", Symbol("gtin")=>"String", Symbol("upc")=>"String", Symbol("mpn")=>"String", Symbol("ean")=>"String", Symbol("isbn")=>"String", Symbol("barcode")=>"String", Symbol("manufacturer")=>"String", Symbol("manufacturer_id")=>"String", Symbol("categories_ids")=>"String", Symbol("related_products_ids")=>"String", Symbol("up_sell_products_ids")=>"String", Symbol("cross_sell_products_ids")=>"String", Symbol("meta_title")=>"String", Symbol("meta_keywords")=>"String", Symbol("meta_description")=>"String", Symbol("seo_url")=>"String", Symbol("search_keywords")=>"String", Symbol("tags")=>"String", Symbol("delivery_code")=>"String", Symbol("package_details")=>"ProductAddPackageDetails", Symbol("country_of_origin")=>"String", Symbol("harmonized_system_code")=>"String", Symbol("shipping_template_id")=>"Int64", Symbol("processing_profile_id")=>"Int64", Symbol("when_made")=>"String", Symbol("is_supply")=>"Bool", Symbol("downloadable")=>"Bool", Symbol("materials")=>"Vector{String}", Symbol("auto_renew")=>"Bool", Symbol("on_sale")=>"Bool", Symbol("production_partner_ids")=>"String", Symbol("manufacturer_info")=>"ProductAddManufacturerInfo", Symbol("report_request_id")=>"String", Symbol("disable_report_cache")=>"Bool", Symbol("reindex")=>"Bool", Symbol("clear_cache")=>"Bool", Symbol("check_process_status")=>"Bool", Symbol("specifics")=>"Vector{ProductAddSpecificsInner}", Symbol("shop_section_id")=>"Int64", Symbol("personalization_details")=>"ProductAddPersonalizationDetails", Symbol("personalization_questions")=>"Vector{ProductAddPersonalizationQuestionsInner}", Symbol("external_product_link")=>"String", Symbol("marketplace_item_properties")=>"String", Symbol("min_order_quantity")=>"Float64", Symbol("manufacturer_ids")=>"String", Symbol("responsible_person_ids")=>"String", Symbol("idempotency_key")=>"String", )
+const _property_types_ProductUpdate = Dict{Symbol,String}(Symbol("id")=>"String", Symbol("model")=>"String", Symbol("sku")=>"String", Symbol("name")=>"String", Symbol("description")=>"String", Symbol("short_description")=>"String", Symbol("prices_inc_tax")=>"Bool", Symbol("price")=>"Float64", Symbol("old_price")=>"Float64", Symbol("special_price")=>"Float64", Symbol("sprice_create")=>"String", Symbol("sprice_expire")=>"String", Symbol("cost_price")=>"Float64", Symbol("fixed_cost_shipping_price")=>"Float64", Symbol("retail_price")=>"Float64", Symbol("tier_prices")=>"Vector{ProductAddTierPricesInner}", Symbol("reserve_price")=>"Float64", Symbol("buyitnow_price")=>"Float64", Symbol("taxable")=>"Bool", Symbol("tax_class_id")=>"String", Symbol("type")=>"String", Symbol("status")=>"String", Symbol("condition")=>"String", Symbol("visible")=>"String", Symbol("in_stock")=>"Bool", Symbol("avail")=>"Bool", Symbol("avail_from")=>"String", Symbol("product_class")=>"String", Symbol("brand_name")=>"String", Symbol("available_for_view")=>"Bool", Symbol("measure_unit")=>"String", Symbol("unit_price")=>"Float64", Symbol("stores_ids")=>"String", Symbol("store_id")=>"String", Symbol("lang_id")=>"String", Symbol("quantity")=>"Float64", Symbol("reserve_quantity")=>"Float64", Symbol("manage_stock")=>"Bool", Symbol("backorder_status")=>"String", Symbol("increase_quantity")=>"Float64", Symbol("reduce_quantity")=>"Float64", Symbol("low_stock_threshold")=>"Float64", Symbol("min_order_quantity")=>"Float64", Symbol("max_order_quantity")=>"Float64", Symbol("warehouse_id")=>"String", Symbol("weight")=>"Float64", Symbol("weight_unit")=>"String", Symbol("height")=>"Float64", Symbol("length")=>"Float64", Symbol("width")=>"Float64", Symbol("dimensions_unit")=>"String", Symbol("is_virtual")=>"Bool", Symbol("is_free_shipping")=>"Bool", Symbol("gtin")=>"String", Symbol("upc")=>"String", Symbol("mpn")=>"String", Symbol("ean")=>"String", Symbol("isbn")=>"String", Symbol("barcode")=>"String", Symbol("manufacturer")=>"String", Symbol("manufacturer_id")=>"String", Symbol("vendor_id")=>"String", Symbol("categories_ids")=>"String", Symbol("related_products_ids")=>"String", Symbol("up_sell_products_ids")=>"String", Symbol("cross_sell_products_ids")=>"String", Symbol("meta_title")=>"String", Symbol("meta_keywords")=>"String", Symbol("meta_description")=>"String", Symbol("seo_url")=>"String", Symbol("search_keywords")=>"String", Symbol("tags")=>"String", Symbol("delivery_code")=>"String", Symbol("package_details")=>"ProductAddPackageDetails", Symbol("country_of_origin")=>"String", Symbol("harmonized_system_code")=>"String", Symbol("shipping_template_id")=>"Int64", Symbol("processing_profile_id")=>"Int64", Symbol("when_made")=>"String", Symbol("is_supply")=>"Bool", Symbol("downloadable")=>"Bool", Symbol("materials")=>"Vector{String}", Symbol("auto_renew")=>"Bool", Symbol("on_sale")=>"Bool", Symbol("production_partner_ids")=>"String", Symbol("manufacturer_info")=>"ProductAddManufacturerInfo", Symbol("report_request_id")=>"String", Symbol("disable_report_cache")=>"Bool", Symbol("reindex")=>"Bool", Symbol("clear_cache")=>"Bool", Symbol("check_process_status")=>"Bool", Symbol("specifics")=>"Vector{ProductAddSpecificsInner}", Symbol("shop_section_id")=>"Int64", Symbol("personalization_details")=>"ProductAddPersonalizationDetails", Symbol("personalization_questions")=>"Vector{ProductAddPersonalizationQuestionsInner}", Symbol("external_product_link")=>"String", Symbol("marketplace_item_properties")=>"String", Symbol("manufacturer_ids")=>"String", Symbol("responsible_person_ids")=>"String", Symbol("idempotency_key")=>"String", )
 OpenAPI.property_type(::Type{ ProductUpdate }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_ProductUpdate[name]))}
 
 function check_required(o::ProductUpdate)
@@ -507,11 +515,13 @@ function OpenAPI.validate_property(::Type{ ProductUpdate }, name::Symbol, val)
 
 
 
+
+
+
     if name === Symbol("personalization_questions")
         OpenAPI.validate_param(name, "ProductUpdate", :maxItems, val, 5)
         OpenAPI.validate_param(name, "ProductUpdate", :minItems, val, 1)
     end
-
 
 
 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **product_id** | **String** | Defines product&#39;s id where the variant has to be added | [optional] [default to nothing]
-**attributes** | [**Vector{ProductVariantAddAttributesInner}**](ProductVariantAddAttributesInner.md) | Defines variant&#39;s attributes list | [optional] [default to nothing]
+**attributes** | [**Vector{ProductVariantAddAttributesInner}**](ProductVariantAddAttributesInner.md) | Defines variant&#39;s attributes list with optional per-option price and weight modifiers | [optional] [default to nothing]
 **name** | **String** | Defines variant&#39;s name that has to be added | [optional] [default to nothing]
 **model** | **String** | Specifies variant&#39;s model that has to be added | [default to nothing]
 **description** | **String** | Specifies variant&#39;s description | [optional] [default to nothing]

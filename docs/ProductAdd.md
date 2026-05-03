@@ -124,6 +124,7 @@ Name | Type | Description | Notes
 **clear_cache** | **Bool** | Is cache clear required | [optional] [default to true]
 **viewed_count** | **Int64** | Specifies the number of product&#39;s reviews | [optional] [default to 0]
 **ordered_count** | **Int64** | Defines how many times the product was ordered | [optional] [default to 0]
+**vendor_id** | **String** | Vendor Id | [optional] [default to nothing]
 **shop_section_id** | **Int64** | Add Shop Section Id | [optional] [default to nothing]
 **return_policy_id** | **Int64** | Add Return Policy Id | [optional] [default to nothing]
 **personalization_details** | [***ProductAddPersonalizationDetails**](ProductAddPersonalizationDetails.md) |  | [optional] [default to nothing]

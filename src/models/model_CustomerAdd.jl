@@ -59,7 +59,7 @@
     - country::String : Specifies ISO code or name of country
     - currency_id::String : Currency Id
     - is_tax_exempt::Bool : Marks a customer as tax-exempt (B2B/wholesale).
-    - vendor_id::String : Vendor Id
+    - vendor_id::String : Assigns vendor id to the customer
     - store_id::String : Store Id
     - idempotency_key::String : A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
     - address::Vector{CustomerAddAddressInner}
