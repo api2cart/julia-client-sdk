@@ -673,6 +673,79 @@ function order_shipment_delete(_api::OrderApi, response_stream::Channel, shipmen
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
+const _returntypes_order_shipment_event_add_OrderApi = Dict{Regex,Type}(
+    Regex("^" * replace("200", "x"=>".") * "\$") => AttributeAdd200Response,
+)
+
+function _oacinternal_order_shipment_event_add(_api::OrderApi, order_shipment_event_add_param::OrderShipmentEventAdd; _mediaType=nothing)
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_order_shipment_event_add_OrderApi, "/order.shipment.event.add.json", ["StoreKeyAuth", "ApiKeyAuth", ], order_shipment_event_add_param)
+    OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
+    OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? ["application/json", ] : [_mediaType])
+    return _ctx
+end
+
+@doc raw"""order.shipment.event.add
+
+Add a tracking event to the shipment.
+
+Params:
+- order_shipment_event_add_param::OrderShipmentEventAdd (required)
+
+Return: AttributeAdd200Response, OpenAPI.Clients.ApiResponse
+"""
+function order_shipment_event_add(_api::OrderApi, order_shipment_event_add_param::OrderShipmentEventAdd; _mediaType=nothing)
+    _ctx = _oacinternal_order_shipment_event_add(_api, order_shipment_event_add_param; _mediaType=_mediaType)
+    return OpenAPI.Clients.exec(_ctx)
+end
+
+function order_shipment_event_add(_api::OrderApi, response_stream::Channel, order_shipment_event_add_param::OrderShipmentEventAdd; _mediaType=nothing)
+    _ctx = _oacinternal_order_shipment_event_add(_api, order_shipment_event_add_param; _mediaType=_mediaType)
+    return OpenAPI.Clients.exec(_ctx, response_stream)
+end
+
+const _returntypes_order_shipment_event_list_OrderApi = Dict{Regex,Type}(
+    Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseOrderShipmentEventList,
+)
+
+function _oacinternal_order_shipment_event_list(_api::OrderApi, shipment_id::String; order_id=nothing, store_id=nothing, start=nothing, count=nothing, page_cursor=nothing, response_fields=nothing, _mediaType=nothing)
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_order_shipment_event_list_OrderApi, "/order.shipment.event.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
+    OpenAPI.Clients.set_param(_ctx.query, "shipment_id", shipment_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "order_id", order_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
+    OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
+    OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
+    OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
+    return _ctx
+end
+
+@doc raw"""order.shipment.event.list
+
+Get list of shipment tracking events.
+
+Params:
+- shipment_id::String (required)
+- order_id::String
+- store_id::String
+- start::Int64
+- count::Int64
+- page_cursor::String
+- response_fields::String
+
+Return: ModelResponseOrderShipmentEventList, OpenAPI.Clients.ApiResponse
+"""
+function order_shipment_event_list(_api::OrderApi, shipment_id::String; order_id=nothing, store_id=nothing, start=nothing, count=nothing, page_cursor=nothing, response_fields=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_shipment_event_list(_api, shipment_id; order_id=order_id, store_id=store_id, start=start, count=count, page_cursor=page_cursor, response_fields=response_fields, _mediaType=_mediaType)
+    return OpenAPI.Clients.exec(_ctx)
+end
+
+function order_shipment_event_list(_api::OrderApi, response_stream::Channel, shipment_id::String; order_id=nothing, store_id=nothing, start=nothing, count=nothing, page_cursor=nothing, response_fields=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_order_shipment_event_list(_api, shipment_id; order_id=order_id, store_id=store_id, start=start, count=count, page_cursor=page_cursor, response_fields=response_fields, _mediaType=_mediaType)
+    return OpenAPI.Clients.exec(_ctx, response_stream)
+end
+
 const _returntypes_order_shipment_info_OrderApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => OrderShipmentInfo200Response,
 )
@@ -990,6 +1063,8 @@ export order_return_update
 export order_shipment_add
 export order_shipment_add_batch
 export order_shipment_delete
+export order_shipment_event_add
+export order_shipment_event_list
 export order_shipment_info
 export order_shipment_list
 export order_shipment_tracking_add

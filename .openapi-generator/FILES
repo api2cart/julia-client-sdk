@@ -177,6 +177,7 @@ docs/ModelResponseMarketplaceProductFind.md
 docs/ModelResponseOrderAbandonedList.md
 docs/ModelResponseOrderList.md
 docs/ModelResponseOrderPreestimateShippingList.md
+docs/ModelResponseOrderShipmentEventList.md
 docs/ModelResponseOrderShipmentList.md
 docs/ModelResponseOrderStatusList.md
 docs/ModelResponseOrderTransactionList.md
@@ -248,6 +249,7 @@ docs/OrderShipmentAddItemsInner.md
 docs/OrderShipmentAddTrackingNumbersInner.md
 docs/OrderShipmentDelete200Response.md
 docs/OrderShipmentDelete200ResponseResult.md
+docs/OrderShipmentEventAdd.md
 docs/OrderShipmentInfo200Response.md
 docs/OrderShipmentTrackingAdd.md
 docs/OrderShipmentTrackingAdd200Response.md
@@ -397,6 +399,7 @@ docs/ResponseMarketplaceProductFindResult.md
 docs/ResponseOrderAbandonedListResult.md
 docs/ResponseOrderListResult.md
 docs/ResponseOrderPreestimateShippingListResult.md
+docs/ResponseOrderShipmentEventListResult.md
 docs/ResponseOrderShipmentListResult.md
 docs/ResponseOrderStatusListResult.md
 docs/ResponseOrderTransactionListResult.md
@@ -427,6 +430,7 @@ docs/ReturnStatusList200Response.md
 docs/ReturnStatusList200ResponseResult.md
 docs/Script.md
 docs/Shipment.md
+docs/ShipmentEvent.md
 docs/ShipmentItem.md
 docs/ShipmentTrackingNumber.md
 docs/SpecialPrice.md
@@ -640,6 +644,7 @@ src/models/model_ModelResponseMarketplaceProductFind.jl
 src/models/model_ModelResponseOrderAbandonedList.jl
 src/models/model_ModelResponseOrderList.jl
 src/models/model_ModelResponseOrderPreestimateShippingList.jl
+src/models/model_ModelResponseOrderShipmentEventList.jl
 src/models/model_ModelResponseOrderShipmentList.jl
 src/models/model_ModelResponseOrderStatusList.jl
 src/models/model_ModelResponseOrderTransactionList.jl
@@ -710,6 +715,7 @@ src/models/model_OrderShipmentAddItemsInner.jl
 src/models/model_OrderShipmentAddTrackingNumbersInner.jl
 src/models/model_OrderShipmentDelete200Response.jl
 src/models/model_OrderShipmentDelete200ResponseResult.jl
+src/models/model_OrderShipmentEventAdd.jl
 src/models/model_OrderShipmentInfo200Response.jl
 src/models/model_OrderShipmentTrackingAdd.jl
 src/models/model_OrderShipmentTrackingAdd200Response.jl
@@ -858,6 +864,7 @@ src/models/model_ResponseMarketplaceProductFindResult.jl
 src/models/model_ResponseOrderAbandonedListResult.jl
 src/models/model_ResponseOrderListResult.jl
 src/models/model_ResponseOrderPreestimateShippingListResult.jl
+src/models/model_ResponseOrderShipmentEventListResult.jl
 src/models/model_ResponseOrderShipmentListResult.jl
 src/models/model_ResponseOrderStatusListResult.jl
 src/models/model_ResponseOrderTransactionListResult.jl
@@ -887,6 +894,7 @@ src/models/model_ReturnStatusList200Response.jl
 src/models/model_ReturnStatusList200ResponseResult.jl
 src/models/model_Script.jl
 src/models/model_Shipment.jl
+src/models/model_ShipmentEvent.jl
 src/models/model_ShipmentItem.jl
 src/models/model_ShipmentTrackingNumber.jl
 src/models/model_SpecialPrice.jl

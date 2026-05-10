@@ -117,6 +117,8 @@ Class | Method
 *OrderApi* | [**order_shipment_add**](docs/OrderApi.md#order_shipment_add)<br/>**POST** /order.shipment.add.json<br/>order.shipment.add
 *OrderApi* | [**order_shipment_add_batch**](docs/OrderApi.md#order_shipment_add_batch)<br/>**POST** /order.shipment.add.batch.json<br/>order.shipment.add.batch
 *OrderApi* | [**order_shipment_delete**](docs/OrderApi.md#order_shipment_delete)<br/>**DELETE** /order.shipment.delete.json<br/>order.shipment.delete
+*OrderApi* | [**order_shipment_event_add**](docs/OrderApi.md#order_shipment_event_add)<br/>**POST** /order.shipment.event.add.json<br/>order.shipment.event.add
+*OrderApi* | [**order_shipment_event_list**](docs/OrderApi.md#order_shipment_event_list)<br/>**GET** /order.shipment.event.list.json<br/>order.shipment.event.list
 *OrderApi* | [**order_shipment_info**](docs/OrderApi.md#order_shipment_info)<br/>**GET** /order.shipment.info.json<br/>order.shipment.info
 *OrderApi* | [**order_shipment_list**](docs/OrderApi.md#order_shipment_list)<br/>**GET** /order.shipment.list.json<br/>order.shipment.list
 *OrderApi* | [**order_shipment_tracking_add**](docs/OrderApi.md#order_shipment_tracking_add)<br/>**POST** /order.shipment.tracking.add.json<br/>order.shipment.tracking.add
@@ -359,6 +361,7 @@ Class | Method
  - [ModelResponseOrderAbandonedList](docs/ModelResponseOrderAbandonedList.md)
  - [ModelResponseOrderList](docs/ModelResponseOrderList.md)
  - [ModelResponseOrderPreestimateShippingList](docs/ModelResponseOrderPreestimateShippingList.md)
+ - [ModelResponseOrderShipmentEventList](docs/ModelResponseOrderShipmentEventList.md)
  - [ModelResponseOrderShipmentList](docs/ModelResponseOrderShipmentList.md)
  - [ModelResponseOrderStatusList](docs/ModelResponseOrderStatusList.md)
  - [ModelResponseOrderTransactionList](docs/ModelResponseOrderTransactionList.md)
@@ -429,6 +432,7 @@ Class | Method
  - [OrderShipmentAddTrackingNumbersInner](docs/OrderShipmentAddTrackingNumbersInner.md)
  - [OrderShipmentDelete200Response](docs/OrderShipmentDelete200Response.md)
  - [OrderShipmentDelete200ResponseResult](docs/OrderShipmentDelete200ResponseResult.md)
+ - [OrderShipmentEventAdd](docs/OrderShipmentEventAdd.md)
  - [OrderShipmentInfo200Response](docs/OrderShipmentInfo200Response.md)
  - [OrderShipmentTrackingAdd](docs/OrderShipmentTrackingAdd.md)
  - [OrderShipmentTrackingAdd200Response](docs/OrderShipmentTrackingAdd200Response.md)
@@ -577,6 +581,7 @@ Class | Method
  - [ResponseOrderAbandonedListResult](docs/ResponseOrderAbandonedListResult.md)
  - [ResponseOrderListResult](docs/ResponseOrderListResult.md)
  - [ResponseOrderPreestimateShippingListResult](docs/ResponseOrderPreestimateShippingListResult.md)
+ - [ResponseOrderShipmentEventListResult](docs/ResponseOrderShipmentEventListResult.md)
  - [ResponseOrderShipmentListResult](docs/ResponseOrderShipmentListResult.md)
  - [ResponseOrderStatusListResult](docs/ResponseOrderStatusListResult.md)
  - [ResponseOrderTransactionListResult](docs/ResponseOrderTransactionListResult.md)
@@ -606,6 +611,7 @@ Class | Method
  - [ReturnStatusList200ResponseResult](docs/ReturnStatusList200ResponseResult.md)
  - [Script](docs/Script.md)
  - [Shipment](docs/Shipment.md)
+ - [ShipmentEvent](docs/ShipmentEvent.md)
  - [ShipmentItem](docs/ShipmentItem.md)
  - [ShipmentTrackingNumber](docs/ShipmentTrackingNumber.md)
  - [SpecialPrice](docs/SpecialPrice.md)

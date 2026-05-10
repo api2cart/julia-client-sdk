@@ -20,6 +20,8 @@ Method | HTTP request | Description
 [**order_shipment_add**](OrderApi.md#order_shipment_add) | **POST** /order.shipment.add.json | order.shipment.add
 [**order_shipment_add_batch**](OrderApi.md#order_shipment_add_batch) | **POST** /order.shipment.add.batch.json | order.shipment.add.batch
 [**order_shipment_delete**](OrderApi.md#order_shipment_delete) | **DELETE** /order.shipment.delete.json | order.shipment.delete
+[**order_shipment_event_add**](OrderApi.md#order_shipment_event_add) | **POST** /order.shipment.event.add.json | order.shipment.event.add
+[**order_shipment_event_list**](OrderApi.md#order_shipment_event_list) | **GET** /order.shipment.event.list.json | order.shipment.event.list
 [**order_shipment_info**](OrderApi.md#order_shipment_info) | **GET** /order.shipment.info.json | order.shipment.info
 [**order_shipment_list**](OrderApi.md#order_shipment_list) | **GET** /order.shipment.list.json | order.shipment.list
 [**order_shipment_tracking_add**](OrderApi.md#order_shipment_tracking_add) | **POST** /order.shipment.tracking.add.json | order.shipment.tracking.add
@@ -616,6 +618,77 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**OrderShipmentDelete200Response**](OrderShipmentDelete200Response.md)
+
+### Authorization
+
+[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+# **order_shipment_event_add**
+> order_shipment_event_add(_api::OrderApi, order_shipment_event_add_param::OrderShipmentEventAdd; _mediaType=nothing) -> AttributeAdd200Response, OpenAPI.Clients.ApiResponse <br/>
+> order_shipment_event_add(_api::OrderApi, response_stream::Channel, order_shipment_event_add_param::OrderShipmentEventAdd; _mediaType=nothing) -> Channel{ AttributeAdd200Response }, OpenAPI.Clients.ApiResponse
+
+order.shipment.event.add
+
+Add a tracking event to the shipment.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **_api** | **OrderApi** | API context | 
+**order_shipment_event_add_param** | [**OrderShipmentEventAdd**](OrderShipmentEventAdd.md) |  |
+
+### Return type
+
+[**AttributeAdd200Response**](AttributeAdd200Response.md)
+
+### Authorization
+
+[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+# **order_shipment_event_list**
+> order_shipment_event_list(_api::OrderApi, shipment_id::String; order_id=nothing, store_id=nothing, start=nothing, count=nothing, page_cursor=nothing, response_fields=nothing, _mediaType=nothing) -> ModelResponseOrderShipmentEventList, OpenAPI.Clients.ApiResponse <br/>
+> order_shipment_event_list(_api::OrderApi, response_stream::Channel, shipment_id::String; order_id=nothing, store_id=nothing, start=nothing, count=nothing, page_cursor=nothing, response_fields=nothing, _mediaType=nothing) -> Channel{ ModelResponseOrderShipmentEventList }, OpenAPI.Clients.ApiResponse
+
+order.shipment.event.list
+
+Get list of shipment tracking events.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **_api** | **OrderApi** | API context | 
+**shipment_id** | **String** | Defines the shipment for which tracking events will be retrieved |
+
+### Optional Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **String** | Defines the order to which the shipment belongs | [default to nothing]
+ **store_id** | **String** | Store Id | [default to nothing]
+ **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
+ **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
+ **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
+ **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+
+### Return type
+
+[**ModelResponseOrderShipmentEventList**](ModelResponseOrderShipmentEventList.md)
 
 ### Authorization
 
