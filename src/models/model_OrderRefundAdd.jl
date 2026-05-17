@@ -14,6 +14,7 @@
         item_restock=false,
         send_notifications=false,
         date=nothing,
+        store_id=nothing,
         is_online=false,
         idempotency_key=nothing,
     )
@@ -27,6 +28,7 @@
     - item_restock::Bool : Boolean, whether or not to add the line items back to the store inventory.
     - send_notifications::Bool : Send notifications to customer after refund was created
     - date::String : Specifies an order creation date in format Y-m-d H:i:s
+    - store_id::String : Store Id
     - is_online::Bool : Indicates whether refund type is online
     - idempotency_key::String : A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
 """
@@ -40,10 +42,11 @@ Base.@kwdef mutable struct OrderRefundAdd <: OpenAPI.APIModel
     item_restock::Union{Nothing, Bool} = false
     send_notifications::Union{Nothing, Bool} = false
     date::Union{Nothing, String} = nothing
+    store_id::Union{Nothing, String} = nothing
     is_online::Union{Nothing, Bool} = false
     idempotency_key::Union{Nothing, String} = nothing
 
-    function OrderRefundAdd(order_id, items, total_price, shipping_price, fee_price, message, item_restock, send_notifications, date, is_online, idempotency_key, )
+    function OrderRefundAdd(order_id, items, total_price, shipping_price, fee_price, message, item_restock, send_notifications, date, store_id, is_online, idempotency_key, )
         OpenAPI.validate_property(OrderRefundAdd, Symbol("order_id"), order_id)
         OpenAPI.validate_property(OrderRefundAdd, Symbol("items"), items)
         OpenAPI.validate_property(OrderRefundAdd, Symbol("total_price"), total_price)
@@ -53,13 +56,14 @@ Base.@kwdef mutable struct OrderRefundAdd <: OpenAPI.APIModel
         OpenAPI.validate_property(OrderRefundAdd, Symbol("item_restock"), item_restock)
         OpenAPI.validate_property(OrderRefundAdd, Symbol("send_notifications"), send_notifications)
         OpenAPI.validate_property(OrderRefundAdd, Symbol("date"), date)
+        OpenAPI.validate_property(OrderRefundAdd, Symbol("store_id"), store_id)
         OpenAPI.validate_property(OrderRefundAdd, Symbol("is_online"), is_online)
         OpenAPI.validate_property(OrderRefundAdd, Symbol("idempotency_key"), idempotency_key)
-        return new(order_id, items, total_price, shipping_price, fee_price, message, item_restock, send_notifications, date, is_online, idempotency_key, )
+        return new(order_id, items, total_price, shipping_price, fee_price, message, item_restock, send_notifications, date, store_id, is_online, idempotency_key, )
     end
 end # type OrderRefundAdd
 
-const _property_types_OrderRefundAdd = Dict{Symbol,String}(Symbol("order_id")=>"String", Symbol("items")=>"Vector{OrderRefundAddItemsInner}", Symbol("total_price")=>"Float64", Symbol("shipping_price")=>"Float64", Symbol("fee_price")=>"Float64", Symbol("message")=>"String", Symbol("item_restock")=>"Bool", Symbol("send_notifications")=>"Bool", Symbol("date")=>"String", Symbol("is_online")=>"Bool", Symbol("idempotency_key")=>"String", )
+const _property_types_OrderRefundAdd = Dict{Symbol,String}(Symbol("order_id")=>"String", Symbol("items")=>"Vector{OrderRefundAddItemsInner}", Symbol("total_price")=>"Float64", Symbol("shipping_price")=>"Float64", Symbol("fee_price")=>"Float64", Symbol("message")=>"String", Symbol("item_restock")=>"Bool", Symbol("send_notifications")=>"Bool", Symbol("date")=>"String", Symbol("store_id")=>"String", Symbol("is_online")=>"Bool", Symbol("idempotency_key")=>"String", )
 OpenAPI.property_type(::Type{ OrderRefundAdd }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_OrderRefundAdd[name]))}
 
 function check_required(o::OrderRefundAdd)
@@ -67,6 +71,7 @@ function check_required(o::OrderRefundAdd)
 end
 
 function OpenAPI.validate_property(::Type{ OrderRefundAdd }, name::Symbol, val)
+
 
 
 
