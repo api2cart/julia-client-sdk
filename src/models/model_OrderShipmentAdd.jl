@@ -20,6 +20,7 @@
         check_process_status=false,
         tracking_provider=nothing,
         use_latest_api_version=false,
+        admin_comment=nothing,
         idempotency_key=nothing,
     )
 
@@ -38,6 +39,7 @@
     - check_process_status::Bool : Disable or enable check process status. Please note that the response will be slower due to additional requests to the store.
     - tracking_provider::String : Defines name of the company which provides shipment tracking
     - use_latest_api_version::Bool : Use the latest platform API version
+    - admin_comment::String : Specifies admin&#39;s order comment
     - idempotency_key::String : A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
 """
 Base.@kwdef mutable struct OrderShipmentAdd <: OpenAPI.APIModel
@@ -56,9 +58,10 @@ Base.@kwdef mutable struct OrderShipmentAdd <: OpenAPI.APIModel
     check_process_status::Union{Nothing, Bool} = false
     tracking_provider::Union{Nothing, String} = nothing
     use_latest_api_version::Union{Nothing, Bool} = false
+    admin_comment::Union{Nothing, String} = nothing
     idempotency_key::Union{Nothing, String} = nothing
 
-    function OrderShipmentAdd(order_id, warehouse_id, store_id, shipment_provider, shipping_method, items, tracking_numbers, tracking_link, is_shipped, send_notifications, adjust_stock, enable_cache, check_process_status, tracking_provider, use_latest_api_version, idempotency_key, )
+    function OrderShipmentAdd(order_id, warehouse_id, store_id, shipment_provider, shipping_method, items, tracking_numbers, tracking_link, is_shipped, send_notifications, adjust_stock, enable_cache, check_process_status, tracking_provider, use_latest_api_version, admin_comment, idempotency_key, )
         OpenAPI.validate_property(OrderShipmentAdd, Symbol("order_id"), order_id)
         OpenAPI.validate_property(OrderShipmentAdd, Symbol("warehouse_id"), warehouse_id)
         OpenAPI.validate_property(OrderShipmentAdd, Symbol("store_id"), store_id)
@@ -74,12 +77,13 @@ Base.@kwdef mutable struct OrderShipmentAdd <: OpenAPI.APIModel
         OpenAPI.validate_property(OrderShipmentAdd, Symbol("check_process_status"), check_process_status)
         OpenAPI.validate_property(OrderShipmentAdd, Symbol("tracking_provider"), tracking_provider)
         OpenAPI.validate_property(OrderShipmentAdd, Symbol("use_latest_api_version"), use_latest_api_version)
+        OpenAPI.validate_property(OrderShipmentAdd, Symbol("admin_comment"), admin_comment)
         OpenAPI.validate_property(OrderShipmentAdd, Symbol("idempotency_key"), idempotency_key)
-        return new(order_id, warehouse_id, store_id, shipment_provider, shipping_method, items, tracking_numbers, tracking_link, is_shipped, send_notifications, adjust_stock, enable_cache, check_process_status, tracking_provider, use_latest_api_version, idempotency_key, )
+        return new(order_id, warehouse_id, store_id, shipment_provider, shipping_method, items, tracking_numbers, tracking_link, is_shipped, send_notifications, adjust_stock, enable_cache, check_process_status, tracking_provider, use_latest_api_version, admin_comment, idempotency_key, )
     end
 end # type OrderShipmentAdd
 
-const _property_types_OrderShipmentAdd = Dict{Symbol,String}(Symbol("order_id")=>"String", Symbol("warehouse_id")=>"String", Symbol("store_id")=>"String", Symbol("shipment_provider")=>"String", Symbol("shipping_method")=>"String", Symbol("items")=>"Vector{OrderShipmentAddItemsInner}", Symbol("tracking_numbers")=>"Vector{OrderShipmentAddTrackingNumbersInner}", Symbol("tracking_link")=>"String", Symbol("is_shipped")=>"Bool", Symbol("send_notifications")=>"Bool", Symbol("adjust_stock")=>"Bool", Symbol("enable_cache")=>"Bool", Symbol("check_process_status")=>"Bool", Symbol("tracking_provider")=>"String", Symbol("use_latest_api_version")=>"Bool", Symbol("idempotency_key")=>"String", )
+const _property_types_OrderShipmentAdd = Dict{Symbol,String}(Symbol("order_id")=>"String", Symbol("warehouse_id")=>"String", Symbol("store_id")=>"String", Symbol("shipment_provider")=>"String", Symbol("shipping_method")=>"String", Symbol("items")=>"Vector{OrderShipmentAddItemsInner}", Symbol("tracking_numbers")=>"Vector{OrderShipmentAddTrackingNumbersInner}", Symbol("tracking_link")=>"String", Symbol("is_shipped")=>"Bool", Symbol("send_notifications")=>"Bool", Symbol("adjust_stock")=>"Bool", Symbol("enable_cache")=>"Bool", Symbol("check_process_status")=>"Bool", Symbol("tracking_provider")=>"String", Symbol("use_latest_api_version")=>"Bool", Symbol("admin_comment")=>"String", Symbol("idempotency_key")=>"String", )
 OpenAPI.property_type(::Type{ OrderShipmentAdd }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_OrderShipmentAdd[name]))}
 
 function check_required(o::OrderShipmentAdd)
@@ -87,6 +91,7 @@ function check_required(o::OrderShipmentAdd)
 end
 
 function OpenAPI.validate_property(::Type{ OrderShipmentAdd }, name::Symbol, val)
+
 
 
 

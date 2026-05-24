@@ -14,8 +14,12 @@ Name | Type | Description | Notes
 **item_restock** | **Bool** | Boolean, whether or not to add the line items back to the store inventory. | [optional] [default to false]
 **staff_note** | **String** | Specifies staff note | [optional] [default to nothing]
 **comment** | **String** | Specifies return comment | [optional] [default to nothing]
+**message** | **String** | Customer-visible message attached to the return request. | [optional] [default to nothing]
 **send_notifications** | **Bool** | Send notifications to customer after order was created | [optional] [default to false]
 **reject_reason** | **String** | Defines return reject reason | [optional] [default to nothing]
+**is_online** | **Bool** | Indicates whether refund type is online | [optional] [default to false]
+**fee_price** | **Float64** | Specifies refund&#39;s fee price | [optional] [default to nothing]
+**shipping_price** | **Float64** | Specifies order&#39;s shipping price | [optional] [default to 0]
 **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] [default to nothing]
 **order_products** | [**Vector{OrderReturnAddOrderProductsInner}**](OrderReturnAddOrderProductsInner.md) |  | [default to nothing]
 

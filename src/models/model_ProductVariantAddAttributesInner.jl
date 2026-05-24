@@ -8,30 +8,26 @@
         attribute_name=nothing,
         attribute_value=nothing,
         attribute_price=nothing,
-        attribute_weight=nothing,
     )
 
     - attribute_name::String
     - attribute_value::String
     - attribute_price::Float64
-    - attribute_weight::Float64
 """
 Base.@kwdef mutable struct ProductVariantAddAttributesInner <: OpenAPI.APIModel
     attribute_name::Union{Nothing, String} = nothing
     attribute_value::Union{Nothing, String} = nothing
     attribute_price::Union{Nothing, Float64} = nothing
-    attribute_weight::Union{Nothing, Float64} = nothing
 
-    function ProductVariantAddAttributesInner(attribute_name, attribute_value, attribute_price, attribute_weight, )
+    function ProductVariantAddAttributesInner(attribute_name, attribute_value, attribute_price, )
         OpenAPI.validate_property(ProductVariantAddAttributesInner, Symbol("attribute_name"), attribute_name)
         OpenAPI.validate_property(ProductVariantAddAttributesInner, Symbol("attribute_value"), attribute_value)
         OpenAPI.validate_property(ProductVariantAddAttributesInner, Symbol("attribute_price"), attribute_price)
-        OpenAPI.validate_property(ProductVariantAddAttributesInner, Symbol("attribute_weight"), attribute_weight)
-        return new(attribute_name, attribute_value, attribute_price, attribute_weight, )
+        return new(attribute_name, attribute_value, attribute_price, )
     end
 end # type ProductVariantAddAttributesInner
 
-const _property_types_ProductVariantAddAttributesInner = Dict{Symbol,String}(Symbol("attribute_name")=>"String", Symbol("attribute_value")=>"String", Symbol("attribute_price")=>"Float64", Symbol("attribute_weight")=>"Float64", )
+const _property_types_ProductVariantAddAttributesInner = Dict{Symbol,String}(Symbol("attribute_name")=>"String", Symbol("attribute_value")=>"String", Symbol("attribute_price")=>"Float64", )
 OpenAPI.property_type(::Type{ ProductVariantAddAttributesInner }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_ProductVariantAddAttributesInner[name]))}
 
 function check_required(o::ProductVariantAddAttributesInner)
@@ -39,7 +35,6 @@ function check_required(o::ProductVariantAddAttributesInner)
 end
 
 function OpenAPI.validate_property(::Type{ ProductVariantAddAttributesInner }, name::Symbol, val)
-
 
 
 
