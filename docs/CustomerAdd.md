@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **last_login** | **String** | Defines customer&#39;s last login time | [optional] [default to nothing]
 **birth_day** | **String** | Defines customer&#39;s birthday | [optional] [default to nothing]
 **news_letter_subscription** | **Bool** | Defines whether the newsletter subscription is available for the user | [optional] [default to nothing]
+**partner_offers_subscription** | **Bool** | Defines whether the customer agreed to receive offers from partners | [optional] [default to nothing]
 **consents** | [**Vector{CustomerAddConsentsInner}**](CustomerAddConsentsInner.md) | Defines consents to notifications | [optional] [default to nothing]
 **gender** | **String** | Defines customer&#39;s gender | [optional] [default to nothing]
 **website** | **String** | Link to customer website | [optional] [default to nothing]
