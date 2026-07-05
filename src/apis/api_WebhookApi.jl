@@ -12,7 +12,7 @@ This can be used to construct the `OpenAPI.Clients.Client` instance.
 basepath(::Type{ WebhookApi }) = "https://api.api2cart.local.com/v1.1"
 
 const _returntypes_webhook_count_WebhookApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => WebhookCount200Response,
+    Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseWebhookCount,
 )
 
 function _oacinternal_webhook_count(_api::WebhookApi; entity=nothing, action=nothing, active=nothing, _mediaType=nothing)
@@ -34,7 +34,7 @@ Params:
 - action::String
 - active::Bool
 
-Return: WebhookCount200Response, OpenAPI.Clients.ApiResponse
+Return: ModelResponseWebhookCount, OpenAPI.Clients.ApiResponse
 """
 function webhook_count(_api::WebhookApi; entity=nothing, action=nothing, active=nothing, _mediaType=nothing)
     _ctx = _oacinternal_webhook_count(_api; entity=entity, action=action, active=active, _mediaType=_mediaType)
@@ -108,7 +108,7 @@ function webhook_delete(_api::WebhookApi, response_stream::Channel, id::String; 
 end
 
 const _returntypes_webhook_events_WebhookApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => WebhookEvents200Response,
+    Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseWebhookEvents,
 )
 
 function _oacinternal_webhook_events(_api::WebhookApi; _mediaType=nothing)
@@ -124,7 +124,7 @@ List all Webhooks that are available on this store.
 
 Params:
 
-Return: WebhookEvents200Response, OpenAPI.Clients.ApiResponse
+Return: ModelResponseWebhookEvents, OpenAPI.Clients.ApiResponse
 """
 function webhook_events(_api::WebhookApi; _mediaType=nothing)
     _ctx = _oacinternal_webhook_events(_api; _mediaType=_mediaType)

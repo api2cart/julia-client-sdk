@@ -194,8 +194,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **attribute_count**
-> attribute_count(_api::AttributeApi; type=nothing, attribute_set_id=nothing, store_id=nothing, lang_id=nothing, visible=nothing, required=nothing, system=nothing, _mediaType=nothing) -> AttributeCount200Response, OpenAPI.Clients.ApiResponse <br/>
-> attribute_count(_api::AttributeApi, response_stream::Channel; type=nothing, attribute_set_id=nothing, store_id=nothing, lang_id=nothing, visible=nothing, required=nothing, system=nothing, _mediaType=nothing) -> Channel{ AttributeCount200Response }, OpenAPI.Clients.ApiResponse
+> attribute_count(_api::AttributeApi; type=nothing, attribute_set_id=nothing, store_id=nothing, lang_id=nothing, visible=nothing, required=nothing, system=nothing, _mediaType=nothing) -> ModelResponseAttributeCount, OpenAPI.Clients.ApiResponse <br/>
+> attribute_count(_api::AttributeApi, response_stream::Channel; type=nothing, attribute_set_id=nothing, store_id=nothing, lang_id=nothing, visible=nothing, required=nothing, system=nothing, _mediaType=nothing) -> Channel{ ModelResponseAttributeCount }, OpenAPI.Clients.ApiResponse
 
 attribute.count
 
@@ -221,7 +221,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AttributeCount200Response**](AttributeCount200Response.md)
+[**ModelResponseAttributeCount**](ModelResponseAttributeCount.md)
 
 ### Authorization
 
@@ -401,8 +401,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **attribute_type_list**
-> attribute_type_list(_api::AttributeApi; _mediaType=nothing) -> AttributeTypeList200Response, OpenAPI.Clients.ApiResponse <br/>
-> attribute_type_list(_api::AttributeApi, response_stream::Channel; _mediaType=nothing) -> Channel{ AttributeTypeList200Response }, OpenAPI.Clients.ApiResponse
+> attribute_type_list(_api::AttributeApi; _mediaType=nothing) -> ModelResponseAttributeTypeList, OpenAPI.Clients.ApiResponse <br/>
+> attribute_type_list(_api::AttributeApi, response_stream::Channel; _mediaType=nothing) -> Channel{ ModelResponseAttributeTypeList }, OpenAPI.Clients.ApiResponse
 
 attribute.type.list
 
@@ -413,7 +413,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**AttributeTypeList200Response**](AttributeTypeList200Response.md)
+[**ModelResponseAttributeTypeList**](ModelResponseAttributeTypeList.md)
 
 ### Authorization
 

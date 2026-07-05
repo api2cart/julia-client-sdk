@@ -507,7 +507,7 @@ function account_failed_webhooks(_api::AccountApi, response_stream::Channel; sta
 end
 
 const _returntypes_account_supported_platforms_AccountApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => AccountSupportedPlatforms200Response,
+    Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseAccountSupportedPlatforms,
 )
 
 function _oacinternal_account_supported_platforms(_api::AccountApi; _mediaType=nothing)
@@ -523,7 +523,7 @@ Use this method to retrieve a list of supported platforms and the sets of parame
 
 Params:
 
-Return: AccountSupportedPlatforms200Response, OpenAPI.Clients.ApiResponse
+Return: ModelResponseAccountSupportedPlatforms, OpenAPI.Clients.ApiResponse
 """
 function account_supported_platforms(_api::AccountApi; _mediaType=nothing)
     _ctx = _oacinternal_account_supported_platforms(_api; _mediaType=_mediaType)

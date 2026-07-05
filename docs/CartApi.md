@@ -30,8 +30,8 @@ Method | HTTP request | Description
 
 
 # **cart_catalog_price_rules_count**
-> cart_catalog_price_rules_count(_api::CartApi; _mediaType=nothing) -> CartCatalogPriceRulesCount200Response, OpenAPI.Clients.ApiResponse <br/>
-> cart_catalog_price_rules_count(_api::CartApi, response_stream::Channel; _mediaType=nothing) -> Channel{ CartCatalogPriceRulesCount200Response }, OpenAPI.Clients.ApiResponse
+> cart_catalog_price_rules_count(_api::CartApi; _mediaType=nothing) -> ModelResponseCartCatalogPriceRulesCount, OpenAPI.Clients.ApiResponse <br/>
+> cart_catalog_price_rules_count(_api::CartApi, response_stream::Channel; _mediaType=nothing) -> Channel{ ModelResponseCartCatalogPriceRulesCount }, OpenAPI.Clients.ApiResponse
 
 cart.catalog_price_rules.count
 
@@ -42,7 +42,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**CartCatalogPriceRulesCount200Response**](CartCatalogPriceRulesCount200Response.md)
+[**ModelResponseCartCatalogPriceRulesCount**](ModelResponseCartCatalogPriceRulesCount.md)
 
 ### Authorization
 
@@ -171,8 +171,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **cart_coupon_count**
-> cart_coupon_count(_api::CartApi; store_id=nothing, avail=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, _mediaType=nothing) -> CartCouponCount200Response, OpenAPI.Clients.ApiResponse <br/>
-> cart_coupon_count(_api::CartApi, response_stream::Channel; store_id=nothing, avail=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, _mediaType=nothing) -> Channel{ CartCouponCount200Response }, OpenAPI.Clients.ApiResponse
+> cart_coupon_count(_api::CartApi; store_id=nothing, avail=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, _mediaType=nothing) -> ModelResponseCartCouponCount, OpenAPI.Clients.ApiResponse <br/>
+> cart_coupon_count(_api::CartApi, response_stream::Channel; store_id=nothing, avail=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, _mediaType=nothing) -> Channel{ ModelResponseCartCouponCount }, OpenAPI.Clients.ApiResponse
 
 cart.coupon.count
 
@@ -197,7 +197,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CartCouponCount200Response**](CartCouponCount200Response.md)
+[**ModelResponseCartCouponCount**](ModelResponseCartCouponCount.md)
 
 ### Authorization
 
@@ -331,8 +331,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **cart_giftcard_add**
-> cart_giftcard_add(_api::CartApi, amount::Float64; code=nothing, owner_email=nothing, recipient_email=nothing, recipient_name=nothing, owner_name=nothing, idempotency_key=nothing, _mediaType=nothing) -> CartGiftcardAdd200Response, OpenAPI.Clients.ApiResponse <br/>
-> cart_giftcard_add(_api::CartApi, response_stream::Channel, amount::Float64; code=nothing, owner_email=nothing, recipient_email=nothing, recipient_name=nothing, owner_name=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ CartGiftcardAdd200Response }, OpenAPI.Clients.ApiResponse
+> cart_giftcard_add(_api::CartApi, amount::Float64; currency=nothing, store_id=nothing, code=nothing, name=nothing, owner_email=nothing, owner_name=nothing, recipient_email=nothing, recipient_name=nothing, message=nothing, idempotency_key=nothing, _mediaType=nothing) -> CartGiftcardAdd200Response, OpenAPI.Clients.ApiResponse <br/>
+> cart_giftcard_add(_api::CartApi, response_stream::Channel, amount::Float64; currency=nothing, store_id=nothing, code=nothing, name=nothing, owner_email=nothing, owner_name=nothing, recipient_email=nothing, recipient_name=nothing, message=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ CartGiftcardAdd200Response }, OpenAPI.Clients.ApiResponse
 
 cart.giftcard.add
 
@@ -349,11 +349,15 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **currency** | **String** | Defines currency code | [default to nothing]
+ **store_id** | **String** | Store Id | [default to nothing]
  **code** | **String** | Gift card code | [default to nothing]
+ **name** | **String** | Entity name | [default to nothing]
  **owner_email** | **String** | Gift card owner email | [default to nothing]
+ **owner_name** | **String** | Gift card owner name | [default to nothing]
  **recipient_email** | **String** | Gift card recipient email | [default to nothing]
  **recipient_name** | **String** | Gift card recipient name | [default to nothing]
- **owner_name** | **String** | Gift card owner name | [default to nothing]
+ **message** | **String** | Free-form message attached to the entity. | [default to nothing]
  **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
@@ -372,8 +376,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **cart_giftcard_count**
-> cart_giftcard_count(_api::CartApi; store_id=nothing, _mediaType=nothing) -> CartGiftcardCount200Response, OpenAPI.Clients.ApiResponse <br/>
-> cart_giftcard_count(_api::CartApi, response_stream::Channel; store_id=nothing, _mediaType=nothing) -> Channel{ CartGiftcardCount200Response }, OpenAPI.Clients.ApiResponse
+> cart_giftcard_count(_api::CartApi; store_id=nothing, _mediaType=nothing) -> ModelResponseCartGiftcardCount, OpenAPI.Clients.ApiResponse <br/>
+> cart_giftcard_count(_api::CartApi, response_stream::Channel; store_id=nothing, _mediaType=nothing) -> Channel{ ModelResponseCartGiftcardCount }, OpenAPI.Clients.ApiResponse
 
 cart.giftcard.count
 
@@ -393,7 +397,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CartGiftcardCount200Response**](CartGiftcardCount200Response.md)
+[**ModelResponseCartGiftcardCount**](ModelResponseCartGiftcardCount.md)
 
 ### Authorization
 
@@ -407,8 +411,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **cart_giftcard_delete**
-> cart_giftcard_delete(_api::CartApi, id::String; _mediaType=nothing) -> AttributeDelete200Response, OpenAPI.Clients.ApiResponse <br/>
-> cart_giftcard_delete(_api::CartApi, response_stream::Channel, id::String; _mediaType=nothing) -> Channel{ AttributeDelete200Response }, OpenAPI.Clients.ApiResponse
+> cart_giftcard_delete(_api::CartApi, id::String; store_id=nothing, _mediaType=nothing) -> AttributeDelete200Response, OpenAPI.Clients.ApiResponse <br/>
+> cart_giftcard_delete(_api::CartApi, response_stream::Channel, id::String; store_id=nothing, _mediaType=nothing) -> Channel{ AttributeDelete200Response }, OpenAPI.Clients.ApiResponse
 
 cart.giftcard.delete
 
@@ -420,6 +424,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_api** | **CartApi** | API context | 
 **id** | **String** | Entity id |
+
+### Optional Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **store_id** | **String** | Store Id | [default to nothing]
 
 ### Return type
 
@@ -437,8 +447,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **cart_giftcard_list**
-> cart_giftcard_list(_api::CartApi; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseCartGiftCardList, OpenAPI.Clients.ApiResponse <br/>
-> cart_giftcard_list(_api::CartApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseCartGiftCardList }, OpenAPI.Clients.ApiResponse
+> cart_giftcard_list(_api::CartApi; ids=nothing, start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> ModelResponseCartGiftCardList, OpenAPI.Clients.ApiResponse <br/>
+> cart_giftcard_list(_api::CartApi, response_stream::Channel; ids=nothing, start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ ModelResponseCartGiftCardList }, OpenAPI.Clients.ApiResponse
 
 cart.giftcard.list
 
@@ -454,6 +464,7 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ids** | **String** | Retrieves gift cards specified by ids | [default to nothing]
  **start** | **Int64** | This parameter sets the number from which you want to get entities | [default to 0]
  **count** | **Int64** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [default to 10]
  **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
@@ -521,7 +532,7 @@ Name | Type | Description  | Notes
 
 cart.meta_data.list
 
-Using this method, you can get a list of metadata for various entities (products, options, customers, orders). Usually this is data created by third-party plugins.
+Using this method, you can get a list of metadata for various entities. Entities supported may differ across platforms. To get the list of supported entities, pass an invalid value in the <code>entity</code> parameter. The response will contain the list of entities supported by the specific platform. Usually this is data created by third-party plugins.
 
 ### Required Parameters
 
@@ -565,7 +576,7 @@ Name | Type | Description  | Notes
 
 cart.meta_data.set
 
-Set meta data for a specific entity
+Set metadata for a specific entity. Entities supported may differ across platforms. To get the list of supported entities, pass an invalid value in the <code>entity</code> parameter. The response will contain the list of entities supported by the specific platform. Usually this is data created by third-party plugins.
 
 ### Required Parameters
 
@@ -641,8 +652,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **cart_methods**
-> cart_methods(_api::CartApi; _mediaType=nothing) -> CartMethods200Response, OpenAPI.Clients.ApiResponse <br/>
-> cart_methods(_api::CartApi, response_stream::Channel; _mediaType=nothing) -> Channel{ CartMethods200Response }, OpenAPI.Clients.ApiResponse
+> cart_methods(_api::CartApi; _mediaType=nothing) -> ModelResponseCartMethods, OpenAPI.Clients.ApiResponse <br/>
+> cart_methods(_api::CartApi, response_stream::Channel; _mediaType=nothing) -> Channel{ ModelResponseCartMethods }, OpenAPI.Clients.ApiResponse
 
 cart.methods
 
@@ -653,7 +664,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**CartMethods200Response**](CartMethods200Response.md)
+[**ModelResponseCartMethods**](ModelResponseCartMethods.md)
 
 ### Authorization
 

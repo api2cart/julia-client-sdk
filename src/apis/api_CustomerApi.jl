@@ -119,7 +119,7 @@ function customer_attribute_list(_api::CustomerApi, response_stream::Channel, cu
 end
 
 const _returntypes_customer_count_CustomerApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => CustomerCount200Response,
+    Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseCustomerCount,
 )
 
 function _oacinternal_customer_count(_api::CustomerApi; ids=nothing, since_id=nothing, customer_list_id=nothing, group_id=nothing, store_id=nothing, avail=nothing, include_guests=nothing, find_value=nothing, find_where=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, _mediaType=nothing)
@@ -161,7 +161,7 @@ Params:
 - modified_from::String
 - modified_to::String
 
-Return: CustomerCount200Response, OpenAPI.Clients.ApiResponse
+Return: ModelResponseCustomerCount, OpenAPI.Clients.ApiResponse
 """
 function customer_count(_api::CustomerApi; ids=nothing, since_id=nothing, customer_list_id=nothing, group_id=nothing, store_id=nothing, avail=nothing, include_guests=nothing, find_value=nothing, find_where=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, _mediaType=nothing)
     _ctx = _oacinternal_customer_count(_api; ids=ids, since_id=since_id, customer_list_id=customer_list_id, group_id=group_id, store_id=store_id, avail=avail, include_guests=include_guests, find_value=find_value, find_where=find_where, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, _mediaType=_mediaType)
@@ -207,7 +207,7 @@ function customer_delete(_api::CustomerApi, response_stream::Channel, id::String
 end
 
 const _returntypes_customer_find_CustomerApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => CustomerFind200Response,
+    Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseCustomerFind,
 )
 
 function _oacinternal_customer_find(_api::CustomerApi, find_value::String; find_where=nothing, find_params=nothing, store_id=nothing, include_guests=nothing, _mediaType=nothing)
@@ -233,7 +233,7 @@ Params:
 - store_id::String
 - include_guests::Bool
 
-Return: CustomerFind200Response, OpenAPI.Clients.ApiResponse
+Return: ModelResponseCustomerFind, OpenAPI.Clients.ApiResponse
 """
 function customer_find(_api::CustomerApi, find_value::String; find_where=nothing, find_params=nothing, store_id=nothing, include_guests=nothing, _mediaType=nothing)
     _ctx = _oacinternal_customer_find(_api, find_value; find_where=find_where, find_params=find_params, store_id=store_id, include_guests=include_guests, _mediaType=_mediaType)

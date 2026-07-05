@@ -100,8 +100,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **category_assign**
-> category_assign(_api::CategoryApi, category_id::String, product_id::String; store_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> CategoryAssign200Response, OpenAPI.Clients.ApiResponse <br/>
-> category_assign(_api::CategoryApi, response_stream::Channel, category_id::String, product_id::String; store_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ CategoryAssign200Response }, OpenAPI.Clients.ApiResponse
+> category_assign(_api::CategoryApi, category_id::String, product_id::String; store_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> ModelResponseCategoryAssign, OpenAPI.Clients.ApiResponse <br/>
+> category_assign(_api::CategoryApi, response_stream::Channel, category_id::String, product_id::String; store_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ ModelResponseCategoryAssign }, OpenAPI.Clients.ApiResponse
 
 category.assign
 
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CategoryAssign200Response**](CategoryAssign200Response.md)
+[**ModelResponseCategoryAssign**](ModelResponseCategoryAssign.md)
 
 ### Authorization
 
@@ -138,8 +138,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **category_count**
-> category_count(_api::CategoryApi; parent_id=nothing, store_id=nothing, lang_id=nothing, avail=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, product_type=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing) -> CategoryCount200Response, OpenAPI.Clients.ApiResponse <br/>
-> category_count(_api::CategoryApi, response_stream::Channel; parent_id=nothing, store_id=nothing, lang_id=nothing, avail=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, product_type=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing) -> Channel{ CategoryCount200Response }, OpenAPI.Clients.ApiResponse
+> category_count(_api::CategoryApi; parent_id=nothing, store_id=nothing, lang_id=nothing, avail=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, product_type=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing) -> ModelResponseCategoryCount, OpenAPI.Clients.ApiResponse <br/>
+> category_count(_api::CategoryApi, response_stream::Channel; parent_id=nothing, store_id=nothing, lang_id=nothing, avail=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, product_type=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing) -> Channel{ ModelResponseCategoryCount }, OpenAPI.Clients.ApiResponse
 
 category.count
 
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CategoryCount200Response**](CategoryCount200Response.md)
+[**ModelResponseCategoryCount**](ModelResponseCategoryCount.md)
 
 ### Authorization
 
@@ -251,8 +251,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **category_find**
-> category_find(_api::CategoryApi, find_value::String; find_where=nothing, find_params=nothing, store_id=nothing, lang_id=nothing, _mediaType=nothing) -> CategoryFind200Response, OpenAPI.Clients.ApiResponse <br/>
-> category_find(_api::CategoryApi, response_stream::Channel, find_value::String; find_where=nothing, find_params=nothing, store_id=nothing, lang_id=nothing, _mediaType=nothing) -> Channel{ CategoryFind200Response }, OpenAPI.Clients.ApiResponse
+> category_find(_api::CategoryApi, find_value::String; find_where=nothing, find_params=nothing, store_id=nothing, lang_id=nothing, _mediaType=nothing) -> ModelResponseCategoryFind, OpenAPI.Clients.ApiResponse <br/>
+> category_find(_api::CategoryApi, response_stream::Channel, find_value::String; find_where=nothing, find_params=nothing, store_id=nothing, lang_id=nothing, _mediaType=nothing) -> Channel{ ModelResponseCategoryFind }, OpenAPI.Clients.ApiResponse
 
 category.find
 
@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CategoryFind200Response**](CategoryFind200Response.md)
+[**ModelResponseCategoryFind**](ModelResponseCategoryFind.md)
 
 ### Authorization
 
@@ -471,8 +471,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **category_unassign**
-> category_unassign(_api::CategoryApi, category_id::String, product_id::String; store_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> CategoryAssign200Response, OpenAPI.Clients.ApiResponse <br/>
-> category_unassign(_api::CategoryApi, response_stream::Channel, category_id::String, product_id::String; store_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ CategoryAssign200Response }, OpenAPI.Clients.ApiResponse
+> category_unassign(_api::CategoryApi, category_id::String, product_id::String; store_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> ModelResponseCategoryUnassign, OpenAPI.Clients.ApiResponse <br/>
+> category_unassign(_api::CategoryApi, response_stream::Channel, category_id::String, product_id::String; store_id=nothing, idempotency_key=nothing, _mediaType=nothing) -> Channel{ ModelResponseCategoryUnassign }, OpenAPI.Clients.ApiResponse
 
 category.unassign
 
@@ -495,7 +495,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CategoryAssign200Response**](CategoryAssign200Response.md)
+[**ModelResponseCategoryUnassign**](ModelResponseCategoryUnassign.md)
 
 ### Authorization
 

@@ -141,8 +141,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **order_count**
-> order_count(_api::OrderApi; order_ids=nothing, ids=nothing, customer_id=nothing, store_id=nothing, customer_email=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_channel=nothing, fulfillment_status=nothing, shipping_method=nothing, delivery_method=nothing, tags=nothing, ship_node_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, use_latest_api_version=nothing, vendor_id=nothing, _mediaType=nothing) -> OrderCount200Response, OpenAPI.Clients.ApiResponse <br/>
-> order_count(_api::OrderApi, response_stream::Channel; order_ids=nothing, ids=nothing, customer_id=nothing, store_id=nothing, customer_email=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_channel=nothing, fulfillment_status=nothing, shipping_method=nothing, delivery_method=nothing, tags=nothing, ship_node_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, use_latest_api_version=nothing, vendor_id=nothing, _mediaType=nothing) -> Channel{ OrderCount200Response }, OpenAPI.Clients.ApiResponse
+> order_count(_api::OrderApi; order_ids=nothing, ids=nothing, customer_id=nothing, store_id=nothing, customer_email=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_channel=nothing, fulfillment_status=nothing, shipping_method=nothing, delivery_method=nothing, tags=nothing, ship_node_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, use_latest_api_version=nothing, vendor_id=nothing, _mediaType=nothing) -> ModelResponseOrderCount, OpenAPI.Clients.ApiResponse <br/>
+> order_count(_api::OrderApi, response_stream::Channel; order_ids=nothing, ids=nothing, customer_id=nothing, store_id=nothing, customer_email=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_channel=nothing, fulfillment_status=nothing, shipping_method=nothing, delivery_method=nothing, tags=nothing, ship_node_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, use_latest_api_version=nothing, vendor_id=nothing, _mediaType=nothing) -> Channel{ ModelResponseOrderCount }, OpenAPI.Clients.ApiResponse
 
 order.count
 
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrderCount200Response**](OrderCount200Response.md)
+[**ModelResponseOrderCount**](ModelResponseOrderCount.md)
 
 ### Authorization
 
@@ -197,8 +197,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **order_financial_status_list**
-> order_financial_status_list(_api::OrderApi; _mediaType=nothing) -> OrderFinancialStatusList200Response, OpenAPI.Clients.ApiResponse <br/>
-> order_financial_status_list(_api::OrderApi, response_stream::Channel; _mediaType=nothing) -> Channel{ OrderFinancialStatusList200Response }, OpenAPI.Clients.ApiResponse
+> order_financial_status_list(_api::OrderApi; _mediaType=nothing) -> ModelResponseOrderFinancialStatusList, OpenAPI.Clients.ApiResponse <br/>
+> order_financial_status_list(_api::OrderApi, response_stream::Channel; _mediaType=nothing) -> Channel{ ModelResponseOrderFinancialStatusList }, OpenAPI.Clients.ApiResponse
 
 order.financial_status.list
 
@@ -209,7 +209,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**OrderFinancialStatusList200Response**](OrderFinancialStatusList200Response.md)
+[**ModelResponseOrderFinancialStatusList**](ModelResponseOrderFinancialStatusList.md)
 
 ### Authorization
 
@@ -223,8 +223,8 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **order_fulfillment_status_list**
-> order_fulfillment_status_list(_api::OrderApi; action=nothing, _mediaType=nothing) -> OrderFulfillmentStatusList200Response, OpenAPI.Clients.ApiResponse <br/>
-> order_fulfillment_status_list(_api::OrderApi, response_stream::Channel; action=nothing, _mediaType=nothing) -> Channel{ OrderFulfillmentStatusList200Response }, OpenAPI.Clients.ApiResponse
+> order_fulfillment_status_list(_api::OrderApi; action=nothing, _mediaType=nothing) -> ModelResponseOrderFulfillmentStatusList, OpenAPI.Clients.ApiResponse <br/>
+> order_fulfillment_status_list(_api::OrderApi, response_stream::Channel; action=nothing, _mediaType=nothing) -> Channel{ ModelResponseOrderFulfillmentStatusList }, OpenAPI.Clients.ApiResponse
 
 order.fulfillment_status.list
 
@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrderFulfillmentStatusList200Response**](OrderFulfillmentStatusList200Response.md)
+[**ModelResponseOrderFulfillmentStatusList**](ModelResponseOrderFulfillmentStatusList.md)
 
 ### Authorization
 

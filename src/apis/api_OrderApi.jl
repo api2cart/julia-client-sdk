@@ -131,7 +131,7 @@ function order_calculate(_api::OrderApi, response_stream::Channel, order_calcula
 end
 
 const _returntypes_order_count_OrderApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => OrderCount200Response,
+    Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseOrderCount,
 )
 
 function _oacinternal_order_count(_api::OrderApi; order_ids=nothing, ids=nothing, customer_id=nothing, store_id=nothing, customer_email=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_channel=nothing, fulfillment_status=nothing, shipping_method=nothing, delivery_method=nothing, tags=nothing, ship_node_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, use_latest_api_version=nothing, vendor_id=nothing, _mediaType=nothing)
@@ -191,7 +191,7 @@ Params:
 - use_latest_api_version::Bool
 - vendor_id::String
 
-Return: OrderCount200Response, OpenAPI.Clients.ApiResponse
+Return: ModelResponseOrderCount, OpenAPI.Clients.ApiResponse
 """
 function order_count(_api::OrderApi; order_ids=nothing, ids=nothing, customer_id=nothing, store_id=nothing, customer_email=nothing, order_status=nothing, order_status_ids=nothing, ebay_order_status=nothing, financial_status=nothing, financial_status_ids=nothing, fulfillment_channel=nothing, fulfillment_status=nothing, shipping_method=nothing, delivery_method=nothing, tags=nothing, ship_node_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, use_latest_api_version=nothing, vendor_id=nothing, _mediaType=nothing)
     _ctx = _oacinternal_order_count(_api; order_ids=order_ids, ids=ids, customer_id=customer_id, store_id=store_id, customer_email=customer_email, order_status=order_status, order_status_ids=order_status_ids, ebay_order_status=ebay_order_status, financial_status=financial_status, financial_status_ids=financial_status_ids, fulfillment_channel=fulfillment_channel, fulfillment_status=fulfillment_status, shipping_method=shipping_method, delivery_method=delivery_method, tags=tags, ship_node_type=ship_node_type, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, use_latest_api_version=use_latest_api_version, vendor_id=vendor_id, _mediaType=_mediaType)
@@ -204,7 +204,7 @@ function order_count(_api::OrderApi, response_stream::Channel; order_ids=nothing
 end
 
 const _returntypes_order_financial_status_list_OrderApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => OrderFinancialStatusList200Response,
+    Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseOrderFinancialStatusList,
 )
 
 function _oacinternal_order_financial_status_list(_api::OrderApi; _mediaType=nothing)
@@ -220,7 +220,7 @@ Retrieve list of financial statuses
 
 Params:
 
-Return: OrderFinancialStatusList200Response, OpenAPI.Clients.ApiResponse
+Return: ModelResponseOrderFinancialStatusList, OpenAPI.Clients.ApiResponse
 """
 function order_financial_status_list(_api::OrderApi; _mediaType=nothing)
     _ctx = _oacinternal_order_financial_status_list(_api; _mediaType=_mediaType)
@@ -233,7 +233,7 @@ function order_financial_status_list(_api::OrderApi, response_stream::Channel; _
 end
 
 const _returntypes_order_fulfillment_status_list_OrderApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => OrderFulfillmentStatusList200Response,
+    Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseOrderFulfillmentStatusList,
 )
 
 function _oacinternal_order_fulfillment_status_list(_api::OrderApi; action=nothing, _mediaType=nothing)
@@ -251,7 +251,7 @@ Retrieve list of fulfillment statuses
 Params:
 - action::String
 
-Return: OrderFulfillmentStatusList200Response, OpenAPI.Clients.ApiResponse
+Return: ModelResponseOrderFulfillmentStatusList, OpenAPI.Clients.ApiResponse
 """
 function order_fulfillment_status_list(_api::OrderApi; action=nothing, _mediaType=nothing)
     _ctx = _oacinternal_order_fulfillment_status_list(_api; action=action, _mediaType=_mediaType)

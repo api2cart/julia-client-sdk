@@ -103,7 +103,7 @@ function category_add_batch(_api::CategoryApi, response_stream::Channel, categor
 end
 
 const _returntypes_category_assign_CategoryApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => CategoryAssign200Response,
+    Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseCategoryAssign,
 )
 
 function _oacinternal_category_assign(_api::CategoryApi, category_id::String, product_id::String; store_id=nothing, idempotency_key=nothing, _mediaType=nothing)
@@ -127,7 +127,7 @@ Params:
 - store_id::String
 - idempotency_key::String
 
-Return: CategoryAssign200Response, OpenAPI.Clients.ApiResponse
+Return: ModelResponseCategoryAssign, OpenAPI.Clients.ApiResponse
 """
 function category_assign(_api::CategoryApi, category_id::String, product_id::String; store_id=nothing, idempotency_key=nothing, _mediaType=nothing)
     _ctx = _oacinternal_category_assign(_api, category_id, product_id; store_id=store_id, idempotency_key=idempotency_key, _mediaType=_mediaType)
@@ -140,7 +140,7 @@ function category_assign(_api::CategoryApi, response_stream::Channel, category_i
 end
 
 const _returntypes_category_count_CategoryApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => CategoryCount200Response,
+    Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseCategoryCount,
 )
 
 function _oacinternal_category_count(_api::CategoryApi; parent_id=nothing, store_id=nothing, lang_id=nothing, avail=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, product_type=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing)
@@ -182,7 +182,7 @@ Params:
 - report_request_id::String
 - disable_report_cache::Bool
 
-Return: CategoryCount200Response, OpenAPI.Clients.ApiResponse
+Return: ModelResponseCategoryCount, OpenAPI.Clients.ApiResponse
 """
 function category_count(_api::CategoryApi; parent_id=nothing, store_id=nothing, lang_id=nothing, avail=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, product_type=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing)
     _ctx = _oacinternal_category_count(_api; parent_id=parent_id, store_id=store_id, lang_id=lang_id, avail=avail, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, product_type=product_type, find_value=find_value, find_where=find_where, report_request_id=report_request_id, disable_report_cache=disable_report_cache, _mediaType=_mediaType)
@@ -258,7 +258,7 @@ function category_delete_batch(_api::CategoryApi, response_stream::Channel, cate
 end
 
 const _returntypes_category_find_CategoryApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => CategoryFind200Response,
+    Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseCategoryFind,
 )
 
 function _oacinternal_category_find(_api::CategoryApi, find_value::String; find_where=nothing, find_params=nothing, store_id=nothing, lang_id=nothing, _mediaType=nothing)
@@ -284,7 +284,7 @@ Params:
 - store_id::String
 - lang_id::String
 
-Return: CategoryFind200Response, OpenAPI.Clients.ApiResponse
+Return: ModelResponseCategoryFind, OpenAPI.Clients.ApiResponse
 """
 function category_find(_api::CategoryApi, find_value::String; find_where=nothing, find_params=nothing, store_id=nothing, lang_id=nothing, _mediaType=nothing)
     _ctx = _oacinternal_category_find(_api, find_value; find_where=find_where, find_params=find_params, store_id=store_id, lang_id=lang_id, _mediaType=_mediaType)
@@ -503,7 +503,7 @@ function category_list(_api::CategoryApi, response_stream::Channel; start=nothin
 end
 
 const _returntypes_category_unassign_CategoryApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => CategoryAssign200Response,
+    Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseCategoryUnassign,
 )
 
 function _oacinternal_category_unassign(_api::CategoryApi, category_id::String, product_id::String; store_id=nothing, idempotency_key=nothing, _mediaType=nothing)
@@ -527,7 +527,7 @@ Params:
 - store_id::String
 - idempotency_key::String
 
-Return: CategoryAssign200Response, OpenAPI.Clients.ApiResponse
+Return: ModelResponseCategoryUnassign, OpenAPI.Clients.ApiResponse
 """
 function category_unassign(_api::CategoryApi, category_id::String, product_id::String; store_id=nothing, idempotency_key=nothing, _mediaType=nothing)
     _ctx = _oacinternal_category_unassign(_api, category_id, product_id; store_id=store_id, idempotency_key=idempotency_key, _mediaType=_mediaType)

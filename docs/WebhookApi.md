@@ -13,8 +13,8 @@ Method | HTTP request | Description
 
 
 # **webhook_count**
-> webhook_count(_api::WebhookApi; entity=nothing, action=nothing, active=nothing, _mediaType=nothing) -> WebhookCount200Response, OpenAPI.Clients.ApiResponse <br/>
-> webhook_count(_api::WebhookApi, response_stream::Channel; entity=nothing, action=nothing, active=nothing, _mediaType=nothing) -> Channel{ WebhookCount200Response }, OpenAPI.Clients.ApiResponse
+> webhook_count(_api::WebhookApi; entity=nothing, action=nothing, active=nothing, _mediaType=nothing) -> ModelResponseWebhookCount, OpenAPI.Clients.ApiResponse <br/>
+> webhook_count(_api::WebhookApi, response_stream::Channel; entity=nothing, action=nothing, active=nothing, _mediaType=nothing) -> Channel{ ModelResponseWebhookCount }, OpenAPI.Clients.ApiResponse
 
 webhook.count
 
@@ -36,7 +36,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WebhookCount200Response**](WebhookCount200Response.md)
+[**ModelResponseWebhookCount**](ModelResponseWebhookCount.md)
 
 ### Authorization
 
@@ -110,8 +110,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **webhook_events**
-> webhook_events(_api::WebhookApi; _mediaType=nothing) -> WebhookEvents200Response, OpenAPI.Clients.ApiResponse <br/>
-> webhook_events(_api::WebhookApi, response_stream::Channel; _mediaType=nothing) -> Channel{ WebhookEvents200Response }, OpenAPI.Clients.ApiResponse
+> webhook_events(_api::WebhookApi; _mediaType=nothing) -> ModelResponseWebhookEvents, OpenAPI.Clients.ApiResponse <br/>
+> webhook_events(_api::WebhookApi, response_stream::Channel; _mediaType=nothing) -> Channel{ ModelResponseWebhookEvents }, OpenAPI.Clients.ApiResponse
 
 webhook.events
 
@@ -122,7 +122,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**WebhookEvents200Response**](WebhookEvents200Response.md)
+[**ModelResponseWebhookEvents**](ModelResponseWebhookEvents.md)
 
 ### Authorization
 

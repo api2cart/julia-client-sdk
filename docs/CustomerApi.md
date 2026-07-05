@@ -122,8 +122,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **customer_count**
-> customer_count(_api::CustomerApi; ids=nothing, since_id=nothing, customer_list_id=nothing, group_id=nothing, store_id=nothing, avail=nothing, include_guests=nothing, find_value=nothing, find_where=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, _mediaType=nothing) -> CustomerCount200Response, OpenAPI.Clients.ApiResponse <br/>
-> customer_count(_api::CustomerApi, response_stream::Channel; ids=nothing, since_id=nothing, customer_list_id=nothing, group_id=nothing, store_id=nothing, avail=nothing, include_guests=nothing, find_value=nothing, find_where=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, _mediaType=nothing) -> Channel{ CustomerCount200Response }, OpenAPI.Clients.ApiResponse
+> customer_count(_api::CustomerApi; ids=nothing, since_id=nothing, customer_list_id=nothing, group_id=nothing, store_id=nothing, avail=nothing, include_guests=nothing, find_value=nothing, find_where=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, _mediaType=nothing) -> ModelResponseCustomerCount, OpenAPI.Clients.ApiResponse <br/>
+> customer_count(_api::CustomerApi, response_stream::Channel; ids=nothing, since_id=nothing, customer_list_id=nothing, group_id=nothing, store_id=nothing, avail=nothing, include_guests=nothing, find_value=nothing, find_where=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, _mediaType=nothing) -> Channel{ ModelResponseCustomerCount }, OpenAPI.Clients.ApiResponse
 
 customer.count
 
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CustomerCount200Response**](CustomerCount200Response.md)
+[**ModelResponseCustomerCount**](ModelResponseCustomerCount.md)
 
 ### Authorization
 
@@ -205,8 +205,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **customer_find**
-> customer_find(_api::CustomerApi, find_value::String; find_where=nothing, find_params=nothing, store_id=nothing, include_guests=nothing, _mediaType=nothing) -> CustomerFind200Response, OpenAPI.Clients.ApiResponse <br/>
-> customer_find(_api::CustomerApi, response_stream::Channel, find_value::String; find_where=nothing, find_params=nothing, store_id=nothing, include_guests=nothing, _mediaType=nothing) -> Channel{ CustomerFind200Response }, OpenAPI.Clients.ApiResponse
+> customer_find(_api::CustomerApi, find_value::String; find_where=nothing, find_params=nothing, store_id=nothing, include_guests=nothing, _mediaType=nothing) -> ModelResponseCustomerFind, OpenAPI.Clients.ApiResponse <br/>
+> customer_find(_api::CustomerApi, response_stream::Channel, find_value::String; find_where=nothing, find_params=nothing, store_id=nothing, include_guests=nothing, _mediaType=nothing) -> Channel{ ModelResponseCustomerFind }, OpenAPI.Clients.ApiResponse
 
 customer.find
 
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CustomerFind200Response**](CustomerFind200Response.md)
+[**ModelResponseCustomerFind**](ModelResponseCustomerFind.md)
 
 ### Authorization
 

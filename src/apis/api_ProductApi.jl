@@ -286,7 +286,7 @@ function product_brand_list(_api::ProductApi, response_stream::Channel; start=no
 end
 
 const _returntypes_product_child_item_find_ProductApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => ProductChildItemFind200Response,
+    Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseProductChildItemFind,
 )
 
 function _oacinternal_product_child_item_find(_api::ProductApi; find_value=nothing, find_where=nothing, find_params=nothing, store_id=nothing, _mediaType=nothing)
@@ -310,7 +310,7 @@ Params:
 - find_params::String
 - store_id::String
 
-Return: ProductChildItemFind200Response, OpenAPI.Clients.ApiResponse
+Return: ModelResponseProductChildItemFind, OpenAPI.Clients.ApiResponse
 """
 function product_child_item_find(_api::ProductApi; find_value=nothing, find_where=nothing, find_params=nothing, store_id=nothing, _mediaType=nothing)
     _ctx = _oacinternal_product_child_item_find(_api; find_value=find_value, find_where=find_where, find_params=find_params, store_id=store_id, _mediaType=_mediaType)
@@ -445,7 +445,7 @@ function product_child_item_list(_api::ProductApi, response_stream::Channel; sta
 end
 
 const _returntypes_product_count_ProductApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => ProductCount200Response,
+    Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseProductCount,
 )
 
 function _oacinternal_product_count(_api::ProductApi; sku=nothing, product_ids=nothing, since_id=nothing, categories_ids=nothing, category_id=nothing, store_id=nothing, vendor_id=nothing, lang_id=nothing, avail_view=nothing, avail_sale=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, brand_name=nothing, manufacturer_id=nothing, product_attributes=nothing, status=nothing, type=nothing, visible=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, return_global=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing)
@@ -513,7 +513,7 @@ Params:
 - disable_report_cache::Bool
 - use_latest_api_version::Bool
 
-Return: ProductCount200Response, OpenAPI.Clients.ApiResponse
+Return: ModelResponseProductCount, OpenAPI.Clients.ApiResponse
 """
 function product_count(_api::ProductApi; sku=nothing, product_ids=nothing, since_id=nothing, categories_ids=nothing, category_id=nothing, store_id=nothing, vendor_id=nothing, lang_id=nothing, avail_view=nothing, avail_sale=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, brand_name=nothing, manufacturer_id=nothing, product_attributes=nothing, status=nothing, type=nothing, visible=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, return_global=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing)
     _ctx = _oacinternal_product_count(_api; sku=sku, product_ids=product_ids, since_id=since_id, categories_ids=categories_ids, category_id=category_id, store_id=store_id, vendor_id=vendor_id, lang_id=lang_id, avail_view=avail_view, avail_sale=avail_sale, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, brand_name=brand_name, manufacturer_id=manufacturer_id, product_attributes=product_attributes, status=status, type=type, visible=visible, find_value=find_value, find_where=find_where, report_request_id=report_request_id, return_global=return_global, disable_report_cache=disable_report_cache, use_latest_api_version=use_latest_api_version, _mediaType=_mediaType)
@@ -679,7 +679,7 @@ function product_delete_batch(_api::ProductApi, response_stream::Channel, produc
 end
 
 const _returntypes_product_find_ProductApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => ProductFind200Response,
+    Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseProductFind,
 )
 
 function _oacinternal_product_find(_api::ProductApi, find_value::String; find_where=nothing, find_params=nothing, find_what=nothing, lang_id=nothing, store_id=nothing, _mediaType=nothing)
@@ -707,7 +707,7 @@ Params:
 - lang_id::String
 - store_id::String
 
-Return: ProductFind200Response, OpenAPI.Clients.ApiResponse
+Return: ModelResponseProductFind, OpenAPI.Clients.ApiResponse
 """
 function product_find(_api::ProductApi, find_value::String; find_where=nothing, find_params=nothing, find_what=nothing, lang_id=nothing, store_id=nothing, _mediaType=nothing)
     _ctx = _oacinternal_product_find(_api, find_value; find_where=find_where, find_params=find_params, find_what=find_what, lang_id=lang_id, store_id=store_id, _mediaType=_mediaType)

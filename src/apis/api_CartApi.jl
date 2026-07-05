@@ -12,7 +12,7 @@ This can be used to construct the `OpenAPI.Clients.Client` instance.
 basepath(::Type{ CartApi }) = "https://api.api2cart.local.com/v1.1"
 
 const _returntypes_cart_catalog_price_rules_count_CartApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => CartCatalogPriceRulesCount200Response,
+    Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseCartCatalogPriceRulesCount,
 )
 
 function _oacinternal_cart_catalog_price_rules_count(_api::CartApi; _mediaType=nothing)
@@ -28,7 +28,7 @@ Get count of cart catalog price rules discounts.
 
 Params:
 
-Return: CartCatalogPriceRulesCount200Response, OpenAPI.Clients.ApiResponse
+Return: ModelResponseCartCatalogPriceRulesCount, OpenAPI.Clients.ApiResponse
 """
 function cart_catalog_price_rules_count(_api::CartApi; _mediaType=nothing)
     _ctx = _oacinternal_cart_catalog_price_rules_count(_api; _mediaType=_mediaType)
@@ -163,7 +163,7 @@ function cart_coupon_condition_add(_api::CartApi, response_stream::Channel, coup
 end
 
 const _returntypes_cart_coupon_count_CartApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => CartCouponCount200Response,
+    Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseCartCouponCount,
 )
 
 function _oacinternal_cart_coupon_count(_api::CartApi; store_id=nothing, avail=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, _mediaType=nothing)
@@ -191,7 +191,7 @@ Params:
 - date_end_from::String
 - date_end_to::String
 
-Return: CartCouponCount200Response, OpenAPI.Clients.ApiResponse
+Return: ModelResponseCartCouponCount, OpenAPI.Clients.ApiResponse
 """
 function cart_coupon_count(_api::CartApi; store_id=nothing, avail=nothing, date_start_from=nothing, date_start_to=nothing, date_end_from=nothing, date_end_to=nothing, _mediaType=nothing)
     _ctx = _oacinternal_cart_coupon_count(_api; store_id=store_id, avail=avail, date_start_from=date_start_from, date_start_to=date_start_to, date_end_from=date_end_from, date_end_to=date_end_to, _mediaType=_mediaType)
@@ -330,14 +330,18 @@ const _returntypes_cart_giftcard_add_CartApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => CartGiftcardAdd200Response,
 )
 
-function _oacinternal_cart_giftcard_add(_api::CartApi, amount::Float64; code=nothing, owner_email=nothing, recipient_email=nothing, recipient_name=nothing, owner_name=nothing, idempotency_key=nothing, _mediaType=nothing)
+function _oacinternal_cart_giftcard_add(_api::CartApi, amount::Float64; currency=nothing, store_id=nothing, code=nothing, name=nothing, owner_email=nothing, owner_name=nothing, recipient_email=nothing, recipient_name=nothing, message=nothing, idempotency_key=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_cart_giftcard_add_CartApi, "/cart.giftcard.add.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "amount", amount; style="form", is_explode=true)  # type Float64
+    OpenAPI.Clients.set_param(_ctx.query, "currency", currency; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "code", code; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "name", name; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "owner_email", owner_email; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "owner_name", owner_name; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "recipient_email", recipient_email; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "recipient_name", recipient_name; style="form", is_explode=true)  # type String
-    OpenAPI.Clients.set_param(_ctx.query, "owner_name", owner_name; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "message", message; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -350,27 +354,31 @@ Use this method to create a gift card for a specified amount.
 
 Params:
 - amount::Float64 (required)
+- currency::String
+- store_id::String
 - code::String
+- name::String
 - owner_email::String
+- owner_name::String
 - recipient_email::String
 - recipient_name::String
-- owner_name::String
+- message::String
 - idempotency_key::String
 
 Return: CartGiftcardAdd200Response, OpenAPI.Clients.ApiResponse
 """
-function cart_giftcard_add(_api::CartApi, amount::Float64; code=nothing, owner_email=nothing, recipient_email=nothing, recipient_name=nothing, owner_name=nothing, idempotency_key=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_giftcard_add(_api, amount; code=code, owner_email=owner_email, recipient_email=recipient_email, recipient_name=recipient_name, owner_name=owner_name, idempotency_key=idempotency_key, _mediaType=_mediaType)
+function cart_giftcard_add(_api::CartApi, amount::Float64; currency=nothing, store_id=nothing, code=nothing, name=nothing, owner_email=nothing, owner_name=nothing, recipient_email=nothing, recipient_name=nothing, message=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_giftcard_add(_api, amount; currency=currency, store_id=store_id, code=code, name=name, owner_email=owner_email, owner_name=owner_name, recipient_email=recipient_email, recipient_name=recipient_name, message=message, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function cart_giftcard_add(_api::CartApi, response_stream::Channel, amount::Float64; code=nothing, owner_email=nothing, recipient_email=nothing, recipient_name=nothing, owner_name=nothing, idempotency_key=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_giftcard_add(_api, amount; code=code, owner_email=owner_email, recipient_email=recipient_email, recipient_name=recipient_name, owner_name=owner_name, idempotency_key=idempotency_key, _mediaType=_mediaType)
+function cart_giftcard_add(_api::CartApi, response_stream::Channel, amount::Float64; currency=nothing, store_id=nothing, code=nothing, name=nothing, owner_email=nothing, owner_name=nothing, recipient_email=nothing, recipient_name=nothing, message=nothing, idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_giftcard_add(_api, amount; currency=currency, store_id=store_id, code=code, name=name, owner_email=owner_email, owner_name=owner_name, recipient_email=recipient_email, recipient_name=recipient_name, message=message, idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
 const _returntypes_cart_giftcard_count_CartApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => CartGiftcardCount200Response,
+    Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseCartGiftcardCount,
 )
 
 function _oacinternal_cart_giftcard_count(_api::CartApi; store_id=nothing, _mediaType=nothing)
@@ -388,7 +396,7 @@ Get gift cards count.
 Params:
 - store_id::String
 
-Return: CartGiftcardCount200Response, OpenAPI.Clients.ApiResponse
+Return: ModelResponseCartGiftcardCount, OpenAPI.Clients.ApiResponse
 """
 function cart_giftcard_count(_api::CartApi; store_id=nothing, _mediaType=nothing)
     _ctx = _oacinternal_cart_giftcard_count(_api; store_id=store_id, _mediaType=_mediaType)
@@ -404,9 +412,10 @@ const _returntypes_cart_giftcard_delete_CartApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => AttributeDelete200Response,
 )
 
-function _oacinternal_cart_giftcard_delete(_api::CartApi, id::String; _mediaType=nothing)
+function _oacinternal_cart_giftcard_delete(_api::CartApi, id::String; store_id=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "DELETE", _returntypes_cart_giftcard_delete_CartApi, "/cart.giftcard.delete.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "id", id; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -418,16 +427,17 @@ Delete giftcard
 
 Params:
 - id::String (required)
+- store_id::String
 
 Return: AttributeDelete200Response, OpenAPI.Clients.ApiResponse
 """
-function cart_giftcard_delete(_api::CartApi, id::String; _mediaType=nothing)
-    _ctx = _oacinternal_cart_giftcard_delete(_api, id; _mediaType=_mediaType)
+function cart_giftcard_delete(_api::CartApi, id::String; store_id=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_giftcard_delete(_api, id; store_id=store_id, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function cart_giftcard_delete(_api::CartApi, response_stream::Channel, id::String; _mediaType=nothing)
-    _ctx = _oacinternal_cart_giftcard_delete(_api, id; _mediaType=_mediaType)
+function cart_giftcard_delete(_api::CartApi, response_stream::Channel, id::String; store_id=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_giftcard_delete(_api, id; store_id=store_id, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -435,8 +445,9 @@ const _returntypes_cart_giftcard_list_CartApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseCartGiftCardList,
 )
 
-function _oacinternal_cart_giftcard_list(_api::CartApi; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+function _oacinternal_cart_giftcard_list(_api::CartApi; ids=nothing, start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_cart_giftcard_list_CartApi, "/cart.giftcard.list.json", ["StoreKeyAuth", "ApiKeyAuth", ])
+    OpenAPI.Clients.set_param(_ctx.query, "ids", ids; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "start", start; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "count", count; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "page_cursor", page_cursor; style="form", is_explode=true)  # type String
@@ -454,6 +465,7 @@ end
 Get gift cards list.
 
 Params:
+- ids::String
 - start::Int64
 - count::Int64
 - page_cursor::String
@@ -464,13 +476,13 @@ Params:
 
 Return: ModelResponseCartGiftCardList, OpenAPI.Clients.ApiResponse
 """
-function cart_giftcard_list(_api::CartApi; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_giftcard_list(_api; start=start, count=count, page_cursor=page_cursor, store_id=store_id, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
+function cart_giftcard_list(_api::CartApi; ids=nothing, start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_giftcard_list(_api; ids=ids, start=start, count=count, page_cursor=page_cursor, store_id=store_id, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function cart_giftcard_list(_api::CartApi, response_stream::Channel; start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_giftcard_list(_api; start=start, count=count, page_cursor=page_cursor, store_id=store_id, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
+function cart_giftcard_list(_api::CartApi, response_stream::Channel; ids=nothing, start=nothing, count=nothing, page_cursor=nothing, store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_giftcard_list(_api; ids=ids, start=start, count=count, page_cursor=page_cursor, store_id=store_id, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -534,7 +546,7 @@ end
 
 @doc raw"""cart.meta_data.list
 
-Using this method, you can get a list of metadata for various entities (products, options, customers, orders). Usually this is data created by third-party plugins.
+Using this method, you can get a list of metadata for various entities. Entities supported may differ across platforms. To get the list of supported entities, pass an invalid value in the <code>entity</code> parameter. The response will contain the list of entities supported by the specific platform. Usually this is data created by third-party plugins.
 
 Params:
 - entity_id::String (required)
@@ -581,7 +593,7 @@ end
 
 @doc raw"""cart.meta_data.set
 
-Set meta data for a specific entity
+Set metadata for a specific entity. Entities supported may differ across platforms. To get the list of supported entities, pass an invalid value in the <code>entity</code> parameter. The response will contain the list of entities supported by the specific platform. Usually this is data created by third-party plugins.
 
 Params:
 - entity_id::String (required)
@@ -645,7 +657,7 @@ function cart_meta_data_unset(_api::CartApi, response_stream::Channel, entity_id
 end
 
 const _returntypes_cart_methods_CartApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => CartMethods200Response,
+    Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseCartMethods,
 )
 
 function _oacinternal_cart_methods(_api::CartApi; _mediaType=nothing)
@@ -661,7 +673,7 @@ Returns a list of supported API methods.
 
 Params:
 
-Return: CartMethods200Response, OpenAPI.Clients.ApiResponse
+Return: ModelResponseCartMethods, OpenAPI.Clients.ApiResponse
 """
 function cart_methods(_api::CartApi; _mediaType=nothing)
     _ctx = _oacinternal_cart_methods(_api; _mediaType=_mediaType)

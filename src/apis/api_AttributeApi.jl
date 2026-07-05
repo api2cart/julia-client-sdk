@@ -198,7 +198,7 @@ function attribute_attributeset_list(_api::AttributeApi, response_stream::Channe
 end
 
 const _returntypes_attribute_count_AttributeApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => AttributeCount200Response,
+    Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseAttributeCount,
 )
 
 function _oacinternal_attribute_count(_api::AttributeApi; type=nothing, attribute_set_id=nothing, store_id=nothing, lang_id=nothing, visible=nothing, required=nothing, system=nothing, _mediaType=nothing)
@@ -228,7 +228,7 @@ Params:
 - required::Bool
 - system::Bool
 
-Return: AttributeCount200Response, OpenAPI.Clients.ApiResponse
+Return: ModelResponseAttributeCount, OpenAPI.Clients.ApiResponse
 """
 function attribute_count(_api::AttributeApi; type=nothing, attribute_set_id=nothing, store_id=nothing, lang_id=nothing, visible=nothing, required=nothing, system=nothing, _mediaType=nothing)
     _ctx = _oacinternal_attribute_count(_api; type=type, attribute_set_id=attribute_set_id, store_id=store_id, lang_id=lang_id, visible=visible, required=required, system=system, _mediaType=_mediaType)
@@ -417,7 +417,7 @@ function attribute_list(_api::AttributeApi, response_stream::Channel; start=noth
 end
 
 const _returntypes_attribute_type_list_AttributeApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => AttributeTypeList200Response,
+    Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseAttributeTypeList,
 )
 
 function _oacinternal_attribute_type_list(_api::AttributeApi; _mediaType=nothing)
@@ -433,7 +433,7 @@ Get list of supported attributes types
 
 Params:
 
-Return: AttributeTypeList200Response, OpenAPI.Clients.ApiResponse
+Return: ModelResponseAttributeTypeList, OpenAPI.Clients.ApiResponse
 """
 function attribute_type_list(_api::AttributeApi; _mediaType=nothing)
     _ctx = _oacinternal_attribute_type_list(_api; _mediaType=_mediaType)

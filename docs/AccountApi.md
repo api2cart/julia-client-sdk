@@ -333,8 +333,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **account_supported_platforms**
-> account_supported_platforms(_api::AccountApi; _mediaType=nothing) -> AccountSupportedPlatforms200Response, OpenAPI.Clients.ApiResponse <br/>
-> account_supported_platforms(_api::AccountApi, response_stream::Channel; _mediaType=nothing) -> Channel{ AccountSupportedPlatforms200Response }, OpenAPI.Clients.ApiResponse
+> account_supported_platforms(_api::AccountApi; _mediaType=nothing) -> ModelResponseAccountSupportedPlatforms, OpenAPI.Clients.ApiResponse <br/>
+> account_supported_platforms(_api::AccountApi, response_stream::Channel; _mediaType=nothing) -> Channel{ ModelResponseAccountSupportedPlatforms }, OpenAPI.Clients.ApiResponse
 
 account.supported_platforms
 
@@ -345,7 +345,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**AccountSupportedPlatforms200Response**](AccountSupportedPlatforms200Response.md)
+[**ModelResponseAccountSupportedPlatforms**](ModelResponseAccountSupportedPlatforms.md)
 
 ### Authorization
 

@@ -12,7 +12,7 @@ This can be used to construct the `OpenAPI.Clients.Client` instance.
 basepath(::Type{ ReturnApi }) = "https://api.api2cart.local.com/v1.1"
 
 const _returntypes_return_action_list_ReturnApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => ReturnActionList200Response,
+    Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseReturnActionList,
 )
 
 function _oacinternal_return_action_list(_api::ReturnApi; _mediaType=nothing)
@@ -28,7 +28,7 @@ Retrieve list of return actions
 
 Params:
 
-Return: ReturnActionList200Response, OpenAPI.Clients.ApiResponse
+Return: ModelResponseReturnActionList, OpenAPI.Clients.ApiResponse
 """
 function return_action_list(_api::ReturnApi; _mediaType=nothing)
     _ctx = _oacinternal_return_action_list(_api; _mediaType=_mediaType)
@@ -41,7 +41,7 @@ function return_action_list(_api::ReturnApi, response_stream::Channel; _mediaTyp
 end
 
 const _returntypes_return_count_ReturnApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => ReturnCount200Response,
+    Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseReturnCount,
 )
 
 function _oacinternal_return_count(_api::ReturnApi; order_ids=nothing, customer_id=nothing, store_id=nothing, status=nothing, return_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing)
@@ -79,7 +79,7 @@ Params:
 - report_request_id::String
 - disable_report_cache::Bool
 
-Return: ReturnCount200Response, OpenAPI.Clients.ApiResponse
+Return: ModelResponseReturnCount, OpenAPI.Clients.ApiResponse
 """
 function return_count(_api::ReturnApi; order_ids=nothing, customer_id=nothing, store_id=nothing, status=nothing, return_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing)
     _ctx = _oacinternal_return_count(_api; order_ids=order_ids, customer_id=customer_id, store_id=store_id, status=status, return_type=return_type, created_from=created_from, created_to=created_to, modified_from=modified_from, modified_to=modified_to, report_request_id=report_request_id, disable_report_cache=disable_report_cache, _mediaType=_mediaType)
@@ -198,7 +198,7 @@ function return_list(_api::ReturnApi, response_stream::Channel; start=nothing, c
 end
 
 const _returntypes_return_reason_list_ReturnApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => ReturnReasonList200Response,
+    Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseReturnReasonList,
 )
 
 function _oacinternal_return_reason_list(_api::ReturnApi; store_id=nothing, _mediaType=nothing)
@@ -216,7 +216,7 @@ Retrieve list of return reasons
 Params:
 - store_id::String
 
-Return: ReturnReasonList200Response, OpenAPI.Clients.ApiResponse
+Return: ModelResponseReturnReasonList, OpenAPI.Clients.ApiResponse
 """
 function return_reason_list(_api::ReturnApi; store_id=nothing, _mediaType=nothing)
     _ctx = _oacinternal_return_reason_list(_api; store_id=store_id, _mediaType=_mediaType)
@@ -229,7 +229,7 @@ function return_reason_list(_api::ReturnApi, response_stream::Channel; store_id=
 end
 
 const _returntypes_return_status_list_ReturnApi = Dict{Regex,Type}(
-    Regex("^" * replace("200", "x"=>".") * "\$") => ReturnStatusList200Response,
+    Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseReturnStatusList,
 )
 
 function _oacinternal_return_status_list(_api::ReturnApi; _mediaType=nothing)
@@ -245,7 +245,7 @@ Retrieve list of statuses
 
 Params:
 
-Return: ReturnStatusList200Response, OpenAPI.Clients.ApiResponse
+Return: ModelResponseReturnStatusList, OpenAPI.Clients.ApiResponse
 """
 function return_status_list(_api::ReturnApi; _mediaType=nothing)
     _ctx = _oacinternal_return_status_list(_api; _mediaType=_mediaType)

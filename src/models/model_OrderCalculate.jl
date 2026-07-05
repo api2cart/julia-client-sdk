@@ -37,7 +37,7 @@
     )
 
     - customer_email::String : Defines the customer specified by email for whom the order needs to be calculated
-    - currency::String : Currency code of order
+    - currency::String : Defines currency code
     - currency_id::String : Currency Id
     - store_id::String : Store Id
     - coupons::Vector{String} : Coupons that will be applied to order. If the order isn&#39;t eligible for any given discount code or there is no discount with such a code it will be skipped during calculation

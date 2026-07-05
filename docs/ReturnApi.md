@@ -13,8 +13,8 @@ Method | HTTP request | Description
 
 
 # **return_action_list**
-> return_action_list(_api::ReturnApi; _mediaType=nothing) -> ReturnActionList200Response, OpenAPI.Clients.ApiResponse <br/>
-> return_action_list(_api::ReturnApi, response_stream::Channel; _mediaType=nothing) -> Channel{ ReturnActionList200Response }, OpenAPI.Clients.ApiResponse
+> return_action_list(_api::ReturnApi; _mediaType=nothing) -> ModelResponseReturnActionList, OpenAPI.Clients.ApiResponse <br/>
+> return_action_list(_api::ReturnApi, response_stream::Channel; _mediaType=nothing) -> Channel{ ModelResponseReturnActionList }, OpenAPI.Clients.ApiResponse
 
 return.action.list
 
@@ -25,7 +25,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ReturnActionList200Response**](ReturnActionList200Response.md)
+[**ModelResponseReturnActionList**](ModelResponseReturnActionList.md)
 
 ### Authorization
 
@@ -39,8 +39,8 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **return_count**
-> return_count(_api::ReturnApi; order_ids=nothing, customer_id=nothing, store_id=nothing, status=nothing, return_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing) -> ReturnCount200Response, OpenAPI.Clients.ApiResponse <br/>
-> return_count(_api::ReturnApi, response_stream::Channel; order_ids=nothing, customer_id=nothing, store_id=nothing, status=nothing, return_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing) -> Channel{ ReturnCount200Response }, OpenAPI.Clients.ApiResponse
+> return_count(_api::ReturnApi; order_ids=nothing, customer_id=nothing, store_id=nothing, status=nothing, return_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing) -> ModelResponseReturnCount, OpenAPI.Clients.ApiResponse <br/>
+> return_count(_api::ReturnApi, response_stream::Channel; order_ids=nothing, customer_id=nothing, store_id=nothing, status=nothing, return_type=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, report_request_id=nothing, disable_report_cache=nothing, _mediaType=nothing) -> Channel{ ModelResponseReturnCount }, OpenAPI.Clients.ApiResponse
 
 return.count
 
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ReturnCount200Response**](ReturnCount200Response.md)
+[**ModelResponseReturnCount**](ModelResponseReturnCount.md)
 
 ### Authorization
 
@@ -176,8 +176,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **return_reason_list**
-> return_reason_list(_api::ReturnApi; store_id=nothing, _mediaType=nothing) -> ReturnReasonList200Response, OpenAPI.Clients.ApiResponse <br/>
-> return_reason_list(_api::ReturnApi, response_stream::Channel; store_id=nothing, _mediaType=nothing) -> Channel{ ReturnReasonList200Response }, OpenAPI.Clients.ApiResponse
+> return_reason_list(_api::ReturnApi; store_id=nothing, _mediaType=nothing) -> ModelResponseReturnReasonList, OpenAPI.Clients.ApiResponse <br/>
+> return_reason_list(_api::ReturnApi, response_stream::Channel; store_id=nothing, _mediaType=nothing) -> Channel{ ModelResponseReturnReasonList }, OpenAPI.Clients.ApiResponse
 
 return.reason.list
 
@@ -197,7 +197,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ReturnReasonList200Response**](ReturnReasonList200Response.md)
+[**ModelResponseReturnReasonList**](ModelResponseReturnReasonList.md)
 
 ### Authorization
 
@@ -211,8 +211,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **return_status_list**
-> return_status_list(_api::ReturnApi; _mediaType=nothing) -> ReturnStatusList200Response, OpenAPI.Clients.ApiResponse <br/>
-> return_status_list(_api::ReturnApi, response_stream::Channel; _mediaType=nothing) -> Channel{ ReturnStatusList200Response }, OpenAPI.Clients.ApiResponse
+> return_status_list(_api::ReturnApi; _mediaType=nothing) -> ModelResponseReturnStatusList, OpenAPI.Clients.ApiResponse <br/>
+> return_status_list(_api::ReturnApi, response_stream::Channel; _mediaType=nothing) -> Channel{ ModelResponseReturnStatusList }, OpenAPI.Clients.ApiResponse
 
 return.status.list
 
@@ -223,7 +223,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ReturnStatusList200Response**](ReturnStatusList200Response.md)
+[**ModelResponseReturnStatusList**](ModelResponseReturnStatusList.md)
 
 ### Authorization
 

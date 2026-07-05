@@ -300,8 +300,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_child_item_find**
-> product_child_item_find(_api::ProductApi; find_value=nothing, find_where=nothing, find_params=nothing, store_id=nothing, _mediaType=nothing) -> ProductChildItemFind200Response, OpenAPI.Clients.ApiResponse <br/>
-> product_child_item_find(_api::ProductApi, response_stream::Channel; find_value=nothing, find_where=nothing, find_params=nothing, store_id=nothing, _mediaType=nothing) -> Channel{ ProductChildItemFind200Response }, OpenAPI.Clients.ApiResponse
+> product_child_item_find(_api::ProductApi; find_value=nothing, find_where=nothing, find_params=nothing, store_id=nothing, _mediaType=nothing) -> ModelResponseProductChildItemFind, OpenAPI.Clients.ApiResponse <br/>
+> product_child_item_find(_api::ProductApi, response_stream::Channel; find_value=nothing, find_where=nothing, find_params=nothing, store_id=nothing, _mediaType=nothing) -> Channel{ ModelResponseProductChildItemFind }, OpenAPI.Clients.ApiResponse
 
 product.child_item.find
 
@@ -324,7 +324,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProductChildItemFind200Response**](ProductChildItemFind200Response.md)
+[**ModelResponseProductChildItemFind**](ModelResponseProductChildItemFind.md)
 
 ### Authorization
 
@@ -438,8 +438,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_count**
-> product_count(_api::ProductApi; sku=nothing, product_ids=nothing, since_id=nothing, categories_ids=nothing, category_id=nothing, store_id=nothing, vendor_id=nothing, lang_id=nothing, avail_view=nothing, avail_sale=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, brand_name=nothing, manufacturer_id=nothing, product_attributes=nothing, status=nothing, type=nothing, visible=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, return_global=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> ProductCount200Response, OpenAPI.Clients.ApiResponse <br/>
-> product_count(_api::ProductApi, response_stream::Channel; sku=nothing, product_ids=nothing, since_id=nothing, categories_ids=nothing, category_id=nothing, store_id=nothing, vendor_id=nothing, lang_id=nothing, avail_view=nothing, avail_sale=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, brand_name=nothing, manufacturer_id=nothing, product_attributes=nothing, status=nothing, type=nothing, visible=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, return_global=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> Channel{ ProductCount200Response }, OpenAPI.Clients.ApiResponse
+> product_count(_api::ProductApi; sku=nothing, product_ids=nothing, since_id=nothing, categories_ids=nothing, category_id=nothing, store_id=nothing, vendor_id=nothing, lang_id=nothing, avail_view=nothing, avail_sale=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, brand_name=nothing, manufacturer_id=nothing, product_attributes=nothing, status=nothing, type=nothing, visible=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, return_global=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> ModelResponseProductCount, OpenAPI.Clients.ApiResponse <br/>
+> product_count(_api::ProductApi, response_stream::Channel; sku=nothing, product_ids=nothing, since_id=nothing, categories_ids=nothing, category_id=nothing, store_id=nothing, vendor_id=nothing, lang_id=nothing, avail_view=nothing, avail_sale=nothing, created_from=nothing, created_to=nothing, modified_from=nothing, modified_to=nothing, brand_name=nothing, manufacturer_id=nothing, product_attributes=nothing, status=nothing, type=nothing, visible=nothing, find_value=nothing, find_where=nothing, report_request_id=nothing, return_global=nothing, disable_report_cache=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> Channel{ ModelResponseProductCount }, OpenAPI.Clients.ApiResponse
 
 product.count
 
@@ -484,7 +484,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProductCount200Response**](ProductCount200Response.md)
+[**ModelResponseProductCount**](ModelResponseProductCount.md)
 
 ### Authorization
 
@@ -648,8 +648,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **product_find**
-> product_find(_api::ProductApi, find_value::String; find_where=nothing, find_params=nothing, find_what=nothing, lang_id=nothing, store_id=nothing, _mediaType=nothing) -> ProductFind200Response, OpenAPI.Clients.ApiResponse <br/>
-> product_find(_api::ProductApi, response_stream::Channel, find_value::String; find_where=nothing, find_params=nothing, find_what=nothing, lang_id=nothing, store_id=nothing, _mediaType=nothing) -> Channel{ ProductFind200Response }, OpenAPI.Clients.ApiResponse
+> product_find(_api::ProductApi, find_value::String; find_where=nothing, find_params=nothing, find_what=nothing, lang_id=nothing, store_id=nothing, _mediaType=nothing) -> ModelResponseProductFind, OpenAPI.Clients.ApiResponse <br/>
+> product_find(_api::ProductApi, response_stream::Channel, find_value::String; find_where=nothing, find_params=nothing, find_what=nothing, lang_id=nothing, store_id=nothing, _mediaType=nothing) -> Channel{ ModelResponseProductFind }, OpenAPI.Clients.ApiResponse
 
 product.find
 
@@ -674,7 +674,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProductFind200Response**](ProductFind200Response.md)
+[**ModelResponseProductFind**](ModelResponseProductFind.md)
 
 ### Authorization
 
