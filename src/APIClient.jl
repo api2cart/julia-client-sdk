@@ -12,6 +12,7 @@ const API_VERSION = "1.1"
 include("modelincludes.jl")
 
 include("apis/api_AccountApi.jl")
+include("apis/api_AnalyticsApi.jl")
 include("apis/api_AttributeApi.jl")
 include("apis/api_BasketApi.jl")
 include("apis/api_BatchApi.jl")

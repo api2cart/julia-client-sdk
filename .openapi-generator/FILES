@@ -17,6 +17,14 @@ docs/AccountFailedWebhooks200ResponseResultWebhookInner.md
 docs/AccountSupportedPlatform.md
 docs/AccountSupportedPlatformParams.md
 docs/AccountSupportedPlatformParamsRequiredInnerInner.md
+docs/AnalyticsApi.md
+docs/AnalyticsCustomer.md
+docs/AnalyticsCustomerMetric.md
+docs/AnalyticsInterval.md
+docs/AnalyticsMetric.md
+docs/AnalyticsPeriod.md
+docs/AnalyticsProduct.md
+docs/AnalyticsProductMetric.md
 docs/AttributeAdd200Response.md
 docs/AttributeAdd200ResponseResult.md
 docs/AttributeApi.md
@@ -367,6 +375,9 @@ docs/ProductVariantUpdateBatch.md
 docs/ProductVariantUpdateBatchPayloadInner.md
 docs/ProductVariantUpdateOptionsInner.md
 docs/ResponseAccountSupportedPlatformsResult.md
+docs/ResponseAnalyticsCustomerReportResult.md
+docs/ResponseAnalyticsProductReportResult.md
+docs/ResponseAnalyticsReportResult.md
 docs/ResponseAttributeAttributesetListResult.md
 docs/ResponseAttributeCountResult.md
 docs/ResponseAttributeGroupListResult.md
@@ -461,6 +472,7 @@ docs/WebhookList200ResponseResult.md
 docs/WebhookUpdate.md
 src/APIClient.jl
 src/apis/api_AccountApi.jl
+src/apis/api_AnalyticsApi.jl
 src/apis/api_AttributeApi.jl
 src/apis/api_BasketApi.jl
 src/apis/api_BatchApi.jl
@@ -492,6 +504,13 @@ src/models/model_AccountFailedWebhooks200ResponseResultWebhookInner.jl
 src/models/model_AccountSupportedPlatform.jl
 src/models/model_AccountSupportedPlatformParams.jl
 src/models/model_AccountSupportedPlatformParamsRequiredInnerInner.jl
+src/models/model_AnalyticsCustomer.jl
+src/models/model_AnalyticsCustomerMetric.jl
+src/models/model_AnalyticsInterval.jl
+src/models/model_AnalyticsMetric.jl
+src/models/model_AnalyticsPeriod.jl
+src/models/model_AnalyticsProduct.jl
+src/models/model_AnalyticsProductMetric.jl
 src/models/model_AttributeAdd200Response.jl
 src/models/model_AttributeAdd200ResponseResult.jl
 src/models/model_AttributeAssignGroup200Response.jl
@@ -832,6 +851,9 @@ src/models/model_ProductVariantUpdateBatch.jl
 src/models/model_ProductVariantUpdateBatchPayloadInner.jl
 src/models/model_ProductVariantUpdateOptionsInner.jl
 src/models/model_ResponseAccountSupportedPlatformsResult.jl
+src/models/model_ResponseAnalyticsCustomerReportResult.jl
+src/models/model_ResponseAnalyticsProductReportResult.jl
+src/models/model_ResponseAnalyticsReportResult.jl
 src/models/model_ResponseAttributeAttributesetListResult.jl
 src/models/model_ResponseAttributeCountResult.jl
 src/models/model_ResponseAttributeGroupListResult.jl
