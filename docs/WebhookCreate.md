@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **entity** | **String** | Specify the entity that you want to enable webhooks for (e.g product, order, customer, category) | [default to nothing]
 **action** | **String** | Specify what action (event) will trigger the webhook (e.g add, delete, or update) | [default to nothing]
-**callback** | **String** | Callback url that returns shipping rates. It should be able to accept POST requests with json data. | [optional] [default to nothing]
+**callback** | **String** | Callback where the webhook should send the POST request when the event occurs | [default to nothing]
 **label** | **String** | The name you give to the webhook | [optional] [default to nothing]
 **fields** | **String** | Fields the webhook should send | [optional] [default to "force_all"]
-**response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to nothing]
+**response_fields** | **String** | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional] [default to nothing]
 **active** | **Bool** | Webhook status | [optional] [default to true]
 **lang_id** | **String** | Language id | [optional] [default to nothing]
 **store_id** | **String** | Defines store id where the webhook should be assigned | [optional] [default to nothing]

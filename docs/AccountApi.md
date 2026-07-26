@@ -60,12 +60,12 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **store_url** | **String** | A web address of a store | [default to nothing]
- **store_key** | **String** | Find store by store key | [default to nothing]
- **request_from_date** | **String** | Retrieve entities from their creation date | [default to nothing]
- **request_to_date** | **String** | Retrieve entities to their creation date | [default to nothing]
+ **store_key** | **String** | Optional filter: return only the connected store whose store key matches this value. A store key is the unique 32-character identifier of a connected store, returned as store_key here and by account.cart.add. | [default to nothing]
+ **request_from_date** | **String** | Start date of the period for counting API requests made to each connection. Set together with request_to_date to include each store&#39;s total_calls (number of API requests in that period) in the response. | [default to nothing]
+ **request_to_date** | **String** | End date of the period for counting API requests made to each connection. Set together with request_from_date to include each store&#39;s total_calls (number of API requests in that period) in the response. | [default to nothing]
  **custom_label** | **String** | Defines a custom label for the store in the app | [default to nothing]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;force_all&quot;]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
+ **params** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;force_all&quot;]
+ **exclude** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
 
 ### Return type
 
@@ -333,15 +333,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **account_supported_platforms**
-> account_supported_platforms(_api::AccountApi; _mediaType=nothing) -> ModelResponseAccountSupportedPlatforms, OpenAPI.Clients.ApiResponse <br/>
-> account_supported_platforms(_api::AccountApi, response_stream::Channel; _mediaType=nothing) -> Channel{ ModelResponseAccountSupportedPlatforms }, OpenAPI.Clients.ApiResponse
+> account_supported_platforms(_api::AccountApi; cart_id=nothing, _mediaType=nothing) -> ModelResponseAccountSupportedPlatforms, OpenAPI.Clients.ApiResponse <br/>
+> account_supported_platforms(_api::AccountApi, response_stream::Channel; cart_id=nothing, _mediaType=nothing) -> Channel{ ModelResponseAccountSupportedPlatforms }, OpenAPI.Clients.ApiResponse
 
 account.supported_platforms
 
 Use this method to retrieve a list of supported platforms and the sets of parameters required for connecting to each of them. Note: some platforms may have multiple connection methods so that the response will contain multiple sets of parameters.
 
 ### Required Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **_api** | **AccountApi** | API context | 
+
+### Optional Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cart_id** | **String** | Filter by integration identifier (e.g. &#39;Shopify&#39;). If omitted, the method returns all integrations. | [default to nothing]
 
 ### Return type
 

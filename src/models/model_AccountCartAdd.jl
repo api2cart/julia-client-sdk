@@ -193,11 +193,11 @@
         scapi_scopes=nothing,
     )
 
-    - cart_id::String : Store’s identifier which you can get from cart_list method
+    - cart_id::String : Integration identifier
     - store_url::String : A web address of a store that you would like to connect to API2Cart
     - bridge_url::String : This parameter allows to set up store with custom bridge url (also you must use store_root parameter if a bridge folder is not in the root folder of the store)
     - store_root::String : Absolute path to the store root directory (used with \&quot;bridge_url\&quot; parameter)
-    - store_key::String : Set this parameter if bridge is already uploaded to store
+    - store_key::String : If a bridge connector is already installed on the store, you MUST pass here the store key it generated during installation, to connect via the bridge-based integration. Omit it only when connecting via an API-based integration, which uses API credentials instead.
     - label::String : Defines alternative text that has to be attached to the picture
     - custom_label::String : Defines a custom label for the store in the app
     - validate_version::Bool : Specify if api2cart should validate cart version

@@ -37,7 +37,7 @@ Name | Type | Description  | Notes
  **sort_by** | **String** | Set field to sort by | [default to &quot;total_spend&quot;]
  **sort_direction** | **String** | Set sorting direction | [default to &quot;desc&quot;]
  **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
- **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+ **response_fields** | **String** | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [default to nothing]
 
 ### Return type
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
  **sort_by** | **String** | Set field to sort by | [default to &quot;items_sold&quot;]
  **sort_direction** | **String** | Set sorting direction | [default to &quot;desc&quot;]
  **page_cursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [default to nothing]
- **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+ **response_fields** | **String** | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [default to nothing]
 
 ### Return type
 
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
  **store_id** | **String** | Store Id | [default to nothing]
  **sort_by** | **String** | Set field to sort by | [default to &quot;date&quot;]
  **sort_direction** | **String** | Set sorting direction | [default to &quot;asc&quot;]
- **response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to nothing]
+ **response_fields** | **String** | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [default to nothing]
 
 ### Return type
 

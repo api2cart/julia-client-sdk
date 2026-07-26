@@ -29,8 +29,8 @@
     - shipp_postcode::String : Specifies shipping postcode
     - shipp_state::String : Specifies shipping state code
     - shipp_country::String : Specifies shipping country code
-    - params::String : Set this parameter in order to choose which entity fields you want to retrieve
-    - exclude::String : Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+    - params::String : Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve
+    - exclude::String : Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
     - idempotency_key::String : A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
     - order_item::Vector{OrderPreestimateShippingListOrderItemInner}
 """

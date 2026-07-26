@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 **bill_country** | **String** | Specifies billing country code | [optional] [default to nothing]
 **bill_company** | **String** | Specifies billing company | [optional] [default to nothing]
 **bill_phone** | **String** | Specifies billing phone | [optional] [default to nothing]
-**response_fields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to nothing]
+**response_fields** | **String** | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional] [default to nothing]
 **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] [default to nothing]
 **order_item** | [**Vector{OrderCalculateOrderItemInner}**](OrderCalculateOrderItemInner.md) |  | [default to nothing]
 

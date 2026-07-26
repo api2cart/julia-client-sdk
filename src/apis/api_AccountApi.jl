@@ -510,8 +510,9 @@ const _returntypes_account_supported_platforms_AccountApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseAccountSupportedPlatforms,
 )
 
-function _oacinternal_account_supported_platforms(_api::AccountApi; _mediaType=nothing)
+function _oacinternal_account_supported_platforms(_api::AccountApi; cart_id=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_account_supported_platforms_AccountApi, "/account.supported_platforms.json", ["ApiKeyAuth", ])
+    OpenAPI.Clients.set_param(_ctx.query, "cart_id", cart_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -522,16 +523,17 @@ end
 Use this method to retrieve a list of supported platforms and the sets of parameters required for connecting to each of them. Note: some platforms may have multiple connection methods so that the response will contain multiple sets of parameters.
 
 Params:
+- cart_id::String
 
 Return: ModelResponseAccountSupportedPlatforms, OpenAPI.Clients.ApiResponse
 """
-function account_supported_platforms(_api::AccountApi; _mediaType=nothing)
-    _ctx = _oacinternal_account_supported_platforms(_api; _mediaType=_mediaType)
+function account_supported_platforms(_api::AccountApi; cart_id=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_account_supported_platforms(_api; cart_id=cart_id, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function account_supported_platforms(_api::AccountApi, response_stream::Channel; _mediaType=nothing)
-    _ctx = _oacinternal_account_supported_platforms(_api; _mediaType=_mediaType)
+function account_supported_platforms(_api::AccountApi, response_stream::Channel; cart_id=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_account_supported_platforms(_api; cart_id=cart_id, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 

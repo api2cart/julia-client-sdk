@@ -131,7 +131,7 @@
     - status::String : Defines product&#39;s status
     - condition::String : The human-readable label for the condition (e.g., \&quot;New\&quot;).
     - visible::String : Set visibility status
-    - in_stock::Bool : Set stock status
+    - in_stock::Bool : Set stock status. Effective only when manage_stock is false — when stock is managed, the status is derived from quantity automatically and this parameter is ignored.
     - avail::Bool : Defines category&#39;s visibility status
     - avail_from::String : Allows to schedule a time in the future that the item becomes available. The value should be greater than the current date and time.
     - product_class::String : A categorization for the product
@@ -142,12 +142,12 @@
     - stores_ids::String : Assign product to the stores that is specified by comma-separated stores&#39; id
     - store_id::String : Defines store id where the product should be found
     - lang_id::String : Language id
-    - quantity::Float64 : Defines new product&#39;s quantity
+    - quantity::Float64 : Defines new product&#39;s quantity. Effective only when manage_stock is true — otherwise the value is ignored. To enable stock tracking and set a quantity in one call, pass manage_stock&#x3D;true together with quantity.
     - reserve_quantity::Float64 : This parameter allows to reserve/unreserve product quantity.
-    - manage_stock::Bool : Defines inventory tracking for product
+    - manage_stock::Bool : Defines inventory tracking for product. When true, quantity sets the stock level and the stock status is derived from it; when false, quantity is ignored and in_stock sets the status directly.
     - backorder_status::String : Set backorder status
-    - increase_quantity::Float64 : Defines the incremental changes in product quantity
-    - reduce_quantity::Float64 : Defines the decrement changes in product quantity
+    - increase_quantity::Float64 : Defines the incremental changes in product quantity. Effective only when manage_stock is true — otherwise the value is ignored.
+    - reduce_quantity::Float64 : Defines the decrement changes in product quantity. Effective only when manage_stock is true — otherwise the value is ignored.
     - low_stock_threshold::Float64 : Specify the quantity threshold below which the product is considered low in stock
     - min_order_quantity::Float64 : The minimum quantity an order must contain, to be eligible to purchase this product.
     - max_order_quantity::Float64 : The maximum quantity an order can contain when purchasing the product.

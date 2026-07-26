@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
  **action** | **String** | The action you want to filter webhooks by (e.g. add, update, or delete) | [default to nothing]
  **active** | **Bool** | The webhook status you want to filter webhooks by | [default to nothing]
  **ids** | **String** | List of сomma-separated webhook ids | [default to nothing]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,entity,action,callback&quot;]
+ **params** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;id,entity,action,callback&quot;]
 
 ### Return type
 

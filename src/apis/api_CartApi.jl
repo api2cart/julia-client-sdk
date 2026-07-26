@@ -490,9 +490,8 @@ const _returntypes_cart_info_CartApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => CartInfo200Response,
 )
 
-function _oacinternal_cart_info(_api::CartApi; store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+function _oacinternal_cart_info(_api::CartApi; response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_cart_info_CartApi, "/cart.info.json", ["StoreKeyAuth", "ApiKeyAuth", ])
-    OpenAPI.Clients.set_param(_ctx.query, "store_id", store_id; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
@@ -506,20 +505,19 @@ end
 This method allows you to get various information about the store, including a list of stores (in the case of a multistore configuration), a list of supported languages, currencies, carriers, warehouses, and many other information. This information contains data that is relatively stable and rarely changes, so API2Cart can cache certain data to reduce the load on the store and speed up the execution of the request. We also recommend that you cache the response of this method on your side to save requests. If you need to clear the cache for a specific store, then use the cart.validate method.
 
 Params:
-- store_id::String
 - response_fields::String
 - params::String
 - exclude::String
 
 Return: CartInfo200Response, OpenAPI.Clients.ApiResponse
 """
-function cart_info(_api::CartApi; store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_info(_api; store_id=store_id, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
+function cart_info(_api::CartApi; response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_info(_api; response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function cart_info(_api::CartApi, response_stream::Channel; store_id=nothing, response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_info(_api; store_id=store_id, response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
+function cart_info(_api::CartApi, response_stream::Channel; response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_info(_api; response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 

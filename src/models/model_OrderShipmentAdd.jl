@@ -16,11 +16,27 @@
         is_shipped=true,
         send_notifications=false,
         adjust_stock=false,
-        enable_cache=false,
         check_process_status=false,
         tracking_provider=nothing,
-        use_latest_api_version=false,
         admin_comment=nothing,
+        mail_class=nothing,
+        ship_date=nothing,
+        weight=nothing,
+        weight_unit=nothing,
+        length=nothing,
+        width=nothing,
+        height=nothing,
+        dimensions_unit=nothing,
+        shipping_label_cost=nothing,
+        shipping_label_currency=nothing,
+        revenue_eligibility=nothing,
+        ship_from_country=nothing,
+        ship_to_country=nothing,
+        incoterm=nothing,
+        duty_amount=nothing,
+        duty_currency=nothing,
+        enable_cache=false,
+        use_latest_api_version=false,
         idempotency_key=nothing,
     )
 
@@ -35,11 +51,27 @@
     - is_shipped::Bool : Defines shipment&#39;s status
     - send_notifications::Bool : Send notifications to customer after shipment was created
     - adjust_stock::Bool : This parameter is used for adjust stock.
-    - enable_cache::Bool : If the value is &#39;true&#39; and order exist in our cache, we will use order.info from cache to prepare shipment items.
     - check_process_status::Bool : Disable or enable check process status. Please note that the response will be slower due to additional requests to the store.
     - tracking_provider::String : Defines name of the company which provides shipment tracking
-    - use_latest_api_version::Bool : Use the latest platform API version
     - admin_comment::String : Specifies admin&#39;s order comment
+    - mail_class::String : Mail class for the shipment (e.g., priority, express).
+    - ship_date::String : Ship date.
+    - weight::Float64 : Weight
+    - weight_unit::String : Weight Unit
+    - length::Float64 : Defines product&#39;s length
+    - width::Float64 : Defines product&#39;s width
+    - height::Float64 : Defines product&#39;s height
+    - dimensions_unit::String : Weight Unit
+    - shipping_label_cost::Float64 : Cost of the shipping label.
+    - shipping_label_currency::String : Currency code for the shipping label cost (3-letter ISO code).
+    - revenue_eligibility::Bool : Revenue eligibility flag.
+    - ship_from_country::String : Country code the shipment is sent from (2-letter ISO code).
+    - ship_to_country::String : Country code the shipment is sent to (2-letter ISO code).
+    - incoterm::String : International commercial term for the shipment (e.g., DAP, DDP).
+    - duty_amount::Float64 : Duty amount for international shipment.
+    - duty_currency::String : Currency code for the duty amount (3-letter ISO code).
+    - enable_cache::Bool : If the value is &#39;true&#39; and order exist in our cache, we will use order.info from cache to prepare shipment items.
+    - use_latest_api_version::Bool : Use the latest platform API version
     - idempotency_key::String : A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
 """
 Base.@kwdef mutable struct OrderShipmentAdd <: OpenAPI.APIModel
@@ -54,14 +86,30 @@ Base.@kwdef mutable struct OrderShipmentAdd <: OpenAPI.APIModel
     is_shipped::Union{Nothing, Bool} = true
     send_notifications::Union{Nothing, Bool} = false
     adjust_stock::Union{Nothing, Bool} = false
-    enable_cache::Union{Nothing, Bool} = false
     check_process_status::Union{Nothing, Bool} = false
     tracking_provider::Union{Nothing, String} = nothing
-    use_latest_api_version::Union{Nothing, Bool} = false
     admin_comment::Union{Nothing, String} = nothing
+    mail_class::Union{Nothing, String} = nothing
+    ship_date::Union{Nothing, String} = nothing
+    weight::Union{Nothing, Float64} = nothing
+    weight_unit::Union{Nothing, String} = nothing
+    length::Union{Nothing, Float64} = nothing
+    width::Union{Nothing, Float64} = nothing
+    height::Union{Nothing, Float64} = nothing
+    dimensions_unit::Union{Nothing, String} = nothing
+    shipping_label_cost::Union{Nothing, Float64} = nothing
+    shipping_label_currency::Union{Nothing, String} = nothing
+    revenue_eligibility::Union{Nothing, Bool} = nothing
+    ship_from_country::Union{Nothing, String} = nothing
+    ship_to_country::Union{Nothing, String} = nothing
+    incoterm::Union{Nothing, String} = nothing
+    duty_amount::Union{Nothing, Float64} = nothing
+    duty_currency::Union{Nothing, String} = nothing
+    enable_cache::Union{Nothing, Bool} = false
+    use_latest_api_version::Union{Nothing, Bool} = false
     idempotency_key::Union{Nothing, String} = nothing
 
-    function OrderShipmentAdd(order_id, warehouse_id, store_id, shipment_provider, shipping_method, items, tracking_numbers, tracking_link, is_shipped, send_notifications, adjust_stock, enable_cache, check_process_status, tracking_provider, use_latest_api_version, admin_comment, idempotency_key, )
+    function OrderShipmentAdd(order_id, warehouse_id, store_id, shipment_provider, shipping_method, items, tracking_numbers, tracking_link, is_shipped, send_notifications, adjust_stock, check_process_status, tracking_provider, admin_comment, mail_class, ship_date, weight, weight_unit, length, width, height, dimensions_unit, shipping_label_cost, shipping_label_currency, revenue_eligibility, ship_from_country, ship_to_country, incoterm, duty_amount, duty_currency, enable_cache, use_latest_api_version, idempotency_key, )
         OpenAPI.validate_property(OrderShipmentAdd, Symbol("order_id"), order_id)
         OpenAPI.validate_property(OrderShipmentAdd, Symbol("warehouse_id"), warehouse_id)
         OpenAPI.validate_property(OrderShipmentAdd, Symbol("store_id"), store_id)
@@ -73,17 +121,33 @@ Base.@kwdef mutable struct OrderShipmentAdd <: OpenAPI.APIModel
         OpenAPI.validate_property(OrderShipmentAdd, Symbol("is_shipped"), is_shipped)
         OpenAPI.validate_property(OrderShipmentAdd, Symbol("send_notifications"), send_notifications)
         OpenAPI.validate_property(OrderShipmentAdd, Symbol("adjust_stock"), adjust_stock)
-        OpenAPI.validate_property(OrderShipmentAdd, Symbol("enable_cache"), enable_cache)
         OpenAPI.validate_property(OrderShipmentAdd, Symbol("check_process_status"), check_process_status)
         OpenAPI.validate_property(OrderShipmentAdd, Symbol("tracking_provider"), tracking_provider)
-        OpenAPI.validate_property(OrderShipmentAdd, Symbol("use_latest_api_version"), use_latest_api_version)
         OpenAPI.validate_property(OrderShipmentAdd, Symbol("admin_comment"), admin_comment)
+        OpenAPI.validate_property(OrderShipmentAdd, Symbol("mail_class"), mail_class)
+        OpenAPI.validate_property(OrderShipmentAdd, Symbol("ship_date"), ship_date)
+        OpenAPI.validate_property(OrderShipmentAdd, Symbol("weight"), weight)
+        OpenAPI.validate_property(OrderShipmentAdd, Symbol("weight_unit"), weight_unit)
+        OpenAPI.validate_property(OrderShipmentAdd, Symbol("length"), length)
+        OpenAPI.validate_property(OrderShipmentAdd, Symbol("width"), width)
+        OpenAPI.validate_property(OrderShipmentAdd, Symbol("height"), height)
+        OpenAPI.validate_property(OrderShipmentAdd, Symbol("dimensions_unit"), dimensions_unit)
+        OpenAPI.validate_property(OrderShipmentAdd, Symbol("shipping_label_cost"), shipping_label_cost)
+        OpenAPI.validate_property(OrderShipmentAdd, Symbol("shipping_label_currency"), shipping_label_currency)
+        OpenAPI.validate_property(OrderShipmentAdd, Symbol("revenue_eligibility"), revenue_eligibility)
+        OpenAPI.validate_property(OrderShipmentAdd, Symbol("ship_from_country"), ship_from_country)
+        OpenAPI.validate_property(OrderShipmentAdd, Symbol("ship_to_country"), ship_to_country)
+        OpenAPI.validate_property(OrderShipmentAdd, Symbol("incoterm"), incoterm)
+        OpenAPI.validate_property(OrderShipmentAdd, Symbol("duty_amount"), duty_amount)
+        OpenAPI.validate_property(OrderShipmentAdd, Symbol("duty_currency"), duty_currency)
+        OpenAPI.validate_property(OrderShipmentAdd, Symbol("enable_cache"), enable_cache)
+        OpenAPI.validate_property(OrderShipmentAdd, Symbol("use_latest_api_version"), use_latest_api_version)
         OpenAPI.validate_property(OrderShipmentAdd, Symbol("idempotency_key"), idempotency_key)
-        return new(order_id, warehouse_id, store_id, shipment_provider, shipping_method, items, tracking_numbers, tracking_link, is_shipped, send_notifications, adjust_stock, enable_cache, check_process_status, tracking_provider, use_latest_api_version, admin_comment, idempotency_key, )
+        return new(order_id, warehouse_id, store_id, shipment_provider, shipping_method, items, tracking_numbers, tracking_link, is_shipped, send_notifications, adjust_stock, check_process_status, tracking_provider, admin_comment, mail_class, ship_date, weight, weight_unit, length, width, height, dimensions_unit, shipping_label_cost, shipping_label_currency, revenue_eligibility, ship_from_country, ship_to_country, incoterm, duty_amount, duty_currency, enable_cache, use_latest_api_version, idempotency_key, )
     end
 end # type OrderShipmentAdd
 
-const _property_types_OrderShipmentAdd = Dict{Symbol,String}(Symbol("order_id")=>"String", Symbol("warehouse_id")=>"String", Symbol("store_id")=>"String", Symbol("shipment_provider")=>"String", Symbol("shipping_method")=>"String", Symbol("items")=>"Vector{OrderShipmentAddItemsInner}", Symbol("tracking_numbers")=>"Vector{OrderShipmentAddTrackingNumbersInner}", Symbol("tracking_link")=>"String", Symbol("is_shipped")=>"Bool", Symbol("send_notifications")=>"Bool", Symbol("adjust_stock")=>"Bool", Symbol("enable_cache")=>"Bool", Symbol("check_process_status")=>"Bool", Symbol("tracking_provider")=>"String", Symbol("use_latest_api_version")=>"Bool", Symbol("admin_comment")=>"String", Symbol("idempotency_key")=>"String", )
+const _property_types_OrderShipmentAdd = Dict{Symbol,String}(Symbol("order_id")=>"String", Symbol("warehouse_id")=>"String", Symbol("store_id")=>"String", Symbol("shipment_provider")=>"String", Symbol("shipping_method")=>"String", Symbol("items")=>"Vector{OrderShipmentAddItemsInner}", Symbol("tracking_numbers")=>"Vector{OrderShipmentAddTrackingNumbersInner}", Symbol("tracking_link")=>"String", Symbol("is_shipped")=>"Bool", Symbol("send_notifications")=>"Bool", Symbol("adjust_stock")=>"Bool", Symbol("check_process_status")=>"Bool", Symbol("tracking_provider")=>"String", Symbol("admin_comment")=>"String", Symbol("mail_class")=>"String", Symbol("ship_date")=>"String", Symbol("weight")=>"Float64", Symbol("weight_unit")=>"String", Symbol("length")=>"Float64", Symbol("width")=>"Float64", Symbol("height")=>"Float64", Symbol("dimensions_unit")=>"String", Symbol("shipping_label_cost")=>"Float64", Symbol("shipping_label_currency")=>"String", Symbol("revenue_eligibility")=>"Bool", Symbol("ship_from_country")=>"String", Symbol("ship_to_country")=>"String", Symbol("incoterm")=>"String", Symbol("duty_amount")=>"Float64", Symbol("duty_currency")=>"String", Symbol("enable_cache")=>"Bool", Symbol("use_latest_api_version")=>"Bool", Symbol("idempotency_key")=>"String", )
 OpenAPI.property_type(::Type{ OrderShipmentAdd }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_OrderShipmentAdd[name]))}
 
 function check_required(o::OrderShipmentAdd)
@@ -91,6 +155,22 @@ function check_required(o::OrderShipmentAdd)
 end
 
 function OpenAPI.validate_property(::Type{ OrderShipmentAdd }, name::Symbol, val)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

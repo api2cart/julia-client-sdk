@@ -88,13 +88,13 @@
     - taxable::Bool : Specifies whether a tax is charged
     - tax_class_id::String : Defines tax classes where entity has to be added
     - is_virtual::Bool : Defines whether the product is virtual
-    - manage_stock::Bool : Defines inventory tracking for product variant
-    - in_stock::Bool : Set stock status
+    - manage_stock::Bool : Defines inventory tracking for product variant. When true, quantity sets the stock level and the stock status is derived from it; when false, quantity is ignored and in_stock sets the status directly.
+    - in_stock::Bool : Set stock status. Effective only when manage_stock is false — when stock is managed, the status is derived from quantity automatically and this parameter is ignored.
     - warehouse_id::String : This parameter is used for selecting a warehouse where you need to set/modify a product quantity.
     - reserve_quantity::Float64 : This parameter allows to reserve/unreserve product variants quantity.
-    - quantity::Float64 : Defines new products&#39; variants quantity
-    - increase_quantity::Float64 : Defines the incremental changes in product quantity
-    - reduce_quantity::Float64 : Defines the decrement changes in product quantity
+    - quantity::Float64 : Defines new products&#39; variants quantity. Effective only when manage_stock is true — otherwise the value is ignored. To enable stock tracking and set a quantity in one call, pass manage_stock&#x3D;true together with quantity.
+    - increase_quantity::Float64 : Defines the incremental changes in product quantity. Effective only when manage_stock is true — otherwise the value is ignored.
+    - reduce_quantity::Float64 : Defines the decrement changes in product quantity. Effective only when manage_stock is true — otherwise the value is ignored.
     - prices_inc_tax::Bool : Indicates whether prices include tax.
     - price::Float64 : Defines new product&#39;s variant price
     - special_price::Float64 : Defines new product&#39;s variant special price
