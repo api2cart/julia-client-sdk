@@ -68,6 +68,8 @@ Name | Type | Description | Notes
 **walmart_environment** | **String** | Walmart environment | [optional] [default to "production"]
 **walmart_channel_type** | **String** | Walmart WM_CONSUMER.CHANNEL.TYPE header | [optional] [default to nothing]
 **walmart_region** | **String** | Walmart region | [optional] [default to "us"]
+**walmart_refresh_token** | **String** | Walmart refresh token received by a Solution Provider application through the Walmart App Store authorization. When it is set, walmart_client_id and walmart_client_secret are the credentials of that application, not of the seller. Must be used together with walmart_seller_id and is supported only for walmart_region &#x3D; &#39;us&#39; | [optional] [default to nothing]
+**walmart_seller_id** | **String** | Walmart seller id the refresh token was issued for, sent as the WM_PARTNER.ID header. Must be used together with walmart_refresh_token and is supported only for walmart_region &#x3D; &#39;us&#39; | [optional] [default to nothing]
 **ecwid_acess_token** | **String** | Access token authorizing the app to access resources on behalf of a user | [optional] [default to nothing]
 **ecwid_store_id** | **String** | Store Id | [optional] [default to nothing]
 **lazada_app_id** | **String** | Lazada App ID | [optional] [default to nothing]

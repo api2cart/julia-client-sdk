@@ -8,26 +8,30 @@
         field=nothing,
         operator=nothing,
         value=nothing,
+        match_items=nothing,
     )
 
     - field::String
     - operator::String
     - value::ParamDefinitionFilteringConditionsFilterRuleValue
+    - match_items::String
 """
 Base.@kwdef mutable struct ParamDefinitionFilteringConditionsFilterRule <: OpenAPI.APIModel
     field::Union{Nothing, String} = nothing
     operator::Union{Nothing, String} = nothing
     value = nothing # spec type: Union{ Nothing, ParamDefinitionFilteringConditionsFilterRuleValue }
+    match_items::Union{Nothing, String} = nothing
 
-    function ParamDefinitionFilteringConditionsFilterRule(field, operator, value, )
+    function ParamDefinitionFilteringConditionsFilterRule(field, operator, value, match_items, )
         OpenAPI.validate_property(ParamDefinitionFilteringConditionsFilterRule, Symbol("field"), field)
         OpenAPI.validate_property(ParamDefinitionFilteringConditionsFilterRule, Symbol("operator"), operator)
         OpenAPI.validate_property(ParamDefinitionFilteringConditionsFilterRule, Symbol("value"), value)
-        return new(field, operator, value, )
+        OpenAPI.validate_property(ParamDefinitionFilteringConditionsFilterRule, Symbol("match_items"), match_items)
+        return new(field, operator, value, match_items, )
     end
 end # type ParamDefinitionFilteringConditionsFilterRule
 
-const _property_types_ParamDefinitionFilteringConditionsFilterRule = Dict{Symbol,String}(Symbol("field")=>"String", Symbol("operator")=>"String", Symbol("value")=>"ParamDefinitionFilteringConditionsFilterRuleValue", )
+const _property_types_ParamDefinitionFilteringConditionsFilterRule = Dict{Symbol,String}(Symbol("field")=>"String", Symbol("operator")=>"String", Symbol("value")=>"ParamDefinitionFilteringConditionsFilterRuleValue", Symbol("match_items")=>"String", )
 OpenAPI.property_type(::Type{ ParamDefinitionFilteringConditionsFilterRule }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_ParamDefinitionFilteringConditionsFilterRule[name]))}
 
 function check_required(o::ParamDefinitionFilteringConditionsFilterRule)
@@ -35,6 +39,7 @@ function check_required(o::ParamDefinitionFilteringConditionsFilterRule)
 end
 
 function OpenAPI.validate_property(::Type{ ParamDefinitionFilteringConditionsFilterRule }, name::Symbol, val)
+
 
 
 
