@@ -489,8 +489,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **cart_info**
-> cart_info(_api::CartApi; response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> CartInfo200Response, OpenAPI.Clients.ApiResponse <br/>
-> cart_info(_api::CartApi, response_stream::Channel; response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing) -> Channel{ CartInfo200Response }, OpenAPI.Clients.ApiResponse
+> cart_info(_api::CartApi; response_fields=nothing, params=nothing, exclude=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> CartInfo200Response, OpenAPI.Clients.ApiResponse <br/>
+> cart_info(_api::CartApi, response_stream::Channel; response_fields=nothing, params=nothing, exclude=nothing, use_latest_api_version=nothing, _mediaType=nothing) -> Channel{ CartInfo200Response }, OpenAPI.Clients.ApiResponse
 
 cart.info
 
@@ -509,6 +509,7 @@ Name | Type | Description  | Notes
  **response_fields** | **String** | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [default to nothing]
  **params** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [default to &quot;store_name,store_url,db_prefix&quot;]
  **exclude** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [default to nothing]
+ **use_latest_api_version** | **Bool** | Use the latest platform API version | [default to false]
 
 ### Return type
 

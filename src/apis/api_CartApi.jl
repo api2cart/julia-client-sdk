@@ -490,11 +490,12 @@ const _returntypes_cart_info_CartApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => CartInfo200Response,
 )
 
-function _oacinternal_cart_info(_api::CartApi; response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
+function _oacinternal_cart_info(_api::CartApi; response_fields=nothing, params=nothing, exclude=nothing, use_latest_api_version=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_cart_info_CartApi, "/cart.info.json", ["StoreKeyAuth", "ApiKeyAuth", ])
     OpenAPI.Clients.set_param(_ctx.query, "response_fields", response_fields; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "params", params; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_param(_ctx.query, "exclude", exclude; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_param(_ctx.query, "use_latest_api_version", use_latest_api_version; style="form", is_explode=true)  # type Bool
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -508,16 +509,17 @@ Params:
 - response_fields::String
 - params::String
 - exclude::String
+- use_latest_api_version::Bool
 
 Return: CartInfo200Response, OpenAPI.Clients.ApiResponse
 """
-function cart_info(_api::CartApi; response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_info(_api; response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
+function cart_info(_api::CartApi; response_fields=nothing, params=nothing, exclude=nothing, use_latest_api_version=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_info(_api; response_fields=response_fields, params=params, exclude=exclude, use_latest_api_version=use_latest_api_version, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function cart_info(_api::CartApi, response_stream::Channel; response_fields=nothing, params=nothing, exclude=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_cart_info(_api; response_fields=response_fields, params=params, exclude=exclude, _mediaType=_mediaType)
+function cart_info(_api::CartApi, response_stream::Channel; response_fields=nothing, params=nothing, exclude=nothing, use_latest_api_version=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_cart_info(_api; response_fields=response_fields, params=params, exclude=exclude, use_latest_api_version=use_latest_api_version, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
