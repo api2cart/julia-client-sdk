@@ -10,15 +10,24 @@ Method | HTTP request | Description
 
 
 # **bridge_delete**
-> bridge_delete(_api::BridgeApi; _mediaType=nothing) -> AttributeValueDelete200Response, OpenAPI.Clients.ApiResponse <br/>
-> bridge_delete(_api::BridgeApi, response_stream::Channel; _mediaType=nothing) -> Channel{ AttributeValueDelete200Response }, OpenAPI.Clients.ApiResponse
+> bridge_delete(_api::BridgeApi; idempotency_key=nothing, _mediaType=nothing) -> AttributeValueDelete200Response, OpenAPI.Clients.ApiResponse <br/>
+> bridge_delete(_api::BridgeApi, response_stream::Channel; idempotency_key=nothing, _mediaType=nothing) -> Channel{ AttributeValueDelete200Response }, OpenAPI.Clients.ApiResponse
 
 bridge.delete
 
 Delete bridge from the store.
 
 ### Required Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **_api** | **BridgeApi** | API context | 
+
+### Optional Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 
@@ -71,15 +80,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **bridge_update**
-> bridge_update(_api::BridgeApi; _mediaType=nothing) -> AttributeUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
-> bridge_update(_api::BridgeApi, response_stream::Channel; _mediaType=nothing) -> Channel{ AttributeUpdate200Response }, OpenAPI.Clients.ApiResponse
+> bridge_update(_api::BridgeApi; idempotency_key=nothing, _mediaType=nothing) -> AttributeUpdate200Response, OpenAPI.Clients.ApiResponse <br/>
+> bridge_update(_api::BridgeApi, response_stream::Channel; idempotency_key=nothing, _mediaType=nothing) -> Channel{ AttributeUpdate200Response }, OpenAPI.Clients.ApiResponse
 
 bridge.update
 
 Update bridge in the store.
 
 ### Required Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **_api** | **BridgeApi** | API context | 
+
+### Optional Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **idempotency_key** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [default to nothing]
 
 ### Return type
 

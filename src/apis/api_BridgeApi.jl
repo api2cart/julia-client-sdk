@@ -15,8 +15,9 @@ const _returntypes_bridge_delete_BridgeApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => AttributeValueDelete200Response,
 )
 
-function _oacinternal_bridge_delete(_api::BridgeApi; _mediaType=nothing)
+function _oacinternal_bridge_delete(_api::BridgeApi; idempotency_key=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_bridge_delete_BridgeApi, "/bridge.delete.json", ["StoreKeyAuth", "ApiKeyAuth", ])
+    OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -27,16 +28,17 @@ end
 Delete bridge from the store.
 
 Params:
+- idempotency_key::String
 
 Return: AttributeValueDelete200Response, OpenAPI.Clients.ApiResponse
 """
-function bridge_delete(_api::BridgeApi; _mediaType=nothing)
-    _ctx = _oacinternal_bridge_delete(_api; _mediaType=_mediaType)
+function bridge_delete(_api::BridgeApi; idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_bridge_delete(_api; idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function bridge_delete(_api::BridgeApi, response_stream::Channel; _mediaType=nothing)
-    _ctx = _oacinternal_bridge_delete(_api; _mediaType=_mediaType)
+function bridge_delete(_api::BridgeApi, response_stream::Channel; idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_bridge_delete(_api; idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -75,8 +77,9 @@ const _returntypes_bridge_update_BridgeApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => AttributeUpdate200Response,
 )
 
-function _oacinternal_bridge_update(_api::BridgeApi; _mediaType=nothing)
+function _oacinternal_bridge_update(_api::BridgeApi; idempotency_key=nothing, _mediaType=nothing)
     _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_bridge_update_BridgeApi, "/bridge.update.json", ["StoreKeyAuth", "ApiKeyAuth", ])
+    OpenAPI.Clients.set_param(_ctx.query, "idempotency_key", idempotency_key; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -87,16 +90,17 @@ end
 Update bridge in the store.
 
 Params:
+- idempotency_key::String
 
 Return: AttributeUpdate200Response, OpenAPI.Clients.ApiResponse
 """
-function bridge_update(_api::BridgeApi; _mediaType=nothing)
-    _ctx = _oacinternal_bridge_update(_api; _mediaType=_mediaType)
+function bridge_update(_api::BridgeApi; idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_bridge_update(_api; idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function bridge_update(_api::BridgeApi, response_stream::Channel; _mediaType=nothing)
-    _ctx = _oacinternal_bridge_update(_api; _mediaType=_mediaType)
+function bridge_update(_api::BridgeApi, response_stream::Channel; idempotency_key=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_bridge_update(_api; idempotency_key=idempotency_key, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
