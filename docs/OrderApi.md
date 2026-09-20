@@ -958,7 +958,7 @@ Name | Type | Description  | Notes
  **invoice_admin_comment** | **String** | Specifies admin&#39;s order invoice comment | [default to nothing]
  **date_modified** | **String** | Specifies order&#39;s  modification date | [default to nothing]
  **date_finished** | **String** | Specifies order&#39;s  finished date | [default to nothing]
- **send_notifications** | **Bool** | Send notifications to customer after order was created | [default to false]
+ **send_notifications** | **Bool** | Send notifications to customer after order status was changed | [default to false]
  **create_invoice** | **Bool** | Determines whether an invoice should be created if it has not already been created | [default to nothing]
  **origin** | **String** | The source of the order | [default to nothing]
  **tags** | **String** | Order tags | [default to nothing]
