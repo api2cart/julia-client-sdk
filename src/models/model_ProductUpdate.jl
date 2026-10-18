@@ -147,7 +147,7 @@
     - manage_stock::Bool : Defines inventory tracking for product. When true, quantity sets the stock level and the stock status is derived from it; when false, quantity is ignored and in_stock sets the status directly.
     - backorder_status::String : Set backorder status
     - increase_quantity::Float64 : Defines the incremental changes in product quantity. Effective only when manage_stock is true — otherwise the value is ignored.
-    - reduce_quantity::Float64 : Defines the decrement changes in product quantity. Effective only when manage_stock is true — otherwise the value is ignored.
+    - reduce_quantity::Float64 : Defines the decrement changes in product quantity. Effective only when manage_stock is true.
     - low_stock_threshold::Float64 : Specify the quantity threshold below which the product is considered low in stock
     - min_order_quantity::Float64 : The minimum quantity an order must contain, to be eligible to purchase this product.
     - max_order_quantity::Float64 : The maximum quantity an order can contain when purchasing the product.

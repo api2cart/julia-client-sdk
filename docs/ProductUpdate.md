@@ -44,7 +44,7 @@ Name | Type | Description | Notes
 **manage_stock** | **Bool** | Defines inventory tracking for product. When true, quantity sets the stock level and the stock status is derived from it; when false, quantity is ignored and in_stock sets the status directly. | [optional] [default to nothing]
 **backorder_status** | **String** | Set backorder status | [optional] [default to nothing]
 **increase_quantity** | **Float64** | Defines the incremental changes in product quantity. Effective only when manage_stock is true — otherwise the value is ignored. | [optional] [default to nothing]
-**reduce_quantity** | **Float64** | Defines the decrement changes in product quantity. Effective only when manage_stock is true — otherwise the value is ignored. | [optional] [default to nothing]
+**reduce_quantity** | **Float64** | Defines the decrement changes in product quantity. Effective only when manage_stock is true. | [optional] [default to nothing]
 **low_stock_threshold** | **Float64** | Specify the quantity threshold below which the product is considered low in stock | [optional] [default to nothing]
 **min_order_quantity** | **Float64** | The minimum quantity an order must contain, to be eligible to purchase this product. | [optional] [default to nothing]
 **max_order_quantity** | **Float64** | The maximum quantity an order can contain when purchasing the product. | [optional] [default to nothing]

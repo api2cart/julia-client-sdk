@@ -94,7 +94,7 @@
     - reserve_quantity::Float64 : This parameter allows to reserve/unreserve product variants quantity.
     - quantity::Float64 : Defines new products&#39; variants quantity. Effective only when manage_stock is true — otherwise the value is ignored. To enable stock tracking and set a quantity in one call, pass manage_stock&#x3D;true together with quantity.
     - increase_quantity::Float64 : Defines the incremental changes in product quantity. Effective only when manage_stock is true — otherwise the value is ignored.
-    - reduce_quantity::Float64 : Defines the decrement changes in product quantity. Effective only when manage_stock is true — otherwise the value is ignored.
+    - reduce_quantity::Float64 : Defines the decrement changes in product quantity. Effective only when manage_stock is true.
     - prices_inc_tax::Bool : Indicates whether prices include tax.
     - price::Float64 : Defines new product&#39;s variant price
     - special_price::Float64 : Defines new product&#39;s variant special price
