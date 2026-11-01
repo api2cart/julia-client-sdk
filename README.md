@@ -111,6 +111,7 @@ Class | Method
 *OrderApi* | [**order_financial_status_list**](docs/OrderApi.md#order_financial_status_list)<br/>**GET** /order.financial_status.list.json<br/>order.financial_status.list
 *OrderApi* | [**order_fulfillment_status_list**](docs/OrderApi.md#order_fulfillment_status_list)<br/>**GET** /order.fulfillment_status.list.json<br/>order.fulfillment_status.list
 *OrderApi* | [**order_info**](docs/OrderApi.md#order_info)<br/>**GET** /order.info.json<br/>order.info
+*OrderApi* | [**order_invoice_add**](docs/OrderApi.md#order_invoice_add)<br/>**POST** /order.invoice.add.json<br/>order.invoice.add
 *OrderApi* | [**order_list**](docs/OrderApi.md#order_list)<br/>**GET** /order.list.json<br/>order.list
 *OrderApi* | [**order_preestimate_shipping_list**](docs/OrderApi.md#order_preestimate_shipping_list)<br/>**POST** /order.preestimate_shipping.list.json<br/>order.preestimate_shipping.list
 *OrderApi* | [**order_refund_add**](docs/OrderApi.md#order_refund_add)<br/>**POST** /order.refund.add.json<br/>order.refund.add
@@ -408,6 +409,7 @@ Class | Method
  - [OrderCalculateSubtotal](docs/OrderCalculateSubtotal.md)
  - [OrderCalculateTax](docs/OrderCalculateTax.md)
  - [OrderInfo200Response](docs/OrderInfo200Response.md)
+ - [OrderInvoiceAdd](docs/OrderInvoiceAdd.md)
  - [OrderItem](docs/OrderItem.md)
  - [OrderItemOption](docs/OrderItemOption.md)
  - [OrderPaymentMethod](docs/OrderPaymentMethod.md)

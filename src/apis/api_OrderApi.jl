@@ -312,6 +312,36 @@ function order_info(_api::OrderApi, response_stream::Channel; id=nothing, order_
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
+const _returntypes_order_invoice_add_OrderApi = Dict{Regex,Type}(
+    Regex("^" * replace("200", "x"=>".") * "\$") => AttributeAdd200Response,
+)
+
+function _oacinternal_order_invoice_add(_api::OrderApi, order_invoice_add_param::OrderInvoiceAdd; _mediaType=nothing)
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "POST", _returntypes_order_invoice_add_OrderApi, "/order.invoice.add.json", ["StoreKeyAuth", "ApiKeyAuth", ], order_invoice_add_param)
+    OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
+    OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? ["application/json", ] : [_mediaType])
+    return _ctx
+end
+
+@doc raw"""order.invoice.add
+
+Upload a PDF invoice or credit note of the order to the store. The store checks the document after the upload, so a successful response means it was received, not accepted. Use the returned id to find the result of the check in the store.
+
+Params:
+- order_invoice_add_param::OrderInvoiceAdd (required)
+
+Return: AttributeAdd200Response, OpenAPI.Clients.ApiResponse
+"""
+function order_invoice_add(_api::OrderApi, order_invoice_add_param::OrderInvoiceAdd; _mediaType=nothing)
+    _ctx = _oacinternal_order_invoice_add(_api, order_invoice_add_param; _mediaType=_mediaType)
+    return OpenAPI.Clients.exec(_ctx)
+end
+
+function order_invoice_add(_api::OrderApi, response_stream::Channel, order_invoice_add_param::OrderInvoiceAdd; _mediaType=nothing)
+    _ctx = _oacinternal_order_invoice_add(_api, order_invoice_add_param; _mediaType=_mediaType)
+    return OpenAPI.Clients.exec(_ctx, response_stream)
+end
+
 const _returntypes_order_list_OrderApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => ModelResponseOrderList,
 )
@@ -1054,6 +1084,7 @@ export order_count
 export order_financial_status_list
 export order_fulfillment_status_list
 export order_info
+export order_invoice_add
 export order_list
 export order_preestimate_shipping_list
 export order_refund_add

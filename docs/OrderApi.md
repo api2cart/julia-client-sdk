@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**order_financial_status_list**](OrderApi.md#order_financial_status_list) | **GET** /order.financial_status.list.json | order.financial_status.list
 [**order_fulfillment_status_list**](OrderApi.md#order_fulfillment_status_list) | **GET** /order.fulfillment_status.list.json | order.fulfillment_status.list
 [**order_info**](OrderApi.md#order_info) | **GET** /order.info.json | order.info
+[**order_invoice_add**](OrderApi.md#order_invoice_add) | **POST** /order.invoice.add.json | order.invoice.add
 [**order_list**](OrderApi.md#order_list) | **GET** /order.list.json | order.list
 [**order_preestimate_shipping_list**](OrderApi.md#order_preestimate_shipping_list) | **POST** /order.preestimate_shipping.list.json | order.preestimate_shipping.list
 [**order_refund_add**](OrderApi.md#order_refund_add) | **POST** /order.refund.add.json | order.refund.add
@@ -297,6 +298,36 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+# **order_invoice_add**
+> order_invoice_add(_api::OrderApi, order_invoice_add_param::OrderInvoiceAdd; _mediaType=nothing) -> AttributeAdd200Response, OpenAPI.Clients.ApiResponse <br/>
+> order_invoice_add(_api::OrderApi, response_stream::Channel, order_invoice_add_param::OrderInvoiceAdd; _mediaType=nothing) -> Channel{ AttributeAdd200Response }, OpenAPI.Clients.ApiResponse
+
+order.invoice.add
+
+Upload a PDF invoice or credit note of the order to the store. The store checks the document after the upload, so a successful response means it was received, not accepted. Use the returned id to find the result of the check in the store.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **_api** | **OrderApi** | API context | 
+**order_invoice_add_param** | [**OrderInvoiceAdd**](OrderInvoiceAdd.md) |  |
+
+### Return type
+
+[**AttributeAdd200Response**](AttributeAdd200Response.md)
+
+### Authorization
+
+[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
